@@ -1,3 +1,47 @@
 .nav{
-    background-color: aqua;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+}
+
+.logo{
+    width: 10em;
+    margin-left: 1em;
+}
+
+.search{
+    margin: auto;
+}
+
+.botonBuscar{
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.iniciar{
+    text-decoration: underline;
+    margin: auto;
+    margin-right: 1em;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.carritoCont{
+    height: min-content;
+    margin: auto;
+    margin-right: 1em;
+}
+
+.contador{
+    position: absolute;
+    margin: 5px 1em 0 01em;
+    color: rgb(195, 3, 3);
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.carrito{
+    width: 3em;
 }
