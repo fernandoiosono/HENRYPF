@@ -1,9 +1,9 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
 
-// const { defineGame, 
-//     defineGenre, 
-//     definePlatform } = require('./models');
+const { defineProduct, 
+    defineCategory, 
+    defineUser } = require('../models');
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
@@ -11,39 +11,23 @@ const conn = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
 
 const database = new Sequelize(conn, { logging: false });
 
-// defineGame(database);
-// defineGenre(database);
-// definePlatform(database);
+defineProduct(database);
+defineCategory(database);
+defineUser(database);
 
-// const { Game, Genre, Platform } = database.models;
+const { Product, Category, User } = database.models;
 
-// Game.belongsToMany(Genre, { 
-//     through: "GameGenre",
-//     foreignKey: "idGame",
-//     otherKey: "idGenre",
-//     timestamps: false
-// });
+Category.hasMany(Product, { timestamps: false });
+//Una Categoria tiene varios Productos
+Product.belongsTo(Category, { timestamps: false });
+//Un Producto pertenece a una Categoria
 
-// Genre.belongsToMany(Game, { 
-//     through: "GameGenre",
-//     foreignKey: "idGenre",
-//     otherKey: "idGame",
-//     timestamps: false
-// });
-
-// Game.belongsToMany(Platform, { 
-//     through: "GamePlatform",
-//     foreignKey: "idGame",
-//     otherKey: "idPlatform",
-//     timestamps: false
-// });
-
-// Platform.belongsToMany(Game, { 
-//     through: "GamePlatform",
-//     foreignKey: "idPlatform",
-//     otherKey: "idGame",
-//     timestamps: false
-// });
+User.belongsToMany(Product, {
+    through: "UserProduct",
+    foreignKey: "idUsuario",
+    otherKey: "idProduct",
+    timestamps: false
+})
 
 module.exports = {
     database,
