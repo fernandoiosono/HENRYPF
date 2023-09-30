@@ -5,7 +5,7 @@ const initialState = {
 	allProductos: [],
 	productosEnc: [],
 	carrito: [],
-	inicioSesion: false,
+	inicioSesion: true,
 	pagina: 1
 };
 

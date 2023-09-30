@@ -33,6 +33,7 @@ const App = () => {
 	return (
 		<SectionApp>
 			<main>
+				{pathname!=='/'&&<Nav/>}
 				<Routes>
 					<Route path="/" element={<Landing />} />
 					<Route path="/home" element={<Home />} />

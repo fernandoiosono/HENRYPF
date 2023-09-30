@@ -4,7 +4,7 @@ import iconoCarrito from '../../assets/img/carrito/carrito.png';
 import lupa from '../../assets/img/lupa/lupa.png';
 import { useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { setPagina } from '../../redux/actions';
+import { buscarPruductos, setPagina } from '../../redux/actions';
 import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
@@ -22,6 +22,7 @@ const Nav = () => {
     const handleSearch = () => {
         if (nombre=='') return alert('¡Por favor ingrese un nombre o un ID!');
         dispatch(setPagina(1));
+        dispatch(buscarPruductos(nombre))
     };
 
     const handleKeyPress = (event) => {
