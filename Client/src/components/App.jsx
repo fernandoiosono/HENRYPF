@@ -1,22 +1,36 @@
 import styled from "styled-components";
-// import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { 
+	Landing, 
+	Home, 
+	Catalogo, 
+	Acceso, 
+	About, 
+	Carrito, 
+	Detail, 
+	Pago, 
+	Registro, 
+	CatalogoAdmin, 
+	EdicionProducto } from "../views";
 
-// import { 
-// 	NewGame,
-// 	Detail,
-// 	Home, 
-// 	Landing } from "../views";
 
 const App = () => {
 	return (
 		<SectionApp>
 			<main>
-				{/* <Routes>
+				<Routes>
 					<Route path="/" element={<Landing />} />
 					<Route path="/home" element={<Home />} />
-					<Route path="/newgame" element={<NewGame />} />
-					<Route path="/gamedetail/:id" element={<Detail />} />
-				</Routes> */}
+					<Route path="/catalogo" element={<Catalogo />} />
+					<Route path="/acceso" element={<Acceso />} />
+					<Route path="/about" element={<About />} />
+					<Route path="/carrito" element={<Carrito />} />
+					<Route path="/detalle/:id" element={<Detail />} />
+					<Route path="/pago" element={<Pago />} />
+					<Route path="/registro" element={<Registro />} />
+					<Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
+					<Route path="/edicion" element={<EdicionProducto />} />
+				</Routes>
 			</main>
 		</SectionApp>
 	);
