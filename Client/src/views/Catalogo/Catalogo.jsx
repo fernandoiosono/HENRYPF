@@ -9,7 +9,6 @@ const Catalogo = () => {
   console.log(traerProductos);
   return (
     <>
-      <h1>CATALOGO</h1>
       <Filter />
       <Ordering />
       <Cards productos={traerProductos} />
