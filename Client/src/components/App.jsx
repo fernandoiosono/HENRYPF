@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Nav from "./nav/Nav";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { traerProductos } from "../redux/actions";
 
 // import { 
 // 	NewGame,
@@ -11,6 +14,11 @@ import Nav from "./nav/Nav";
 const App = () => {
 
 	const { pathname } = useLocation();
+	const dispatch = useDispatch;
+
+	useEffect(() => {
+		dispatch(traerProductos())
+	},[])
 
 	const Home = () => {                //! ESTAS SE BORRAN
 		return(
@@ -29,11 +37,7 @@ const App = () => {
 	return (
 		<SectionApp>
 			<main>
-				{pathname !== '/' &&
-					<>
-						<Nav />
-					</>
-				}
+				{pathname !== '/' && <Nav/>}
 				<Routes>
 					<Route path="/" element={<Landing />} />
 					<Route path="/home" element={<Home />} />

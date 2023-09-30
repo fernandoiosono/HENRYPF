@@ -1,15 +1,18 @@
 import style from './Nav.module.css';
 import logo from '../../assets/img/logo/logo.png';
 import iconoCarrito from '../../assets/img/carrito/carrito.png';
+import lupa from '../../assets/img/lupa/lupa.png';
 import { useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { traerProductos } from '../../redux/actions';
+import { setPagina } from '../../redux/actions';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
 
     const inicioSesion = useSelector(state=>state.inicioSesion);
     const carrito = useSelector(state=>state.carrito);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [ nombre, setNombre ] = useState('');
 
     const handleChange = (event) => {
@@ -18,7 +21,8 @@ const Nav = () => {
 
     const handleSearch = () => {
         if (nombre=='') return alert('¡Por favor ingrese un nombre o un ID!');
-        dispatch(traerProductos(nombre));
+        dispatch(setPagina(1));
+        dispatch(traerProductos(nombre))//sakl.dfjcba<dsjkfbcl
     };
 
     const handleKeyPress = (event) => {
@@ -35,8 +39,12 @@ const Nav = () => {
         } else {
             return(
                 <div className={style.carritoCont}>
-                    <h3 className={style.contador}>{carrito.length}</h3>
-                    <img src={iconoCarrito} alt="carrito" className={style.carrito}/>
+                    <h3 className={style.contador} onClick={() => navigate('/carrito')}>{carrito.length}</h3>
+                    <img src={iconoCarrito}
+                        alt="carrito"
+                        className={style.carrito}
+                        onClick={() => navigate('/carrito')}
+                    />
                 </div>
             )
         }
@@ -44,19 +52,24 @@ const Nav = () => {
 
     return(
         <div className={style.nav}>
+            <h3 className={style.sobre} onClick={() => navigate('/about')}>Sobre nosotros</h3>
             <img src={logo} alt="moveone" className={style.logo}/>
             <div className={style.search}>
-                <label className={style.label}>Buscar producto: </label>
+                <img
+                    src={lupa} alt="lupa"
+                    onClick={() => handleSearch()}
+                    className={style.botonBuscar}
+                />
                 <input
                     type="text"
-                    placeholder='Ingrese un nombre o un ID'
+                    placeholder='Buscar Producto'
                     className={style.input}
                     onChange={handleChange}
                     value={nombre}
                     onKeyPress={handleKeyPress}
                 />
-                <button className={style.botonBuscar} onClick={() => handleSearch()}>🔎</button>
             </div>
+            <div className={style.div}/>
             {inicioCarrito()}
         </div>
     )

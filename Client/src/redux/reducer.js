@@ -1,17 +1,32 @@
-import { TRAER_PRODUCTOS } from "./actions_types";
+import { TRAER_PRODUCTOS, SET_PAGINA, BUSCAR_PRUDUCTOS } from "./actions_types";
 // import * as viewCaption from "../views/viewCaptions.js";
 
 const initialState = {
+	allProductos: [],
 	productosEnc: [],
 	carrito: [],
-	inicioSesion: false
+	inicioSesion: false,
+	pagina: 1
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
 
 		case TRAER_PRODUCTOS:
-			return { ...state,
+			return {
+				...state,
+				allProductos: payload
+			};
+
+		case SET_PAGINA:
+			return {
+				...state,
+				pagina: payload
+			};
+
+		case BUSCAR_PRUDUCTOS:
+			return {
+				...state,
 				productosEnc: payload
 			};
 
