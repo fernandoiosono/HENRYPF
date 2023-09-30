@@ -1,11 +1,20 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import Cards from "../../components/Cards/Cards.jsx";
+import Filter from "../../components/Filter/Filter.jsx";
+import Ordering from "../../components/Ordering/Ordering.jsx";
 
-const Catalogo = ()=>{
-    return (
-        <>
-        <h1>Esta es la vista del Catalogo</h1>
-        </>
-    );
+const Catalogo = () => {
+  const traerProductos = useSelector((state) => state.allProductos);
+  console.log(traerProductos);
+  return (
+    <>
+      <h1>CATALOGO</h1>
+      <Filter />
+      <Ordering />
+      <Cards productos={traerProductos} />
+    </>
+  );
 };
 
 export default Catalogo;
