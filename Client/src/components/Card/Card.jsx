@@ -9,7 +9,7 @@ function Card({ producto }) {
     <div className="card-container">
       <p>{id}</p>
       <Link>
-        <img src={imagen} alt={nombre} />
+        <img className="img" src={imagen} alt={nombre} />
       </Link>
       <h2>{nombre}</h2>
       <p>{precio}</p>
