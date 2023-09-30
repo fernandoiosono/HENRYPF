@@ -1,0 +1,4 @@
+export const TRAER_PRODUCTOS = 'TRAER_PRODUCTOS';
+export const SET_PAGINA = 'SET_PAGINA';
+export const BUSCAR_PRUDUCTOS = 'BUSCAR_PRUDUCTOS';
+
