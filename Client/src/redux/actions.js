@@ -3,7 +3,6 @@ import { TRAER_PRODUCTOS, SET_PAGINA, BUSCAR_PRUDUCTOS } from "./actions_types";
 import { useSelector } from 'react-redux';
 
 const URL = 'http://localhost:3001/';
-const allProductos = useSelector(state=>state.allProductos);
 
 export const traerProductos = () => {
     try {
@@ -35,9 +34,10 @@ export const setPagina = (pagina) => {
 export const buscarPruductos = (nombre) => {
     try {
         return (dispatch) => {
+            const allProductos = useSelector(state => state.allProductos);
             const num = Number(nombre);
             if (!isNaN(num)) {
-                const resultado = allProductos.filter(producto => producto.idProducto===num)
+                const resultado = allProductos.filter(producto => producto.idProducto === num)
                 return dispatch({
                     type: SET_PAGINA,
                     payload: resultado

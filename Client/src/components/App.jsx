@@ -14,7 +14,7 @@ import { traerProductos } from "../redux/actions";
 const App = () => {
 
 	const { pathname } = useLocation();
-	const dispatch = useDispatch;
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(traerProductos())

@@ -22,7 +22,6 @@ const Nav = () => {
     const handleSearch = () => {
         if (nombre=='') return alert('¡Por favor ingrese un nombre o un ID!');
         dispatch(setPagina(1));
-        dispatch(traerProductos(nombre))//sakl.dfjcba<dsjkfbcl
     };
 
     const handleKeyPress = (event) => {
