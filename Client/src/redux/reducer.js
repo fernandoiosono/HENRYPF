@@ -1,20 +1,34 @@
-// import * as actionType from "./actionTypes.js";
+import { TRAER_PRODUCTOS, SET_PAGINA, BUSCAR_PRUDUCTOS } from "./actions_types";
 // import * as viewCaption from "../views/viewCaptions.js";
 
 const initialState = {
-	// // Initial Catalogs
-	// allGames: [],
-	// allGenres: [],
-	// allPlatforms: []
+	allProductos: [],
+	productosEnc: [],
+	carrito: [],
+	inicioSesion: false,
+	pagina: 1
 };
 
-const rootReducer = (state = initialState, action) => {
-	switch (action.type) {
-		// case actionType.APPLY_FILTERING:
-		// 	return { ...state,
-		// 		gamesWithOptions: action.payload,
-		// 		filteringOptions: { ...state.filteringOptions,
-		// 			changed: false } }
+const rootReducer = (state = initialState, { type, payload }) => {
+	switch (type) {
+
+		case TRAER_PRODUCTOS:
+			return {
+				...state,
+				allProductos: payload
+			};
+
+		case SET_PAGINA:
+			return {
+				...state,
+				pagina: payload
+			};
+
+		case BUSCAR_PRUDUCTOS:
+			return {
+				...state,
+				productosEnc: payload
+			};
 
 		default:
 			return { ...state };

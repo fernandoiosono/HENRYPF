@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { Routes, Route } from "react-router-dom";
+
+import Nav from "./nav/Nav";
+
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { traerProductos } from "../redux/actions";
 import { 
 	Landing, 
 	Home, 
@@ -15,6 +21,15 @@ import {
 
 
 const App = () => {
+
+	const { pathname } = useLocation();
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(traerProductos())
+	},[])
+
+
 	return (
 		<SectionApp>
 			<main>
@@ -30,10 +45,12 @@ const App = () => {
 					<Route path="/registro" element={<Registro />} />
 					<Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
 					<Route path="/edicion" element={<EdicionProducto />} />
+
+
 				</Routes>
 			</main>
 		</SectionApp>
-	);
+	)
 };
 
 const SectionApp = styled.section`
