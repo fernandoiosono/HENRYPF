@@ -1,0 +1,14 @@
+[
+    {
+        "idCategory": 1,
+        "name": "Suplemento"
+    },
+    {
+        "idCategory": 2,
+        "name": "Equipo"
+    },
+    {
+        "idCategory": 3,
+        "name": "Vestimenta"
+    }
+]
