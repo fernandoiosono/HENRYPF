@@ -19,7 +19,6 @@ import {
 	CatalogoAdmin, 
 	EdicionProducto } from "../views";
 
-
 const App = () => {
 
 	const { pathname } = useLocation();
@@ -28,7 +27,6 @@ const App = () => {
 	useEffect(() => {
 		dispatch(traerProductos())
 	},[])
-
 
 	return (
 		<SectionApp>
@@ -46,8 +44,6 @@ const App = () => {
 					<Route path="/registro" element={<Registro />} />
 					<Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
 					<Route path="/edicion" element={<EdicionProducto />} />
-
-
 				</Routes>
 			</main>
 		</SectionApp>
