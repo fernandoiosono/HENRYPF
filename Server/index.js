@@ -5,7 +5,7 @@ const server = require('./src/server.js');
 const { database } = require('./src/database/database.js');
 
 const { handlerUsers, 
-	handlerUserTypes,
+	handlerRoles,
 	handlerProducts,
 	handlerCategories,
 	handlerOrders,
@@ -18,7 +18,7 @@ server.use(cors());
 server.use(morgan("dev"));
 
 server.use('/moveon/users', handlerUsers);
-server.use('/moveon/usertypes', handlerUserTypes);
+server.use('/moveon/roles', handlerRoles);
 
 server.use('/moveon/products', handlerProducts);
 server.use('/moveon/categories', handlerCategories);
