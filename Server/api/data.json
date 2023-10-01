@@ -547,13 +547,13 @@
             "name": "Vestimenta"
         }
     ],
-    "userTypes": [
+    "roles": [
         {
-            "idType": 1,
+            "idRole": 1,
             "name": "Cliente"
         },
         {
-            "idType": 2,
+            "idRole": 2,
             "name": "Administrador"
         }
     ]
