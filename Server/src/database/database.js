@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 
 const { defineProduct, 
     defineCategory, 
-    defineUser } = require('../models');
+    defineUser } = require('./models');
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
