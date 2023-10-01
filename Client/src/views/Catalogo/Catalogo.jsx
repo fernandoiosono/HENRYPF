@@ -10,7 +10,7 @@ const Catalogo = () => {
   const traerProductos = useSelector((state) => state.allProductos);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [cardForPage] = useState(8);
+  const [cardForPage] = useState(9);
 
   const ultimoIndiceProducto = currentPage * cardForPage;
   const primerIndiceProducto = ultimoIndiceProducto - cardForPage;
@@ -20,15 +20,19 @@ const Catalogo = () => {
   );
 
   const paged = function (pageNumber) {
-    	setCurrentPage(pageNumber);
-      };
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <>
       <Filter />
       <Ordering />
       <Cards productos={currentProductos} />
-      <Pagination cardForPage={cardForPage} productos={traerProductos.length} paged={paged}/>
+      <Pagination
+        cardForPage={cardForPage}
+        productos={traerProductos.length}
+        paged={paged}
+      />
     </>
   );
 };
