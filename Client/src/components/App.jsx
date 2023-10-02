@@ -1,11 +1,10 @@
 import styled from "styled-components";
-
 import Nav from "./nav/Nav";
-
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { traerProductos } from "../redux/actions";
+import productosAux from './productosAux.json'; //!ESTE CODIGO ES PROVICIONAL MIENTRAS CONECTAMOS CON EL BACK
 import { 
 	Landing, 
 	Home, 
@@ -24,9 +23,10 @@ const App = () => {
 	const { pathname } = useLocation();
 	const dispatch = useDispatch();
 
-	// useEffect(() => {
-	// 	dispatch(traerProductos())        //! para cargar allProductos
-	// },[])
+	useEffect(() => {
+		//dispatch(traerProductos())        //! para cargar allProductos
+		dispatch(traerProductos(productosAux))  //!ESTE CODIGO ES PROVICIONAL MIENTRAS CONECTAMOS CON EL BACK
+	},[])
 
 	return (
 		<SectionApp>

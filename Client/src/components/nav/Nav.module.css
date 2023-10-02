@@ -77,7 +77,7 @@
 .contador{
     position: absolute;
     margin: 5px 1em 0 01em;
-    color: white;
+    color: rgb(245, 196, 44);
     &:hover{
         cursor: pointer;
     }

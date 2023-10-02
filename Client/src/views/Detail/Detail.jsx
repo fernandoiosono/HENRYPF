@@ -1,23 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import style from './Detail.module.css'
+import { agregarCarrito } from "../../redux/actions";
 
-const Detail = ()=>{
+const Detail = () => {
 
     const { id } = useParams();
-    
-    const allProductos = useSelector(state=>state.allProductos);
+    const allProductos = useSelector(state => state.allProductos);
+    const inicioSesion = useSelector(state => state.inicioSesion);
+    const carrito = useSelector(state => state.carrito);
     const navigate = useNavigate();
-    const [ producto, setProducto ] = useState({});
+    const dispatch = useDispatch();
+    const [producto, setProducto] = useState({});
 
     useEffect(() => {
         setProducto(allProductos.find(prod => prod.idProducto == id))
-    }, [id])
+    }, [id,allProductos]);
+
+    const handleRuta = () => {
+        if (inicioSesion) {
+            navigate('/carrito')
+        } else {
+            navigate('/acceso')
+        }
+    };
+
+    const botonCarrito = () => {
+        if (carrito.length === 0) {
+            dispatch(agregarCarrito(producto))
+        } else {
+            const producExistente = carrito.find(produc => produc.idProducto == producto.idProducto)
+            if (!producExistente) {
+                dispatch(agregarCarrito(producto))
+            }
+        }
+    };
 
     const handlePrecioDesc = () => {
-        if (producto.descuento===0) {
-            return(
+        if (producto.descuento === 0) {
+            return (
                 <div className={style.precios}>
                     <h1 className={style.precio2}>USD ${producto.precio}</h1>
                 </div>
@@ -35,14 +57,14 @@ const Detail = ()=>{
                 </>
             )
         }
-    }
+    };
 
     return (
         <div className={style.detalle}>
             <div className={style.imagenBotones}>
-                <img src={producto.imagen} className={style.imagen}/>
-                <button className={style.comprar} onClick={() => navigate('/carrito')}>Comprar ahora</button>
-                <button className={style.agregar}>Agregar al carrito</button>
+                <img src={producto.imagen} className={style.imagen} />
+                <button className={style.comprar} onClick={() => handleRuta()}>Comprar ahora</button>
+                <button className={style.agregar} onClick={() => botonCarrito()}>Agregar al carrito</button>
             </div>
             <div className={style.detalles}>
                 <h1 className={style.nombre}>{producto.nombre}</h1>

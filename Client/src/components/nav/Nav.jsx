@@ -2,7 +2,8 @@ import style from './Nav.module.css';
 import logo from '../../assets/img/logo/logo.png';
 import iconoCarrito from '../../assets/img/carrito/carrito.png';
 import lupa from '../../assets/img/lupa/lupa.png';
-import { useState } from 'react';
+import home from '../../assets/img/home/home.png'; //? PENDIENTE
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { buscarPruductos, setPagina } from '../../redux/actions';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +12,7 @@ const Nav = () => {
 
     const inicioSesion = useSelector(state=>state.inicioSesion);
     const carrito = useSelector(state=>state.carrito);
+    const productosEnc = useSelector(state=>state.productosEnc); //!ESTE CODIGO ES SOLO PARA VER QUE SI ESTE SIRVIENDO EL SEARCH
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [ nombre, setNombre ] = useState('');
@@ -18,6 +20,10 @@ const Nav = () => {
     const handleChange = (event) => {
         setNombre(event.target.value)
     };
+
+    useEffect(() => {                        //!ESTE CODIGO ES SOLO PARA VER QUE SI ESTE SIRVIENDO EL SEARCH
+        console.log(productosEnc); 
+    },[productosEnc])
 
     const handleSearch = () => {
         if (nombre=='') return alert('¡Por favor ingrese un nombre o un ID!');
