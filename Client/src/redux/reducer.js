@@ -33,10 +33,6 @@ const initialState = {
       id: 4,
       name: "Equipamiento",
     },
-    {
-      id: 5,
-      name: "Ropa deportiva",
-    },
   ],
 };
 
