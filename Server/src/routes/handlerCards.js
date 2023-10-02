@@ -7,38 +7,30 @@ const { getCards,
     postCard } = require('../controllers');
 
 router.get('/all', errorHandler(async (req, res) => {
-    // const cards = await getCards();
+    const cards = await getCards();
 
-    // res.status(200).json(cards);
-
-    res.status(200).send('getCards');
+    res.status(200).json(cards);
 }));
 
 router.get('/user', errorHandler(async (req, res) => {
-    // const { idUser } = req.query;
-    // const cards = await getCardsByUser(idUser);
+    const { idUser } = req.query;
+    const cards = await getCardsByUser(idUser);
 
-    // res.status(200).json(cards);
-
-    res.status(200).send('getCardsByUser');
+    res.status(200).json(cards);
 }));
 
 router.post('/', errorHandler(async (req, res) => {
-    // const newCard = req.body;
-    // const cardCreated = await postCard(newCard);
+    const newCard = req.body;
+    const cardCreated = await postCard(newCard);
 
-    // res.status(200).json(cardCreated);
-
-    res.status(200).send('postCard');
+    res.status(200).json(cardCreated);
 }));
 
 router.patch('/', errorHandler(async (req, res) => {
-    // const newData = req.body;
-    // const cardEdited = await patchCard(newData);
+    const newData = req.body;
+    const cardEdited = await patchCard(newData);
 
-    // res.status(200).json(cardEdited);
-
-    res.status(200).send('patchCard');
+    res.status(200).json(cardEdited);
 }));
 
 module.exports = router;
