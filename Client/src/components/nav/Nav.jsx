@@ -50,7 +50,7 @@ const Nav = () => {
     const inicioCarrito = () => {
         if (!inicioSesion){
             return(
-                <h3 className={style.iniciar}>Iniciar Sesion</h3>
+                <h3 className={style.iniciar} onClick={() => navigate('/acceso')}>Iniciar Sesion</h3>
             )
         } else {
             return(
