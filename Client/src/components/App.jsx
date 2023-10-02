@@ -24,9 +24,9 @@ const App = () => {
 	const { pathname } = useLocation();
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(traerProductos())
-	},[])
+	// useEffect(() => {
+	// 	dispatch(traerProductos())        //! para cargar allProductos
+	// },[])
 
 	return (
 		<SectionApp>
