@@ -1,50 +1,34 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { filterByCategory } from "../../redux/actions";
 
-const Filter = ()=>{
-    const categorias = [
-        {
-            id:1,
-            name: 'Nutricion deportiva',
-        },
-        {
-            id:2,
-            name: 'Proteina',
-        },
-        {
-            id:3,
-            name: 'Aminoacidos'
-        },
-        {
-            id:4,
-            name: 'Equipamiento'
-        },
-        {
-            id:5,
-            name:'Ropa deportiva'
-        }
-    ];
+const Filter = () => {
+  const dispatch = useDispatch();
+  const categorias = useSelector((state) => state.categorias); //Trae desde el estado global la lista de categorias
 
-    const [selectCategoria, setSelectCategoria] = useState('');
-    const handleCategoriasChange = (event)=>{
-        setSelectCategoria(event.target.value);      
-    };
+  const [selectCategoria, setSelectCategoria] = useState("");
+  const handleCategoriasChange = (event) => {
+    setSelectCategoria(event.target.value);
+    dispatch(filterByCategory(event.target.value)); //Envia la accion para filtrar por la categoria deseada
+  };
 
-    return (
-        <div>
-            <div>
-                <label>Filtrar por categoria:</label>
-            </div>
-            <div>
-                <select value={selectCategoria} onChange={handleCategoriasChange}>
-                    <option value=''>Todos</option>
-                    {categorias.map(categoria=>(
-                    <option key={categoria.id} value={categoria.name}>{categoria.name}</option>
-                    ))}
-                </select>
-            </div>                   
-            <label>{selectCategoria}</label>
-        </div>
-    );
+  return (
+    <div>
+      <div>
+        <label>Filtrar por categoria:</label>
+      </div>
+      <div>
+        <select value={selectCategoria} onChange={handleCategoriasChange}>
+          <option value="">Todos</option>
+          {categorias.map((categoria) => (
+            <option key={categoria.id} value={categoria.name}>
+              {categoria.name}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
 };
 
 export default Filter;
