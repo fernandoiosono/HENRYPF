@@ -7,7 +7,7 @@ import Ordering from "../../components/Ordering/Ordering.jsx";
 import Pagination from "../../components/Pagination/pagination.components.jsx";
 
 const Catalogo = () => {
-  const traerProductos = useSelector((state) => state.allProductos);
+  const traerProductos = useSelector((state) => state.productosMostrar);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [cardForPage] = useState(9);
