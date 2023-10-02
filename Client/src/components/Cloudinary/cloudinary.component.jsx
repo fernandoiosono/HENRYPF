@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Container, FormGroup, Input } from "reactstrap";
 
+const apiKey = process.env.API_KEY;
+const upload = process.env.UPLOAD_PRESET;
+const url_cloudinary = process.env.URL_CLOUDINARY;
+
 const SubirImagen = (props) => {
-    
+
     const [imagen, setImagen] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -10,11 +14,11 @@ const SubirImagen = (props) => {
         const files = e.target.files;
         const data = new FormData();
         data.append("file", files[0]);
-        data.append("upload_preset", "moveonFoto");
-        data.append("api_key", "785132485474623");
+        data.append("upload_preset", upload);
+        data.append("api_key", apiKey);
         setLoading(true);
         const res = await fetch(
-            "https://api.cloudinary.com/v1_1/dypvjtv39/image/upload",
+          url_cloudinary,
             {
                 method: "POST",
                 body: data,
