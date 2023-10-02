@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const errorHandler = require('../middlewares');
 
-const { getCategories } = require('../controllers');
+const { getRoles } = require('../controllers');
 
 router.get('/all', errorHandler(async (req, res) => {
-    const categories = await getCategories();
+    const roles = await getRoles();
 
-    res.status(200).json(categories);
+    res.status(200).json(roles);
 }));
 
 module.exports = router;
