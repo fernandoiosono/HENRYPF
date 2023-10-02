@@ -68,9 +68,14 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case FILTER_CATEGORIA:
+      let filteredProductos = [...state.allProductos];
+      let filter;
+      filter = filteredProductos.filter((producto) =>
+        producto.categoria.includes(payload)
+      );
       return {
         ...state,
-        filterByCategory: payload,
+        productosMostrar: filter,
       };
 
     case SET_ORDER:
@@ -80,8 +85,8 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ordered = orderedProductos.sort((a, b) => a.precio - b.precio);
       } else if (payload === "Descendente") {
         ordered = orderedProductos.sort((a, b) => b.precio - a.precio);
-      } else if (payload === "Ordenar") {
-        ordered = [...state.allProductos];
+      } else {
+        ordered = orderedProductos;
       }
       return {
         ...state,
