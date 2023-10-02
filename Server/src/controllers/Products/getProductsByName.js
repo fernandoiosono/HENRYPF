@@ -4,8 +4,8 @@ const { Product } = require('../../database/database.js');
 
 const { LAPI_URL_PRODUCTS } = process.env;
 
-const getProductsByName = async () => {
-    return "getProductsByNameController";
+const getProductsByName = async (name) => {
+    return name;
 };
 
 module.exports = getProductsByName;
