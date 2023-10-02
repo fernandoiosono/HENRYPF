@@ -4,6 +4,14 @@
     border-radius: 3px;
 }
 
+.back{
+    width: 2em;
+    margin: auto 0 auto 1em;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
 .sobre{
     color: white;
     margin: auto;
@@ -19,6 +27,20 @@
 .logo{
     width: 10em;
     margin: auto;
+}
+
+.home{
+    width: 2em;
+    margin: auto 1em auto 0;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.homeHidden{
+    width: 2em;
+    margin: auto 1em auto 0;
+    visibility: hidden;
 }
 
 .search{

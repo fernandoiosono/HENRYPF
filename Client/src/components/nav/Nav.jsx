@@ -2,11 +2,12 @@ import style from './Nav.module.css';
 import logo from '../../assets/img/logo/logo.png';
 import iconoCarrito from '../../assets/img/carrito/carrito.png';
 import lupa from '../../assets/img/lupa/lupa.png';
-import home from '../../assets/img/home/home.png'; //? PENDIENTE
+import home from '../../assets/img/home/home.png';
+import back from '../../assets/img/back/back.png';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { buscarPruductos, setPagina } from '../../redux/actions';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Nav = () => {
 
@@ -15,6 +16,7 @@ const Nav = () => {
     const productosEnc = useSelector(state=>state.productosEnc); //!ESTE CODIGO ES SOLO PARA VER QUE SI ESTE SIRVIENDO EL SEARCH
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { pathname } = useLocation();
     const [ nombre, setNombre ] = useState('');
 
     const handleChange = (event) => {
@@ -23,7 +25,7 @@ const Nav = () => {
 
     useEffect(() => {                        //!ESTE CODIGO ES SOLO PARA VER QUE SI ESTE SIRVIENDO EL SEARCH
         console.log(productosEnc); 
-    },[productosEnc])
+    },[productosEnc]);
 
     const handleSearch = () => {
         if (nombre=='') return alert('¡Por favor ingrese un nombre o un ID!');
@@ -35,6 +37,14 @@ const Nav = () => {
         if (event.key === 'Enter') {
             handleSearch()
           }
+    };
+
+    const homeHiden = () => {
+        if (pathname!=='/home') {
+            return style.home
+        } else {
+            return style.homeHidden
+        }
     }
 
     const inicioCarrito = () => {
@@ -58,11 +68,17 @@ const Nav = () => {
 
     return(
         <div className={style.nav}>
+            <img src={back} className={style.back} onClick={() => navigate(-1)}/>
             <h3 className={style.sobre} onClick={() => navigate('/about')}>Sobre nosotros</h3>
-            <img src={logo} alt="moveone" className={style.logo}/>
+            <img src={logo} alt="moveOn" className={style.logo} />
+                <img
+                    src={home} alt="home"
+                    className={homeHiden()}
+                    onClick={() => navigate('/home')}
+                />
             <div className={style.search}>
                 <img
-                    src={lupa} alt="lupa"
+                    src={lupa}
                     onClick={() => handleSearch()}
                     className={style.botonBuscar}
                 />
