@@ -17,7 +17,7 @@ const Ordering = () => {
       </div>
       <div>
         <select value={selectOrder} onChange={handleOrderChange}>
-          <option value="Ordenar">Ordenar</option>
+          <option value="">Ordenar...</option>
           <option value="Ascendente">Ascendente</option>
           <option value="Descendente">Descendente</option>
         </select>
