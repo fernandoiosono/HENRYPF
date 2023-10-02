@@ -13,7 +13,7 @@ router.get('/all', errorHandler(async (req, res) => {
 
     // res.status(200).json(users);
 
-    console.log('getUsers');
+    res.status(200).send('getUsers');
 }));
 
 router.get('/active', errorHandler(async (req, res) => {
@@ -21,7 +21,7 @@ router.get('/active', errorHandler(async (req, res) => {
 
     // res.status(200).json(users);
 
-    console.log('getActiveUsers');
+    res.status(200).send('getActiveUsers');
 }));
 
 router.get('/access', errorHandler((req, res) => {
@@ -30,7 +30,7 @@ router.get('/access', errorHandler((req, res) => {
 
     // res.status(200).json({ access: access });
 
-    console.log('getUserAccess');
+    res.status(200).send('getUserAccess');
 }));
 
 router.get('/:id', errorHandler(async (req, res) => {
@@ -39,7 +39,7 @@ router.get('/:id', errorHandler(async (req, res) => {
 
     // res.status(200).json(user);
 
-    console.log('getUserByID');
+    res.status(200).send('getUserByID');
 }));
 
 router.post('/', errorHandler(async (req, res) => {
@@ -48,7 +48,7 @@ router.post('/', errorHandler(async (req, res) => {
 
     // res.status(200).json(userCreated);
 
-    console.log('postUser');
+    res.status(200).send('postUser');
 }));
 
 router.patch('/', errorHandler(async (req, res) => {
@@ -57,7 +57,7 @@ router.patch('/', errorHandler(async (req, res) => {
 
     // res.status(200).json(userEdited);
 
-    console.log('patchUser');
+    res.status(200).send('patchUser');
 }));
 
 module.exports = router;

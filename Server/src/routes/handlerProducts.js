@@ -13,7 +13,7 @@ router.get('/all', errorHandler(async (req, res) => {
 
     // res.status(200).json(products);
 
-    console.log('getProducts');
+    res.status(200).send('getProducts');
 }));
 
 router.get('/active', errorHandler(async (req, res) => {
@@ -21,7 +21,7 @@ router.get('/active', errorHandler(async (req, res) => {
 
     // res.status(200).json(products);
 
-    console.log('getActiveProducts');
+    res.status(200).send('getActiveProducts');
 }));
 
 router.get('/name', errorHandler(async (req, res) => {
@@ -30,7 +30,7 @@ router.get('/name', errorHandler(async (req, res) => {
 
     // res.status(200).json(products);
 
-    console.log('getProductsByName');
+    res.status(200).send('getProductsByName');
 }));
 
 router.get('/:id', errorHandler(async (req, res) => {
@@ -39,7 +39,7 @@ router.get('/:id', errorHandler(async (req, res) => {
 
     // res.status(200).json(product);
 
-    console.log('getProductByID');
+    res.status(200).send('getProductByID');
 }));
 
 router.post('/', errorHandler(async (req, res) => {
@@ -48,7 +48,7 @@ router.post('/', errorHandler(async (req, res) => {
 
     // res.status(200).json(productCreated);
 
-    console.log('postProduct');
+    res.status(200).send('postProduct');
 }));
 
 router.patch('/', errorHandler(async (req, res) => {
@@ -57,7 +57,7 @@ router.patch('/', errorHandler(async (req, res) => {
 
     // res.status(200).json(productEdited);
 
-    console.log('patchProduct');
+    res.status(200).send('patchProduct');
 }));
 
 module.exports = router;

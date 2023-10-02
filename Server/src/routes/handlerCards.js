@@ -20,7 +20,7 @@ router.get('/user', errorHandler(async (req, res) => {
 
     // res.status(200).json(cards);
 
-    console.log('getCardsByUser');
+    res.status(200).send('getCardsByUser');
 }));
 
 router.post('/', errorHandler(async (req, res) => {
@@ -29,7 +29,7 @@ router.post('/', errorHandler(async (req, res) => {
 
     // res.status(200).json(cardCreated);
 
-    console.log('postCard');
+    res.status(200).send('postCard');
 }));
 
 router.patch('/', errorHandler(async (req, res) => {
@@ -38,7 +38,7 @@ router.patch('/', errorHandler(async (req, res) => {
 
     // res.status(200).json(cardEdited);
 
-    console.log('patchCard');
+    res.status(200).send('patchCard');
 }));
 
 module.exports = router;

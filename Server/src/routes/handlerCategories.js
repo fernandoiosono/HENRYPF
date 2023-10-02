@@ -8,7 +8,7 @@ router.get('/all', errorHandler(async (req, res) => {
 
     // res.status(200).json(categories);
 
-    console.log('getCategories');
+    res.status(200).send('getCategories');
 }));
 
 module.exports = router;

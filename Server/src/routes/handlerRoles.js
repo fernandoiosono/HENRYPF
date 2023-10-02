@@ -8,7 +8,7 @@ router.get('/all', errorHandler(async (req, res) => {
 
     // res.status(200).json(roles);
 
-    console.log('getRoles');
+    res.status(200).send('getRoles');
 }));
 
 module.exports = router;

@@ -11,7 +11,7 @@ router.get('/all', errorHandler(async (req, res) => {
 
     // res.status(200).json(orders);
 
-    console.log('getOrders');
+    res.status(200).send('getOrders');
 }));
 
 router.get('/user', errorHandler(async (req, res) => {
@@ -20,7 +20,7 @@ router.get('/user', errorHandler(async (req, res) => {
 
     // res.status(200).json(orders);
 
-    console.log('getOrdersByUser');
+    res.status(200).send('getOrdersByUser');
 }));
 
 router.get('/:id', errorHandler(async (req, res) => {
@@ -29,7 +29,7 @@ router.get('/:id', errorHandler(async (req, res) => {
 
     // res.status(200).json(order);
 
-    console.log('getOrderByID');
+    res.status(200).send('getOrderByID');
 }));
 
 router.post('/', errorHandler(async (req, res) => {
@@ -38,7 +38,7 @@ router.post('/', errorHandler(async (req, res) => {
 
     // res.status(200).json(orderCreated);
 
-    console.log('postOrder');
+    res.status(200).send('postOrder');
 }));
 
 module.exports = router;
