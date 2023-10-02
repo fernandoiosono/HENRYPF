@@ -1,8 +1,8 @@
 require('dotenv').config();
 const axios = require('axios');
-const { User } = require('../../database/database.js');
+const { Role } = require('../../database/database.js');
 
-const { LAPI_URL_USERS } = process.env;
+const { LAPI_URL_ROLES } = process.env;
 
 const getRoles = async () => {
     return "getRolesController";

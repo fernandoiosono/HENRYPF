@@ -1,8 +1,8 @@
 require('dotenv').config();
 const axios = require('axios');
-const { User } = require('../../database/database.js');
+const { Category } = require('../../database/database.js');
 
-const { LAPI_URL_USERS } = process.env;
+const { LAPI_URL_CATEGORIES } = process.env;
 
 const getCategories = async () => {
     return "getCategoriesController";
