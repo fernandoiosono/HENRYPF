@@ -14,11 +14,17 @@ module.exports = (database) => {
 				allowNull: false,
 				validate: {	len: [1, 20] }
 			},
-            expDate: {
-                type: dtype.DATE,
-                allowNull: false
+            expMonth: {
+                type: dtype.STRING,
+                allowNull: false,
+				validate: {	len: [2, 2] }
             },
-            cvc: {
+			expYear: {
+                type: dtype.STRING,
+                allowNull: false,
+				validate: {	len: [2, 2] }
+            },
+            cvv: {
                 type: dtype.STRING,
                 allowNull: false,
                 validate: { len: [3, 3] }
