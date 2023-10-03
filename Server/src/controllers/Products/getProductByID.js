@@ -1,8 +1,5 @@
 require('dotenv').config();
-const axios = require('axios');
 const { Product, Category } = require('../../database/database.js');
-
-const { LAPI_URL_PRODUCTS } = process.env;
 
 const getProductByID = async (id) => {
     const product = await Product.findOne({ 
