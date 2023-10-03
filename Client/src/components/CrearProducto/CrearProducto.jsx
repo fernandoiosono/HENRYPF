@@ -1,23 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./CrearProducto.css";
 
 const CrearProducto = () => {
+  const categorias = useSelector((state) => state.categorias); //Trae desde el estado global la lista de categorias
   const [formData, setFormData] = useState({
-    nombre: "",
-    imagen: "",
-    descripcion: "",
-    precio: "",
-    stock: "",
-    descuento: "",
+    name: "",
+    imageURL: "",
+    description: "",
+    price: "",
+    stock: 0,
+    discount: 0,
+    categorias: [],
   });
   const [errors, setErrors] = useState({
-    nombre: "",
-    imagen: "",
-    descripcion: "",
-    precio: "",
+    name: "",
+    imageURL: "",
+    description: "",
+    price: "",
     stock: "",
-    descuento: "",
+    discount: "",
+    categorias: [],
   });
+
+  const handleCategoriasformChange = (event) => {
+    const { value } = event.target;
+    setFormData({
+      ...formData,
+      categorias: [...formData.categorias, value],
+    });
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -25,6 +37,8 @@ const CrearProducto = () => {
     setFormData({ ...formData, [name]: value });
   };
   const handleSubmit = async (event) => {
+    const { name, imageURL, description, price, stock, discount, active } =
+      this.state;
     event.preventDefault();
     const validationErrors = {};
 
@@ -35,12 +49,7 @@ const CrearProducto = () => {
     }
 
     for (const key in formData) {
-      if (
-        formData[key] === "" ||
-        (Array.isArray(formData[key]) && formData[key].length === 0)
-      ) {
-        validationErrors[key] = "Este campo es requerido.";
-      }
+      console.log(formData[key]);
     }
 
     if (Object.keys(validationErrors).length > 0) {
@@ -54,12 +63,13 @@ const CrearProducto = () => {
 
         alert("Producto creado");
         setFormData({
-          nombre: "",
-          imagen: "",
-          descripcion: "",
-          precio: "",
-          stock: "",
-          descuento: "",
+          name: "",
+          imageURL: "",
+          description: "",
+          price: "",
+          stock: 0,
+          discount: 0,
+          categorias: [],
         });
       } catch (error) {
         alert("Por favor valida la informacion");
@@ -77,10 +87,10 @@ const CrearProducto = () => {
             className="input"
             type="text"
             id="nombre"
-            name="nombre"
+            name="name"
             onChange={handleInputChange}
           />
-          <span>{errors.nombre}</span>
+          <span>{errors.name}</span>
         </div>
         <div>
           <label className="label" htmlFor="imagen">
@@ -90,10 +100,10 @@ const CrearProducto = () => {
             className="input"
             type="text"
             id="imagen"
-            name="imagen"
+            name="imageURL"
             onChange={handleInputChange}
           />
-          <span>{errors.imagen}</span>
+          <span>{errors.imageURL}</span>
         </div>
         <div>
           <label className="label" htmlFor="descripcion">
@@ -102,11 +112,29 @@ const CrearProducto = () => {
           <textarea
             className="textarea"
             id="descripcion"
-            name="descripcion"
+            name="description"
             onChange={handleInputChange}
           ></textarea>
-          <span>{errors.descripcion}</span>
+          <span>{errors.description}</span>
         </div>
+
+        <div>
+          <label className="label">Categorias:</label>
+          <select
+            multiple
+            name="categorias"
+            value={formData.categorias}
+            onChange={handleCategoriasformChange}
+          >
+            {categorias.map((opcion, index) => (
+              <option key={index} value={opcion.name}>
+                {opcion.name}
+              </option>
+            ))}
+          </select>
+          <span>{errors.platforms}</span>
+        </div>
+
         <div>
           <label className="label" htmlFor="precio">
             Precio:
@@ -115,10 +143,10 @@ const CrearProducto = () => {
             className="input"
             type="number"
             id="precio"
-            name="precio"
+            name="price"
             onChange={handleInputChange}
           />
-          <span>{errors.precio}</span>
+          <span>{errors.price}</span>
         </div>
         <div>
           <label className="label" htmlFor="stock">
@@ -141,10 +169,10 @@ const CrearProducto = () => {
             className="input"
             type="number"
             id="descuento"
-            name="descuento"
+            name="discount"
             onChange={handleInputChange}
           />
-          <span>{errors.descuento}</span>
+          <span>{errors.discount}</span>
         </div>
         <button className="button" type="submit">
           Guardar Producto
