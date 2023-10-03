@@ -23,25 +23,27 @@ defineOrder(database);
 const { Category, Card, Product, Order } = database.models;
 
 // Relationship Product - Category (1:N)
-Category.hasMany(Product, { timestamps: false });
-Product.belongsTo(Category, { timestamps: false });
+Category.hasMany(Product);
+Product.belongsTo(Category);
 
 // Relationship Order - Card (1:N)
-Card.hasMany(Order, { timestamps: false });
-Order.belongsTo(Card, { timestamps: false });
+Card.hasMany(Order);
+Order.belongsTo(Card);
 
 // Relationship Order - Product (N:N)
 Order.belongsToMany(Product, { 
     through: "OrderProducts",
     foreignKey: "idOrder",
     otherKey: "idProduct",
-    as: "products"
+    as: "products",
+    timestamps: false
 });
 Product.belongsToMany(Order, { 
     through: "OrderProducts",
     foreignKey: "idProduct",
     otherKey: "idOrder",
-    as: "orders" 
+    as: "orders",
+    timestamps: false
 });
 
 module.exports = {
