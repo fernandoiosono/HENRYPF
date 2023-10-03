@@ -63,6 +63,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         return {
           ...state,
           productosEnc: [productoEncontrado],
+          productosMostrar: [productoEncontrado],
         };
       } else {
         const resultado = state.allProductos.filter((producto) =>
