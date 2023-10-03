@@ -36,7 +36,7 @@ module.exports = (database) => {
 			active: {
 				type: dtype.BOOLEAN,
 				default: true
-            },
+            }
 		},
 		{
 			timestamps: false
