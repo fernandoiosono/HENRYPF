@@ -3,7 +3,10 @@ const { Sequelize } = require('sequelize');
 
 const { defineProduct, 
     defineCategory, 
-    defineUser } = require('./models');
+    defineUser, 
+    defineOrder,
+    defineCard,
+    defineRole } = require('./models');
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
@@ -11,23 +14,41 @@ const conn = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
 
 const database = new Sequelize(conn, { logging: false });
 
-defineProduct(database);
 defineCategory(database);
+defineRole(database);
+defineCard(database);
+
+defineProduct(database);
 defineUser(database);
+defineOrder(database);
 
-const { Product, Category, User } = database.models;
+const { Category, Card, Role, Product, User, Order } = database.models;
 
+// Relationship Product - Category (1:N)
 Category.hasMany(Product, { timestamps: false });
-//Una Categoria tiene varios Productos
 Product.belongsTo(Category, { timestamps: false });
-//Un Producto pertenece a una Categoria
 
-User.belongsToMany(Product, {
-    through: "UserProduct",
-    foreignKey: "idUsuario",
+// Relationship User - Role (1:N)
+Role.hasMany(User, { timestamps: false });
+User.belongsTo(Role, { timestamps: false });
+
+// Relationship Order - Card (1:N)
+Card.hasMany(Order, { timestamps: false });
+Order.belongsTo(Card, { timestamps: false });
+
+// Relationship Order - Product (N:N)
+Order.belongsToMany(Product, { 
+    through: "OrderProducts",
+    foreignKey: "idOrder",
     otherKey: "idProduct",
-    timestamps: false
-})
+    as: "products"
+});
+Product.belongsToMany(Order, { 
+    through: "OrderProducts",
+    foreignKey: "idProduct",
+    otherKey: "idOrder",
+    as: "orders" 
+});
 
 module.exports = {
     database,
