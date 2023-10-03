@@ -1,30 +1,60 @@
-import { TRAER_PRODUCTOS, SET_PAGINA, BUSCAR_PRUDUCTOS, AGREGAR_CARRITO, QUITAR_CARRITO } from "./actions_types";
-// import * as viewCaption from "../views/viewCaptions.js";
+
+import {
+  TRAER_PRODUCTOS,
+  SET_PAGINA,
+  BUSCAR_PRUDUCTOS,
+  OBTENER_CATEGORIAS,
+  FILTER_CATEGORIA,
+  AGREGAR_CARRITO,
+  QUITAR_CARRITO,
+  SET_ORDER,
+} from "./actions_types";
+
 
 const initialState = {
-	allProductos: [],
-	productosEnc: [],
-	carrito: [],
-	inicioSesion: false,
-	pagina: 1
+  allProductos: [],
+  productosMostrar: [],
+  productosEnc: [],
+  carrito: [],
+  inicioSesion: true,
+  pagina: 1,
+  categorias: [
+    //Borrar estos datos cuando se tenga conexion con el Backend
+    {
+      id: 1,
+      name: "Nutricion deportiva",
+    },
+    {
+      id: 2,
+      name: "Proteina",
+    },
+    {
+      id: 3,
+      name: "Aminoacidos",
+    },
+    {
+      id: 4,
+      name: "Equipamiento",
+    },
+  ],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
-	switch (type) {
+  switch (type) {
+    case TRAER_PRODUCTOS:
+      return {
+        ...state,
+        allProductos: payload,
+        productosMostrar: payload,
+      };
 
-		case TRAER_PRODUCTOS:
-			return {
-				...state,
-				allProductos: payload
-			};
+    case SET_PAGINA:
+      return {
+        ...state,
+        pagina: payload,
+      };
 
-		case SET_PAGINA:
-			return {
-				...state,
-				pagina: payload
-			};
-
-		case BUSCAR_PRUDUCTOS:
+   	case BUSCAR_PRUDUCTOS:
 			const num = Number(payload);
 			if (!isNaN(num)) {
 				const productoEncontrado = state.allProductos.find(prod=>prod.idProducto===num);
@@ -41,7 +71,39 @@ const rootReducer = (state = initialState, { type, payload }) => {
 				};
 			}
 
-		case AGREGAR_CARRITO:
+    case OBTENER_CATEGORIAS:
+      return {
+        ...state,
+        categorias: payload,
+      };
+
+    case FILTER_CATEGORIA:
+      let filteredProductos = [...state.allProductos];
+      let filter;
+      filter = filteredProductos.filter((producto) =>
+        producto.categoria.includes(payload)
+      );
+      return {
+        ...state,
+        productosMostrar: filter,
+      };
+
+    case SET_ORDER:
+      let orderedProductos = [...state.productosMostrar];
+      let ordered;
+      if (payload === "Ascendente") {
+        ordered = orderedProductos.sort((a, b) => a.precio - b.precio);
+      } else if (payload === "Descendente") {
+        ordered = orderedProductos.sort((a, b) => b.precio - a.precio);
+      } else {
+        ordered = orderedProductos;
+      }
+      return {
+        ...state,
+        productosMostrar: ordered,
+      };
+      
+      case AGREGAR_CARRITO:
 			return {
 				...state,
 				carrito: [...state.carrito, payload]
@@ -54,9 +116,10 @@ const rootReducer = (state = initialState, { type, payload }) => {
 				carrito: carritoFiltrado
 			};
 
-		default:
-			return { ...state };
-	};
+    default:
+      return { ...state };
+  }
+
 };
 
 export default rootReducer;
