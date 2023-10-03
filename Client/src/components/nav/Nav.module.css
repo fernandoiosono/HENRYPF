@@ -1,0 +1,113 @@
+.nav{
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    border-radius: 3px;
+}
+
+.back{
+    width: 2em;
+    margin: auto 0 auto 1em;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.sobre{
+    color: white;
+    margin: auto;
+    margin-right: 1em;
+    margin-left: 1em;
+    &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+
+    }
+}
+
+.logo{
+    width: 10em;
+    margin: auto;
+}
+
+.home{
+    width: 2em;
+    margin: auto 1em auto 0;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.homeHidden{
+    width: 2em;
+    margin: auto 1em auto 0;
+    visibility: hidden;
+}
+
+.search{
+    margin: auto;
+    margin-right: 1em;
+    margin-left: 0;
+    display: flex;
+}
+
+.botonBuscar{
+    width: 2em;
+    margin: auto;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.input{
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.5em;
+    width: 7.4em;
+    &::placeholder{
+        color: rgb(194, 194, 194);
+    }
+}
+
+.div{
+    margin: auto 0;
+    width: 3.5px;
+    background-color: white;
+    height: 3em;
+    border-radius: 2px;
+}
+
+.iniciar{
+    color: white;
+    margin: auto;
+    margin-right: 1em;
+    margin-left: 1em;
+    &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+
+    }
+}
+
+.carritoCont{
+    height: min-content;
+    margin: auto;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+.contador{
+    position: absolute;
+    margin: 5px 1em 0 01em;
+    color: rgb(245, 196, 44);
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.carrito{
+    width: 3em;
+    &:hover{
+        cursor: pointer;
+    }
+}
