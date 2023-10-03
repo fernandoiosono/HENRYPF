@@ -1,4 +1,5 @@
 import style from './Nav.module.css';
+import { useAuth0 } from "@auth0/auth0-react";
 import logo from '../../assets/img/logo/logo.png';
 import iconoCarrito from '../../assets/img/carrito/carrito.png';
 import lupa from '../../assets/img/lupa/lupa.png';
@@ -16,6 +17,7 @@ const Nav = () => {
     const productosEnc = useSelector(state=>state.productosEnc); //!ESTE CODIGO ES SOLO PARA VER QUE SI ESTE SIRVIENDO EL SEARCH
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { loginWithRedirect } = useAuth0();
     const { pathname } = useLocation();
     const [ nombre, setNombre ] = useState('');
 
@@ -51,7 +53,7 @@ const Nav = () => {
     const inicioCarrito = () => {
         if (!inicioSesion){
             return(
-                <h3 className={style.iniciar} onClick={() => navigate('/acceso')}>Iniciar Sesion</h3>
+                <h3 className={style.iniciar} onClick={() => loginWithRedirect()}>Iniciar Sesion</h3>
             )
         } else {
             return(

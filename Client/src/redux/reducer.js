@@ -14,7 +14,7 @@ const initialState = {
   productosMostrar: [],
   productosEnc: [],
   carrito: [],
-  inicioSesion: true,
+  inicioSesion: false,
   pagina: 1,
   categorias: [
     //Borrar estos datos cuando se tenga conexion con el Backend
