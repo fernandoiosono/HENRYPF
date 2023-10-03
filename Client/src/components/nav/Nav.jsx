@@ -28,9 +28,10 @@ const Nav = () => {
     }, [productosEnc]);
 
     const handleSearch = () => {
-        if (nombre == '') return alert('¡Por favor ingrese un nombre o un ID!');
-        dispatch(setCurrenPage(1));
+        if (nombre=='') return alert('¡Por favor ingrese un nombre o un ID!');
+        dispatch(setPagina(1));
         dispatch(buscarPruductos(nombre));
+        navigate('/catalogo')
     };
 
     const handleKeyPress = (event) => {
