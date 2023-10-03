@@ -20,6 +20,8 @@ const getProductsByName = async (name) => {
         }]
     });
 
+    if (!products.length) throw new Error("There are no products that match the word entered!");
+
     return products;
 };
 
