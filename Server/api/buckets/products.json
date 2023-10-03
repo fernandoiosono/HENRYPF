@@ -6,7 +6,8 @@
 		"description": "Este tipo de suplemento ayuda a complementar la alimentación de personas con objetivos o requerimientos nutricionales específicos. Su consumo puede ser indicado por diversos factores, como la duración y la intensidad de la actividad física, el tipo de deporte, el ambiente en el que se practica, la edad, la composición corporal, el peso, entre otros. Es importante resaltar que su uso debe estar acompañado por una alimentación equilibrada y hábitos de vida saludable. La principal función de las proteínas es contribuir con la regeneración muscular. Es por esto que los suplementos proteicos suelen ser utilizados en ciertas circunstancias, por ejemplo ante el aumento de la intensidad del ejercicio, la recuperación luego de una lesión o para complementar la alimentación de personas veganas y vegetarianas. Algunos de los beneficios son: su consumo fácil, su bajo contenido en azúcares y grasas y la posible reducción del apetito.",
 		"price": 28,
 		"stock": 50,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 2,
@@ -15,7 +16,8 @@
 		"description": "La creatina es uno de los complementos deportivos más conocidos y su principal objetivo es fortalecer el tejido muscular. Es producida de forma natural por el cuerpo y está presente en alimentos como el pescado, la carne, los lácteos y el huevo. Su consumo a través de suplementos puede contribuir a un mayor rendimiento en actividades físicas que requieran intervalos de fuerza cortos e intensos, como el levantamiento de pesas y otros deportes de alto desgaste que requieren una recuperación más rápida.",
 		"price": 61,
 		"stock": 50,
-		"discount": 20
+		"discount": 20,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 3,
@@ -24,7 +26,8 @@
 		"description": "COLÁGENO HIDROLIZADO - BLEND ANTIAGE de VITALIS NAVITAS presenta una completa fórmula de nutrientes esenciales que ayudan a combatir los signos internos y externos de envejecimiento. Su combinación de nutrientes de belleza se potencian entre sí para mejorar el aspecto y la salud de tu piel, cabello, uñas, huesos, articulaciones, tendones y ligamentos. Sus componentes ayudan a mejorar el aspecto, la hidratación y la elasticidad de la piel, a fortalecer huesos, tendones y articulaciones, a fortalecer el sistema inmunológico y a combatir los signos del envejecimiento.",
 		"price": 151,
 		"stock": 50,
-		"discount": 30
+		"discount": 30,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 4,
@@ -33,7 +36,8 @@
 		"description": "CREATINA MICRONIZADA es un excelente suplemento pre entrenamiento ya que colabora en la formación de los componentes energéticos, mejora la potencia muscular y retrasa la fatiga muscular, preparando al cuerpo para un mejor rendimiento físico Ha sido demostrado que apoya el crecimiento del tamaño de los músculos, y el aumento de fuerza y poder cuando se la combina con actividades de alta intensidad.",
 		"price": 46,
 		"stock": 50,
-		"discount": 10
+		"discount": 10,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 5,
@@ -42,7 +46,8 @@
 		"description": "Cuando entrenamos, el cuerpo pierde agua y electrolitos. Hydromax es una nueva bebida deportiva isotónica, desarrollada para facilitar la rehidratación y la reposición de sales minerales. Su exclusiva fórmula, fuente de vitaminas C y E, aporta carbohidratos, retrasa la fatiga y mejora el rendimiento físico. Hidrata tus ganas de más. Entrena con Hydromax. Esta bebida está recomendada para cualquier ejercicio de entrenamiento, competencia o recreativo. Es ideal para los deportes como el maratón, el ciclismo, el triatlón. Y se aplica eficazmente para obtener un desempeño superior en deportes intermitentes y de equipo como el tenis, fútbol, básquet, el rugby, el hockey, etc.",
 		"price": 20,
 		"stock": 30,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 6,
@@ -51,7 +56,8 @@
 		"description": "Una nutrición balanceada juega un papel fundamental en la calidad de vida. Con el ritmo acelerado que llevan muchas personas, a veces resulta complejo prestar atención a todos los requerimientos que el cuerpo necesita para estar sano y fuerte. En ese sentido, los suplementos cumplen la función de complementar la alimentación y ayudan a obtener las vitaminas, minerales, proteínas y otros componentes indispensables para el correcto funcionamiento del organismo.",
 		"price": 4,
 		"stock": 30,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 7,
@@ -60,7 +66,8 @@
 		"description": "El consumo de aminoácidos como complemento de una alimentación saludable y ejercicio físico intenso puede ayudar a disminuir la fatiga muscular. Es uno de los suplementos con más beneficios para una nutrición deportiva completa y se recomienda utilizarlos durante o después de la actividad física para favorecer la recuperación de los músculos y el fortalecimiento del sistema inmunológico.",
 		"price": 26,
 		"stock": 30,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 8,
@@ -69,7 +76,8 @@
 		"description": "La cafeína es un suplemento utilizado por muchas personas que realizan deporte, ya que tiene muchos beneficios: ayuda a reducir la sensación de cansancio y la fatiga en ejercicios prolongados, permite hacer más largos los entrenamientos y estimula el sistema nervioso central. Todo esto lo convierte en un suplemento ideal para actividades aeróbicas - Ayuda a mejorar la claridad mental y aumenta el enfoque - Potencia la fuerza y la capacidad de ejercicio, aumentando el rendimiento - Cero azúcar, cero calorías - Alivia la fatiga y contribuye al crecimiento muscular - Ayuda a la perdida de grasa",
 		"price": 6,
 		"stock": 30,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 9,
@@ -78,7 +86,8 @@
 		"description": "PRE WAR es la siguiente evolución en pre entrenamientos. Diseñado con precisión para desafiar tus límites, favorece la concentración, el aumento de energía, la fuerza, el tamaño muscular y la recuperación. Entrena con nuestro Pre work más completo y con fórmula mejorada con 200mg de cafeína por ingesta. Tomá el paso siguiente, tomá PRE WAR.",
 		"price": 31,
 		"stock": 30,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 10,
@@ -87,7 +96,8 @@
 		"description": "Star Nutrition es una marca argentina joven que busca ofrecer productos competitivos y para eso incorpora en su proceso de fabricación materia prima importada de los principales productores mundiales de suplementos. Cumple con altos estándares de calidad con el fin de igualar la excelencia de las marcas líderes del mercado internacional y brindar productos accesibles.",
 		"price": 67,
 		"stock": 40,
-		"discount": 20
+		"discount": 20,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 11,
@@ -96,7 +106,8 @@
 		"description": "Este tipo de suplemento ayuda a complementar la alimentación de personas con objetivos o requerimientos nutricionales específicos. Su consumo puede ser indicado por diversos factores, como la duración y la intensidad de la actividad física, el tipo de deporte, el ambiente en el que se practica, la edad, la composición corporal, el peso, entre otros. Es importante resaltar que su uso debe estar acompañado por una alimentación equilibrada y hábitos de vida saludable. Proteína Vegetal de máxima calidad, elaborada a base de proteína de arvejas. Ideal para quienes eligen una alimentación vegana o vegetariana o para complementar cualquier dieta con deficiencia proteica - Libre de Lactosa - Libre de Soja- Sin Azúcar agregada <br>- Sin conservantes",
 		"price": 19,
 		"stock": 40,
-		"discount": 5
+		"discount": 5,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 12,
@@ -105,7 +116,8 @@
 		"description": "Una nutrición balanceada juega un papel fundamental en la calidad de vida. Con el ritmo acelerado que llevan muchas personas, a veces resulta complejo prestar atención a todos los requerimientos que el cuerpo necesita para estar sano y fuerte. En ese sentido, los suplementos cumplen la función de complementar la alimentación y ayudan a obtener las vitaminas, minerales, proteínas y otros componentes indispensables para el correcto funcionamiento del organismo",
 		"price": 99,
 		"stock": 50,
-		"discount": 20
+		"discount": 20,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 13,
@@ -114,7 +126,8 @@
 		"description": "100% Whey protein con el agregado del potente CLA Acido Linoleico Conjugado (sigla en inglés) (potente quemador de grasa y reductor del colesterol malo) Sabores cremosos con textura American Style registrados SPX: Hay Stock de Vainilla, Chocolate imperial o Frutilla, si elige varios puede pedir la opción 'surtidos' en el selector de sabor y avisar INMEDIATAMENTE DESPUÉS DE COMPRAR los sabores por mensaje interno (no whatsapp sino mensaje interno desde la misma compra). Básico: 1 medida disuelta en 250 ml de agua (1 vaso) reemplazando el desayuno. Full: 1 medida disuelta en 250 ml de agua (1 vaso) reemplazando el desayuno, otra medida igual reemplazando la merienda y una medida media hora antes de cenar para llegar con menos apetito a la cena.IMPORTANTE: el pote para 1.080 gr, el de 2 kg y el de 2.4 kg es siempre el mismo pote, solo cambia la cantidad de contenido, el cual está bien detallado en la etiqueta. Este es el de 1080 gr, que viene mas o menos lleno hasta la mitad. Nosotros trabajamos solo esta medida, ya que la otra al venir bien lleno a veces se explota cuando el correo lo aprieta y nos trae problemas. Por eso su pote de 1080 gr trae mas o menos hasta la mitad el llenado de producto. Ante cualquier duda consúltenos, escribanos o simplemente póngalo sobre una balanza.",
 		"price": 50,
 		"stock": 50,
-		"discount": 10
+		"discount": 10,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 14,
@@ -123,7 +136,8 @@
 		"description": "Fuente rápida de energía. La principal función de las proteínas es contribuir con la regeneración muscular. Es por esto que los suplementos proteicos suelen ser utilizados en ciertas circunstancias, por ejemplo ante el aumento de la intensidad del ejercicio, la recuperación luego de una lesión o para complementar la alimentación de personas veganas y vegetarianas. Algunos de los beneficios son: su consumo fácil, su bajo contenido en azúcares y grasas y la posible reducción del apetito. Energía en tus manos. En actividades deportivas intensas y de larga duración como maratones, ciclismo o triatlones los atletas necesitan incorporar carbohidratos de una manera rápida y sencilla. Este suplemento en barra aporta la energía que el organismo requiere ante este tipo de desgaste y puede ser consumido durante el ejercicio físico. Es recomendable probar esta estrategia nutricional con anticipación en este tipo de competiciones.",
 		"price": 21,
 		"stock": 40,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 15,
@@ -132,7 +146,8 @@
 		"description": "Una nutrición balanceada juega un papel fundamental en la calidad de vida. Con el ritmo acelerado que llevan muchas personas, a veces resulta complejo prestar atención a todos los requerimientos que el cuerpo necesita para estar sano y fuerte. En ese sentido, los suplementos cumplen la función de complementar la alimentación y ayudan a obtener las vitaminas, minerales, proteínas y otros componentes indispensables para el correcto funcionamiento del organismo. Fuente rápida de energía. La principal función de las proteínas es contribuir con la regeneración muscular. Es por esto que los suplementos proteicos suelen ser utilizados en ciertas circunstancias, por ejemplo ante el aumento de la intensidad del ejercicio, la recuperación luego de una lesión o para complementar la alimentación de personas veganas y vegetarianas. Algunos de los beneficios son: su consumo fácil, su bajo contenido en azúcares y grasas y la posible reducción del apetito.",
 		"price": 42,
 		"stock": 20,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 16,
@@ -141,7 +156,8 @@
 		"description": "Cuentan con 5 agarres, 1 laterales, 2 frontales y 2 superiores. Esto nos da mayor versatilidad y maleabilidad, ya que se puede utilizar con agarres prono, supino o neutro y nos da la posibilidad de realizar una amplia variedad de ejercicios tanto para el tren superior como tren inferior. Además tenemos variedad de colores super lindos y una excelente relación precio-calidad. Contamos con distintos modelos y pesos: 5kg, 10kg ,15kg, 20kg, 25kg. Elegí el peso que te permita mantener la técnica de ejecución correcta. ¡Hay miles de ejercicios que se pueden hacer, lo importante es que te muevas!",
 		"price": 40,
 		"stock": 15,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 17,
@@ -150,7 +166,8 @@
 		"description": "Kit Set Gimnasia 3 Elementos - Bandas Soga Rueda Abdominales - FITNESS Set complementos - 3 ítems. Contiene: 1 x Soga para saltar - Cable de acero recubierto - Largo de cable: 3 metros - Regulación metálica - Cabezal de plástico giratorio - Mango de polipropileno - Largo del mango: 14cm; 1 x Kit de bandas elásticas circulares (pack 5 unidades) - 5 Niveles de resistencia - Verde: Resistencia muy baja (10lb) - Azul: Resistencia baja (15lb) - Amarillo: Resistencia media (20lb) - Rojo: Resistencia alta (30lb) - Negro: Resistencia muy alta (40lb) - Dimensiones: 600mm x 50mm; 1 x Rueda para abdominales - Peso máximo soportado: 200kg - 2 Ruedas de polipropileno - Mangos antideslizantes de goma eva - Barra interior de acero - Dimensiones: 300mm x 180mm",
 		"price": 42,
 		"stock": 15,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 18,
@@ -159,7 +176,8 @@
 		"description": "El multigimnasio Body Sculpture ARG 63167 de lujo es una herramienta multifuncional profesional para el entrenamiento intensivo en casa. Le permite realizar ejercicios seguros para los diferentes grupos musculares, como un gimnasio profesional. Es la solución ideal para hombres y mujeres que quieren mejorar el estado en general y el aspecto de la silueta, aumentar y mejorar la masa muscular y una forma esbelta. Con este producto está llevando a su casa salud y estética. El multigimnasio le permite el desarrollo de todos los grupos musculares.",
 		"price": 1142,
 		"stock": 19,
-		"discount": 45
+		"discount": 45,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 19,
@@ -168,7 +186,8 @@
 		"description": "Colchoneta para Gimnasia, ideal también para Yoga, Fitness, Ejercitación, Pilates. Gracias al relleno de espuma de POLIETILENO DE ALTA DENSIDAD, resulta muy confortable a la hora de realizar ejercicios. Confeccionado con Lona Bagun o Tela Cordura en la parte superior (según disponibilidad) y tela no textil gruesa en la base hacen la combinación perfecta de estética y durabilidad. Manejamos stock en varios colores y en cantidades para cumplir con las necesidades de gimnasios, clubes, profesores independientes y escuelas.",
 		"price": 45,
 		"stock": 500,
-		"discount": 10
+		"discount": 10,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 20,
@@ -177,7 +196,8 @@
 		"description": "Muñequeras BalboaFit para Cross Training que brinda estabilidad y un soporte adicional a la muñeca para el levantamiento pesado. Especificaciones: - Comercializada en pares, - Ancho 7,6 cm - Largo: S 30 cm / M 45 cm - Ojal para sujetar dedo, - Elástico de alta calidad, Acerca de los talles: El talle S es el recomendado y más usado para Cross Training o Funcional, el talle M brinda mayor rigidez a la muñeca y es más recomendado para levantamiento pesado.",
 		"price": 19,
 		"stock": 16,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 21,
@@ -186,7 +206,8 @@
 		"description": "Para Yoga, Esferodinamia, Pilates, Fitness o para usar en Rehabilitación. Permite hacer ejercicios para tonificar todo el cuerpo: abdominales, glúteos, brazos, piernas. Ideal para estirar la columna y para relajar. Características:  Con lineas antideslizantes. Superficie lavable. Resistente. Soporta un peso de 150 kgr. Recomendada para personas que miden desde 1,56 m a 1,65 m o personas más altas que quieren usarla para ejercicios de tonificación donde no hay que estar sentado sobre la esfera.",
 		"price": 18,
 		"stock": 23,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 22,
@@ -195,7 +216,8 @@
 		"description": "• Materiales - PVC De Alta Calidad y Durabilidad - Rellenos con Granalla + Material - No rallan el suelo, perfecto para uso en casa. Medidas - Diametro Interior 30mm (Universal) - Espesor 6cm Aprox - Diametro Exterior 25cm Aprox",
 		"price": 21,
 		"stock": 23,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 23,
@@ -204,7 +226,8 @@
 		"description": "20 PiSOS GOMA EVA ENCASTRABLES NUEVOS ! 1ra Selección ! Importados ! Máxima Calidad Medidas Placa 50 cm x 50 cm x 15 mm Cubre 5 Metros cuadrados Colores Disponibles Negro Compra ideal para aprovechar al máximo el costo de transporte > 8 placas las cuales ya vine en embaladas con film plástico como en la foto de la publicación",
 		"price": 114,
 		"stock": 20,
-		"discount": 15
+		"discount": 15,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 24,
@@ -213,7 +236,8 @@
 		"description": "Soga Cuerda Saltar Mango Neoprene Crossfit Boxeo Gym Colores Producto de alta calidad, marca ENERGY FIT Manos Anti-Sudor FOAM Posee rotulas diseñado para uso intensivo y alto rendimiento Cable de acero SPEED forrado en ABS anti-deslizante Largo 270 CM Colores: Negro, Rojo Con Negro, Azul, Rojo Con Rojo, Verde y Amarillo Dale a tu entrenamiento una ventaja diferencial!. Ponete en forma fácilmente con este producto de la mano de ENERGY FIT!",
 		"price": 12,
 		"stock": 20,
-		"discount": 5
+		"discount": 5,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 25,
@@ -222,7 +246,8 @@
 		"description": "Estructura Reforzada y transportable: respaldo Regulable en altura. Incluye: Discos 4 discos de 5 kg + 2 discos de 7,5 kg. Total 35 kilos. Discos de 30 mm de diámetro. Incluye: Barra (semi hueca) de 1.50 mts de Largo con trabas. Acolchado protector con grips para piernas. Asiento y respaldo con acolchados de alta densidad. Permite trabajar: Pecho, Espalda, Hombro, Abdomen, Biceps, Piernas, Cuadriceps y Glúteos.",
 		"price": 668,
 		"stock": 50,
-		"discount": 20
+		"discount": 20,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 26,
@@ -231,7 +256,8 @@
 		"description": "Medida de la Lona de Salto: 92cm x 87cm. Media del marco: 129cm x 115cm. Altura desde el piso: 30cm. 6 patas. Regulación de la manija: 80cm - 120cm. Agarre para manos: 40cm. Peso máximo soportado: 120kg. Material Lona de Salto: PP (Polipropileno). 42 resortes de primera calidad. Número de Patas: 6. Incluye manija para mayor seguridad. Colores disponibles: Verde - Rojo - Azul - Negro. Ultra Resistente e Impermeable. Ideal para colocar al aire libre. Muy fácil de armar, desarmar y transportar. Superficie y patas ultra resistentes. Diversión garantizada. Manual en español.",
 		"price": 185,
 		"stock": 34,
-		"discount": 5
+		"discount": 5,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 27,
@@ -240,7 +266,8 @@
 		"description": "Pack de 5 Bandas Elásticas de látex, no TPE. Ideales para la terapia física, ejercicio, pérdida de peso, pilates, tonificación, fortalecimiento muscular, estiramiento, rehabilitación, salud general y fitness. Características: Ideal para pilates, entrenamiento funcional, yoga y como complemento de la actividad física en general. Superficie texturizada para uso profesional. Ideal para desarrollar el equilibrio, la coordinación y la flexibilidad. 5 niveles de intensidad. Medidas: 30 x 5cm.",
 		"price": 13,
 		"stock": 67,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 28,
@@ -249,7 +276,8 @@
 		"description": "Banda elástica de resistencia con intensidad media · Medidas: 1.2 mts de largo de la banda · La manija se ajusta cómodamente en tus manos y alrededor de tus pies. · Perfectas para elongación, fortalecimiento, tonificación, rehabilitación, pilates, funcional · Ejercita tus brazos, hombros, pecho, espalda, piernas · Ligera y fácil de llevar, se puede utilizar en cualquier lugar y en cualquier momento · Material látex circular recubierto de excelente calidad y durabilidad'.",
 		"price": 6,
 		"stock": 50,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 29,
@@ -258,7 +286,8 @@
 		"description": "Disco Plastico externamente, interior de munición y concreto. MEDIDAS: Diámetro total: 27 cm Espesor: 4,5 cm Diámetro interno: 30 mm Especificaciones: - Disco de 5 kg liso - Diámetro de agujero interno: 30mm - PVC super resistente - Relleno con concreto y partículas metálicas - Disponible en color Negro",
 		"price": 21,
 		"stock": 38,
-		"discount": 10
+		"discount": 10,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 30,
@@ -267,7 +296,8 @@
 		"description": "",
 		"price": 261,
 		"stock": 10,
-		"discount": 40
+		"discount": 40,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 31,
@@ -276,7 +306,8 @@
 		"description": "Barra Ez Curva W Maciza Acero Cromado + Topes Rosca-Excelente para trabajo miembro superior, inferior y de brazos con curl: biceps, triceps y trapecio-Cromada maciza de acero-Agarres diamantados-Largo 120 CM, largo topes 20 CM-Diámetro: 30 mm-Peso 6 KGs-Se entrega con dos topes rosca cromados de acero-Marca ENERGY FIT",
 		"price": 79,
 		"stock": 10,
-		"discount": 10
+		"discount": 10,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 32,
@@ -285,7 +316,8 @@
 		"description": "2 TOBILLERAS EXAHOME 2 KG EN CADA UNAUNICA CON CIERRE PARA AGREGAR O DISMINUIR PESOEs el complemento para ejercitar piernas y glúteos. Fabricado en LONA BAGUN IMPORTADA impermeable de alta resistencia con abrojo que permiten tener un mejor agarre.Cada tobillera cuenta con 4 compartimiento con bolsas removibles rellenas con arena, lo que permite regular el peso adecuándolo a las condiciones físicas de cada uno.",
 		"price": 14,
 		"stock": 50,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 33,
@@ -294,7 +326,8 @@
 		"description": "ARO ULA ULA 70CM para gimnasia o colegial. Aros de PVC x10 unidades",
 		"price": 11,
 		"stock": 35,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 34,
@@ -303,7 +336,8 @@
 		"description": "Rack de pared FIJO. Características: Apto intemperie-Pintura Epoxy-Incluye 4 accesorios de soporte de barras.-13 alturas disponibles de regulación-Incluye barra dorsadera-Peso máximo de carga 220 Kg. Medidas: Alto: 2 metros-Ancho interno: 1 metro-Ancho total: 1,08 metros-Profundidad: 50 cm",
 		"price": 294,
 		"stock": 12,
-		"discount": 35
+		"discount": 35,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 35,
@@ -312,7 +346,8 @@
 		"description": "DESCRIPCIÓN DEL PRODUCTO: • Está fabricada en PVC suave de alta calidad y su interior está compuesto por fina granalla de acero.• Cuenta con un mango ancho ergonómico para un uso cómodo con una y dos manos • Es fácil de usar y está diseñada para mantenerse de pie sobre cualquier superficie sin que ésta sea dañada. • Es ideal para principiantes y expertos en deporte ya que permite ejercitar tus músculos y fortalecer abdominales. bíceps, tríceps, cuádriceps y glúteos a través de una variedad de ejercicios musculares y fitness.",
 		"price": 19,
 		"stock": 39,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 36,
@@ -321,7 +356,8 @@
 		"description": "Rodillo de goma espuma especial para el uso de equipos. Alta densidad. pack por 4 (cuatro) unidades. Largo: 17 cm. Diámetro externo: 10 cm. Diámetro interno: 2,2 cm. Color: Negro.",
 		"price": 45,
 		"stock": 10,
-		"discount": 10
+		"discount": 10,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 37,
@@ -330,7 +366,8 @@
 		"description": "ELONGADOR AJUSTABLE PARA ASISTENCIA EN MOVILIDAD. DE ALUMINIO, EXTENSIBLE Y PLEGABLE. CON BOTÓN DE AJUSTE. APOYOS DE GOMA EVA. BRAZOS LATERALES EXTENSIBLES HASTA 1 MT BRAZO CENTRAL EXTENSIBLE HASTA 60 CM CON REPUESTOS DE APOYOS Y CORREA SOPORTE. IDEAL PARA LA PRACTICA DE ELONGACIÓN TANTO DE GIMNASIA COMO DE DANZA.",
 		"price": 33,
 		"stock": 19,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 38,
@@ -339,7 +376,8 @@
 		"description": "DESCRIPCIÓN: SIN ABROJO Color: Negro con Rojo / Camufladas (consultar) Soporte para las rodillas en todas las variaciones de sentadillas y movimientos OLY. Ofrecen una protección extra en levantamiento pesado. - Cintas para las rodillas de alta resistencia, - Largo 200cm, - Ancho 7,6cm - Talle único, - Elástico de alta calidad. 50% Elastano / 50% Poliester",
 		"price": 47,
 		"stock": 14,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 39,
@@ -348,7 +386,8 @@
 		"description": "Agarre triangulo para remo importado. Accesorio. Ideal para todo tipo de entrenamientos",
 		"price": 77,
 		"stock": 20,
-		"discount": 15
+		"discount": 15,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 40,
@@ -357,7 +396,8 @@
 		"description": "LARGO TOTAL 16 CM - CROMADA PASE 8 MM",
 		"price": 8,
 		"stock": 34,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 2
 	},
 	{
 		"idProduct": 41,
@@ -366,7 +406,8 @@
 		"description": "Este será tu compañero diario para mejorar el humor y bajar los niveles de estrés. Sabemos que el mundo y el entorno diario pueden llegar a producir desgaste, bajones de energía y cansancio sin razón aparente. Buscamos la serotonina en el ejercicio, en las mascotas, o en los buenos ratos. ¡Ahora también puedes encontrarla en este suplemento! Calm fomenta la relajación muscular y promueve la segregación de la “hormona de la felicidad”, por lo que los conflictos laborales, familiares, periodos de estrés o complicaciones personales van a ser mucho más llevaderas con este nuevo aliado.",
 		"price": 16,
 		"stock": 40,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 42,
@@ -375,7 +416,8 @@
 		"description": "Mejora tu rendimiento deportivo con el suplemento líquido L-Carnitina de Star Nutrition, en un delicioso sabor cherry. Este pote de 500ml contiene una fórmula especialmente diseñada para ayudarte a alcanzar tus objetivos de acondicionamiento físico y mejorar tu resistencia. La L-Carnitina es conocida por su capacidad para convertir la grasa en energía, lo que te permite entrenar más duro y por más tiempo. Además, este suplemento es libre de gluten, lo que lo hace apto para personas con sensibilidad al gluten. El envase tipo pote facilita su almacenamiento y transporte, para que puedas llevarlo contigo a donde quiera que vayas. Simplemente sigue las instrucciones de uso recomendado y disfruta de los beneficios que este suplemento líquido de Star Nutrition puede ofrecerte en tu camino hacia una vida más activa y saludable.",
 		"price": 12,
 		"stock": 50,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 43,
@@ -384,7 +426,8 @@
 		"description": "Una nutrición balanceada juega un papel fundamental en la calidad de vida. Con el ritmo acelerado que llevan muchas personas, a veces resulta complejo prestar atención a todos los requerimientos que el cuerpo necesita para estar sano y fuerte. En ese sentido, los suplementos cumplen la función de complementar la alimentación y ayudan a obtener las vitaminas, minerales, proteínas y otros componentes indispensables para el correcto funcionamiento del organismo.",
 		"price": 58,
 		"stock": 50,
-		"discount": 5
+		"discount": 5,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 44,
@@ -393,7 +436,8 @@
 		"description": "Una nutrición balanceada juega un papel fundamental en la calidad de vida. Con el ritmo acelerado que llevan muchas personas, a veces resulta complejo prestar atención a todos los requerimientos que el cuerpo necesita para estar sano y fuerte. En ese sentido, los suplementos cumplen la función de complementar la alimentación y ayudan a obtener las vitaminas, minerales, proteínas y otros componentes indispensables para el correcto funcionamiento del organismo.",
 		"price": 11,
 		"stock": 50,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 45,
@@ -402,7 +446,8 @@
 		"description": "Nuestro producto One Fit Creatine Micronized: Es el mejor suplemento utilizado para producir energía en ejercicios explosivos y de alta intensidad. Este es el principal motivo por el cual se usa en el entrenamiento de fuerza, porque al tratarse de un sustrato energético, nos permitirá levantar más peso y realizar entrenamientos más intensos, más duros y podremos maximizar nuestros resultados.",
 		"price": 31,
 		"stock": 22,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 46,
@@ -411,7 +456,8 @@
 		"description": "Una nutrición balanceada juega un papel fundamental en la calidad de vida. Con el ritmo acelerado que llevan muchas personas, a veces resulta complejo prestar atención a todos los requerimientos que el cuerpo necesita para estar sano y fuerte. En ese sentido, los suplementos cumplen la función de complementar la alimentación y ayudan a obtener las vitaminas, minerales, proteínas y otros componentes indispensables para el correcto funcionamiento del organismo.",
 		"price": 14,
 		"stock": 37,
-		"discount": 15
+		"discount": 15,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 47,
@@ -420,7 +466,8 @@
 		"description": "Disfruta de los beneficios del colágeno hidrolizado con Giovegen Skin, una bebida en polvo sabor limón que te ayudará a mejorar la salud y apariencia de tu piel. Con 420g de producto en un práctico pote, tendrás suficiente para experimentar los resultados que este suplemento puede ofrecerte. Giovegen Skin es libre de gluten y no contiene lactosa, lo que lo hace ideal para personas con intolerancias o alergias a estos componentes. Aunque no es apto para veganos, embarazadas o personas en período de lactancia, este suplemento es perfecto para aquellos que buscan mejorar la elasticidad y firmeza de su piel. El colágeno es una proteína esencial para mantener la estructura y función de nuestra piel, y al consumirlo en forma de suplemento, podrás notar una piel más hidratada, suave y radiante. Además, el delicioso sabor a limón hace que sea fácil y agradable de incorporar en tu rutina diaria.",
 		"price": 25,
 		"stock": 30,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 48,
@@ -429,7 +476,8 @@
 		"description": "Una nutrición balanceada juega un papel fundamental en la calidad de vida. Con el ritmo acelerado que llevan muchas personas, a veces resulta complejo prestar atención a todos los requerimientos que el cuerpo necesita para estar sano y fuerte. En ese sentido, los suplementos cumplen la función de complementar la alimentación y ayudan a obtener las vitaminas, minerales, proteínas y otros componentes indispensables para el correcto funcionamiento del organismo.",
 		"price": 28,
 		"stock": 30,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 49,
@@ -438,7 +486,8 @@
 		"description": "Una nutrición balanceada juega un papel fundamental en la calidad de vida. Con el ritmo acelerado que llevan muchas personas, a veces resulta complejo prestar atención a todos los requerimientos que el cuerpo necesita para estar sano y fuerte. En ese sentido, los suplementos cumplen la función de complementar la alimentación y ayudan a obtener las vitaminas, minerales, proteínas y otros componentes indispensables para el correcto funcionamiento del organismo.",
 		"price": 9,
 		"stock": 11,
-		"discount": 0
+		"discount": 0,
+		"CategoryIdCategory": 1
 	},
 	{
 		"idProduct": 50,
@@ -447,6 +496,7 @@
 		"description": "Es un suplemento dietario a base de Colágeno Hidrolizado, Vitamina C, Coenzima Q10 y Resveratrol. Su función es nutrir la piel desde el interior, garantizando su regeneración con el fin de que luzca saludable y joven. ¿Por qué tomarlo? A partir de los 25-30 años las células humanas empiezan a reducir gradualmente su capacidad de sintetizar colágeno, de manera que anualmente perdemos el 1,5% del colágeno que forma parte de los distintos tejidos de nuestro cuerpo. A los 45-50 años, los efectos de la pérdida de colágeno en tejidos ya son visibles: arrugas y envejecimiento dérmico. Por estos motivos, recomendamos el consumo de Vitalgen con el fin de mejorar la salud y el aspecto de la piel ante el paso del tiempo. Cada ingrediente presente en la fórmula de VITALGEN fue pensado y probado con el fin de fortalecer la estructura de la piel y brindarle un aspecto renovado y joven.",
 		"price": 53,
 		"stock": 25,
-		"discount": 20
+		"discount": 20,
+		"CategoryIdCategory": 1
 	}
 ]
