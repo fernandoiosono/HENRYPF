@@ -30,7 +30,8 @@ const Nav = () => {
     const handleSearch = () => {
         if (nombre=='') return alert('¡Por favor ingrese un nombre o un ID!');
         dispatch(setPagina(1));
-        dispatch(buscarPruductos(nombre))
+        dispatch(buscarPruductos(nombre));
+        navigate('/catalogo')
     };
 
     const handleKeyPress = (event) => {
