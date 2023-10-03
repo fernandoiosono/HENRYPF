@@ -27,7 +27,7 @@ module.exports = (database) => {
             cvv: {
                 type: dtype.STRING,
                 allowNull: false,
-                validate: { len: [3, 3] }
+                validate: { len: [4, 4] }
             }
 		},
 		{
