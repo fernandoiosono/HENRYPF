@@ -1,51 +1,45 @@
-const { DataTypes } = require('sequelize');
-module.exports = (database) => { 
-   // defino el modelo 
-   database.define('User', { 
-  
-    idUser: { 
-        type: DataTypes.INTEGER, 
-        primaryKey: true, 
-        autoIncrement: true, 
-        allowNull: false 
-      },  
+const { DataTypes: dtype } = require("sequelize");
 
-    name: { 
-        type: DataTypes.STRING, 
-        allowNull: false, 
-      },
-    
-    lastname: { 
-        type: DataTypes.STRING, 
-        allowNull: false, 
-      }, 
-  
-    email: { 
-        type: DataTypes.STRING, 
-        allowNull: false 
-      }, 
-
-    password: { 
-        type: DataTypes.STRING, 
-        allowNull: false, 
-      },
-
-    userType:{ 
-        type: DataTypes.ENUM("cliente", "admin"), 
-        allowNull: false 
-      }, 
-
-    state:{ 
-        type: DataTypes.ENUM("Active"), 
-        allowNull: false 
-      },
-
-    image: { 
-        type:DataTypes.STRING, 
-        allowNull: false 
-      },
- }, {
-  timestamps: false
- }
- ); 
- };
+module.exports = (database) => {
+	database.define(
+		"User",
+		{
+			idUser: {
+				type: dtype.INTEGER,
+				primaryKey: true,
+				autoIncrement: true
+			},
+			name: {
+				type: dtype.STRING,
+				allowNull: false,
+				validate: { len: [1, 100] }
+			},
+			lastname: {
+				type: dtype.STRING,
+				allowNull: false,
+				validate: { len: [1, 100] }
+			},
+			email: {
+				type: dtype.TEXT,
+				allowNull: false,
+				validate: { len: [1, 320] }
+			},
+			password: {
+				type: dtype.STRING,
+				allowNull: false,
+				validate: { len: [1, 20] }
+			},
+			imageURL: {
+				type: dtype.TEXT,
+				allowNull: false
+			},
+			active: {
+				type: dtype.BOOLEAN,
+				default: true
+			}
+		},
+		{
+			timestamps: false,
+		}
+	);
+};

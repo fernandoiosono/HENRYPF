@@ -1,27 +1,22 @@
-const { DataTypes } = require('sequelize');
-module.exports = (database) => { 
-   // defino el modelo 
-   database.define('Category', { 
-  
-    idCategory: { 
-        type: DataTypes.INTEGER, 
-        primaryKey: true, 
-        autoIncrement: true, 
-        allowNull: true 
-      },  
-  
-    name: { 
-        type: DataTypes.STRING, 
-        allowNull: false, 
-      },
+const { DataTypes: dtype } = require("sequelize");
 
-    description: { 
-        type:DataTypes.TEXT, 
-        allowNull:false 
-      },
-
- }, {
-  timestamps: false
- }
- ); 
- };
+module.exports = (database) => {
+	database.define(
+		"Category",
+		{
+			idCategory: {
+				type: dtype.INTEGER,
+				primaryKey: true,
+				autoIncrement: true
+			},
+			name: {
+				type: dtype.STRING,
+				allowNull: false,
+				validate: {	len: [1, 50] }
+			}
+		},
+		{
+			timestamps: false
+		}
+	);
+};
