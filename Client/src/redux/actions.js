@@ -1,9 +1,12 @@
+
 import axios from "axios";
 import {
   TRAER_PRODUCTOS,
   SET_PAGINA,
   BUSCAR_PRUDUCTOS,
   OBTENER_CATEGORIAS,
+  AGREGAR_CARRITO,
+  QUITAR_CARRITO,
   FILTER_CATEGORIA,
   SET_ORDER,
 } from "./actions_types";
@@ -11,6 +14,7 @@ import { useSelector } from "react-redux";
 import productos from "../../../productos.json";
 
 const URL = "http://localhost:3001/";
+
 
 export const traerProductos = () => {
   try {
@@ -25,6 +29,7 @@ export const traerProductos = () => {
   } catch (error) {
     console.log(error);
   }
+
 };
 
 export const setPagina = (pagina) => {
@@ -41,31 +46,16 @@ export const setPagina = (pagina) => {
 };
 
 export const buscarPruductos = (nombre) => {
-  try {
-    return (dispatch) => {
-      const allProductos = useSelector((state) => state.allProductos);
-      const num = Number(nombre);
-      if (!isNaN(num)) {
-        const resultado = allProductos.filter(
-          (producto) => producto.idProducto === num
-        );
-        return dispatch({
-          type: SET_PAGINA,
-          payload: resultado,
-        });
-      } else {
-        const resultado = allProductos.filter((producto) =>
-          producto.nombre.toLowerCase().includes(nombre.toLowerCase())
-        );
-        return dispatch({
-          type: SET_PAGINA,
-          payload: resultado,
-        });
-      }
-    };
-  } catch (error) {
-    console.log(error);
-  }
+    try {
+        return (dispatch) => {
+            return dispatch({
+                type: BUSCAR_PRUDUCTOS,
+                payload: nombre
+            })
+        }
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 export const obtenerCategorias = () => {
@@ -94,4 +84,40 @@ export const setOrder = (orden) => {
     type: SET_ORDER,
     payload: orden,
   };
+    try {
+        return (dispatch) => {
+            return dispatch({
+                type: BUSCAR_PRUDUCTOS,
+                payload: nombre
+            })
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const agregarCarrito = (producto) => {
+    try {
+        return (dispatch) => {
+            return dispatch({
+                type: AGREGAR_CARRITO,
+                payload: producto
+            })
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const quitarCarrito = (id) => {
+    try {
+        return (dispatch) => {
+            return dispatch({
+                type: QUITAR_CARRITO,
+                payload: id
+            })
+        }
+    } catch (error) {
+        console.log(error);
+    }
 };
