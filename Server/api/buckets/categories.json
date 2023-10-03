@@ -1,10 +1,4 @@
 [
-    {
-        "idCategory": 1,
-        "name": "Suplemento"
-    },
-    {
-        "idCategory": 2,
-        "name": "Equipo"
-    }
+    { "name": "Suplemento" },
+    { "name": "Equipo" }
 ]
