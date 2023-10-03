@@ -490,7 +490,8 @@
             "lastName": "Cardozo",
             "email": "cardozolu@gmail.com",
             "password": "carlu1234",
-            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg",
+			"isAdmin": true
         },
         {
             "idUser": 6,
@@ -541,16 +542,6 @@
         {
             "idCategory": 2,
             "name": "Equipo"
-        }
-    ],
-    "roles": [
-        {
-            "idRole": 1,
-            "name": "Cliente"
-        },
-        {
-            "idRole": 2,
-            "name": "Administrador"
         }
     ]
 }

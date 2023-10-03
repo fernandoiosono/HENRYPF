@@ -13,7 +13,7 @@ module.exports = (database) => {
 				type: dtype.STRING,
 				allowNull: false,
 				validate: { len: [1, 100] }
-			},
+			}, 
 			lastname: {
 				type: dtype.STRING,
 				allowNull: false,
@@ -36,6 +36,10 @@ module.exports = (database) => {
 			active: {
 				type: dtype.BOOLEAN,
 				defaultValue: true
+			},
+			isAdmin: {
+				type: dtype.BOOLEAN,
+				defaultValue: false
 			}
 		},
 		{

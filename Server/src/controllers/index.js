@@ -21,9 +21,6 @@ const getProductsByName = require('./Products/getProductsByName.js');
 const patchProduct = require('./Products/patchProduct.js');
 const postProduct = require('./Products/postProduct.js');
 
-// Roles Folder
-const getRoles = require('./Roles/getRoles.js');
-
 // Users Folder
 const getActiveUsers = require('./Users/getActiveUsers.js');
 const getUserAccess = require('./Users/getUserAccess.js');
@@ -51,8 +48,6 @@ module.exports = {
     getProductsByName,
     patchProduct,
     postProduct,
-
-    getRoles,
 
     getActiveUsers,
     getUserAccess,
