@@ -35,7 +35,7 @@ module.exports = (database) => {
 			},
 			active: {
 				type: dtype.BOOLEAN,
-				default: true
+				defaultValue: true
 			}
 		},
 		{

@@ -27,15 +27,15 @@ module.exports = (database) => {
 			},
 			stock: {
 				type: dtype.INTEGER,
-				default: 0
+				defaultValue: 0
 			},
 			discount: {
 				type: dtype.INTEGER,
-				default: 0
+				defaultValue: 0
 			},
 			active: {
 				type: dtype.BOOLEAN,
-				default: true
+				defaultValue: true
             }
 		},
 		{
