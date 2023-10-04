@@ -17,6 +17,7 @@ const initialState = {
   carrito: [],
   inicioSesion: false,
   pagina: 1,
+  currentPage: 1,
   itemsPerPage: 9,
   categorias: [
     //Borrar estos datos cuando se tenga conexion con el Backend
@@ -48,11 +49,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 productosMostrar: payload,
             };
 
+
         case SET_PAGINA:
             return {
                 ...state,
                 currentPage: payload,
             };
+
 
     case BUSCAR_PRUDUCTOS:
       const num = Number(payload);
@@ -83,15 +86,18 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 categorias: payload,
             };
 
-        case FILTER_CATEGORIA:
-            let filteredProductos = [...state.allProductos];
-            let filter;
-            filter = filteredProductos.filter((producto) => producto.categoria.includes(payload));
-            return {
-                ...state,
-                productosMostrar: filter,
-                currentPage: 1,
-            };
+
+        
+    case FILTER_CATEGORIA:
+      let filteredProductos = [...state.allProductos];
+      let filter;
+      filter = filteredProductos.filter((producto) => producto.categoria.includes(payload));
+      return {
+        ...state,
+        productosMostrar: filter,
+        currentPage: 1,
+      };
+
 
         case SET_ORDER:
             let orderedProductos = [...state.productosMostrar];

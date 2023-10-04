@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {
-
   TRAER_PRODUCTOS,
   SET_PAGINA,
   BUSCAR_PRUDUCTOS,
@@ -11,8 +10,8 @@ import {
   SET_ORDER,
   SET_INICIO_SESION
 } from "./actions_types";
+import { useSelector } from 'react-redux';
 import productos from "../../../productos.json";
-
 const URL = "http://localhost:3001/";
 
 export const traerProductos = () => {
