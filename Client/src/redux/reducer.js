@@ -7,7 +7,7 @@ import {
   AGREGAR_CARRITO,
   QUITAR_CARRITO,
   SET_ORDER,
-  SET_INICIO_SESION
+  SET_INICIO_SESION,
 } from "./actions_types";
 
 const initialState = {
@@ -16,7 +16,6 @@ const initialState = {
   productosEnc: [],
   carrito: [],
   inicioSesion: false,
-  pagina: 1,
   currentPage: 1,
   itemsPerPage: 9,
   categorias: [
@@ -41,21 +40,19 @@ const initialState = {
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
-    switch (type) {
-        case TRAER_PRODUCTOS:
-            return {
-                ...state,
-                allProductos: payload,
-                productosMostrar: payload,
-            };
+  switch (type) {
+    case TRAER_PRODUCTOS:
+      return {
+        ...state,
+        allProductos: payload,
+        productosMostrar: payload,
+      };
 
-
-        case SET_PAGINA:
-            return {
-                ...state,
-                currentPage: payload,
-            };
-
+    case SET_PAGINA:
+      return {
+        ...state,
+        currentPage: payload,
+      };
 
     case BUSCAR_PRUDUCTOS:
       const num = Number(payload);
@@ -63,7 +60,8 @@ const rootReducer = (state = initialState, { type, payload }) => {
         const productoEncontrado = state.allProductos.find(
           (prod) => prod.idProducto === num
         );
-        if (!productoEncontrado) alert(`No existe el producto con el ID: ${num}`);
+        if (!productoEncontrado)
+          alert(`No existe el producto con el ID: ${num}`);
         return {
           ...state,
           productosEnc: [productoEncontrado],
@@ -80,57 +78,52 @@ const rootReducer = (state = initialState, { type, payload }) => {
         };
       }
 
-        case OBTENER_CATEGORIAS:
-            return {
-                ...state,
-                categorias: payload,
-            };
+    case OBTENER_CATEGORIAS:
+      return {
+        ...state,
+        categorias: payload,
+      };
 
-
-        
     case FILTER_CATEGORIA:
       let filteredProductos = [...state.allProductos];
       let filter;
-      filter = filteredProductos.filter((producto) => producto.categoria.includes(payload));
+      filter = filteredProductos.filter((producto) =>
+        producto.categoria.includes(payload)
+      );
       return {
         ...state,
         productosMostrar: filter,
-        currentPage: 1,
       };
 
+    case SET_ORDER:
+      let orderedProductos = [...state.productosMostrar];
+      let ordered;
+      if (payload === "Ascendente") {
+        ordered = orderedProductos.sort((a, b) => a.precio - b.precio);
+      } else if (payload === "Descendente") {
+        ordered = orderedProductos.sort((a, b) => b.precio - a.precio);
+      } else {
+        ordered = orderedProductos;
+      }
+      return {
+        ...state,
+        productosMostrar: ordered,
+      };
 
-        case SET_ORDER:
-            let orderedProductos = [...state.productosMostrar];
-            let ordered;
-            if (payload === 'Ascendente') {
-                ordered = orderedProductos.sort((a, b) => a.precio - b.precio);
-            } else if (payload === 'Descendente') {
-                ordered = orderedProductos.sort((a, b) => b.precio - a.precio);
-            } else {
-                ordered = orderedProductos;
-            }
-            return {
-                ...state,
-                productosMostrar: ordered,
-            };
+    case AGREGAR_CARRITO:
+      return {
+        ...state,
+        carrito: [...state.carrito, payload],
+      };
 
-        case AGREGAR_CARRITO:
-            return {
-                ...state,
-                carrito: [...state.carrito, payload],
-            };
-
-        case QUITAR_CARRITO:
-            const carritoFiltrado = state.carrito.filter((productos) => productos.idProducto !== payload);
-            return {
-                ...state,
-                carrito: carritoFiltrado,
-            };
-
-        default:
-            return { ...state };
-    }
-
+    case QUITAR_CARRITO:
+      const carritoFiltrado = state.carrito.filter(
+        (productos) => productos.idProducto !== payload
+      );
+      return {
+        ...state,
+        carrito: carritoFiltrado,
+      };
 
     case SET_INICIO_SESION:
       return {
@@ -141,7 +134,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
     default:
       return { ...state };
   }
-
 };
 
 export default rootReducer;
