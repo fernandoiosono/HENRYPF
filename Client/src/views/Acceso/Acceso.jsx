@@ -1,6 +1,5 @@
 import React from "react";
 import LoginButton from "../../components/IngresarAcceso/login";
-import LogoutButton from "../../components/IngresarAcceso/logout";
 import Perfil from "../../components/IngresarAcceso/perfil";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -21,8 +20,7 @@ const Acceso = ()=>{
 
     return (
         <>
-        <h1>Accede al equipo MoveOn</h1>
-        {isAuthenticated ? <> < Perfil /> < LogoutButton /> </>: < LoginButton />}
+        {isAuthenticated ? <> < Perfil /> </>: < LoginButton />}
         </>
     );
 };
