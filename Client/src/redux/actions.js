@@ -1,18 +1,19 @@
 import axios from 'axios';
 import {
-    TRAER_PRODUCTOS,
-    SET_PAGINA,
-    BUSCAR_PRUDUCTOS,
-    OBTENER_CATEGORIAS,
-    AGREGAR_CARRITO,
-    QUITAR_CARRITO,
-    FILTER_CATEGORIA,
-    SET_ORDER,
-} from './actions_types';
-import { useSelector } from 'react-redux';
-import productos from '../../../productos.json';
 
-const URL = 'http://localhost:3001/';
+  TRAER_PRODUCTOS,
+  SET_PAGINA,
+  BUSCAR_PRUDUCTOS,
+  OBTENER_CATEGORIAS,
+  AGREGAR_CARRITO,
+  QUITAR_CARRITO,
+  FILTER_CATEGORIA,
+  SET_ORDER,
+  SET_INICIO_SESION
+} from "./actions_types";
+import productos from "../../../productos.json";
+
+const URL = "http://localhost:3001/";
 
 export const traerProductos = () => {
     try {
@@ -113,4 +114,17 @@ export const quitarCarrito = (id) => {
     } catch (error) {
         console.log(error);
     }
+};
+
+export const setInicioSesion = (booleano) => {
+  try {
+      return (dispatch) => {
+          return dispatch({
+              type: SET_INICIO_SESION,
+              payload: booleano
+          })
+      }
+  } catch (error) {
+      console.log(error);
+  }
 };

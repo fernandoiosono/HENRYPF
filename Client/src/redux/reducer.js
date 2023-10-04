@@ -1,41 +1,42 @@
 import {
-    TRAER_PRODUCTOS,
-    SET_PAGINA,
-    BUSCAR_PRUDUCTOS,
-    OBTENER_CATEGORIAS,
-    FILTER_CATEGORIA,
-    AGREGAR_CARRITO,
-    QUITAR_CARRITO,
-    SET_ORDER,
-} from './actions_types';
+  TRAER_PRODUCTOS,
+  SET_PAGINA,
+  BUSCAR_PRUDUCTOS,
+  OBTENER_CATEGORIAS,
+  FILTER_CATEGORIA,
+  AGREGAR_CARRITO,
+  QUITAR_CARRITO,
+  SET_ORDER,
+  SET_INICIO_SESION
+} from "./actions_types";
 
 const initialState = {
-    allProductos: [],
-    productosMostrar: [],
-    productosEnc: [],
-    carrito: [],
-    inicioSesion: true,
-    currentPage: 1,
-    itemsPerPage: 9,
-    categorias: [
-        //Borrar estos datos cuando se tenga conexion con el Backend
-        {
-            id: 1,
-            name: 'Nutricion deportiva',
-        },
-        {
-            id: 2,
-            name: 'Proteina',
-        },
-        {
-            id: 3,
-            name: 'Aminoacidos',
-        },
-        {
-            id: 4,
-            name: 'Equipamiento',
-        },
-    ],
+  allProductos: [],
+  productosMostrar: [],
+  productosEnc: [],
+  carrito: [],
+  inicioSesion: false,
+  pagina: 1,
+  itemsPerPage: 9,
+  categorias: [
+    //Borrar estos datos cuando se tenga conexion con el Backend
+    {
+      id: 1,
+      name: "Nutricion deportiva",
+    },
+    {
+      id: 2,
+      name: "Proteina",
+    },
+    {
+      id: 3,
+      name: "Aminoacidos",
+    },
+    {
+      id: 4,
+      name: "Equipamiento",
+    },
+  ],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -59,8 +60,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         const productoEncontrado = state.allProductos.find(
           (prod) => prod.idProducto === num
         );
-        if (!productoEncontrado)
-          alert(`No existe el producto con el ID: ${num}`);
+        if (!productoEncontrado) alert(`No existe el producto con el ID: ${num}`);
         return {
           ...state,
           productosEnc: [productoEncontrado],
@@ -124,6 +124,17 @@ const rootReducer = (state = initialState, { type, payload }) => {
         default:
             return { ...state };
     }
+
+
+    case SET_INICIO_SESION:
+      return {
+        ...state,
+        inicioSesion: payload,
+      };
+
+    default:
+      return { ...state };
+  }
 
 };
 
