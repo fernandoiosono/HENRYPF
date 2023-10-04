@@ -7,6 +7,7 @@ import {
   AGREGAR_CARRITO,
   QUITAR_CARRITO,
   SET_ORDER,
+  SET_INICIO_SESION
 } from "./actions_types";
 
 const initialState = {
@@ -58,8 +59,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         const productoEncontrado = state.allProductos.find(
           (prod) => prod.idProducto === num
         );
-        if (!productoEncontrado)
-          alert(`No existe el producto con el ID: ${num}`);
+        if (!productoEncontrado) alert(`No existe el producto con el ID: ${num}`);
         return {
           ...state,
           productosEnc: [productoEncontrado],
@@ -121,6 +121,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         carrito: carritoFiltrado,
+      };
+
+    case SET_INICIO_SESION:
+      return {
+        ...state,
+        inicioSesion: payload,
       };
 
     default:
