@@ -1,41 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import './pagination.styles.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { setCurrenPage } from '../../redux/actions';
+import React from 'react';
+import  './pagination.styles.css';
 
-const generatePages = (productos, itemsPerPage) => {
-    const bound = productos.length;
-    const pageNums = [];
-    for (let i = 1; i <= Math.ceil(bound / itemsPerPage); i++) {
-        pageNums.push(i);
-    }
-    return pageNums;
-};
 
-function Pagination() {
-    const itemsPerPage = useSelector((state) => state.itemsPerPage);
-    const productos = useSelector((state) => state.productosMostrar);
-    const [pageNums, setPageNums] = useState([]);
-    const dispatch = useDispatch();
+function Pagination({cardForPage, productos, paged}) {
+    const pageNums = []
 
-    useEffect(() => {
-        setPageNums(generatePages(productos, itemsPerPage));
-    }, [productos, itemsPerPage]);
-
-    const handlePage = (currentPage) => {
-        dispatch(setCurrenPage(currentPage));
-    };
+    for (let i = 1; i <= Math.ceil(productos/cardForPage); i++) {
+        pageNums.push(i)
+    }; 
 
     return (
-        <div className="div_pagin">
-            {pageNums &&
-                pageNums.map((p) => (
-                    <a key={p} onClick={() => handlePage(p)}>
-                        {p}
-                    </a>
-                ))}
-        </div>
-    );
+        <div className='div_pagin'>
+             { pageNums && pageNums.map(p => (
+                    <a key={p} onClick={() => paged(p)}>{p}</a>
+                  ))}  
+        </div>      
+    )
 }
 
 export default Pagination;
