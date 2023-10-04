@@ -1,4 +1,4 @@
-const { Product } = require('../database/database.js');
+const { Product } = require('../../database/database.js');
 
 const newProductDataIsValid = async (data) => {
     switch (true) { // Use Switch to Optimize Validations
