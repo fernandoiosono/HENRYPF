@@ -10,7 +10,6 @@ import {
   SET_ORDER,
   SET_INICIO_SESION,
 } from "./actions_types";
-import { useSelector } from "react-redux";
 import productos from "../../../productos.json";
 const URL = "http://localhost:3001/";
 
