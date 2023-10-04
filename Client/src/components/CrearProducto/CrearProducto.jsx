@@ -12,7 +12,7 @@ const CrearProducto = () => {
     stock: 0,
     discount: 0,
     active: true,
-    Category: 0,
+    CategoryIdCategory: 0,
   });
   const [errors, setErrors] = useState({
     name: "",
@@ -22,7 +22,7 @@ const CrearProducto = () => {
     stock: "",
     discount: "",
     active: true,
-    Category: 0,
+    CategoryIdCategory: 0,
   });
 
   const handleCategoriasformChange = (event) => {
@@ -30,7 +30,7 @@ const CrearProducto = () => {
     console.log(typeof value);
     setFormData({
       ...formData,
-      Category: value,
+      CategoryIdCategory: value,
     });
   };
 
@@ -41,8 +41,15 @@ const CrearProducto = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const validationErrors = {};
-    const { name, imageURL, description, price, stock, discount, Category } =
-      formData;
+    const {
+      name,
+      imageURL,
+      description,
+      price,
+      stock,
+      discount,
+      CategoryIdCategory,
+    } = formData;
 
     if (name.length < 5 || name.length >= 30) {
       validationErrors["name"] =
@@ -81,15 +88,15 @@ const CrearProducto = () => {
       validationErrors["discount"] = "El discount debe ser minimo 0";
     }
 
-    if (Category.length === 0) {
-      validationErrors["Category"] = "Debe seleccionar una categoria";
+    if (CategoryIdCategory.length === 0) {
+      validationErrors["CategoryIdCategory"] = "Debe seleccionar una categoria";
     } else {
-      delete validationErrors["Category"];
+      delete validationErrors["CategoryIdCategory"];
     }
 
     console.log(formData);
     formData["price"] = +formData["price"];
-    formData["Category"] = +formData["Category"];
+    formData["CategoryIdCategory"] = +formData["CategoryIdCategory"];
     formData["discount"] = +formData["discount"];
     formData["stock"] = +formData["stock"];
     console.log(formData);
@@ -112,7 +119,7 @@ const CrearProducto = () => {
           stock: "",
           discount: "",
           active: true,
-          Category: 0,
+          CategoryIdCategory: 0,
         });
       } catch (error) {
         alert("Por favor valida la informacion");
@@ -165,7 +172,7 @@ const CrearProducto = () => {
           <label className="label">Categorias:</label>
           <select
             name="Category"
-            value={formData.Category}
+            value={formData.CategoryIdCategory}
             onChange={handleCategoriasformChange}
           >
             {categorias.map((opcion, index) => (
