@@ -20,11 +20,13 @@ import {
 
 import './App.css';
 
+
 const App = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
 
   useEffect(() => {
+
     dispatch(traerProductos()); //! para cargar allProductos
   }, []);
   
@@ -35,6 +37,9 @@ const App = () => {
   return (
     <SectionApp>
       <main className={handlerClassName()}>
+    dispatch(traerProductos());
+  }, []);
+
         {pathname !== "/" && <Nav />}
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -47,6 +52,7 @@ const App = () => {
           <Route path="/pago" element={<Pago />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
+          <Route path="/detalleAdmin/:id" element={<Detail />} />
           <Route path="/edicion" element={<EdicionProducto />} />
         </Routes>
       </main>
