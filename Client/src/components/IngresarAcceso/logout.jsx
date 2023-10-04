@@ -5,7 +5,7 @@ const LogoutButton = () => {
   const { logout } = useAuth0();
 
   return (
-    <button className="logoutBtn" onClick={() => logout({ logoutParams: { returnTo: "http://localhost:5173/catalogo" } })}>
+    <button onClick={() => logout({ logoutParams: { returnTo: "http://localhost:5173/catalogo" } })}>
       Salir
     </button>
   );

@@ -18,6 +18,8 @@ import {
   EdicionProducto,
 } from "../views";
 
+import './App.css';
+
 const App = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
@@ -25,10 +27,14 @@ const App = () => {
   useEffect(() => {
     dispatch(traerProductos()); //! para cargar allProductos
   }, []);
+  
+  const handlerClassName = () =>{
+    if(pathname === "/acceso") return "background_acceso";
+  }
 
   return (
     <SectionApp>
-      <main>
+      <main className={handlerClassName()}>
         {pathname !== "/" && <Nav />}
         <Routes>
           <Route path="/" element={<Landing />} />

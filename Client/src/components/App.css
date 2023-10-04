@@ -1,0 +1,7 @@
+.background_acceso{
+    background-image: url(../assets/img/fondoLetras/fondoLetras.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+}

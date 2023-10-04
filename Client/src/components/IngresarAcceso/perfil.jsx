@@ -13,28 +13,18 @@ const Perfil = () => {
 
   return (
     isAuthenticated && (
-      <div className="fondo">
-        <div className="perfil">
-          <div>
-            <img src={user.picture} alt={user.name} className="imagen" />
-          </div>
-          <div>
-            <h1 className="titulo">Bienvenido {user.given_name}</h1>
-          </div>
-          <div>
-            <h3>Nombre</h3>
-            <p>{user.name}</p>
-          </div>
-          <div>
-            <h3>Correo</h3>
-            <p>{user.email}</p>
-          </div>
-          <div>
-            <h3>Usuario</h3>
-            <p>{user.nickname}</p>
-          </div>
+      <div className="perfil">
+        <img src={user.picture} alt={user.name} className="imagen" />
+        <div className="div_txt">
+          <h1 className="titulo">Bienvenido {user.given_name}</h1>
+          <h3 className="txt">Nombre</h3>
+          <p className="txt_info">{user.name}</p>
+          <h3 className="txt">Correo</h3>
+          <p className="txt_info">{user.email}</p>
+          <h3 className="txt">Usuario</h3>
+          <p className="txt_info">{user.nickname}</p>
           <div className="btn">
-          < LogoutButton/>
+            <LogoutButton />
           </div>
         </div>
       </div>

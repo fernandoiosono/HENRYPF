@@ -1,35 +1,42 @@
-.fondo {
-  background-image: url(../../assets/img/fondoLetras/fondoLetras.jpg);
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-  margin: 0;
-}
-
-
 .perfil {
   display: flex;
-  background-color: #f5c52e;
-  border: 4px inset #f5c52e;
-  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.4);
   flex-direction: row;
   -moz-osx-font-smoothing: grayscale;
   justify-content: center;
-  margin: 300px;
-  margin-top: 50px;
-  width: 900px;
-  height: 500px;
+  width: 60%;
+  height: 27em;
+  margin: auto;
+  margin-top: 5em;
 }
 
+.div_txt {
+  width: 100%;
+}
+
+.txt{
+  margin-left: 6em;
+}
+
+.txt_info{
+  color:white;
+  margin-left: 6em;
+  margin-top: -5px;
+}
+
+.titulo {
+  margin-left: 3em;
+  color: black;
+  font-size: 2em;
+  text-align: left;
+  display: block;
+}
 
 .imagen {
-  margin: 17px;
-  margin-left: 90px;
-  margin-right: 20px;
-  margin-top: 30px;
-  border: 8px solid #af8b13;
+  margin: 3em 0 0 2em;
+  border: 8px solid black;
   border-radius: 200px;
-  height: 350px;
+  height: 300px;
   transform: translate(0);
   transition: transform 0.25s ease-out;
   cursor: pointer;
@@ -41,19 +48,8 @@
   transform: scale(1.05);
 }
 
-.titulo{
-    color: black;
-    font-size: 2em;
-    text-align: left;
-    margin-left: 40px;
-    font-family: "Montserrat";
-    display: block;
+.btn{
+  margin-left: 10em;
 }
 
-.h3{
-    position: grid;
-    text-align: left;
-    display: block; 
-    margin-top: 20px;
-    text-align:right
-}
+
