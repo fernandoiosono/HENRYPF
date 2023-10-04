@@ -1,7 +1,5 @@
 import styled from "styled-components";
-
 import Nav from "./nav/Nav";
-
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -20,17 +18,28 @@ import {
   EdicionProducto,
 } from "../views";
 
+import './App.css';
+
+
 const App = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(traerProductos());
+
+    dispatch(traerProductos()); //! para cargar allProductos
   }, []);
+  
+  const handlerClassName = () =>{
+    if(pathname === "/acceso") return "background_acceso";
+  }
 
   return (
     <SectionApp>
-      <main>
+      <main className={handlerClassName()}>
+    dispatch(traerProductos());
+  }, []);
+
         {pathname !== "/" && <Nav />}
         <Routes>
           <Route path="/" element={<Landing />} />

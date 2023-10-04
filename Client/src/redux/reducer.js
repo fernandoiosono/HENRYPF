@@ -4,17 +4,20 @@ import {
   BUSCAR_PRUDUCTOS,
   OBTENER_CATEGORIAS,
   FILTER_CATEGORIA,
+  AGREGAR_CARRITO,
+  QUITAR_CARRITO,
   SET_ORDER,
+  SET_INICIO_SESION,
 } from "./actions_types";
-// import * as viewCaption from "../views/viewCaptions.js";
 
 const initialState = {
   allProductos: [],
   productosMostrar: [],
   productosEnc: [],
   carrito: [],
-  inicioSesion: true,
-  pagina: 1,
+  inicioSesion: false,
+  currentPage: 1,
+  itemsPerPage: 9,
   categorias: [
     //Borrar estos datos cuando se tenga conexion con el Backend
     {
@@ -33,10 +36,6 @@ const initialState = {
       id: 4,
       name: "Equipamiento",
     },
-    {
-      id: 5,
-      name: "Ropa deportiva",
-    },
   ],
 };
 
@@ -52,14 +51,32 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case SET_PAGINA:
       return {
         ...state,
-        pagina: payload,
+        currentPage: payload,
       };
 
     case BUSCAR_PRUDUCTOS:
-      return {
-        ...state,
-        productosEnc: payload,
-      };
+      const num = Number(payload);
+      if (!isNaN(num)) {
+        const productoEncontrado = state.allProductos.find(
+          (prod) => prod.idProducto === num
+        );
+        if (!productoEncontrado)
+          alert(`No existe el producto con el ID: ${num}`);
+        return {
+          ...state,
+          productosEnc: [productoEncontrado],
+          productosMostrar: [productoEncontrado],
+        };
+      } else {
+        const resultado = state.allProductos.filter((producto) =>
+          producto.nombre.toLowerCase().includes(payload.toLowerCase())
+        );
+        return {
+          ...state,
+          productosEnc: resultado,
+          productosMostrar: resultado,
+        };
+      }
 
     case OBTENER_CATEGORIAS:
       return {
@@ -76,6 +93,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         productosMostrar: filter,
+        currentPage: 1,
       };
 
     case SET_ORDER:
@@ -91,6 +109,27 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         productosMostrar: ordered,
+      };
+
+    case AGREGAR_CARRITO:
+      return {
+        ...state,
+        carrito: [...state.carrito, payload],
+      };
+
+    case QUITAR_CARRITO:
+      const carritoFiltrado = state.carrito.filter(
+        (productos) => productos.idProducto !== payload
+      );
+      return {
+        ...state,
+        carrito: carritoFiltrado,
+      };
+
+    case SET_INICIO_SESION:
+      return {
+        ...state,
+        inicioSesion: payload,
       };
 
     default:

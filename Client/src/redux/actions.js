@@ -4,12 +4,13 @@ import {
   SET_PAGINA,
   BUSCAR_PRUDUCTOS,
   OBTENER_CATEGORIAS,
+  AGREGAR_CARRITO,
+  QUITAR_CARRITO,
   FILTER_CATEGORIA,
   SET_ORDER,
+  SET_INICIO_SESION,
 } from "./actions_types";
-import { useSelector } from "react-redux";
 import productos from "../../../productos.json";
-
 const URL = "http://localhost:3001/";
 
 export const traerProductos = () => {
@@ -17,6 +18,7 @@ export const traerProductos = () => {
     return async (dispatch) => {
       // const { data } = await axios.get(`${URL}productos`);  //! VERIFICAR RUTA CON EL BACK
       const data = productos;
+      console.log(data);
       return dispatch({
         type: TRAER_PRODUCTOS,
         payload: data,
@@ -27,41 +29,22 @@ export const traerProductos = () => {
   }
 };
 
-export const setPagina = (pagina) => {
-  try {
-    return (dispatch) => {
-      return dispatch({
-        type: SET_PAGINA,
-        payload: pagina,
-      });
-    };
-  } catch (error) {
-    console.log(error);
-  }
+export const setCurrenPage = (pagina) => {
+  return (dispatch) => {
+    return dispatch({
+      type: SET_PAGINA,
+      payload: pagina,
+    });
+  };
 };
 
 export const buscarPruductos = (nombre) => {
   try {
     return (dispatch) => {
-      const allProductos = useSelector((state) => state.allProductos);
-      const num = Number(nombre);
-      if (!isNaN(num)) {
-        const resultado = allProductos.filter(
-          (producto) => producto.idProducto === num
-        );
-        return dispatch({
-          type: SET_PAGINA,
-          payload: resultado,
-        });
-      } else {
-        const resultado = allProductos.filter((producto) =>
-          producto.nombre.toLowerCase().includes(nombre.toLowerCase())
-        );
-        return dispatch({
-          type: SET_PAGINA,
-          payload: resultado,
-        });
-      }
+      return dispatch({
+        type: BUSCAR_PRUDUCTOS,
+        payload: nombre,
+      });
     };
   } catch (error) {
     console.log(error);
@@ -94,4 +77,43 @@ export const setOrder = (orden) => {
     type: SET_ORDER,
     payload: orden,
   };
+};
+
+export const agregarCarrito = (producto) => {
+  try {
+    return (dispatch) => {
+      return dispatch({
+        type: AGREGAR_CARRITO,
+        payload: producto,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const quitarCarrito = (id) => {
+  try {
+    return (dispatch) => {
+      return dispatch({
+        type: QUITAR_CARRITO,
+        payload: id,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const setInicioSesion = (booleano) => {
+  try {
+    return (dispatch) => {
+      return dispatch({
+        type: SET_INICIO_SESION,
+        payload: booleano,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };
