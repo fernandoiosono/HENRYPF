@@ -36,7 +36,7 @@ const initialState = {
             name: 'Equipamiento',
         },
     ],
-};
+
 
 const rootReducer = (state = initialState, { type, payload }) => {
     switch (type) {
@@ -53,24 +53,32 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 currentPage: payload,
             };
 
-        case BUSCAR_PRUDUCTOS:
-            const num = Number(payload);
-            if (!isNaN(num)) {
-                const productoEncontrado = state.allProductos.find((prod) => prod.idProducto === num);
-                if (!productoEncontrado) alert(`No existe el producto con el ID: ${num}`);
-                return {
-                    ...state,
-                    productosEnc: [productoEncontrado],
-                };
-            } else {
-                const resultado = state.allProductos.filter((producto) =>
-                    producto.nombre.toLowerCase().includes(payload.toLowerCase())
-                );
-                return {
-                    ...state,
-                    productosEnc: resultado,
-                };
-            }
+
+        
+
+    case BUSCAR_PRUDUCTOS:
+      const num = Number(payload);
+      if (!isNaN(num)) {
+        const productoEncontrado = state.allProductos.find(
+          (prod) => prod.idProducto === num
+        );
+        if (!productoEncontrado)
+          alert(`No existe el producto con el ID: ${num}`);
+        return {
+          ...state,
+          productosEnc: [productoEncontrado],
+          productosMostrar: [productoEncontrado],
+        };
+      } else {
+        const resultado = state.allProductos.filter((producto) =>
+          producto.nombre.toLowerCase().includes(payload.toLowerCase())
+        );
+        return {
+          ...state,
+          productosEnc: resultado,
+          productosMostrar: resultado,
+        };
+      }
 
         case OBTENER_CATEGORIAS:
             return {
@@ -87,6 +95,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 productosMostrar: filter,
                 currentPage: 1,
             };
+
 
         case SET_ORDER:
             let orderedProductos = [...state.productosMostrar];
@@ -119,6 +128,8 @@ const rootReducer = (state = initialState, { type, payload }) => {
         default:
             return { ...state };
     }
+
+    
 };
 
 export default rootReducer;
