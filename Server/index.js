@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const server = require('./src/server.js');
 const { database } = require('./src/database/database.js');
 
+const { loadCategories } = require('./src/database/loaders');
+
 const { handlerUsers, 
 	handlerProducts,
 	handlerCategories,
@@ -24,7 +26,13 @@ server.use('/moveon/products', handlerProducts);
 server.use('/moveon/categories', handlerCategories);
 
 database.sync({ force: dbReset })
-	.then(() => {
+	.then(async () => {
+		try {
+			await loadCategories();
+		} catch (error) {
+			console.log(`Error Loading Data in the Database > ${error}`);
+		}
+
 		server.listen(LOCALHOST_PORT, () => {
 			console.log(`Server raised in port: ${LOCALHOST_PORT}`);
 		});
