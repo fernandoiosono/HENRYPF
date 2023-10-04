@@ -4,7 +4,6 @@ import "./Cards.css";
 
 function Cards() {
   const traerProductos = useSelector((state) => state.productosMostrar);
-  console.log(traerProductos);
   const currentPage = useSelector((state) => state.currentPage);
   console.log(currentPage);
   const itemsPerPage = useSelector((state) => state.itemsPerPage);

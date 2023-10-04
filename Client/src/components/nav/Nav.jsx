@@ -13,6 +13,7 @@ import { setInicioSesion } from "../../redux/actions";
 const Nav = () => {
   const inicioSesion = useSelector((state) => state.inicioSesion);
   const carrito = useSelector((state) => state.carrito);
+  const productosEnc = useSelector((state) => state.productosEnc); //!ESTE CODIGO ES SOLO PARA VER QUE SI ESTE SIRVIENDO EL SEARCH
   const { user } = useAuth0();
   const navigate = useNavigate();
   const dispatch = useDispatch();

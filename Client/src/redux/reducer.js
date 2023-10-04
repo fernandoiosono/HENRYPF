@@ -93,6 +93,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         productosMostrar: filter,
+        currentPage: 1,
       };
 
     case SET_ORDER:
