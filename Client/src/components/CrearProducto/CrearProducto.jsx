@@ -11,7 +11,8 @@ const CrearProducto = () => {
     price: "",
     stock: 0,
     discount: 0,
-    categorias: [],
+    active: true,
+    Category: 0,
   });
   const [errors, setErrors] = useState({
     name: "",
@@ -20,46 +21,87 @@ const CrearProducto = () => {
     price: "",
     stock: "",
     discount: "",
-    categorias: [],
+    active: true,
+    Category: 0,
   });
 
   const handleCategoriasformChange = (event) => {
     const { value } = event.target;
+    console.log(typeof value);
     setFormData({
       ...formData,
-      categorias: [...formData.categorias, value],
+      Category: value,
     });
   };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log(name + " " + value);
     setFormData({ ...formData, [name]: value });
   };
   const handleSubmit = async (event) => {
-    const { name, imageURL, description, price, stock, discount, active } =
-      this.state;
     event.preventDefault();
     const validationErrors = {};
+    const { name, imageURL, description, price, stock, discount, Category } =
+      formData;
 
-    for (const key in validationErrors) {
-      if (Object.hasOwnProperty.call(validationErrors, key)) {
-        delete validationErrors[key];
-      }
+    if (name.length < 5 || name.length >= 30) {
+      validationErrors["name"] =
+        "Este campo debe tener entre 5 y 29 caracteres.";
+    } else {
+      delete validationErrors["name"];
     }
 
-    for (const key in formData) {
-      console.log(formData[key]);
+    const imageUrlPattern = /\.(jpg|jpeg|png|gif|bmp|svg)$/i; // Patrón para imágenes
+    if (imageUrlPattern.test(imageURL)) {
+    } else {
+      formData["imageURL"] =
+        "https://static.wikia.nocookie.net/fakemon/images/3/37/Logo_PAAA_Toy_Story_Parody.png";
     }
+
+    if (description.length < 50) {
+      validationErrors["description"] =
+        "La descripcion debe tener minimo 50 caracteres";
+    } else {
+      delete validationErrors["description"];
+    }
+
+    if (price <= 0) {
+      validationErrors["price"] = "El precio debe ser mayor a 0";
+    }
+
+    if (stock == "") {
+      formData["stock"] = 0;
+    } else if (stock < 0) {
+      validationErrors["stock"] = "El stock debe ser minimo 0";
+    }
+
+    if (discount == "") {
+      formData["discount"] = 0;
+    } else if (discount < 0) {
+      validationErrors["discount"] = "El discount debe ser minimo 0";
+    }
+
+    if (Category.length === 0) {
+      validationErrors["Category"] = "Debe seleccionar una categoria";
+    } else {
+      delete validationErrors["Category"];
+    }
+
+    console.log(formData);
+    formData["price"] = +formData["price"];
+    formData["Category"] = +formData["Category"];
+    formData["discount"] = +formData["discount"];
+    formData["stock"] = +formData["stock"];
+    console.log(formData);
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
       try {
-        // const response = await axios.post(
-        //   "http://localhost:3001/videogames", //!MODIFICAR A ENDPOINT DEL BACK
-        //   formData
-        // );
+        const response = await axios.post(
+          "http://localhost:3001/videogames", //!MODIFICAR A ENDPOINT DEL BACK
+          formData
+        );
 
         alert("Producto creado");
         setFormData({
@@ -67,9 +109,10 @@ const CrearProducto = () => {
           imageURL: "",
           description: "",
           price: "",
-          stock: 0,
-          discount: 0,
-          categorias: [],
+          stock: "",
+          discount: "",
+          active: true,
+          Category: 0,
         });
       } catch (error) {
         alert("Por favor valida la informacion");
@@ -90,7 +133,7 @@ const CrearProducto = () => {
             name="name"
             onChange={handleInputChange}
           />
-          <span>{errors.name}</span>
+          {errors.name ? <span>{errors.name}</span> : null}
         </div>
         <div>
           <label className="label" htmlFor="imagen">
@@ -121,18 +164,16 @@ const CrearProducto = () => {
         <div>
           <label className="label">Categorias:</label>
           <select
-            multiple
-            name="categorias"
-            value={formData.categorias}
+            name="Category"
+            value={formData.Category}
             onChange={handleCategoriasformChange}
           >
             {categorias.map((opcion, index) => (
-              <option key={index} value={opcion.name}>
+              <option key={index} value={opcion.id}>
                 {opcion.name}
               </option>
             ))}
           </select>
-          <span>{errors.platforms}</span>
         </div>
 
         <div>
