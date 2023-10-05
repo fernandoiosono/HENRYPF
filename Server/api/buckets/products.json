@@ -2,7 +2,7 @@
 	{
 		"idProduct": 1,
 		"name": "Proteinas Whey",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_852919-MLA47323183798_092021-O.webp",
+		"imageURL": "https://w7.pngwing.com/pngs/790/432/png-transparent-dietary-supplement-whey-protein-isolate-bodybuilding-supplement-whey-protein-nutrition-whey-dietary-supplement-thumbnail.png",
 		"description": "Este tipo de suplemento ayuda a complementar la alimentación de personas con objetivos o requerimientos nutricionales específicos. Su consumo puede ser indicado por diversos factores, como la duración y la intensidad de la actividad física, el tipo de deporte, el ambiente en el que se practica, la edad, la composición corporal, el peso, entre otros. Es importante resaltar que su uso debe estar acompañado por una alimentación equilibrada y hábitos de vida saludable. La principal función de las proteínas es contribuir con la regeneración muscular. Es por esto que los suplementos proteicos suelen ser utilizados en ciertas circunstancias, por ejemplo ante el aumento de la intensidad del ejercicio, la recuperación luego de una lesión o para complementar la alimentación de personas veganas y vegetarianas. Algunos de los beneficios son: su consumo fácil, su bajo contenido en azúcares y grasas y la posible reducción del apetito.",
 		"price": 28,
 		"stock": 50,
@@ -12,7 +12,7 @@
 	{
 		"idProduct": 2,
 		"name": "Suplemento en polvo Star Nutrition Creatine Monohydrate creatina en pote de 300g",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_705680-MLA48462687556_122021-O.webp",
+		"imageURL": "file:///C:/Users/Camila/Downloads/D_NQ_NP_705680-MLA48462687556_122021-O.png",
 		"description": "La creatina es uno de los complementos deportivos más conocidos y su principal objetivo es fortalecer el tejido muscular. Es producida de forma natural por el cuerpo y está presente en alimentos como el pescado, la carne, los lácteos y el huevo. Su consumo a través de suplementos puede contribuir a un mayor rendimiento en actividades físicas que requieran intervalos de fuerza cortos e intensos, como el levantamiento de pesas y otros deportes de alto desgaste que requieren una recuperación más rápida.",
 		"price": 61,
 		"stock": 50,
@@ -22,7 +22,7 @@
 	{
 		"idProduct": 3,
 		"name": "Plan 90 Días De Colágeno Hidrolizado Bebible Vitalis Navitas",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_871502-MLA45355561041_032021-O.webp",
+		"imageURL": "file:///C:/Users/Camila/Downloads/D_NQ_NP_871502-MLA45355561041_032021-O.png",
 		"description": "COLÁGENO HIDROLIZADO - BLEND ANTIAGE de VITALIS NAVITAS presenta una completa fórmula de nutrientes esenciales que ayudan a combatir los signos internos y externos de envejecimiento. Su combinación de nutrientes de belleza se potencian entre sí para mejorar el aspecto y la salud de tu piel, cabello, uñas, huesos, articulaciones, tendones y ligamentos. Sus componentes ayudan a mejorar el aspecto, la hidratación y la elasticidad de la piel, a fortalecer huesos, tendones y articulaciones, a fortalecer el sistema inmunológico y a combatir los signos del envejecimiento.",
 		"price": 151,
 		"stock": 50,
@@ -32,7 +32,7 @@
 	{
 		"idProduct": 4,
 		"name": "Suplemento en polvo ENA Sport Creatina micronizada 100% Pura en Doypack de 300g sabor neutro",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_856538-MLU70431035506_072023-O.webp",
+		"imageURL": "file:///C:/Users/Camila/Downloads/D_NQ_NP_856538-MLU70431035506_072023-O.png",
 		"description": "CREATINA MICRONIZADA es un excelente suplemento pre entrenamiento ya que colabora en la formación de los componentes energéticos, mejora la potencia muscular y retrasa la fatiga muscular, preparando al cuerpo para un mejor rendimiento físico Ha sido demostrado que apoya el crecimiento del tamaño de los músculos, y el aumento de fuerza y poder cuando se la combina con actividades de alta intensidad.",
 		"price": 46,
 		"stock": 50,
@@ -42,7 +42,7 @@
 	{
 		"idProduct": 5,
 		"name": "Hydromax Sport Drink Bebida Deportiva Isotonica Sabor Naranja En Pote 1,5 Kg",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_675015-MLA53304638534_012023-O.webp",
+		"imageURL": "https://i.postimg.cc/PCxXZy0f/D-NQ-NP-609971-MLA70605668647-072023-O-07.png",
 		"description": "Cuando entrenamos, el cuerpo pierde agua y electrolitos. Hydromax es una nueva bebida deportiva isotónica, desarrollada para facilitar la rehidratación y la reposición de sales minerales. Su exclusiva fórmula, fuente de vitaminas C y E, aporta carbohidratos, retrasa la fatiga y mejora el rendimiento físico. Hidrata tus ganas de más. Entrena con Hydromax. Esta bebida está recomendada para cualquier ejercicio de entrenamiento, competencia o recreativo. Es ideal para los deportes como el maratón, el ciclismo, el triatlón. Y se aplica eficazmente para obtener un desempeño superior en deportes intermitentes y de equipo como el tenis, fútbol, básquet, el rugby, el hockey, etc.",
 		"price": 20,
 		"stock": 30,
@@ -52,7 +52,7 @@
 	{
 		"idProduct": 6,
 		"name": "Geonat Magnesio 400 X 30 Comprimidos",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_857652-MLA33073313153_122019-O.webp",
+		"imageURL": "file:///C:/Users/Camila/Downloads/D_NQ_NP_857652-MLA33073313153_122019-O.png",
 		"description": "Una nutrición balanceada juega un papel fundamental en la calidad de vida. Con el ritmo acelerado que llevan muchas personas, a veces resulta complejo prestar atención a todos los requerimientos que el cuerpo necesita para estar sano y fuerte. En ese sentido, los suplementos cumplen la función de complementar la alimentación y ayudan a obtener las vitaminas, minerales, proteínas y otros componentes indispensables para el correcto funcionamiento del organismo.",
 		"price": 4,
 		"stock": 30,
@@ -112,7 +112,7 @@
 	{
 		"idProduct": 12,
 		"name": "Slender Quick 4x3 - Suplemento Dietario",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_662322-MLA71627278462_092023-O.webp",
+		"imageURL": "https://i.postimg.cc/QVQdrHpD/D-NQ-NP-609971-MLA70605668647-072023-O-06.png",
 		"description": "Una nutrición balanceada juega un papel fundamental en la calidad de vida. Con el ritmo acelerado que llevan muchas personas, a veces resulta complejo prestar atención a todos los requerimientos que el cuerpo necesita para estar sano y fuerte. En ese sentido, los suplementos cumplen la función de complementar la alimentación y ayudan a obtener las vitaminas, minerales, proteínas y otros componentes indispensables para el correcto funcionamiento del organismo",
 		"price": 99,
 		"stock": 50,
@@ -172,7 +172,7 @@
 	{
 		"idProduct": 18,
 		"name": "Multigimnasio Multigym Randers Arg 63167 Con 100 Kg De Pesas",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_645028-MLA31075640973_062019-O.webp",
+		"imageURL": "https://i.postimg.cc/fSfz7rwy/D-NQ-NP-609971-MLA70605668647-072023-O-05.png",
 		"description": "El multigimnasio Body Sculpture ARG 63167 de lujo es una herramienta multifuncional profesional para el entrenamiento intensivo en casa. Le permite realizar ejercicios seguros para los diferentes grupos musculares, como un gimnasio profesional. Es la solución ideal para hombres y mujeres que quieren mejorar el estado en general y el aspecto de la silueta, aumentar y mejorar la masa muscular y una forma esbelta. Con este producto está llevando a su casa salud y estética. El multigimnasio le permite el desarrollo de todos los grupos musculares.",
 		"price": 1142,
 		"stock": 19,
@@ -272,7 +272,7 @@
 	{
 		"idProduct": 28,
 		"name": "Banda De Resistencia Elastica Tension Media Forest Fitness Color Rojo",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_635587-MLU71713682284_092023-O.webp",
+		"imageURL": "https://i.postimg.cc/yg9YxNtF/D-NQ-NP-609971-MLA70605668647-072023-O-04.png",
 		"description": "Banda elástica de resistencia con intensidad media · Medidas: 1.2 mts de largo de la banda · La manija se ajusta cómodamente en tus manos y alrededor de tus pies. · Perfectas para elongación, fortalecimiento, tonificación, rehabilitación, pilates, funcional · Ejercita tus brazos, hombros, pecho, espalda, piernas · Ligera y fácil de llevar, se puede utilizar en cualquier lugar y en cualquier momento · Material látex circular recubierto de excelente calidad y durabilidad'.",
 		"price": 6,
 		"stock": 50,
@@ -332,7 +332,7 @@
 	{
 		"idProduct": 34,
 		"name": "Half Rack (pared) Sentadillas - Gym - Crossfit - Funcional",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_614937-MLA49742316339_042022-O.webp",
+		"imageURL": "https://i.postimg.cc/VS2kztGf/D-NQ-NP-609971-MLA70605668647-072023-O-02.png",
 		"description": "Rack de pared FIJO. Características: Apto intemperie-Pintura Epoxy-Incluye 4 accesorios de soporte de barras.-13 alturas disponibles de regulación-Incluye barra dorsadera-Peso máximo de carga 220 Kg. Medidas: Alto: 2 metros-Ancho interno: 1 metro-Ancho total: 1,08 metros-Profundidad: 50 cm",
 		"price": 294,
 		"stock": 12,
@@ -342,7 +342,7 @@
 	{
 		"idProduct": 35,
 		"name": "Pesa Rusa Kettlebell Pvc 10kg Funcional Gym Gimnasio",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_609971-MLA70605668647_072023-O.webp",
+		"imageURL": "https://i.postimg.cc/4KY3CP12/D-NQ-NP-609971-MLA70605668647-072023-O-01.png",
 		"description": "DESCRIPCIÓN DEL PRODUCTO: • Está fabricada en PVC suave de alta calidad y su interior está compuesto por fina granalla de acero.• Cuenta con un mango ancho ergonómico para un uso cómodo con una y dos manos • Es fácil de usar y está diseñada para mantenerse de pie sobre cualquier superficie sin que ésta sea dañada. • Es ideal para principiantes y expertos en deporte ya que permite ejercitar tus músculos y fortalecer abdominales. bíceps, tríceps, cuádriceps y glúteos a través de una variedad de ejercicios musculares y fitness.",
 		"price": 19,
 		"stock": 39,
@@ -442,7 +442,7 @@
 	{
 		"idProduct": 45,
 		"name": "Poweraded Creatine Micronized - One Fit",
-		"imageURL": "https://http2.mlstatic.com/D_NQ_NP_633129-MLA70235724483_062023-O.webp",
+		"imageURL": "https://i.postimg.cc/tY9CRp5x/D-NQ-NP-609971-MLA70605668647-072023-O-03.png",
 		"description": "Nuestro producto One Fit Creatine Micronized: Es el mejor suplemento utilizado para producir energía en ejercicios explosivos y de alta intensidad. Este es el principal motivo por el cual se usa en el entrenamiento de fuerza, porque al tratarse de un sustrato energético, nos permitirá levantar más peso y realizar entrenamientos más intensos, más duros y podremos maximizar nuestros resultados.",
 		"price": 31,
 		"stock": 22,
