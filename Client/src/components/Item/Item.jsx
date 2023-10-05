@@ -16,13 +16,13 @@ function Item({ item }) {
       <td>
         <Link to={`/detalleAdmin/${idProducto}`}>
           <button className="btn-adm">
-            <img className="img" src={editar} />
+            <img className="imgVista" src={editar} />
           </button>
         </Link>
       </td>
       <td>
         <button className="btn-adm" onClick={borrarProducto}>
-          <img className="img" src={eliminar} />
+          <img className="imgVista" src={eliminar} />
         </button>
       </td>
     </tr>
