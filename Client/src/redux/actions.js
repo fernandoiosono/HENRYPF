@@ -8,8 +8,8 @@ import {
   QUITAR_CARRITO,
   FILTER_CATEGORIA,
   SET_ORDER,
+  SET_INICIO_SESION,
 } from "./actions_types";
-import { useSelector } from "react-redux";
 
 const URL = "http://localhost:3001/moveon/";
 
@@ -17,6 +17,7 @@ export const traerProductos = () => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(`${URL}products/all`);
+      // const data = productos;
       return dispatch({
         type: TRAER_PRODUCTOS,
         payload: data,
@@ -96,6 +97,19 @@ export const quitarCarrito = (id) => {
       return dispatch({
         type: QUITAR_CARRITO,
         payload: id,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const setInicioSesion = (booleano) => {
+  try {
+    return (dispatch) => {
+      return dispatch({
+        type: SET_INICIO_SESION,
+        payload: booleano,
       });
     };
   } catch (error) {

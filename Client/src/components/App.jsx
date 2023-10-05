@@ -18,6 +18,8 @@ import {
   EdicionProducto,
 } from "../views";
 
+import "./App.css";
+
 const App = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
@@ -27,9 +29,13 @@ const App = () => {
     dispatch(obtenerCategorias());
   }, []);
 
+  const handlerClassName = () => {
+    if (pathname === "/acceso") return "background_acceso";
+  };
+
   return (
     <SectionApp>
-      <main>
+      <main className={handlerClassName()}>
         {pathname !== "/" && <Nav />}
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -42,6 +48,7 @@ const App = () => {
           <Route path="/pago" element={<Pago />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
+          <Route path="/detalleAdmin/:id" element={<Detail />} />
           <Route path="/edicion" element={<EdicionProducto />} />
         </Routes>
       </main>

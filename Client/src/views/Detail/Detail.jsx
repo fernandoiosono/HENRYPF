@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import style from "./Detail.module.css";
+import { useAuth0 } from "@auth0/auth0-react";
 import { agregarCarrito } from "../../redux/actions";
 
 const Detail = () => {
@@ -11,6 +12,7 @@ const Detail = () => {
   const carrito = useSelector((state) => state.carrito);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { loginWithRedirect } = useAuth0();
   const [producto, setProducto] = useState({});
 
   useEffect(() => {
@@ -21,7 +23,7 @@ const Detail = () => {
     if (inicioSesion) {
       navigate("/carrito");
     } else {
-      navigate("/acceso");
+      loginWithRedirect();
     }
   };
 
@@ -30,7 +32,7 @@ const Detail = () => {
       dispatch(agregarCarrito(producto));
     } else {
       const producExistente = carrito.find(
-        (produc) => produc.idProducto == producto.idProducto
+        (produc) => produc.idProduct == producto.idProduct
       );
       if (!producExistente) {
         dispatch(agregarCarrito(producto));

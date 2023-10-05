@@ -1,39 +1,30 @@
 import style from "./Nav.module.css";
+import { useAuth0 } from "@auth0/auth0-react";
+import SearchBar from "./SearchBar";
 import logo from "../../assets/img/logo/logo.png";
 import iconoCarrito from "../../assets/img/carrito/carrito.png";
-import lupa from "../../assets/img/lupa/lupa.png";
 import home from "../../assets/img/home/home.png";
 import back from "../../assets/img/back/back.png";
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { buscarPruductos, setCurrenPage } from "../../redux/actions";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { setInicioSesion } from "../../redux/actions";
 
 const Nav = () => {
   const inicioSesion = useSelector((state) => state.inicioSesion);
   const carrito = useSelector((state) => state.carrito);
-  const dispatch = useDispatch();
+  const productosEnc = useSelector((state) => state.productosEnc); //!ESTE CODIGO ES SOLO PARA VER QUE SI ESTE SIRVIENDO EL SEARCH
+  const { user } = useAuth0();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { loginWithRedirect } = useAuth0();
   const { pathname } = useLocation();
-  const [nombre, setNombre] = useState("");
 
-  const handleChange = (event) => {
-    setNombre(event.target.value);
-  };
+  useEffect(() => {
+    if (user) dispatch(setInicioSesion(true));
+  }, [user]);
 
-  const handleSearch = () => {
-    if (nombre == "") return alert("¡Por favor ingrese un nombre o un ID!");
-    dispatch(buscarPruductos(nombre));
-    navigate("/catalogo");
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      handleSearch();
-    }
-  };
-
-  const homeHiden = () => {
+  const homeHidden = () => {
     if (pathname !== "/home") {
       return style.home;
     } else {
@@ -41,10 +32,19 @@ const Nav = () => {
     }
   };
 
+  const adminHidden = () => {
+    if (inicioSesion) {
+      if (pathname === "/catalogoAdmin") return style.adminHidden;
+      return style.admin;
+    } else {
+      return style.adminHidden;
+    }
+  };
+
   const inicioCarrito = () => {
     if (!inicioSesion) {
       return (
-        <h3 className={style.iniciar} onClick={() => navigate("/acceso")}>
+        <h3 className={style.iniciar} onClick={() => loginWithRedirect()}>
           Iniciar Sesion
         </h3>
       );
@@ -60,6 +60,12 @@ const Nav = () => {
             className={style.carrito}
             onClick={() => navigate("/carrito")}
           />
+          <img
+            src={user.picture}
+            alt="perfil"
+            className={style.perfil}
+            onClick={() => navigate("/acceso")}
+          />
         </div>
       );
     }
@@ -72,27 +78,16 @@ const Nav = () => {
         Sobre nosotros
       </h3>
       <img src={logo} alt="moveOn" className={style.logo} />
+      <h3 className={adminHidden()} onClick={() => navigate("/catalogoAdmin")}>
+        admin
+      </h3>
       <img
         src={home}
         alt="home"
-        className={homeHiden()}
+        className={homeHidden()}
         onClick={() => navigate("/home")}
       />
-      <div className={style.search}>
-        <img
-          src={lupa}
-          onClick={() => handleSearch()}
-          className={style.botonBuscar}
-        />
-        <input
-          type="text"
-          placeholder="Buscar Producto"
-          className={style.input}
-          onChange={handleChange}
-          value={nombre}
-          onKeyPress={handleKeyPress}
-        />
-      </div>
+      <SearchBar />
       <div className={style.div} />
       {inicioCarrito()}
     </div>

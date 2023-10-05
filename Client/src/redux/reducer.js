@@ -7,6 +7,7 @@ import {
   AGREGAR_CARRITO,
   QUITAR_CARRITO,
   SET_ORDER,
+  SET_INICIO_SESION,
 } from "./actions_types";
 
 const initialState = {
@@ -14,7 +15,7 @@ const initialState = {
   productosMostrar: [],
   productosEnc: [],
   carrito: [],
-  inicioSesion: true,
+  inicioSesion: false,
   currentPage: 1,
   itemsPerPage: 9,
   categorias: [],
@@ -36,11 +37,10 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case BUSCAR_PRUDUCTOS:
-      console.log([...state.allProductos]);
       const num = Number(payload);
       if (!isNaN(num)) {
         const productoEncontrado = state.allProductos.find(
-          (prod) => prod.idProduct === num
+          (prod) => prod.idProducto === num
         );
         if (!productoEncontrado)
           alert(`No existe el producto con el ID: ${num}`);
@@ -51,7 +51,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         };
       } else {
         const resultado = state.allProductos.filter((producto) =>
-          producto.name.toLowerCase().includes(payload.toLowerCase())
+          producto.nombre.toLowerCase().includes(payload.toLowerCase())
         );
         return {
           ...state,
@@ -101,11 +101,17 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
     case QUITAR_CARRITO:
       const carritoFiltrado = state.carrito.filter(
-        (productos) => productos.idProducto !== payload
+        (productos) => productos.idProduct !== payload
       );
       return {
         ...state,
         carrito: carritoFiltrado,
+      };
+
+    case SET_INICIO_SESION:
+      return {
+        ...state,
+        inicioSesion: payload,
       };
 
     default:

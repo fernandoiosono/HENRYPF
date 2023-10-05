@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import Card from "../Card/Card";
-import "./Cards.css";
+import Item from "../Item/Item";
+import "./List.css";
 
-function Cards() {
+function List() {
   const traerProductos = useSelector((state) => state.productosMostrar);
   const currentPage = useSelector((state) => state.currentPage);
   const itemsPerPage = useSelector((state) => state.itemsPerPage);
@@ -13,14 +13,22 @@ function Cards() {
     ultimoIndiceProducto
   );
   return (
-    <div className="card-list">
-      {productsToShow.length > 0
-        ? productsToShow.map((producto) => (
-            <Card key={producto.id} producto={producto} />
-          ))
-        : null}
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID Producto</th>
+          <th>Nombre del producto</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {productsToShow.map((item, index) => (
+          <Item key={index} item={item} />
+        ))}
+      </tbody>
+    </table>
   );
 }
 
-export default Cards;
+export default List;
