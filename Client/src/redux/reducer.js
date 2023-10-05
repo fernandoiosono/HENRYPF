@@ -18,25 +18,7 @@ const initialState = {
   inicioSesion: false,
   currentPage: 1,
   itemsPerPage: 9,
-  categorias: [
-    //Borrar estos datos cuando se tenga conexion con el Backend
-    {
-      id: 1,
-      name: "Nutricion deportiva",
-    },
-    {
-      id: 2,
-      name: "Proteina",
-    },
-    {
-      id: 3,
-      name: "Aminoacidos",
-    },
-    {
-      id: 4,
-      name: "Equipamiento",
-    },
-  ],
+  categorias: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -88,7 +70,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       let filteredProductos = [...state.allProductos];
       let filter;
       filter = filteredProductos.filter((producto) =>
-        producto.categoria.includes(payload)
+        producto.Category.name.includes(payload)
       );
       return {
         ...state,
@@ -100,9 +82,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
       let orderedProductos = [...state.productosMostrar];
       let ordered;
       if (payload === "Ascendente") {
-        ordered = orderedProductos.sort((a, b) => a.precio - b.precio);
+        ordered = orderedProductos.sort((a, b) => a.price - b.price);
       } else if (payload === "Descendente") {
-        ordered = orderedProductos.sort((a, b) => b.precio - a.precio);
+        ordered = orderedProductos.sort((a, b) => b.price - a.price);
       } else {
         ordered = orderedProductos;
       }
@@ -119,7 +101,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
     case QUITAR_CARRITO:
       const carritoFiltrado = state.carrito.filter(
-        (productos) => productos.idProducto !== payload
+        (productos) => productos.idProduct !== payload
       );
       return {
         ...state,

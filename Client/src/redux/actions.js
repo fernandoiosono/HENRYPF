@@ -10,15 +10,16 @@ import {
   SET_ORDER,
   SET_INICIO_SESION,
 } from "./actions_types";
+
 import productos from "../../../productos.json";
-const URL = "http://localhost:3001/";
+
+const URL = "http://localhost:3001/moveon/";
 
 export const traerProductos = () => {
   try {
     return async (dispatch) => {
-      // const { data } = await axios.get(`${URL}productos`);  //! VERIFICAR RUTA CON EL BACK
+      // const { data } = await axios.get(`${URL}products/all`);
       const data = productos;
-      console.log(data);
       return dispatch({
         type: TRAER_PRODUCTOS,
         payload: data,
@@ -54,7 +55,7 @@ export const buscarPruductos = (nombre) => {
 export const obtenerCategorias = () => {
   try {
     return async (dispatch) => {
-      const categorias = await axios.get(`${URL}/categorias`); //! VERIFICAR RUTA CON EL BACK
+      const categorias = await axios.get(`${URL}categories/all`);
       dispatch({
         type: OBTENER_CATEGORIAS,
         payload: categorias.data,

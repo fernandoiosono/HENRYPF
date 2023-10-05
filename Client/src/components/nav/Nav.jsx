@@ -49,7 +49,6 @@ const Nav = () => {
         </h3>
       );
     } else {
-      console.log(user.picture);
       return (
         <div className={style.carritoCont}>
           <h3 className={style.contador} onClick={() => navigate("/carrito")}>

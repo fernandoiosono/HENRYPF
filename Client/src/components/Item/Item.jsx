@@ -4,17 +4,17 @@ import editar from "../../assets/img/catalogoAdmin/editar.png";
 import eliminar from "../../assets/img/catalogoAdmin/eliminar.png";
 
 function Item({ item }) {
-  const { idProducto, nombre } = item;
+  const { idProduct, name } = item;
   const borrarProducto = () => {
     alert(`Borrado con exito!`);
   };
 
   return (
     <tr>
-      <td>{idProducto}</td>
-      <td>{nombre}</td>
+      <td>{idProduct}</td>
+      <td>{name}</td>
       <td>
-        <Link to={`/detalleAdmin/${idProducto}`}>
+        <Link to={`/detalleAdmin/${idProduct}`}>
           <button className="btn-adm">
             <img className="imgVista" src={editar} />
           </button>

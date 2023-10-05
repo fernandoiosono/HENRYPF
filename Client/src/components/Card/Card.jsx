@@ -3,40 +3,39 @@ import "./Card.css";
 import img_prueba from "../../assets/img/producto/ejemplo.png";
 
 function Card({ producto }) {
-  const { idProducto, nombre, imagen, precio, descuento } = producto;
+  console.log(producto);
+  const { idProduct, name, imageURL, price, discount } = producto;
 
   return (
     <div className="card-container">
-      {descuento > 0 && (
+      {discount > 0 && (
         <div className="discountCircle">
           <p>OFERTA</p>
         </div>
       )}
       <div className="card">
         <div className="imgBox">
-          <Link to={`/detalle/${idProducto}`}>
-            <img src={imagen} alt={nombre} className="img" />
+          <Link to={`/detalle/${idProduct}`}>
+            <img src={imageURL} alt={name} className="img" />
           </Link>
         </div>
         <div className="contentBox">
-          <h3>{nombre}</h3>
-          {descuento > 0 ? (
+          <h3>{name}</h3>
+          {discount > 0 ? (
             <div>
               <h2 className="price-line">
-                <p className="antes">${precio}</p>
-                <p className="descuento">
-                  ${precio - (precio * descuento) / 100}
-                </p>
+                <p className="antes">${price}</p>
+                <p className="descuento">${price - (price * discount) / 100}</p>
               </h2>
             </div>
           ) : (
             <h2 className="price">
-              <p>${precio}</p>
+              <p>${price}</p>
             </h2>
           )}
 
           <p>
-            <Link className="buy" to={`/detalle/${idProducto}`}>
+            <Link className="buy" to={`/detalle/${idProduct}`}>
               Comprar
             </Link>
           </p>
