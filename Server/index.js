@@ -4,7 +4,9 @@ const morgan = require('morgan');
 const server = require('./src/server.js');
 const { database } = require('./src/database/database.js');
 
-const { loadCategories } = require('./src/database/loaders');
+const { loadCategories,
+	loadProducts,
+	loadUsers } = require('./src/database/loaders');
 
 const { handlerUsers, 
 	handlerProducts,
@@ -29,6 +31,8 @@ database.sync({ force: dbReset })
 	.then(async () => {
 		try {
 			await loadCategories();
+			await loadProducts();
+			await loadUsers();
 		} catch (error) {
 			console.log(`Error Loading Data in the Database > ${error}`);
 		}
