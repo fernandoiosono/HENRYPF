@@ -1,11 +1,17 @@
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Item from "../Item/Item";
 import "./List.css";
 
-function List({ productos }) {
-  const borrarItem = () => {
-    alert(`El item se borraria`);
-  };
+function List() {
+  const traerProductos = useSelector((state) => state.productosMostrar);
+  const currentPage = useSelector((state) => state.currentPage);
+  const itemsPerPage = useSelector((state) => state.itemsPerPage);
+  const ultimoIndiceProducto = currentPage * itemsPerPage;
+  const primerIndiceProducto = ultimoIndiceProducto - itemsPerPage;
+  const productsToShow = traerProductos.slice(
+    primerIndiceProducto,
+    ultimoIndiceProducto
+  );
   return (
     <table>
       <thead>
@@ -17,7 +23,7 @@ function List({ productos }) {
         </tr>
       </thead>
       <tbody>
-        {productos.map((item, index) => (
+        {productsToShow.map((item, index) => (
           <Item key={index} item={item} />
         ))}
       </tbody>

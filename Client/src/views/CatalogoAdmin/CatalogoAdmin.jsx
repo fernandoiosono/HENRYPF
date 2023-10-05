@@ -76,10 +76,10 @@ const CatalogoAdmin = () => {
           mostrarVerProductosHandler={mostrarVerProductosHandler}
           mostrarCrearProductosHandler={mostrarCrearProductosHandler}
         />
-        {mostrarVerProductos ? (
-          <List productos={currentProductos} />
-        ) : (
+        {!mostrarVerProductos ? (
           <CrearProducto /> // Renderiza el componente CrearProductos cuando mostrarVerProductos es falso
+        ) : (
+          <List productos={currentProductos} />
         )}
       </div>
       {mostrarVerProductos ? (
