@@ -503,86 +503,95 @@
 	],
     "users": [
         {
-            "idUser": 1,
-            "name": "Alberto",
-            "lastName": "Rojas",
-            "email": "albertorojas@gmail.com",
-            "password": "alberto1234",
-            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
-        },
-        {
-            "idUser": 2,
-            "name": "Fatima",
-            "lastName": "Rolon",
-            "email": "fatirolon@gmail.com",
-            "password": "fati1234",
-            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
-        },
-        {
-            "idUser": 3,
-            "name": "Graciela",
-            "lastName": "Fernandez",
-            "email": "grafer@gmail.com",
-            "password": "ferg1234",
-            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
-        },
-        {
-            "idUser": 4,
-            "name": "Fernando",
-            "lastName": "Alvarez",
-            "email": "alvarezfernando@gmail.com",
-            "password": "fernandoa1234",
-            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
-        },
-        {
-            "idUser": 5,
-            "name": "Ludmila",
-            "lastName": "Cardozo",
-            "email": "cardozolu@gmail.com",
-            "password": "carlu1234",
-            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg",
+			"idUser": 1,
+			"name": "Alberto",
+			"lastname": "Rojas",
+			"email": "albertorojas@gmail.com",
+			"password": "alberto1234",
+			"imageURL": "https://www.labsaenzrenauld.com/wp-content/uploads/2020/10/Perfil-hombre-ba%CC%81sico_738242395.jpg",
+			"isAdmin": false
+		},
+		{
+			"idUser": 2,
+			"name": "Fatima",
+			"lastname": "Rolon",
+			"email": "fatirolon@gmail.com",
+			"password": "fati1234",
+			"imageURL": "https://cristypalacios.com/wp-content/uploads/2022/11/10-Poses-para-foto-de-Perfil-Profesional-Mujer-04-2022-1-819x1024.jpg",
 			"isAdmin": true
-        },
-        {
-            "idUser": 6,
-            "name": "Victor",
-            "lastName": "Gonzales",
-            "email": "victor1gonzales@gmail.com",
-            "password": "gonzalesv1234",
-            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
-        },
-        {
-            "idUser": 7,
-            "name": "Gonzalo",
-            "lastName": "Figueroa",
-            "email": "gonzafuigue@gmail.com",
-            "password": "gonza1234",
-            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
-        },
-        {
-            "idUser": 8,
-            "name": "Ramon",
-            "lastName": "Jordan",
-            "email": "ramonjo@gmail.com",
-            "password": "jordan1234",
-            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
-        },
-        {
-            "idUser": 9,
-            "name": "Gabriela",
-            "lastName": "Ponce",
-            "email": "poncegabi@gmail.com",
-            "password": "gabi1234",
-            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
-        },
-        {
-            "idUser": 10,
-            "name": "Laura",
-            "lastName": "Rivero",
-            "email": "riverolaura@gmail.com",
-            "password": "lau1234",
-            "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
-        }
+		},
+		{
+			"idUser": 3,
+			"name": "Graciela",
+			"lastname": "Fernandez",
+			"email": "grafer@gmail.com",
+			"password": "ferg1234",
+			"imageURL": "https://img.aeroexpo.online/images_ar/projects/images-g/elevar-perfil-mujeres-ingenieria-6393-14652745.jpg",
+			"isAdmin": false
+		},
+		{
+			"idUser": 4,
+			"name": "Fernando",
+			"lastname": "Alvarez",
+			"email": "alvarezfernando@gmail.com",
+			"password": "fernandoa1234",
+			"imageURL": "https://img.freepik.com/fotos-premium/sonriendo-confianza-senalando-su-propia-sonrisa-amplia-actitud-positiva-relajada-satisfecha_1194-493361.jpg",
+			"isAdmin": false
+		},
+		{
+			"idUser": 5,
+			"name": "Ludmila",
+			"lastname": "Cardozo",
+			"email": "cardozolu@gmail.com",
+			"password": "carlu1234",
+			"imageURL": "https://www.soycarmin.com/__export/1494106008205/sites/debate/img/2017/05/06/blogmio.jpg_2120446623.jpg",
+			"isAdmin": false
+		},
+		{
+			"idUser": 6,
+			"name": "Victor",
+			"lastname": "Gonzales",
+			"email": "victor1gonzales@gmail.com",
+			"password": "gonzalesv1234",
+			"imageURL": "https://www.upsocl.com/wp-content/uploads/immujer/2015/01/iStock_000055230302_Large.jpg",
+			"isAdmin": false
+		},
+		{
+			"idUser": 7,
+			"name": "Gonzalo",
+			"lastname": "Figueroa",
+			"email": "gonzafuigue@gmail.com",
+			"password": "gonza1234",
+			"imageURL": "https://media.gq.com.mx/photos/5e1653feab1f9200081c6563/16:9/w_2560%2Cc_limit/tips-para-tinder-y-que-tu-perfil-por-fin-tenga-exito-este-ano.jpg",
+			"isAdmin": false
+		},
+		{
+			"idUser": 8,
+			"name": "Ramon",
+			"lastname": "Jordan",
+			"email": "ramonjo@gmail.com",
+			"password": "jordan1234",
+			"imageURL": "https://i.pinimg.com/550x/2b/0f/77/2b0f774f592e3174978a7dba38927ade.jpg",
+			"isAdmin": false
+		},
+		{
+			"idUser": 9,
+			"name": "Gabriela",
+			"lastname": "Ponce",
+			"email": "poncegabi@gmail.com",
+			"password": "gabi1234",
+			"imageURL": "https://www.tasadeparo.com/wp-content/uploads/2010/03/mujertrabajo.jpg",
+			"isAdmin": false
+		},
+		{
+			"idUser": 10,
+			"name": "Laura",
+			"lastname": "Rivero",
+			"email": "riverolaura@gmail.com",
+			"password": "lau1234",
+			"imageURL": "https://img.freepik.com/foto-gratis/sonriendo-femenina-sentada-silla_1301-2218.jpg",
+			"isAdmin": false
+		}
     ],
     "categories": [
         { "name": "Suplemento" },
