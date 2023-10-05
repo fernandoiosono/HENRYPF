@@ -6,7 +6,8 @@ const { getActiveProducts,
     getProducts,
     getProductsByName,
     patchProduct,
-    postProduct } = require('../controllers');
+    postProduct,
+    putActivateProduct } = require('../controllers');
 
 router.get('/all', errorHandler(async (req, res) => {
     const products = await getProducts();
@@ -46,6 +47,13 @@ router.patch('/', errorHandler(async (req, res) => {
     const productEdited = await patchProduct(newData);
 
     res.status(200).json(productEdited);
+}));
+
+router.put('/', errorHandler(async (req, res) => {
+    const { activate } = req.query;
+    const productActivated = await putActivateProduct(activate);
+
+    res.status(200).json(productActivated);
 }));
 
 module.exports = router;
