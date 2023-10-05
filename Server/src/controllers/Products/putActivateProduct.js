@@ -1,8 +1,8 @@
 require('dotenv').config();
 const { Product } = require('../../database/database.js');
 
-const putActivateProduct = async (activate) => {
-    return activate;
+const putActivateProduct = async (idProduct, activate) => {
+    return (idProduct);
 };
 
 module.exports = putActivateProduct;

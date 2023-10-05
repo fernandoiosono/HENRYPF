@@ -50,8 +50,8 @@ router.patch('/', errorHandler(async (req, res) => {
 }));
 
 router.put('/', errorHandler(async (req, res) => {
-    const { activate } = req.query;
-    const productActivated = await putActivateProduct(activate);
+    const { idProduct, activate } = req.query;
+    const productActivated = await putActivateProduct(idProduct, activate);
 
     res.status(200).json(productActivated);
 }));
