@@ -1,20 +1,35 @@
 import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../IngresarAcceso/logout";
-
+import SubirImagen from '../Cloudinary/cloudinary.component'
+import { useDispatch, useSelector} from "react-redux";
+import { useEffect } from "react";
+import {crearUsuario} from "../../redux/actions";
 import "./perfil.css";
 
-const Perfil = () => {
-  const { user, isAuthenticated, cargando } = useAuth0();
+const Perfil = ({user}) => {
+  const dispatch = useDispatch();
+  // const usuario = useSelector((state) => state.usuario);
 
-  if (cargando) {
-    return <div>cargando...</div>;
-  }
+  // console.log("nuevo usuario" , usuario)
+
+   const newUsuario = {
+    nickname : user.nickname,
+    email : user.email,
+    password: user.sub,
+    imageURL: user.picture,
+   }
+
+   useEffect(() => {
+    dispatch(crearUsuario(newUsuario));
+  });
 
   return (
-    isAuthenticated && (
       <div className="perfil">
         <img src={user.picture} alt={user.name} className="imagen" />
+        <div className="cloudinary">
+          <h3 className="cambiarImg">Cambiar Imagen:</h3>
+          < SubirImagen/>
+        </div>
         <div className="div_txt">
           <h1 className="titulo">Bienvenido {user.given_name}</h1>
           <h3 className="txt">Nombre</h3>
@@ -28,7 +43,6 @@ const Perfil = () => {
           </div>
         </div>
       </div>
-    )
   );
 };
 

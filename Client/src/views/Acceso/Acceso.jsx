@@ -4,7 +4,7 @@ import Perfil from "../../components/IngresarAcceso/perfil";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Acceso = ()=>{
-    const {isAuthenticated} = useAuth0();
+    const {user, isAuthenticated} = useAuth0();
     
     // useEffect(()=>{
     //     if(isAuthenticated){
@@ -20,7 +20,7 @@ const Acceso = ()=>{
 
     return (
         <>
-        {isAuthenticated ? <> < Perfil /> </>: < LoginButton />}
+        {isAuthenticated ? <> < Perfil user={user}/> </>: < LoginButton />}
         </>
     );
 };

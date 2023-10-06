@@ -8,6 +8,7 @@ import {
   QUITAR_CARRITO,
   SET_ORDER,
   SET_INICIO_SESION,
+  USUARIO,
 } from "./actions_types";
 
 const initialState = {
@@ -19,6 +20,7 @@ const initialState = {
   currentPage: 1,
   itemsPerPage: 9,
   categorias: [],
+  usuario:[],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -34,6 +36,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         currentPage: payload,
+      };
+
+      case USUARIO:
+      return {
+        ...state,
+        usuario: payload,
       };
 
     case BUSCAR_PRUDUCTOS:

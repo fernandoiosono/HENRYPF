@@ -31,7 +31,6 @@ const SubirImagen = (props) => {
   return (
     <div>
       <Container>
-        <h1>Subiendo imagenes</h1>
         <FormGroup>
           <Input type="file" name="file" placeholder="Sube tu imagen aquí" onChange={uploadImagen} />
           {loading ? (<h3>Cargando imagen...</h3>): (<img src={imagen} style={{widht:"10px"}}></img>)}
