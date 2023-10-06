@@ -6,8 +6,6 @@ const { newProductDataIsValid,
 
 const postProduct = async (newProduct) => {
     if (await newProductDataIsValid(newProduct)) {
-        newProduct.idProduct = await getNewIDProduct();
-
         const productCreated = await Product.create(newProduct)
 
         return productCreated;
