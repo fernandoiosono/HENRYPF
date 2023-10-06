@@ -54,8 +54,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
           alert(`No existe el producto con el ID: ${num}`);
         return {
           ...state,
-          productosEnc: [productoEncontrado],
-          productosMostrar: [productoEncontrado],
         };
       } else {
         const resultado = state.allProductos.filter((producto) =>
@@ -63,7 +61,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
         );
         return {
           ...state,
-          productosEnc: resultado,
           productosMostrar: resultado,
         };
       }

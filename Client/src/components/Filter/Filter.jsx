@@ -20,8 +20,8 @@ const Filter = () => {
       <div>
         <select value={selectCategoria} onChange={handleCategoriasChange}>
           <option value="">Todos</option>
-          {categorias.map((categoria) => (
-            <option key={categoria.id} value={categoria.name}>
+          {categorias.map((categoria, index) => (
+            <option key={index} value={categoria.name}>
               {categoria.name}
             </option>
           ))}

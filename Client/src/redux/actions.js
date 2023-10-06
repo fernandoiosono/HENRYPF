@@ -18,7 +18,6 @@ export const traerAllProductos = () => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(`${URL}products/all`);
-      // const data = productos;
       return dispatch({
         type: TRAER_PRODUCTOS,
         payload: data,

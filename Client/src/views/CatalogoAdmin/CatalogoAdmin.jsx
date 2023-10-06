@@ -1,26 +1,16 @@
 import React, { useState } from "react";
 import List from "../../components/List/List";
 import CrearProducto from "../../components/CrearProducto/CrearProducto";
-import { useSelector } from "react-redux";
-import Pagination from "../../components/Pagination/pagination.components.jsx";
+import Pagination from "../../components/Pagination/pagination.components";
 import Aside from "../../components/Aside/Aside";
+import { setCurrenPage } from "../../redux/actions.js";
+import { useDispatch } from "react-redux";
 import "./CatalogoAdmin.css";
 
 const CatalogoAdmin = () => {
-  const traerProductos = useSelector((state) => state.productosMostrar);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [cardForPage] = useState(15);
+  const dispatch = useDispatch();
+  dispatch(setCurrenPage(1));
   const [mostrarVerProductos, setMostrarVerProductos] = useState(false); // Nuevo estado para controlar qué componente mostrar
-  const ultimoIndiceProducto = currentPage * cardForPage;
-  const primerIndiceProducto = ultimoIndiceProducto - cardForPage;
-  const currentProductos = traerProductos.slice(
-    primerIndiceProducto,
-    ultimoIndiceProducto
-  );
-
-  const paged = function (pageNumber) {
-    setCurrentPage(pageNumber);
-  };
 
   const mostrarVerProductosHandler = () => {
     setMostrarVerProductos(true);
@@ -41,16 +31,10 @@ const CatalogoAdmin = () => {
         {!mostrarVerProductos ? (
           <CrearProducto /> // Renderiza el componente CrearProductos cuando mostrarVerProductos es falso
         ) : (
-          <List productos={currentProductos} />
+          <List />
         )}
       </div>
-      {mostrarVerProductos ? (
-        <Pagination
-          cardForPage={cardForPage}
-          productos={traerProductos.length}
-          paged={paged}
-        />
-      ) : null}
+      {mostrarVerProductos ? <Pagination estado={"allProductos"} /> : null}
     </>
   );
 };

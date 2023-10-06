@@ -20,6 +20,7 @@ const getProducts = require('./Products/getProducts.js');
 const getProductsByName = require('./Products/getProductsByName.js');
 const patchProduct = require('./Products/patchProduct.js');
 const postProduct = require('./Products/postProduct.js');
+const putActivateProduct = require('./Products/putActivateProduct.js');
 
 // Users Folder
 const getActiveUsers = require('./Users/getActiveUsers.js');
@@ -48,6 +49,7 @@ module.exports = {
     getProductsByName,
     patchProduct,
     postProduct,
+    putActivateProduct,
 
     getActiveUsers,
     getUserAccess,

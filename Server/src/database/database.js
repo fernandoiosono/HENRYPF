@@ -1,20 +1,13 @@
-require("dotenv").config();
-const { Sequelize } = require("sequelize");
+require('dotenv').config();
+const { Sequelize } = require('sequelize');
 
-const {
-  defineProduct,
-  defineCategory,
-  defineUser,
-  defineOrder,
-  defineCard,
-} = require("./models");
+const { defineProduct, 
+    defineCategory, 
+    defineUser, 
+    defineOrder,
+    defineCard } = require('./models');
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
-
-console.log(DB_USER);
-console.log(DB_PASSWORD);
-console.log(DB_HOST);
-console.log(DB_NAME);
 
 const conn = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
 
@@ -38,22 +31,22 @@ Card.hasMany(Order);
 Order.belongsTo(Card);
 
 // Relationship Order - Product (N:N)
-Order.belongsToMany(Product, {
-  through: "OrderProducts",
-  foreignKey: "idOrder",
-  otherKey: "idProduct",
-  as: "products",
-  timestamps: false,
+Order.belongsToMany(Product, { 
+    through: "OrderProducts",
+    foreignKey: "idOrder",
+    otherKey: "idProduct",
+    as: "products",
+    timestamps: false
 });
-Product.belongsToMany(Order, {
-  through: "OrderProducts",
-  foreignKey: "idProduct",
-  otherKey: "idOrder",
-  as: "orders",
-  timestamps: false,
+Product.belongsToMany(Order, { 
+    through: "OrderProducts",
+    foreignKey: "idProduct",
+    otherKey: "idOrder",
+    as: "orders",
+    timestamps: false
 });
 
 module.exports = {
-  database,
-  ...database.models,
+    database,
+    ...database.models
 };
