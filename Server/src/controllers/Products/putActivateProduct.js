@@ -2,15 +2,14 @@ require('dotenv').config();
 const { Product } = require('../../database/database.js');
 
 const putActivateProduct = async (idProduct, activate) => {
-    const product = await Product.findOne({ where: { idProduct }});
+    const product = await Product.findOne({ 
+        where: { idProduct: idProduct }
+    });
 
-    
-    if (!product) throw new Error( 'Product not found' );
+    if (!product) throw new Error("The Product You Are Trying to Update Doesn't Exist!");
 
-    product.active = activate;
-    await product.save();
+    await product.update( { active: activate } );
 
-    
     return product;
 };
 

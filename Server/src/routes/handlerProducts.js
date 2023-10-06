@@ -49,7 +49,7 @@ router.patch('/', errorHandler(async (req, res) => {
     res.status(200).json(productEdited);
 }));
 
-router.put('/:idProduct/activate', errorHandler(async (req, res) => {
+router.put('/:idProduct/', errorHandler(async (req, res) => {
     const { idProduct } = req.params;
     const { activate } = req.query;
     const productActivated = await putActivateProduct(idProduct, activate);
