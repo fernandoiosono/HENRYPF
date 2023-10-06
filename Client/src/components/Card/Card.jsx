@@ -3,7 +3,6 @@ import "./Card.css";
 import img_prueba from "../../assets/img/producto/ejemplo.png";
 
 function Card({ producto }) {
-  console.log(producto);
   const { idProduct, name, imageURL, price, discount } = producto;
 
   return (

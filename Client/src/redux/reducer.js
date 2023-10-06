@@ -1,5 +1,6 @@
 import {
   TRAER_PRODUCTOS,
+  TRAER_PRODUCTOS_ACTIVOS,
   SET_PAGINA,
   BUSCAR_PRUDUCTOS,
   OBTENER_CATEGORIAS,
@@ -13,6 +14,7 @@ import {
 const initialState = {
   allProductos: [],
   productosMostrar: [],
+  allActiveProducts: [],
   productosEnc: [],
   carrito: [],
   inicioSesion: false,
@@ -27,7 +29,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         allProductos: payload,
+      };
+
+    case TRAER_PRODUCTOS_ACTIVOS:
+      return {
+        ...state,
         productosMostrar: payload,
+        allActiveProducts: payload,
       };
 
     case SET_PAGINA:
@@ -40,7 +48,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       const num = Number(payload);
       if (!isNaN(num)) {
         const productoEncontrado = state.allProductos.find(
-          (prod) => prod.idProducto === num
+          (prod) => prod.idProduct === num
         );
         if (!productoEncontrado)
           alert(`No existe el producto con el ID: ${num}`);
@@ -51,7 +59,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         };
       } else {
         const resultado = state.allProductos.filter((producto) =>
-          producto.nombre.toLowerCase().includes(payload.toLowerCase())
+          producto.name.toLowerCase().includes(payload.toLowerCase())
         );
         return {
           ...state,
@@ -67,7 +75,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case FILTER_CATEGORIA:
-      let filteredProductos = [...state.allProductos];
+      let filteredProductos = [...state.allActiveProducts];
       let filter;
       filter = filteredProductos.filter((producto) =>
         producto.Category.name.includes(payload)

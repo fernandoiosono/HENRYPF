@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   TRAER_PRODUCTOS,
+  TRAER_PRODUCTOS_ACTIVOS,
   SET_PAGINA,
   BUSCAR_PRUDUCTOS,
   OBTENER_CATEGORIAS,
@@ -13,13 +14,28 @@ import {
 
 const URL = "http://localhost:3001/moveon/";
 
-export const traerProductos = () => {
+export const traerAllProductos = () => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(`${URL}products/all`);
       // const data = productos;
       return dispatch({
         type: TRAER_PRODUCTOS,
+        payload: data,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const traerActiveProductos = () => {
+  try {
+    return async (dispatch) => {
+      const { data } = await axios.get(`${URL}products/active`);
+      // const data = productos;
+      return dispatch({
+        type: TRAER_PRODUCTOS_ACTIVOS,
         payload: data,
       });
     };

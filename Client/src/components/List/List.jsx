@@ -3,7 +3,7 @@ import Item from "../Item/Item";
 import "./List.css";
 
 function List() {
-  const traerProductos = useSelector((state) => state.productosMostrar);
+  const traerProductos = useSelector((state) => state.allProductos);
   const currentPage = useSelector((state) => state.currentPage);
   const itemsPerPage = useSelector((state) => state.itemsPerPage);
   const ultimoIndiceProducto = currentPage * itemsPerPage;

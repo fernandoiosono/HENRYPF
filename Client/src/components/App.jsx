@@ -3,7 +3,11 @@ import Nav from "./nav/Nav";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { traerProductos, obtenerCategorias } from "../redux/actions";
+import {
+  traerAllProductos,
+  traerActiveProductos,
+  obtenerCategorias,
+} from "../redux/actions";
 import {
   Landing,
   Home,
@@ -25,7 +29,8 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(traerProductos());
+    dispatch(traerAllProductos());
+    dispatch(traerActiveProductos());
     dispatch(obtenerCategorias());
   }, []);
 

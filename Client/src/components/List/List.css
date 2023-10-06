@@ -3,6 +3,7 @@ table {
   border-collapse: collapse;
   margin-bottom: 20px;
   table-layout: auto;
+  margin-top: 20px;
 }
 
 table,
