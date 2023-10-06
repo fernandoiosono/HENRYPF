@@ -42,9 +42,10 @@ router.post('/', errorHandler(async (req, res) => {
     res.status(200).json(productCreated);
 }));
 
-router.patch('/', errorHandler(async (req, res) => {
+router.patch('/:idProduct', errorHandler(async (req, res) => {
+    const { idProduct } = req.params;
     const newData = req.body;
-    const productEdited = await patchProduct(newData);
+    const productEdited = await patchProduct(idProduct, newData);
 
     res.status(200).json(productEdited);
 }));
