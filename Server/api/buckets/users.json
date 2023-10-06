@@ -1,0 +1,82 @@
+[
+    {
+        "idUser": 1,
+        "name": "Alberto",
+        "lastName": "Rojas",
+        "email": "albertorojas@gmail.com",
+        "password": "alberto1234",
+        "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+    },
+    {
+        "idUser": 2,
+        "name": "Fatima",
+        "lastName": "Rolon",
+        "email": "fatirolon@gmail.com",
+        "password": "fati1234",
+        "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+    },
+    {
+        "idUser": 3,
+        "name": "Graciela",
+        "lastName": "Fernandez",
+        "email": "grafer@gmail.com",
+        "password": "ferg1234",
+        "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+    },
+    {
+        "idUser": 4,
+        "name": "Fernando",
+        "lastName": "Alvarez",
+        "email": "alvarezfernando@gmail.com",
+        "password": "fernandoa1234",
+        "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+    },
+    {
+        "idUser": 5,
+        "name": "Ludmila",
+        "lastName": "Cardozo",
+        "email": "cardozolu@gmail.com",
+        "password": "carlu1234",
+        "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+    },
+    {
+        "idUser": 6,
+        "name": "Victor",
+        "lastName": "Gonzales",
+        "email": "victor1gonzales@gmail.com",
+        "password": "gonzalesv1234",
+        "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+    },
+    {
+        "idUser": 7,
+        "name": "Gonzalo",
+        "lastName": "Figueroa",
+        "email": "gonzafuigue@gmail.com",
+        "password": "gonza1234",
+        "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+    },
+    {
+        "idUser": 8,
+        "name": "Ramon",
+        "lastName": "Jordan",
+        "email": "ramonjo@gmail.com",
+        "password": "jordan1234",
+        "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+    },
+    {
+        "idUser": 9,
+        "name": "Gabriela",
+        "lastName": "Ponce",
+        "email": "poncegabi@gmail.com",
+        "password": "gabi1234",
+        "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+    },
+    {
+        "idUser": 10,
+        "name": "Laura",
+        "lastName": "Rivero",
+        "email": "riverolaura@gmail.com",
+        "password": "lau1234",
+        "imageURL": "https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+    }
+]

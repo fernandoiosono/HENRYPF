@@ -1,0 +1,55 @@
+.perfil {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.4);
+  flex-direction: row;
+  -moz-osx-font-smoothing: grayscale;
+  justify-content: center;
+  width: 60%;
+  height: 27em;
+  margin: auto;
+  margin-top: 5em;
+}
+
+.div_txt {
+  width: 100%;
+}
+
+.txt{
+  margin-left: 6em;
+}
+
+.txt_info{
+  color:white;
+  margin-left: 6em;
+  margin-top: -5px;
+}
+
+.titulo {
+  margin-left: 3em;
+  color: black;
+  font-size: 2em;
+  text-align: left;
+  display: block;
+}
+
+.imagen {
+  margin: 3em 0 0 2em;
+  border: 8px solid black;
+  border-radius: 200px;
+  height: 300px;
+  transform: translate(0);
+  transition: transform 0.25s ease-out;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+}
+
+.imagen:hover {
+  transform: scale(1.05);
+}
+
+.btn{
+  margin-left: 10em;
+}
+
+

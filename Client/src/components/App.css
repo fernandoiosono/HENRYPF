@@ -1,0 +1,26 @@
+.background_acceso {
+  background-image: url(../assets/img/fondoLetras/fondoLetras.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+}
+
+/* En tu archivo CSS global o en el archivo de estilos de tu componente */
+body {
+  scrollbar-width: thin; /* Establece el ancho del scroll */
+  scrollbar-color: #333333 #ffffff; /* Establece el color del scrollbar */
+}
+
+/* Establece el estilo del scrollbar en navegadores basados en Webkit como Chrome y Safari */
+::-webkit-scrollbar {
+  width: 6px; /* Ancho del scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #333333; /* Color del thumb (la barra) */
+}

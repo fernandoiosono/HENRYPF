@@ -1,0 +1,17 @@
+.btnIngreso {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border: none;
+    font-size: 1.5em;
+    width: 8em;
+    height: 2em;
+    background-color: rgb(245, 196, 44);
+    &:hover {
+        cursor: pointer;
+    }
+}
