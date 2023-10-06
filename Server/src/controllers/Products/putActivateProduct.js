@@ -7,7 +7,7 @@ const putActivateProduct = async (idProduct, activate) => {
     
     if (!product) throw new Error( 'Product not found' );
 
-    product.active = activate === "true";
+    product.active = activate;
     await product.save();
 
     
