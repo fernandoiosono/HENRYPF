@@ -1,14 +1,12 @@
 require('dotenv').config();
-const axios = require('axios');
 const { User } = require('../../database/database.js');
 
-const { LAPI_URL_USERS } = process.env;
-
 const getUsers = async () => {
-    
     const users = await User.findAll();
-    if(users) return users;
-    else throw new Error(`Error en la solicitud a la base de dato: ${error.message}`);
+
+    if (!users.length) throw new Error("There's No Users in the Database!");
+
+    return users;
 };
 
 module.exports = getUsers;
