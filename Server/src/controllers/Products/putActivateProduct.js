@@ -5,7 +5,7 @@ const putActivateProduct = async (idProduct, activate) => {
     const product = await Product.findOne({ where: { idProduct }});
 
     
-    if (!product) throw new Error( 'Producto no encontrado' );
+    if (!product) throw new Error( 'Product not found' );
 
     product.active = activate === "true";
     await product.save();
