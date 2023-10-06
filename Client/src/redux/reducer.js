@@ -40,7 +40,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       const num = Number(payload);
       if (!isNaN(num)) {
         const productoEncontrado = state.allProductos.find(
-          (prod) => prod.idProducto === num
+          (prod) => prod.idProduct === num
         );
         if (!productoEncontrado)
           alert(`No existe el producto con el ID: ${num}`);
@@ -51,7 +51,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         };
       } else {
         const resultado = state.allProductos.filter((producto) =>
-          producto.nombre.toLowerCase().includes(payload.toLowerCase())
+          producto.name.toLowerCase().includes(payload.toLowerCase())
         );
         return {
           ...state,
