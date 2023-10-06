@@ -1,19 +1,16 @@
 require('dotenv').config();
-const axios = require('axios');
 const { User } = require('../../database/database.js');
-const { Op } = require('sequelize');
-
-const { LAPI_URL_USERS } = process.env;
 
 const getActiveUsers = async () => {
     const users = await User.findAll({
-        where:{
+        where: {
             active: true
-        },
+        }
     });
-    if(users) return users;
-    else throw new Error(`Error en la solicitud a la base de dato: ${error.message}`);
 
+    if (!users.length) throw new Error("There's No Active Users in the Database!");
+
+    return users;
 };
 
 module.exports = getActiveUsers;
