@@ -7,7 +7,7 @@ import { agregarCarrito } from "../../redux/actions";
 
 const Detail = () => {
   const { id } = useParams();
-  const allProductos = useSelector((state) => state.allProductos);
+  const allActiveProducts = useSelector((state) => state.allActiveProducts);
   const inicioSesion = useSelector((state) => state.inicioSesion);
   const carrito = useSelector((state) => state.carrito);
   const navigate = useNavigate();
@@ -16,8 +16,8 @@ const Detail = () => {
   const [producto, setProducto] = useState({});
 
   useEffect(() => {
-    setProducto(allProductos.find((prod) => prod.idProduct == id));
-  }, [id, allProductos]);
+    setProducto(allActiveProducts.find((prod) => prod.idProduct == id));
+  }, [id, allActiveProducts]);
 
   const handleRuta = () => {
     if (inicioSesion) {
