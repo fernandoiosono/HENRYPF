@@ -47,9 +47,14 @@ router.post('/', errorHandler(async (req, res) => {
 
 router.patch('/', errorHandler(async (req, res) => {
     const newData = req.body;
-    const userEdited = await patchUser(newData);
+    if(!newData.idUser){
+        throw new Error('Falta id del usuario');
+    } else {
+        const userEdited = await patchUser(newData);
+        res.status(200).json(userEdited);
+    };  
 
-    res.status(200).json(userEdited);
+    
 }));
 
 module.exports = router;
