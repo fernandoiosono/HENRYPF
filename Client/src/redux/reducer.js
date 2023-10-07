@@ -50,15 +50,28 @@ const rootReducer = (state = initialState, { type, payload }) => {
         const productoEncontrado = state.allProductos.find(
           (prod) => prod.idProduct === num
         );
-        if (!productoEncontrado)
+        if (!productoEncontrado) {
           alert(`No existe el producto con el ID: ${num}`);
+          return {
+            ...state,
+          };
+        }
         return {
           ...state,
+          productosEnc: [productoEncontrado],
+          productosMostrar: [productoEncontrado],
         };
       } else {
         const resultado = state.allProductos.filter((producto) =>
           producto.name.toLowerCase().includes(payload.toLowerCase())
         );
+
+        if (resultado.length === 0) {
+          alert("No se encontraron coincidencias");
+          return {
+            ...state,
+          };
+        }
         return {
           ...state,
           productosMostrar: resultado,
