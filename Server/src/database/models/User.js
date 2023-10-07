@@ -1,33 +1,27 @@
-const { DataTypes: dtype } = require("sequelize");
+const { DataTypes: dtype, Sequelize } = require("sequelize");
 
 module.exports = (database) => {
 	database.define(
 		"User",
 		{
 			idUser: {
-				type: dtype.INTEGER,
+				type: dtype.UUID,
 				primaryKey: true,
-				autoIncrement: true
+				defaultValue: Sequelize.UUIDV4
 			},
-			name: {
+			idAuth0: {
+				type: dtype.STRING,
+				allowNull: false
+			},
+			nickName: {
 				type: dtype.STRING,
 				allowNull: false,
-				validate: { len: [1, 100] }
+				validate: { len: [1, 64] }
 			}, 
-			lastname: {
-				type: dtype.STRING,
-				allowNull: false,
-				validate: { len: [1, 100] }
-			},
 			email: {
 				type: dtype.TEXT,
 				allowNull: false,
 				validate: { len: [1, 320] }
-			},
-			password: {
-				type: dtype.STRING,
-				allowNull: false,
-				validate: { len: [1, 20] }
 			},
 			imageURL: {
 				type: dtype.TEXT,

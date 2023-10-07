@@ -36,16 +36,25 @@ router.get('/:id', errorHandler(async (req, res) => {
 
 router.post('/', errorHandler(async (req, res) => {
     const newUser = req.body;
-    const userCreated = await postUser(newUser);
-
-    res.status(200).json(userCreated);
+    if(!newUser.idAuth0 || !newUser.nickName || !newUser.email || !newUser.imageURL){
+        return res.status(400).json({ error: 'Faltan datos para la creación de un nuevo usuario' });
+    } else {
+        const userCreated = await postUser(newUser);
+        res.status(200).json(userCreated);
+    };
+       
 }));
 
 router.patch('/', errorHandler(async (req, res) => {
     const newData = req.body;
-    const userEdited = await patchUser(newData);
+    if(!newData.idUser){
+        throw new Error('Falta id del usuario');
+    } else {
+        const userEdited = await patchUser(newData);
+        res.status(200).json(userEdited);
+    };  
 
-    res.status(200).json(userEdited);
+    
 }));
 
 module.exports = router;
