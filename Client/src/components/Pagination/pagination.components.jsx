@@ -12,56 +12,30 @@ const generatePages = (productos, itemsPerPage) => {
   return pageNums;
 };
 
-function Pagination({ estado }) {
-  if (estado === "productosMostrar") {
-    const itemsPerPage = useSelector((state) => state.itemsPerPage);
-    const productos = useSelector((state) => state.productosMostrar);
-    const [pageNums, setPageNums] = useState([]);
-    const dispatch = useDispatch();
+function Pagination() {
+  const itemsPerPage = useSelector((state) => state.itemsPerPage);
+  const productos = useSelector((state) => state.productosMostrar);
+  const [pageNums, setPageNums] = useState([]);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-      setPageNums(generatePages(productos, itemsPerPage));
-    }, [productos, itemsPerPage]);
+  useEffect(() => {
+    setPageNums(generatePages(productos, itemsPerPage));
+  }, [productos, itemsPerPage]);
 
-    const handlePage = (currentPage) => {
-      dispatch(setCurrenPage(currentPage));
-    };
+  const handlePage = (currentPage) => {
+    dispatch(setCurrenPage(currentPage));
+  };
 
-    return (
-      <div className="div_pagin">
-        {pageNums &&
-          pageNums.map((p) => (
-            <a key={p} onClick={() => handlePage(p)}>
-              {p}
-            </a>
-          ))}
-      </div>
-    );
-  } else if (estado === "allProductos") {
-    const itemsPerPage = useSelector((state) => state.itemsPerPage);
-    const productos = useSelector((state) => state.allProductos);
-    const [pageNums, setPageNums] = useState([]);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-      setPageNums(generatePages(productos, itemsPerPage));
-    }, [productos, itemsPerPage]);
-
-    const handlePage = (currentPage) => {
-      dispatch(setCurrenPage(currentPage));
-    };
-
-    return (
-      <div className="div_pagin">
-        {pageNums &&
-          pageNums.map((p) => (
-            <a key={p} onClick={() => handlePage(p)}>
-              {p}
-            </a>
-          ))}
-      </div>
-    );
-  }
+  return (
+    <div className="div_pagin">
+      {pageNums &&
+        pageNums.map((p) => (
+          <a key={p} onClick={() => handlePage(p)}>
+            {p}
+          </a>
+        ))}
+    </div>
+  );
 }
 
 export default Pagination;
