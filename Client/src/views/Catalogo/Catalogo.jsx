@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Cards from "../../components/Cards/Cards.jsx";
 import Filter from "../../components/Filter/Filter.jsx";
@@ -8,9 +8,12 @@ import { setCurrenPage, traerActiveProductos } from "../../redux/actions.js";
 import { useDispatch } from "react-redux";
 
 const Catalogo = () => {
+  useEffect(() => {
+    dispatch(traerActiveProductos());
+  }),
+    [];
   const dispatch = useDispatch();
   dispatch(setCurrenPage(1));
-  dispatch(traerActiveProductos());
   return (
     <>
       <Filter />
