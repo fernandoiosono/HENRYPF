@@ -28,29 +28,37 @@ const App = () => {
     dispatch(traerProductos()); //! para cargar allProductos
   }, []);
   
-  const handlerClassName = () =>{
+  const handleClassName = () =>{
     if(pathname === "/acceso") return "background_acceso";
+    if(pathname === "/home") return "background_home";
   }
 
   return (
-    <SectionApp>
-      <main className={handlerClassName()}>
-        {pathname !== "/" && <Nav />}
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/catalogo" element={<Catalogo />} />
-          <Route path="/acceso" element={<Acceso />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/detalle/:id" element={<Detail />} />
-          <Route path="/pago" element={<Pago />} />
-          <Route path="/registro" element={<Registro />} />
-          <Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
-          <Route path="/edicion" element={<EdicionProducto />} />
-        </Routes>
+    <>
+      {pathname !== "/" &&
+        <>
+          <Nav />
+          <div className="spaceNav"/>
+        </>
+      }
+      <main className={handleClassName()}>
+        <SectionApp>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/catalogo" element={<Catalogo />} />
+            <Route path="/acceso" element={<Acceso />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/carrito" element={<Carrito />} />
+            <Route path="/detalle/:id" element={<Detail />} />
+            <Route path="/pago" element={<Pago />} />
+            <Route path="/registro" element={<Registro />} />
+            <Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
+            <Route path="/edicion" element={<EdicionProducto />} />
+          </Routes>
+        </SectionApp>
       </main>
-    </SectionApp>
+    </>
   );
 };
 

@@ -1,7 +1,9 @@
 .nav{
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(12, 12, 12);;
     display: flex;
-    border-radius: 3px;
+    position: fixed;
+    width: 100%;
+    z-index: 4;
 }
 
 .back{
@@ -27,19 +29,19 @@
 .logo{
     width: 10em;
     margin: auto;
+    height: min-content;
 }
 
 .home{
     width: 2em;
-    margin: auto 1em auto 0;
+    margin: auto 0.5em auto 0;
     &:hover{
         cursor: pointer;
     }
 }
-
 .homeHidden{
     width: 2em;
-    margin: auto 1em auto 0;
+    margin: auto 0.5em auto 0;
     visibility: hidden;
 }
 
@@ -55,7 +57,7 @@
     color: white;
     margin: auto;
     margin-right: 1em;
-    margin-left: 1em;
+    margin-left: 0.5em;
     &:hover{
         cursor: pointer;
         text-decoration: underline;
@@ -66,7 +68,7 @@
 .carritoCont{
     height: min-content;
     margin: auto;
-    margin-right: 1em;
+    margin-right: 0.5em;
     margin-left: 1em;
 }
 
@@ -86,9 +88,14 @@
     }
 }
 
+.divPerfil{
+    height: min-content;
+    margin: auto;
+    margin-right: 1em;
+    margin-left: 0.5em;
+}
 .perfil{
     width: 2.8em;
-    margin-left: 1em;
     border-radius: 5px;
     &:hover{
         cursor: pointer;
@@ -99,14 +106,13 @@
     color: white;
     margin: auto;
     margin-right: 1em;
-    margin-left: 1em;
+    margin-left: 0.5em;
     &:hover{
         cursor: pointer;
         text-decoration: underline;
 
     }
 }
-
 .adminHidden{
     margin: auto;
     margin-right: 1em;

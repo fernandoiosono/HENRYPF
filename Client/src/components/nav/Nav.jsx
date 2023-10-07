@@ -41,7 +41,7 @@ const Nav = () => {
     }
   };
 
-  const inicioCarrito = () => {
+  const inicioPerfil = () => {
     if (!inicioSesion) {
       return (
         <h3 className={style.iniciar} onClick={() => loginWithRedirect()}>
@@ -51,21 +51,13 @@ const Nav = () => {
     } else {
       console.log(user.picture);
       return (
-        <div className={style.carritoCont}>
-          <h3 className={style.contador} onClick={() => navigate("/carrito")}>
-            {carrito.length}
-          </h3>
-          <img
-            src={iconoCarrito}
-            alt="carrito"
-            className={style.carrito}
-            onClick={() => navigate("/carrito")}
-          />
+        <div className={style.divPerfil}>
           <img
             src={user.picture}
             alt="perfil"
             className={style.perfil}
             onClick={() => navigate("/acceso")}
+            title="perfil"
           />
         </div>
       );
@@ -78,19 +70,34 @@ const Nav = () => {
       <h3 className={style.sobre} onClick={() => navigate("/about")}>
         Sobre nosotros
       </h3>
-      <img src={logo} alt="moveOn" className={style.logo} />
-      <h3 className={adminHidden()} onClick={() => navigate("/catalogoAdmin")}>
-        admin
-      </h3>
       <img
         src={home}
+        title="home"
         alt="home"
         className={homeHidden()}
         onClick={() => navigate("/home")}
       />
+      <h3
+      title="catálogo admin"
+      className={adminHidden()}
+      onClick={() => navigate("/catalogoAdmin")}
+      >admin</h3>
+      <img src={logo} alt="moveOn" className={style.logo} />
       <SearchBar />
       <div className={style.div} />
-      {inicioCarrito()}
+      <div className={style.carritoCont}>
+          <h3 className={style.contador} onClick={() => navigate("/carrito")}>
+            {carrito.length}
+          </h3>
+          <img
+            src={iconoCarrito}
+            alt="carrito"
+            title="carito"
+            className={style.carrito}
+            onClick={() => navigate("/carrito")}
+          />
+        </div>
+      {inicioPerfil()}
     </div>
   );
 };

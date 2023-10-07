@@ -5,3 +5,13 @@
     height: 100vh;
     margin: 0;
 }
+
+.background_home{
+    background-image: url(../assets/img/home/FotoPrincipalHome.png);
+    background-size: cover;
+    min-height: 163vh;
+}
+
+.spaceNav{
+    height: 4.3em;
+}
