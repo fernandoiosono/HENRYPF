@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   TRAER_PRODUCTOS,
+  TRAER_PRODUCTO,
   TRAER_PRODUCTOS_ACTIVOS,
   SET_PAGINA,
   BUSCAR_PRUDUCTOS,
@@ -28,11 +29,24 @@ export const traerAllProductos = () => {
   }
 };
 
+export const traerProducto = (id) => {
+  try {
+    return async (dispatch) => {
+      const { data } = await axios.get(`${URL}products/${id}`);
+      return dispatch({
+        type: TRAER_PRODUCTO,
+        payload: data,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const traerActiveProductos = () => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(`${URL}products/active`);
-      // const data = productos;
       return dispatch({
         type: TRAER_PRODUCTOS_ACTIVOS,
         payload: data,

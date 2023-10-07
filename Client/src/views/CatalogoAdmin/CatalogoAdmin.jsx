@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import List from "../../components/List/List";
 import CrearProducto from "../../components/CrearProducto/CrearProducto";
 import Pagination from "../../components/Pagination/pagination.components";
 import Aside from "../../components/Aside/Aside";
-import { setCurrenPage } from "../../redux/actions.js";
+import { setCurrenPage, traerAllProductos } from "../../redux/actions.js";
 import { useDispatch } from "react-redux";
 import "./CatalogoAdmin.css";
 
 const CatalogoAdmin = () => {
+  useEffect(() => {
+    dispatch(traerAllProductos());
+  }),
+    [];
   const dispatch = useDispatch();
   dispatch(setCurrenPage(1));
   const [mostrarVerProductos, setMostrarVerProductos] = useState(false); // Nuevo estado para controlar qué componente mostrar

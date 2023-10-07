@@ -1,11 +1,30 @@
-import React from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { traerProducto } from "../../redux/actions";
+const EdicionProducto = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const producto = useSelector((state) => state.producto);
 
-const EdicionProducto = ()=>{
-    return (
-        <>
-        <h1>Esta es la vista para la creacion o modificacion de productos</h1>
-        </>
-    );
+  useEffect(() => {
+    dispatch(traerProducto(id));
+  }, [dispatch]);
+
+  const {
+    idProduct,
+    name,
+    imageURL,
+    description,
+    price,
+    stock,
+    discount,
+    active,
+    Category,
+  } = producto;
+  {
+    Category ? console.log(Category.name) : null;
+  }
 };
 
 export default EdicionProducto;

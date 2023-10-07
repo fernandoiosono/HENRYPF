@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 
 function List() {
   const dispatch = useDispatch();
-  dispatch(traerAllProductos());
+  // dispatch(traerAllProductos());
   const traerProductos = useSelector((state) => state.allProductos);
   const currentPage = useSelector((state) => state.currentPage);
   const itemsPerPage = useSelector((state) => state.itemsPerPage);

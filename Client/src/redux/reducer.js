@@ -1,5 +1,6 @@
 import {
   TRAER_PRODUCTOS,
+  TRAER_PRODUCTO,
   TRAER_PRODUCTOS_ACTIVOS,
   SET_PAGINA,
   BUSCAR_PRUDUCTOS,
@@ -14,6 +15,7 @@ import {
 const initialState = {
   allProductos: [],
   productosMostrar: [],
+  producto: [],
   allActiveProducts: [],
   productosEnc: [],
   carrito: [],
@@ -36,6 +38,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         productosMostrar: payload,
         allActiveProducts: payload,
+      };
+
+    case TRAER_PRODUCTO:
+      return {
+        ...state,
+        producto: payload,
       };
 
     case SET_PAGINA:

@@ -42,15 +42,17 @@ router.post('/', errorHandler(async (req, res) => {
     res.status(200).json(productCreated);
 }));
 
-router.patch('/', errorHandler(async (req, res) => {
+router.patch('/:idProduct', errorHandler(async (req, res) => {
+    const { idProduct } = req.params;
     const newData = req.body;
-    const productEdited = await patchProduct(newData);
+    const productEdited = await patchProduct(idProduct, newData);
 
     res.status(200).json(productEdited);
 }));
 
-router.put('/', errorHandler(async (req, res) => {
-    const { idProduct, activate } = req.query;
+router.put('/:idProduct/', errorHandler(async (req, res) => {
+    const { idProduct } = req.params;
+    const { activate } = req.query;
     const productActivated = await putActivateProduct(idProduct, activate);
 
     res.status(200).json(productActivated);
