@@ -8,9 +8,7 @@ import "./perfil.css";
 
 const Perfil = ({user, autenticado}) => {
   const dispatch = useDispatch();
-  // const usuario = useSelector((state) => state.usuario);
-
-  // console.log("nuevo usuario" , usuario.data)
+  const usuario = useSelector((state) => state.usuario);
 
    const newUsuario = {
     idAuth0: user.sub,
@@ -22,7 +20,7 @@ const Perfil = ({user, autenticado}) => {
    useEffect(() => {
     if(autenticado){
     dispatch(crearUsuario(newUsuario));}
-  });
+  },[]);
   
     // useEffect(()=>{
     //     if(isAuthenticated){
@@ -38,19 +36,19 @@ const Perfil = ({user, autenticado}) => {
 
   return (
       <div className="perfil">
-        <img src={user.picture} alt={user.name} className="imagen" />
+        <img src={usuario.data.imageURL} alt="imagen del usuario" className="imagen" />
         <div className="cloudinary">
           <h3 className="cambiarImg">Cambiar Imagen:</h3>
           < SubirImagen/>
         </div>
         <div className="div_txt">
-          <h1 className="titulo">Bienvenido {user.given_name}</h1>
+          <h1 className="titulo">Bienvenido {usuario.data.nickName}</h1>
           <h3 className="txt">Nombre</h3>
-          <p className="txt_info">{user.name}</p>
+          <p className="txt_info">{usuario.data.email}</p>
+          <h3 className="txt">Nombre de usuario</h3>
+          <p className="txt_info">{usuario.data.nickName}</p>
           <h3 className="txt">Correo</h3>
-          <p className="txt_info">{user.email}</p>
-          <h3 className="txt">Usuario</h3>
-          <p className="txt_info">{user.nickname}</p>
+          <p className="txt_info">{usuario.data.email}</p>
           <div className="btn">
             <LogoutButton />
           </div>
