@@ -13,15 +13,17 @@ module.exports = (database) => {
 				type: dtype.STRING,
 				allowNull: false
 			},
+			name: {
+				type: dtype.STRING,
+				allowNull: false,
+			}, 
 			nickName: {
 				type: dtype.STRING,
 				allowNull: false,
-				validate: { len: [1, 64] }
 			}, 
 			email: {
 				type: dtype.TEXT,
 				allowNull: false,
-				validate: { len: [1, 320] }
 			},
 			imageURL: {
 				type: dtype.TEXT,
