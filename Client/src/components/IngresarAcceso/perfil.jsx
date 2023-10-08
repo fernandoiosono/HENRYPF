@@ -13,6 +13,8 @@ const Perfil = () => {
 
   return (
     isAuthenticated && (
+      <>
+      <div className="spaceNav"/>  {/* ESTE DIV ES PARA EL ESPACIO DEL NAV */}
       <div className="perfil">
         <img src={user.picture} alt={user.name} className="imagen" />
         <div className="div_txt">
@@ -28,6 +30,7 @@ const Perfil = () => {
           </div>
         </div>
       </div>
+      </>
     )
   );
 };

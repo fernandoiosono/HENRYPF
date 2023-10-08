@@ -43,17 +43,17 @@ const Detail = () => {
         if (producto.descuento === 0) {
             return (
                 <div className={style.precios}>
-                    <h1 className={style.precio2}>USD ${producto.precio}</h1>
+                    <h1 className={style.precio2}>USD ${producto.precio.toFixed(2)}</h1>
                 </div>
             )
         } else {
             const descuento = producto.precio * producto.descuento / 100;
-            const nuevoPrecio = producto.precio - descuento
+            const nuevoPrecio = producto.precio-descuento
             return (
                 <>
-                    <h3 className={style.precio1}>USD ${producto.precio}</h3>
+                    <h3 className={style.precio1}>USD ${producto.precio?producto.precio.toFixed(2):producto.precio}</h3>
                     <div className={style.precios}>
-                        <h1 className={style.precio2}>USD ${nuevoPrecio}</h1>
+                        <h1 className={style.precio2}>USD ${nuevoPrecio.toFixed(2)}</h1>
                         <h2 className={style.descuento}>{producto.descuento}% descuento</h2>
                     </div>
                 </>

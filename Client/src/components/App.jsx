@@ -17,7 +17,6 @@ import {
   CatalogoAdmin,
   EdicionProducto,
 } from "../views";
-
 import './App.css';
 
 const App = () => {
@@ -30,7 +29,6 @@ const App = () => {
   
   const handleClassName = () =>{
     if(pathname === "/acceso") return "background_acceso";
-    if(pathname === "/home") return "background_home";
   }
 
   return (
@@ -38,7 +36,6 @@ const App = () => {
       {pathname !== "/" &&
         <>
           <Nav />
-          <div className="spaceNav"/>
         </>
       }
       <main className={handleClassName()}>

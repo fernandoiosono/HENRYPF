@@ -1,3 +1,14 @@
+.spaceNav{
+    height: 7.7vh;
+}
+
+.imgFondo{
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    transform: translateX(-1.3em);
+}
+
 .momento{
     margin-left: 2em;
 }

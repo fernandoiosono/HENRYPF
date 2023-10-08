@@ -1,0 +1,146 @@
+.spaceNav{
+    height: 7.7vh;
+}
+
+.carrito{
+    margin: auto;
+    margin-top: 2em;
+    padding-top: 1em;
+    width: 90%;
+}
+
+.titulo{
+    font-size: 2em;
+    margin: 0 auto 0 auto;
+    width: max-content;
+    color: rgb(245, 196, 44)
+}
+
+.titulos{
+    display: flex;
+}
+
+.spaceBorrar{
+    margin-left: 22px;
+    width: 3.1em;
+}
+
+
+.tituloImg{
+    text-align: center;
+    width: 8%;
+    margin: 1em auto;
+    color: white;
+}
+
+.tituloCenter{
+    text-align: center;
+    width: 13%;
+    margin: 1em auto;
+    color: white;
+}
+
+.tituloNom{
+    width: 25%;
+    margin: 1em auto;
+    color: white;
+}
+
+.producto{
+    background-color: rgba(0, 0, 0, 0.8);;
+    display: flex;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    height: 6em;
+}
+
+.divBorar{
+    display: flex;
+    align-items: center;
+    margin: auto 22px auto 22px;
+    border: 1px solid white;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 3px;
+    &:hover{
+        cursor: pointer;
+        background-color: red;
+    }
+}
+
+.borar{
+    margin: 0;
+    text-align: center;
+    width: 2em;
+    color: white;
+    transform: translateY(-1.5px) translateX(-0.5px);
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.divImg{
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    width: 8%;
+    margin: auto;
+    height: 5em;
+    display: flex;
+    justify-content: center;
+}
+
+.imagen{
+    margin: 0 auto;
+    height: 100%;
+    border-radius: 5px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.nombre{
+    color: white;
+    font-size: 1em;
+    text-align: left;
+    width: 25%;
+    margin: auto;
+    &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+.divCant{
+    text-align: center;
+    width: 13%;
+    margin: auto;
+}
+
+.cant{
+    width: 2em;
+    font-size: 1em;
+}
+
+.stock{
+    text-align: center;
+    width: 13%;
+    margin: auto;
+    color: rgb(245, 196, 44);
+    font-size: 1em;
+}
+
+.precio{
+    text-align: center;
+    width: 13%;
+    margin: auto;
+    color: white;
+    font-size: 1em;
+}
+
+.subTotal{
+    text-align: center;
+    width: 13%;
+    margin: auto;
+    color: white;
+    font-size: 1em;
+}

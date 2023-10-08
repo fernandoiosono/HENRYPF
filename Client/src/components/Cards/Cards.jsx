@@ -17,7 +17,7 @@ function Cards() {
     <div className="card-list">
       {productsToShow.length > 0
         ? productsToShow.map((producto) => (
-            <Card key={producto.id} producto={producto} />
+            <Card key={producto.idProducto} producto={producto} />
           ))
         : null}
     </div>
