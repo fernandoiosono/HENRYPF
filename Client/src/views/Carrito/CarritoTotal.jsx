@@ -1,26 +1,23 @@
-import { useEffect, useState } from 'react';
 import style from './CarritoTotal.module.css';
 
 const CarritoTotal = ({ carritoListo }) => {
 
-    const [ totalDescuento, setTotalDescuento] = useState(0);
-
-    console.log(carritoListo);
-    
-    useEffect(() => {
-        if (carritoListo.length>0) {
-            setTotalDescuento(carritoListo.map(producto=> {
-                if (producto.descuento>0) {
-                    console.log(producto.cantidad);
-                    return totalDescuento+(producto.cantidad*(producto.precio-(producto.precio*producto.descuento/100)))
-                }
-            }))
-        }
-    },[carritoListo])
+    const totalDescuento = () => {
+        let totalDescuento = 0
+        carritoListo.map(producto=>{
+            if (producto.descuento > 0) {
+                totalDescuento+=producto.cantidad * (producto.precio * producto.descuento / 100)
+            }
+        })
+        return totalDescuento.toFixed(2)
+    };
+    console.log(totalDescuento());
 
     return(
         <div className={style.carritoTotal}>
-
+            <div className={style.valores}>
+                
+            </div>
         </div>
     )
 };

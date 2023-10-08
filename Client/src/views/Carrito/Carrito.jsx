@@ -8,7 +8,6 @@ const Carrito = ()=>{
 
     const carrito = useSelector(state=>state.carrito);
     const [ carritoListo, setCarritoListo ] = useState([]);
-    console.log(carritoListo);
 
     return (
         <>
@@ -32,20 +31,20 @@ const Carrito = ()=>{
 
                         useEffect(() => {
                             const producEncontrado = carritoListo.find(prod => prod.idProducto == producto.idProducto);
-                            if (!producEncontrado) {
-                                setCarritoListo([...carritoListo, { ...producto, cantidad }]);
-                            } else {
-                                const nuevoCarrito = carritoListo.map(prod => {
-                                    if (prod.idProducto == producto.idProducto) {
-                                        return { ...prod, cantidad }
-                                    } else {
-                                        return prod
-                                    }
-                                })
-                                setCarritoListo(nuevoCarrito);
-                            };
+                                if (!producEncontrado) {
+                                    setCarritoListo(prevCarrito => [...prevCarrito, { ...producto, cantidad }]);
+                                } else {
+                                    const nuevoCarrito = carritoListo.map(prod => {
+                                        if (prod.idProducto == producto.idProducto) {
+                                            return { ...prod, cantidad }
+                                        } else {
+                                            return prod
+                                        }
+                                    })
+                                    setCarritoListo(nuevoCarrito);
+                                };
                             if (cantidad > producto.stock) setCantidad(cantidad - 1)
-                        }, [cantidad])
+                        }, [cantidad]);
 
                         const handleChange = (event) => {
                             if (event.target.value > producto.stock) {

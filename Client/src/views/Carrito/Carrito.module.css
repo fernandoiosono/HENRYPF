@@ -42,7 +42,7 @@
 
 .tituloNom{
     width: 25%;
-    margin: 1em auto;
+    margin: 1em auto 1em 2em;
     color: white;
 }
 
@@ -103,7 +103,7 @@
     font-size: 1em;
     text-align: left;
     width: 25%;
-    margin: auto;
+    margin: auto auto auto 2em;
     &:hover{
         cursor: pointer;
         text-decoration: underline;
