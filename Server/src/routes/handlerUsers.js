@@ -36,7 +36,7 @@ router.get('/:id', errorHandler(async (req, res) => {
 
 router.post('/', errorHandler(async (req, res) => {
     const newUser = req.body;
-    if(!newUser.idAuth0 || !newUser.nickName || !newUser.email || !newUser.imageURL){
+    if(!newUser.idAuth0 || !newUser.name || !newUser.nickName || !newUser.email || !newUser.imageURL){
         return res.status(400).json({ error: 'Faltan datos para la creación de un nuevo usuario' });
     } else {
         const userCreated = await postUser(newUser);
