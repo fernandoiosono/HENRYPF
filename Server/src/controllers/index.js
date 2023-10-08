@@ -22,6 +22,10 @@ const patchProduct = require('./Products/patchProduct.js');
 const postProduct = require('./Products/postProduct.js');
 const putActivateProduct = require('./Products/putActivateProduct.js');
 
+// ShoppingCart Folder
+const getCartByUserID = require('./ShoppingCart/getCartByUserID.js');
+const postCartByUserID = require('./ShoppingCart/postCartByUserID.js');
+
 // Users Folder
 const getActiveUsers = require('./Users/getActiveUsers.js');
 const getUserByID = require('./Users/getUserByID.js');
@@ -49,6 +53,9 @@ module.exports = {
     patchProduct,
     postProduct,
     putActivateProduct,
+
+    getCartByUserID,
+    postCartByUserID,
 
     getActiveUsers,
     getUserByID,
