@@ -33,7 +33,7 @@
 }
 
 .imagen {
-  margin: 3em 0 0 2em;
+  margin: 2em 0 0 4em;
   border: 8px solid black;
   border-radius: 200px;
   height: 300px;
@@ -48,8 +48,25 @@
   transform: scale(1.05);
 }
 
+.cloudinary {
+  margin: 0;
+  display: flex;
+  position: absolute;
+  margin-right: 27em;
+  margin-top: 23em;
+}
+
+.cambiarImg{
+  font-size: 1em;
+  margin-top: -0.1em;
+  margin-right: 0.3em;
+}
+
 .btn{
   margin-left: 10em;
+  margin-top: 2em;
 }
+
+
 
 

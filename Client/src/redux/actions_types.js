@@ -8,3 +8,4 @@ export const SET_ORDER = "SET_ORDER";
 export const AGREGAR_CARRITO = "AGREGAR_CARRITO";
 export const QUITAR_CARRITO = "QUITAR_CARRITO";
 export const SET_INICIO_SESION = "SET_INICIO_SESION";
+export const USUARIO = 'USUARIO';

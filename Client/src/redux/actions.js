@@ -10,6 +10,7 @@ import {
   FILTER_CATEGORIA,
   SET_ORDER,
   SET_INICIO_SESION,
+  USUARIO,
 } from "./actions_types";
 
 const URL = "http://localhost:3001/moveon/";
@@ -125,6 +126,20 @@ export const setInicioSesion = (booleano) => {
       return dispatch({
         type: SET_INICIO_SESION,
         payload: booleano,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const crearUsuario = (newUsuario) => {
+  try {
+    return async (dispatch) => {
+     const usuarioCreado = await axios.post(`http://localhost:3001/moveon/users/`, newUsuario);
+      dispatch({
+        type: USUARIO,
+        payload: usuarioCreado
       });
     };
   } catch (error) {

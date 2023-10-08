@@ -4,23 +4,11 @@ import Perfil from "../../components/IngresarAcceso/perfil";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Acceso = ()=>{
-    const {isAuthenticated} = useAuth0();
-    
-    // useEffect(()=>{
-    //     if(isAuthenticated){
-    //         dispatch(accionverificarrol)
-    //     }
-    // }, [isAuthenticated]);
-
-    // useEffect(()=>{
-    //     if(administrador){
-    //         redirect, window.
-    //     }
-    // }, [rol]);
+    const {user, isAuthenticated} = useAuth0();
 
     return (
         <>
-        {isAuthenticated ? <> < Perfil /> </>: < LoginButton />}
+        {isAuthenticated ? <> < Perfil user={user} autenticado={isAuthenticated}/> </>: < LoginButton />}
         </>
     );
 };
