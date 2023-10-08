@@ -62,6 +62,8 @@ const Detail = () => {
     };
 
     return (
+        <>
+        <div className={style.spaceNav} /> {/* ESTE DIV ES PARA EL ESPACIO DEL NAV */}
         <div className={style.detalle}>
             <div className={style.imagenBotones}>
                 <img src={producto.imagen} className={style.imagen} />
@@ -76,6 +78,7 @@ const Detail = () => {
                 <h5 className={style.id}>ID del producto: {producto.idProducto}</h5>
             </div>
         </div>
+        </>
     );
 };
 

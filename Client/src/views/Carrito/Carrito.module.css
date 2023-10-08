@@ -30,20 +30,20 @@
     text-align: center;
     width: 8%;
     margin: 1em auto;
-    color: white;
+    color: rgb(163, 159, 159);
 }
 
 .tituloCenter{
     text-align: center;
     width: 13%;
     margin: 1em auto;
-    color: white;
+    color: rgb(163, 159, 159);
 }
 
 .tituloNom{
     width: 25%;
     margin: 1em auto 1em 2em;
-    color: white;
+    color: rgb(163, 159, 159);;
 }
 
 .producto{
