@@ -24,7 +24,6 @@ const putActivateProduct = require('./Products/putActivateProduct.js');
 
 // Users Folder
 const getActiveUsers = require('./Users/getActiveUsers.js');
-const getUserAccess = require('./Users/getUserAccess.js');
 const getUserByID = require('./Users/getUserByID.js');
 const getUsers = require('./Users/getUsers.js');
 const patchUser = require('./Users/patchUser.js');
@@ -52,7 +51,6 @@ module.exports = {
     putActivateProduct,
 
     getActiveUsers,
-    getUserAccess,
     getUserByID,
     getUsers,
     patchUser,
