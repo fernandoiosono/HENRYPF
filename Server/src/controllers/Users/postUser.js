@@ -6,13 +6,14 @@ const { LAPI_URL_USERS } = process.env;
 
 const postUser = async (newUser) => {
 
-    const {idAuth0, nickName, email, imageURL} = newUser;
+    const {idAuth0, name, nickName, email, imageURL} = newUser;
 
     const [user, created] = await User.findOrCreate({
         where: {
             idAuth0: idAuth0,           
         },
         defaults: {
+            name: name,
             email: email,
             nickName: nickName,
             imageURL: imageURL,
@@ -21,6 +22,7 @@ const postUser = async (newUser) => {
 
     if(created) return {
         idUser: user.idUser,
+        name: user.name,
         nickName: user.nickName,
         email: user.email,
         imageURL: user.imageURL,
@@ -30,6 +32,7 @@ const postUser = async (newUser) => {
     };
     else return {
         idUser: user.idUser,
+        name: user.name,
         nickName: user.nickName,
         email: user.email,
         imageURL: user.imageURL,
