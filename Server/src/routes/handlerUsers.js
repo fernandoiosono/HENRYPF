@@ -20,13 +20,6 @@ router.get('/active', errorHandler(async (req, res) => {
     res.status(200).json(users);
 }));
 
-router.get('/access', errorHandler((req, res) => {
-    const { email, password } = req.query;
-    const access = getUserAccess(email, password);
-
-    res.status(200).json({ access: access });
-}));
-
 router.get('/:id', errorHandler(async (req, res) => {
     const { id } = req.params;
     const user = await getUserByID(id);
