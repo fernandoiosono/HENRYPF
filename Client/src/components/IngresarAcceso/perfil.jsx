@@ -13,7 +13,7 @@ const Perfil = ({user}) => {
   // console.log("nuevo usuario" , usuario)
 
    const newUsuario = {
-    nickname : user.nickname,
+    nickName : user.nickname,
     email : user.email,
     password: user.sub,
     imageURL: user.picture,
