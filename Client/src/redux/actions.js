@@ -94,6 +94,7 @@ export const agregarCarrito = (producto) => {
 export const quitarCarrito = (id) => {
   try {
     return (dispatch) => {
+      console.log('quita del carro'); 
       return dispatch({
         type: QUITAR_CARRITO,
         payload: id,

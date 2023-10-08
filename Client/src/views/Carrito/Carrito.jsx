@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import style from './Carrito.module.css';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CarritoTotal from "./CarritoTotal";
+import { quitarCarrito } from "../../redux/actions";
 
-const Carrito = ()=>{
+const Carrito = () => {
 
-    const carrito = useSelector(state=>state.carrito);
+    const carrito = useSelector(state => state.carrito);
+    console.log(carrito.length);
     const [ carritoListo, setCarritoListo ] = useState([]);
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -28,24 +31,25 @@ const Carrito = ()=>{
                         const [cantidad, setCantidad] = useState(() => 1);
                         const navigate = useNavigate();
                         const subTotal = producto.precio * cantidad;
-
+                        
                         useEffect(() => {
                             const producEncontrado = carritoListo.find(prod => prod.idProducto == producto.idProducto);
-                                if (!producEncontrado) {
-                                    setCarritoListo(prevCarrito => [...prevCarrito, { ...producto, cantidad }]);
-                                } else {
-                                    const nuevoCarrito = carritoListo.map(prod => {
-                                        if (prod.idProducto == producto.idProducto) {
-                                            return { ...prod, cantidad }
-                                        } else {
-                                            return prod
-                                        }
-                                    })
-                                    setCarritoListo(nuevoCarrito);
-                                };
+                            if (!producEncontrado) {
+                                setCarritoListo(prevCarrito => [...prevCarrito, { ...producto, cantidad }]);
+                            } else {
+                                const nuevoCarrito = carritoListo.map(prod => {
+                                    if (prod.idProducto == producto.idProducto) {
+                                        return { ...prod, cantidad }
+                                    } else {
+                                        return prod
+                                    }
+                                })
+                                setCarritoListo(nuevoCarrito);
+                            };
                             if (cantidad > producto.stock) setCantidad(cantidad - 1)
                         }, [cantidad]);
-
+                        console.log('hasta aqui si');
+                        
                         const handleChange = (event) => {
                             if (event.target.value > producto.stock) {
                                 alert("La cantidad ingresada no puede superar lo que hay en stock")
@@ -58,7 +62,11 @@ const Carrito = ()=>{
                         return (
                             <div className={style.producto} key={producto.idProducto}>
                                 <div className={style.divBorar}>
-                                    <h1 className={style.borar} title="quitar del carrito">X</h1>
+                                    <h1
+                                        className={style.borar}
+                                        title="quitar del carrito"
+                                        onClick={() => dispatch(quitarCarrito(producto.idProducto))}
+                                    >X</h1>
                                 </div>
                                 <div className={style.divImg}>
                                     <img
@@ -85,7 +93,7 @@ const Carrito = ()=>{
                             </div>
                         )
                     })}
-                    <CarritoTotal carritoListo={carritoListo}/>
+                    <CarritoTotal carritoListo={carritoListo} />
                 </div>
             </div>
         </>

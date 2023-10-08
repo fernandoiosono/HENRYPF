@@ -22,6 +22,7 @@ const Detail = () => {
 
     const handleRuta = () => {
         if (inicioSesion) {
+            dispatch(agregarCarrito(producto))
             navigate('/carrito')
         } else {
             loginWithRedirect()
@@ -63,21 +64,21 @@ const Detail = () => {
 
     return (
         <>
-        <div className={style.spaceNav} /> {/* ESTE DIV ES PARA EL ESPACIO DEL NAV */}
-        <div className={style.detalle}>
-            <div className={style.imagenBotones}>
-                <img src={producto.imagen} className={style.imagen} />
-                <button className={style.comprar} onClick={() => handleRuta()}>Comprar ahora</button>
-                <button className={style.agregar} onClick={() => botonCarrito()}>Agregar al carrito</button>
+            <div className={style.spaceNav} /> {/* ESTE DIV ES PARA EL ESPACIO DEL NAV */}
+            <div className={style.detalle}>
+                <div className={style.imagenBotones}>
+                    <img src={producto.imagen} className={style.imagen} />
+                    <button className={style.comprar} onClick={() => handleRuta()}>Comprar ahora</button>
+                    <button className={style.agregar} onClick={() => botonCarrito()}>Agregar al carrito</button>
+                </div>
+                <div className={style.detalles}>
+                    <h1 className={style.nombre}>{producto.nombre}</h1>
+                    {handlePrecioDesc()}
+                    <h4 className={style.stock}>{producto.stock} unidades disponibles</h4>
+                    <p className={style.descripcion}>{producto.descripcion}</p>
+                    <h5 className={style.id}>ID del producto: {producto.idProducto}</h5>
+                </div>
             </div>
-            <div className={style.detalles}>
-                <h1 className={style.nombre}>{producto.nombre}</h1>
-                {handlePrecioDesc()}
-                <h4 className={style.stock}>{producto.stock} unidades disponibles</h4>
-                <p className={style.descripcion}>{producto.descripcion}</p>
-                <h5 className={style.id}>ID del producto: {producto.idProducto}</h5>
-            </div>
-        </div>
         </>
     );
 };
