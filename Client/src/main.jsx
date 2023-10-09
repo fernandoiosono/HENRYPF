@@ -1,5 +1,6 @@
 import "./assets/css/main.css";
-import { Auth0Provider } from '@auth0/auth0-react';
+
+import { Auth0Provider } from "@auth0/auth0-react";
 
 import { App } from "./components";
 import store from "./redux/store.js";
@@ -15,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     domain={domain}
     clientId={client_id}
     authorizationParams={{
-      redirect_uri: "http://localhost:5173/catalogo"
+      redirect_uri: "http://localhost:5173/catalogo",
     }}
   >
     <Provider store={store}>
@@ -23,5 +24,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <App />
       </BrowserRouter>
     </Provider>
-    </Auth0Provider>
+  </Auth0Provider>
 );

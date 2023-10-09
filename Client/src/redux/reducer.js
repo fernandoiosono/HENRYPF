@@ -1,7 +1,9 @@
+import Swal from "sweetalert2";
 import {
   TRAER_PRODUCTOS,
   TRAER_PRODUCTO,
   TRAER_PRODUCTOS_ACTIVOS,
+  BORRAR_PRODUCTO,
   SET_PAGINA,
   BUSCAR_PRUDUCTOS,
   OBTENER_CATEGORIAS,
@@ -10,12 +12,15 @@ import {
   QUITAR_CARRITO,
   SET_ORDER,
   SET_INICIO_SESION,
+  CREAR_PRODUCTO,
+  ACTUALIZAR_PRODUCTO,
 } from "./actions_types";
 
 const initialState = {
   allProductos: [],
   productosMostrar: [],
   producto: [],
+  borrado: false,
   allActiveProducts: [],
   productosEnc: [],
   carrito: [],
@@ -31,6 +36,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         allProductos: payload,
+        producto: [],
       };
 
     case TRAER_PRODUCTOS_ACTIVOS:
@@ -38,6 +44,35 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         productosMostrar: payload,
         allActiveProducts: payload,
+      };
+
+    case CREAR_PRODUCTO:
+      if (payload != true) {
+        Swal.fire("Crear producto", "Error al crear el producto", "error");
+      } else {
+        Swal.fire("Creado!", "El producto fue creado.", "success");
+      }
+      return {
+        ...state,
+      };
+    case BORRAR_PRODUCTO:
+      console.log(payload);
+      if (payload != true) {
+        Swal.fire(
+          "Eliminar producto",
+          "Error al eliminar el producto",
+          "error"
+        );
+      } else {
+        Swal.fire("Eliminar producto", "Eliminado", "success");
+      }
+      return {
+        ...state,
+      };
+
+    case ACTUALIZAR_PRODUCTO:
+      return {
+        ...state,
       };
 
     case TRAER_PRODUCTO:

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "../../components/List/List";
 import CrearProducto from "../../components/CrearProducto/CrearProducto";
-import Pagination from "../../components/Pagination/pagination.components";
+import PaginationAdmin from "../../components/PaginationAdmin/PaginationAdmin";
 import Aside from "../../components/Aside/Aside";
 import { setCurrenPage, traerAllProductos } from "../../redux/actions.js";
 import { useDispatch } from "react-redux";
@@ -38,7 +38,7 @@ const CatalogoAdmin = () => {
           <List />
         )}
       </div>
-      {mostrarVerProductos ? <Pagination estado={"allProductos"} /> : null}
+      {mostrarVerProductos ? <PaginationAdmin /> : null}
     </>
   );
 };

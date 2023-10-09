@@ -1,6 +1,7 @@
 [
     {
         "idAuth0": "auth0|651f80df41993bd88801712a",
+        "name": "Alberto Rojas",
         "nickName": "albertorojas",
         "email": "albertorojas@gmail.com",
         "imageURL": "https://www.labsaenzrenauld.com/wp-content/uploads/2020/10/Perfil-hombre-ba%CC%81sico_738242395.jpg",
@@ -9,6 +10,7 @@
     },
     {
         "idAuth0": "auth0|651f80df41993bd88801712b",
+        "name": "Fátima Rolón",
         "nickName": "fatirolon",
         "email": "fatirolon@gmail.com",
         "imageURL": "https://cristypalacios.com/wp-content/uploads/2022/11/10-Poses-para-foto-de-Perfil-Profesional-Mujer-04-2022-1-819x1024.jpg",
@@ -17,6 +19,7 @@
     },
     {
         "idAuth0": "auth0|651f80df41993bd88801712c",
+        "name": "Graciela Fernández",
         "nickName": "grafer",
         "email": "grafer@gmail.com",
         "imageURL": "https://img.aeroexpo.online/images_ar/projects/images-g/elevar-perfil-mujeres-ingenieria-6393-14652745.jpg",
@@ -25,6 +28,7 @@
     },
     {
         "idAuth0": "auth0|651f80df41993bd88801712d",
+        "name": "Fernando Álvarez",
         "nickName": "alvarezfernando",
         "email": "alvarezfernando@gmail.com",
         "imageURL": "https://img.freepik.com/fotos-premium/sonriendo-confianza-senalando-su-propia-sonrisa-amplia-actitud-positiva-relajada-satisfecha_1194-493361.jpg",
@@ -33,6 +37,7 @@
     },
     {
         "idAuth0": "auth0|651f80df41993bd88801712e",
+        "name": "Lupita Cardozo",
         "nickName": "cardozolu",
         "email": "cardozolu@gmail.com",
         "imageURL": "https://www.soycarmin.com/__export/1494106008205/sites/debate/img/2017/05/06/blogmio.jpg_2120446623.jpg",
@@ -41,6 +46,7 @@
     },
     {
         "idAuth0": "auth0|651f80df41993bd88801712f",
+        "name": "Víctor González",
         "nickName": "victor1gonzales",
         "email": "victor1gonzales@gmail.com",
         "imageURL": "https://www.upsocl.com/wp-content/uploads/immujer/2015/01/iStock_000055230302_Large.jpg",
@@ -49,6 +55,7 @@
     },
     {
         "idAuth0": "auth0|651f80df41993bd88801712g",
+        "name": "Gonzálo Fuigue",
         "nickName": "gonzafuigue",
         "email": "gonzafuigue@gmail.com",
         "imageURL": "https://media.gq.com.mx/photos/5e1653feab1f9200081c6563/16:9/w_2560%2Cc_limit/tips-para-tinder-y-que-tu-perfil-por-fin-tenga-exito-este-ano.jpg",
@@ -57,6 +64,7 @@
     },
     {
         "idAuth0": "auth0|651f80df41993bd88801712h",
+        "name": "Ramón Jolán",
         "nickName": "ramonjo",
         "email": "ramonjo@gmail.com",
         "imageURL": "https://i.pinimg.com/550x/2b/0f/77/2b0f774f592e3174978a7dba38927ade.jpg",
@@ -65,6 +73,7 @@
     },
     {
         "idAuth0": "auth0|651f80df41993bd88801712i",
+        "name": "Gabriela Ponce",
         "nickName": "poncegabi",
         "email": "poncegabi@gmail.com",
         "imageURL": "https://www.tasadeparo.com/wp-content/uploads/2010/03/mujertrabajo.jpg",
@@ -73,6 +82,7 @@
     },
     {
         "idAuth0": "auth0|651f80df41993bd88801712j",
+        "name": "Laura Rivero",
         "nickName": "riverolaura",
         "email": "riverolaura@gmail.com",
         "imageURL": "https://img.freepik.com/foto-gratis/sonriendo-femenina-sentada-silla_1301-2218.jpg",

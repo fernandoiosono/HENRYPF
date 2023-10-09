@@ -1,7 +1,9 @@
 {
 	"categories": [
         { "idCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2", "name": "Suplemento" },
-    	{ "idCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5", "name": "Equipo" }
+		{ "idCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5", "name": "Equipo GYM" },
+		{ "idCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94", "name": "Proteína" },
+		{ "idCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce", "name": "Equipo Personal" }
     ],
 	"products": [
 		{
@@ -11,7 +13,7 @@
 			"price": 28,
 			"stock": 50,
 			"discount": 0,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Suplemento en polvo Star Nutrition Creatine Monohydrate creatina en pote de 300g",
@@ -101,7 +103,7 @@
 			"price": 19,
 			"stock": 40,
 			"discount": 5,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Slender Quick 4x3 - Suplemento Dietario",
@@ -119,7 +121,7 @@
 			"price": 50,
 			"stock": 50,
 			"discount": 10,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Barras Proteicas Ena Caja 16 Unidades Fuente De Proteínas Sabor Chocolate Brownie",
@@ -128,7 +130,7 @@
 			"price": 21,
 			"stock": 40,
 			"discount": 0,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Whey Ripped 2lbs Gold Nutrition Proteina Con Matrix Fat Burn Sabor Chocolate",
@@ -137,7 +139,7 @@
 			"price": 42,
 			"stock": 20,
 			"discount": 0,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Core Bag 20 Kg Bolso Entrenamiento Con Peso Sand Bag S/c",
@@ -182,7 +184,7 @@
 			"price": 19,
 			"stock": 16,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Pelota Esferodinamia Pilates 65 Cm Gmp - Fabricantes Swiss Ball - Yoga Gimnasia Rehabilitación Fitball",
@@ -191,7 +193,7 @@
 			"price": 18,
 			"stock": 23,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Disco Pvc 10kg Body Pump Sport Store",
@@ -200,7 +202,7 @@
 			"price": 21,
 			"stock": 23,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "20 Pisos Goma Eva Encastrable Bebé Gimnasio 50x50 Cm X15 Mm",
@@ -218,7 +220,7 @@
 			"price": 12,
 			"stock": 20,
 			"discount": 5,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Multigimnasio 1000r1 C/barra + Discos + Bco Scott Worldfitne",
@@ -236,7 +238,7 @@
 			"price": 185,
 			"stock": 34,
 			"discount": 5,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Set 5 Bandas Elasticas Ejercicio Fitness Funcional Gimnasia",
@@ -245,7 +247,7 @@
 			"price": 13,
 			"stock": 67,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Banda De Resistencia Elastica Tension Media Forest Fitness Color Rojo",
@@ -254,7 +256,7 @@
 			"price": 6,
 			"stock": 50,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Discos 5 Kg X 4 Unidades Pesa Gym Encastrable Tipo Local",
@@ -299,7 +301,7 @@
 			"price": 11,
 			"stock": 35,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Half Rack (pared) Sentadillas - Gym - Crossfit - Funcional",
@@ -317,7 +319,7 @@
 			"price": 19,
 			"stock": 39,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Rodillo Goma Espuma Maquina Gimnasio Multi Gym Pack X4 Jbh",
@@ -326,7 +328,7 @@
 			"price": 45,
 			"stock": 10,
 			"discount": 10,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Elongador Para Piernas Gimnasia, Danza, Elongación",
@@ -344,7 +346,7 @@
 			"price": 47,
 			"stock": 14,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Agarre Triangulo Para Remo",
@@ -398,7 +400,7 @@
 			"price": 11,
 			"stock": 50,
 			"discount": 0,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Poweraded Creatine Micronized - One Fit",
@@ -416,7 +418,7 @@
 			"price": 14,
 			"stock": 37,
 			"discount": 15,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Giovegen Skin Colageno Hidrolizado Beauty Drink Polvo 420g",
@@ -458,6 +460,7 @@
     "users": [
         {
 			"idAuth0": "auth0|651f80df41993bd88801712a",
+			"name": "Alberto Rojas",
 			"nickName": "albertorojas",
 			"email": "albertorojas@gmail.com",
 			"imageURL": "https://www.labsaenzrenauld.com/wp-content/uploads/2020/10/Perfil-hombre-ba%CC%81sico_738242395.jpg",
@@ -466,6 +469,7 @@
 		},
 		{
 			"idAuth0": "auth0|651f80df41993bd88801712b",
+			"name": "Fátima Rolón",
 			"nickName": "fatirolon",
 			"email": "fatirolon@gmail.com",
 			"imageURL": "https://cristypalacios.com/wp-content/uploads/2022/11/10-Poses-para-foto-de-Perfil-Profesional-Mujer-04-2022-1-819x1024.jpg",
@@ -474,6 +478,7 @@
 		},
 		{
 			"idAuth0": "auth0|651f80df41993bd88801712c",
+			"name": "Graciela Fernández",
 			"nickName": "grafer",
 			"email": "grafer@gmail.com",
 			"imageURL": "https://img.aeroexpo.online/images_ar/projects/images-g/elevar-perfil-mujeres-ingenieria-6393-14652745.jpg",
@@ -482,6 +487,7 @@
 		},
 		{
 			"idAuth0": "auth0|651f80df41993bd88801712d",
+			"name": "Fernando Álvarez",
 			"nickName": "alvarezfernando",
 			"email": "alvarezfernando@gmail.com",
 			"imageURL": "https://img.freepik.com/fotos-premium/sonriendo-confianza-senalando-su-propia-sonrisa-amplia-actitud-positiva-relajada-satisfecha_1194-493361.jpg",
@@ -490,6 +496,7 @@
 		},
 		{
 			"idAuth0": "auth0|651f80df41993bd88801712e",
+			"name": "Lupita Cardozo",
 			"nickName": "cardozolu",
 			"email": "cardozolu@gmail.com",
 			"imageURL": "https://www.soycarmin.com/__export/1494106008205/sites/debate/img/2017/05/06/blogmio.jpg_2120446623.jpg",
@@ -498,6 +505,7 @@
 		},
 		{
 			"idAuth0": "auth0|651f80df41993bd88801712f",
+			"name": "Víctor González",
 			"nickName": "victor1gonzales",
 			"email": "victor1gonzales@gmail.com",
 			"imageURL": "https://www.upsocl.com/wp-content/uploads/immujer/2015/01/iStock_000055230302_Large.jpg",
@@ -506,6 +514,7 @@
 		},
 		{
 			"idAuth0": "auth0|651f80df41993bd88801712g",
+			"name": "Gonzálo Fuigue",
 			"nickName": "gonzafuigue",
 			"email": "gonzafuigue@gmail.com",
 			"imageURL": "https://media.gq.com.mx/photos/5e1653feab1f9200081c6563/16:9/w_2560%2Cc_limit/tips-para-tinder-y-que-tu-perfil-por-fin-tenga-exito-este-ano.jpg",
@@ -514,6 +523,7 @@
 		},
 		{
 			"idAuth0": "auth0|651f80df41993bd88801712h",
+			"name": "Ramón Jolán",
 			"nickName": "ramonjo",
 			"email": "ramonjo@gmail.com",
 			"imageURL": "https://i.pinimg.com/550x/2b/0f/77/2b0f774f592e3174978a7dba38927ade.jpg",
@@ -522,6 +532,7 @@
 		},
 		{
 			"idAuth0": "auth0|651f80df41993bd88801712i",
+			"name": "Gabriela Ponce",
 			"nickName": "poncegabi",
 			"email": "poncegabi@gmail.com",
 			"imageURL": "https://www.tasadeparo.com/wp-content/uploads/2010/03/mujertrabajo.jpg",
@@ -530,6 +541,7 @@
 		},
 		{
 			"idAuth0": "auth0|651f80df41993bd88801712j",
+			"name": "Laura Rivero",
 			"nickName": "riverolaura",
 			"email": "riverolaura@gmail.com",
 			"imageURL": "https://img.freepik.com/foto-gratis/sonriendo-femenina-sentada-silla_1301-2218.jpg",

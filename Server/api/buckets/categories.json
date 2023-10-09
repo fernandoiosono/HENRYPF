@@ -1,4 +1,6 @@
 [
     { "idCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2", "name": "Suplemento" },
-    { "idCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5", "name": "Equipo" }
+    { "idCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5", "name": "Equipo GYM" },
+    { "idCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94", "name": "Proteína" },
+    { "idCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce", "name": "Equipo Personal" }
 ]

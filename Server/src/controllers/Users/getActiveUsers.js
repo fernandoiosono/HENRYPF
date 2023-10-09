@@ -8,9 +8,23 @@ const getActiveUsers = async () => {
         }
     });
 
-    if (!users.length) throw new Error("There's No Active Users in the Database!");
+    if (!users.length) {throw new Error("There's No Active Users in the Database!")}
+    else {
+        const newUsers = users.map(user=>{
+            return {
+                idUser: user.idUser,
+                name: user.name,
+                nickName: user.nickName,
+                email: user.email,
+                imageURL: user.imageURL,
+                active: user.active,
+                isAdmin: user.isAdmin,
+            };
+        });
+        return newUsers;
 
-    return users;
+    };
+    
 };
 
 module.exports = getActiveUsers;

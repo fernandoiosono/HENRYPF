@@ -20,13 +20,6 @@ router.get('/active', errorHandler(async (req, res) => {
     res.status(200).json(users);
 }));
 
-router.get('/access', errorHandler((req, res) => {
-    const { email, password } = req.query;
-    const access = getUserAccess(email, password);
-
-    res.status(200).json({ access: access });
-}));
-
 router.get('/:id', errorHandler(async (req, res) => {
     const { id } = req.params;
     const user = await getUserByID(id);
@@ -36,16 +29,25 @@ router.get('/:id', errorHandler(async (req, res) => {
 
 router.post('/', errorHandler(async (req, res) => {
     const newUser = req.body;
-    const userCreated = await postUser(newUser);
-
-    res.status(200).json(userCreated);
+    if(!newUser.idAuth0 || !newUser.name || !newUser.nickName || !newUser.email || !newUser.imageURL){
+        return res.status(400).json({ error: 'Faltan datos para la creación de un nuevo usuario' });
+    } else {
+        const userCreated = await postUser(newUser);
+        res.status(200).json(userCreated);
+    };
+       
 }));
 
 router.patch('/', errorHandler(async (req, res) => {
     const newData = req.body;
-    const userEdited = await patchUser(newData);
+    if(!newData.idUser){
+        throw new Error('Falta id del usuario');
+    } else {
+        const userEdited = await patchUser(newData);
+        res.status(200).json(userEdited);
+    };  
 
-    res.status(200).json(userEdited);
+    
 }));
 
 module.exports = router;

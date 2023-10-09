@@ -20,7 +20,7 @@ defineProduct(database);
 defineUser(database);
 defineOrder(database);
 
-const { Category, Card, Product, Order } = database.models;
+const { Category, Product, User, Order, Card } = database.models;
 
 // Relationship Product - Category (1:N)
 Category.hasMany(Product);
@@ -29,6 +29,22 @@ Product.belongsTo(Category);
 // Relationship Order - Card (1:N)
 Card.hasMany(Order);
 Order.belongsTo(Card);
+
+// Relationship Order - Product (N:N)
+User.belongsToMany(Product, { 
+    through: "ShoppingCart",
+    foreignKey: "idUser",
+    otherKey: "idProduct",
+    as: "products",
+    timestamps: false
+});
+Product.belongsToMany(User, { 
+    through: "ShoppingCart",
+    foreignKey: "idProduct",
+    otherKey: "idUser",
+    as: "users",
+    timestamps: false
+});
 
 // Relationship Order - Product (N:N)
 Order.belongsToMany(Product, { 
