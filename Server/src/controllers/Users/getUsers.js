@@ -10,6 +10,7 @@ const getUsers = async () => {
         newUsers = users.map(user=>{
             return {
                 idUser: user.idUser,
+                name:user.name,
                 nickName: user.nickName,
                 email: user.email,
                 imageURL: user.imageURL,
