@@ -8,11 +8,11 @@ import { useDispatch } from "react-redux";
 import "./CatalogoAdmin.css";
 
 const CatalogoAdmin = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(traerAllProductos());
-  }),
-    [];
-  const dispatch = useDispatch();
+  }, [dispatch]);
+
   dispatch(setCurrenPage(1));
   const [mostrarVerProductos, setMostrarVerProductos] = useState(false); // Nuevo estado para controlar qué componente mostrar
 

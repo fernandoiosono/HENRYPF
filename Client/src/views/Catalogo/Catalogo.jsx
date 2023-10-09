@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 import Cards from "../../components/Cards/Cards.jsx";
 import Filter from "../../components/Filter/Filter.jsx";
 import Ordering from "../../components/Ordering/Ordering.jsx";

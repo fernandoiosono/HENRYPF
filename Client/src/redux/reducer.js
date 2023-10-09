@@ -132,18 +132,61 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case SET_ORDER:
-      let orderedProductos = [...state.productosMostrar];
+      let orderedProductos = [...state.allProductos];
       let ordered;
-      if (payload === "Ascendente") {
-        ordered = orderedProductos.sort((a, b) => a.price - b.price);
-      } else if (payload === "Descendente") {
-        ordered = orderedProductos.sort((a, b) => b.price - a.price);
-      } else {
-        ordered = orderedProductos;
+
+      if (payload === "NombreDescendente") {
+        ordered = orderedProductos.sort((a, b) => {
+          return a.name.localeCompare(b.name);
+        });
+      } else if (payload === "NombreAscendente") {
+        ordered = orderedProductos.sort((a, b) => {
+          return b.name.localeCompare(a.name);
+        });
+      }
+
+      if (payload === "CategoriaDescendente") {
+        ordered = orderedProductos.sort((a, b) => {
+          return a.Category.name.localeCompare(b.Category.name);
+        });
+      } else if (payload === "CategoriaAscendente") {
+        ordered = orderedProductos.sort((a, b) => {
+          return b.Category.name.localeCompare(a.name);
+        });
+      }
+
+      if (payload === "estadoDescendente") {
+        ordered = orderedProductos.sort((a, b) => {
+          return a.active - b.active;
+        });
+      } else if (payload === "estadoAscendente") {
+        ordered = orderedProductos.sort((a, b) => {
+          return b.active - a.active;
+        });
+      }
+
+      if (payload === "stockDescendente") {
+        ordered = orderedProductos.sort((a, b) => {
+          return a.stock - b.stock;
+        });
+      } else if (payload === "stockAscendente") {
+        ordered = orderedProductos.sort((a, b) => {
+          return b.stock - a.stock;
+        });
+      }
+
+      if (payload === "precioDescendente") {
+        ordered = orderedProductos.sort((a, b) => {
+          return a.price - b.price;
+        });
+      } else if (payload === "precioAscendente") {
+        ordered = orderedProductos.sort((a, b) => {
+          return b.price - a.price;
+        });
       }
       return {
         ...state,
-        productosMostrar: ordered,
+        allProductos: ordered,
       };
 
     case AGREGAR_CARRITO:
