@@ -11,9 +11,6 @@ import "./perfil.css";
 const Perfil = ({ user, autenticado }) => {
   const dispatch = useDispatch();
   const usuario = useSelector((state) => state.usuario);
-  // const [valores, setValores] = useState(null);
-
-  console.log(usuario.data)
 
   const newUsuario = {
     idAuth0: user.sub,
@@ -40,11 +37,13 @@ const Perfil = ({ user, autenticado }) => {
       {usuario.data ? (
         <div className="perfil">
           <Formik
+            enableReinitialize
             initialValues={{
               idUser: usuario.data.idUser,
-              name: "",
-              nickName: "",
-              imageURL: "",
+              name: usuario.data.name,
+              nickName: usuario.data.nickName,
+              imageURL: usuario.data.imageURL,
+              email:usuario.data.email,
             }}
             onSubmit={modificar}
           >
@@ -60,7 +59,7 @@ const Perfil = ({ user, autenticado }) => {
                   <label htmlFor="name" className="cambiarImg">
                     Cambiar Imagen:
                   </label>
-                  <SubirImagen />
+                  <SubirImagen/>
                 </div>
 
                 <div className="formulario__grupo">
