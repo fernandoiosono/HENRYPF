@@ -2,13 +2,18 @@ import React from "react";
 import LogoutButton from "../IngresarAcceso/logout";
 import SubirImagen from "../Cloudinary/cloudinary.component";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { crearUsuario } from "../../redux/actions";
+import { useEffect, useState } from "react";
+import { crearUsuario, editarUsuario } from "../../redux/actions";
+import { Formik, Form, Field } from "formik";
+
 import "./perfil.css";
 
 const Perfil = ({ user, autenticado }) => {
   const dispatch = useDispatch();
   const usuario = useSelector((state) => state.usuario);
+  // const [valores, setValores] = useState(null);
+
+  console.log(usuario.data)
 
   const newUsuario = {
     idAuth0: user.sub,
@@ -19,48 +24,102 @@ const Perfil = ({ user, autenticado }) => {
   };
 
   useEffect(() => {
-      if (autenticado) {
+    if (autenticado) {
       dispatch(crearUsuario(newUsuario));
     }
   }, []);
 
-  // useEffect(()=>{
-  //     if(isAuthenticated){
-  //         dispatch(accionverificarrol)
-  //     }
-  // }, [isAuthenticated]);
-
-  // useEffect(()=>{
-  //     if(administrador){
-  //         redirect, window.
-  //     }
-  // }, [rol]);
+  const modificar = (cambiosUser) => {
+    if (autenticado) {
+          dispatch(editarUsuario(cambiosUser));
+        }
+  };
 
   return (
     <>
       {usuario.data ? (
         <div className="perfil">
-          <img
-            src={usuario.data.imageURL}
-            alt="imagen del usuario"
-            className="imagen"
-          />
-          <div className="cloudinary">
-            <h3 className="cambiarImg">Cambiar Imagen:</h3>
-            <SubirImagen />
-          </div>
-          <div className="div_txt">
-            <h1 className="titulo">Bienvenido {usuario.data.nickName}</h1>
-            <h3 className="txt">Nombre</h3>
-            <p className="txt_info">{usuario.data.name}</p>
-            <h3 className="txt">Nombre de usuario</h3>
-            <p className="txt_info">{usuario.data.nickName}</p>
-            <h3 className="txt">Correo</h3>
-            <p className="txt_info">{usuario.data.email}</p>
-            <div className="btn">
-              <LogoutButton />
+          <Formik
+            initialValues={{
+              idUser: usuario.data.idUser,
+              name: "",
+              nickName: "",
+              imageURL: "",
+            }}
+            onSubmit={modificar}
+          >
+            <div className="contenedor">
+              <Form className="formulario">
+                <h1 className="titulo">Bienvenido {usuario.data.nickName}</h1>
+                <img
+                  src={usuario.data.imageURL}
+                  alt="imagen del usuario"
+                  className="imagen"
+                />
+                <div className="cloudinary">
+                  <label htmlFor="name" className="cambiarImg">
+                    Cambiar Imagen:
+                  </label>
+                  <SubirImagen />
+                </div>
+
+                <div className="formulario__grupo">
+                  <label htmlFor="name" className="txt">
+                    Nombre
+                  </label>
+                  <div className="txt">
+                    <Field
+                      className="txt_info"
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder={usuario.data.name}
+                      autoComplete="off"
+                    />
+                  </div>
+                </div>
+
+                <div className="formulario__grupo">
+                  <label htmlFor="nickName" className="txt">
+                    Nombre de usuario
+                  </label>
+                  <div className="txt">
+                    <Field
+                      className="txt_info"
+                      id="nickName"
+                      name="nickName"
+                      type="text"
+                      placeholder={usuario.data.nickName}
+                      autoComplete="off"
+                    />
+                  </div>
+                </div>
+
+                <div className="formulario__grupo">
+                  <label htmlFor="email" className="txt">
+                    Correo
+                  </label>
+                  <div className="txt">
+                    <Field
+                      className="txt_info"
+                      id="email"
+                      name="email"
+                      type="text"
+                      placeholder={usuario.data.email}
+                      autoComplete="off"
+                      disabled
+                    />
+                  </div>
+                </div>
+                <button type="submit" className="btn" >
+                  Enviar cambios
+                </button>
+                <div>
+                  <LogoutButton />
+                </div>
+              </Form>
             </div>
-          </div>
+          </Formik>
         </div>
       ) : null}
     </>
