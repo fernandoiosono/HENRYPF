@@ -95,11 +95,18 @@ export const actualizarProducto = (id, values) => {
 
   try {
     return async (dispatch) => {
-      const { data } = await axios.patch(`${URL}products/${id}`, values);
-      return dispatch({
-        type: ACTUALIZAR_PRODUCTO,
-        payload: data,
-      });
+      const response = await axios.patch(`${URL}products/${id}`, values);
+      if (response.status === 200) {
+        return dispatch({
+          type: ACTUALIZAR_PRODUCTO,
+          payload: true,
+        });
+      } else {
+        return dispatch({
+          type: ACTUALIZAR_PRODUCTO,
+          payload: false,
+        });
+      }
     };
   } catch (error) {
     console.log(error);

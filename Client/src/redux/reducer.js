@@ -71,6 +71,16 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case ACTUALIZAR_PRODUCTO:
+      console.log(payload);
+      if (payload != true) {
+        Swal.fire(
+          "Actualizar producto",
+          "Error al actualizar el producto",
+          "error"
+        );
+      } else {
+        Swal.fire("Actualizar producto", "Actualizado", "success");
+      }
       return {
         ...state,
       };

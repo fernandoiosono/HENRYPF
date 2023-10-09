@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { Formik } from "formik";
@@ -12,6 +12,7 @@ import {
 
 const EditarProducto = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
   const categorias = useSelector((state) => state.categorias);
   const Producto = useSelector((state) => state.producto);
@@ -115,7 +116,7 @@ const EditarProducto = () => {
                 if (result.isConfirmed) {
                   dispatch(actualizarProducto(id, values));
                   dispatch(traerAllProductos());
-                  resetForm();
+                  navigate("/catalogoAdmin");
                 }
               });
             }}
