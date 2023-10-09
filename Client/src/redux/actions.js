@@ -11,6 +11,7 @@ import {
   SET_ORDER,
   SET_INICIO_SESION,
   USUARIO,
+  EDITAR_USUARIO,
 } from "./actions_types";
 
 const URL = "http://localhost:3001/moveon/";
@@ -146,3 +147,18 @@ export const crearUsuario = (newUsuario) => {
     console.log(error);
   }
 };
+
+export const editarUsuario = (cambiosUsuario) => {
+  try {
+    return async (dispatch) => {
+     const editarUser = await axios.patch(`http://localhost:3001/moveon/users/`, cambiosUsuario);
+      dispatch({
+        type: EDITAR_USUARIO,
+        payload: editarUser
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+

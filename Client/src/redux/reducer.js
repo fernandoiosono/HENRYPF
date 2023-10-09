@@ -10,6 +10,7 @@ import {
   SET_ORDER,
   SET_INICIO_SESION,
   USUARIO,
+  EDITAR_USUARIO,
 } from "./actions_types";
 
 const initialState = {
@@ -47,6 +48,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case USUARIO:
+      return {
+        ...state,
+        usuario: payload,
+      };
+
+    case EDITAR_USUARIO:
       return {
         ...state,
         usuario: payload,
