@@ -30,9 +30,9 @@ function Pagination() {
     <div className="div_pagin">
       {pageNums &&
         pageNums.map((p) => (
-          <a key={p} onClick={() => handlePage(p)}>
+          <button key={p} onClick={() => handlePage(p)}>
             {p}
-          </a>
+          </button>
         ))}
     </div>
   );

@@ -8,15 +8,15 @@
   cursor: pointer;
   gap: 0.1rem;
   z-index: 0;
+  margin-top: -5em;
 }
 
-.div_pagin a {
-  text-align: center;
+.div_pagin button {
   user-select: none;
   margin: 20px 5px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 14px;
-  width: 32px;
+  font-size: 17px;
+  width: 40px;
   display: block;
   padding: 0.5rem 0.3rem;
   text-decoration: none;
@@ -31,12 +31,11 @@
   backface-visibility: hidden;
 }
 
-.div_pagin a:hover {
-  text-align: center;
+.div_pagin button:hover {
   user-select: none;
   margin: 20px 5px;
-  font-size: 14px;
-  width: 32px;
+  font-size: 17px;
+  width: 40px;
   display: block;
   padding: 0.5rem 0.3rem;
   text-decoration: none;
