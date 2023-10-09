@@ -8,11 +8,11 @@ import { setCurrenPage, traerActiveProductos } from "../../redux/actions.js";
 import { useDispatch } from "react-redux";
 
 const Catalogo = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(traerActiveProductos());
-  }),
-    [];
-  const dispatch = useDispatch();
+  }, [dispatch]);
+
   dispatch(setCurrenPage(1));
   return (
     <>

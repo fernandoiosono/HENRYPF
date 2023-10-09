@@ -98,38 +98,20 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case BUSCAR_PRUDUCTOS:
-      const num = Number(payload);
-      if (!isNaN(num)) {
-        const productoEncontrado = state.allProductos.find(
-          (prod) => prod.idProduct === num
-        );
-        if (!productoEncontrado) {
-          alert(`No existe el producto con el ID: ${num}`);
-          return {
-            ...state,
-          };
-        }
-        return {
-          ...state,
-          productosEnc: [productoEncontrado],
-          productosMostrar: [productoEncontrado],
-        };
-      } else {
-        const resultado = state.allProductos.filter((producto) =>
-          producto.name.toLowerCase().includes(payload.toLowerCase())
-        );
+      const resultado = state.allProductos.filter((producto) =>
+        producto.name.toLowerCase().includes(payload.toLowerCase())
+      );
 
-        if (resultado.length === 0) {
-          alert("No se encontraron coincidencias");
-          return {
-            ...state,
-          };
-        }
+      if (resultado.length === 0) {
+        alert("No se encontraron coincidencias");
         return {
           ...state,
-          productosMostrar: resultado,
         };
       }
+      return {
+        ...state,
+        productosMostrar: resultado,
+      };
 
     case OBTENER_CATEGORIAS:
       return {
