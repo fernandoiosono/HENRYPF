@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Nav from "./nav/Nav";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { traerProductos } from "../redux/actions";
+import { cargarCarrito, traerProductos } from "../redux/actions";
 import {
   Landing,
   Home,
@@ -20,8 +20,14 @@ import {
 import './App.css';
 
 const App = () => {
+
   const { pathname } = useLocation();
   const dispatch = useDispatch();
+  const inicioSesion = useSelector(state=>state.inicioSesion);
+
+  useEffect(() => {
+    if (inicioSesion) dispatch(cargarCarrito()) //! PENDIENTE CONSULTAR DE DONDE TOMO EL ID CLIENTE
+  },[inicioSesion])
 
   useEffect(() => {
     dispatch(traerProductos()); //! para cargar allProductos

@@ -6,6 +6,7 @@ import {
   OBTENER_CATEGORIAS,
   AGREGAR_CARRITO,
   QUITAR_CARRITO,
+  CARGAR_CARRITO,
   FILTER_CATEGORIA,
   SET_ORDER,
   SET_INICIO_SESION,
@@ -94,10 +95,23 @@ export const agregarCarrito = (producto) => {
 export const quitarCarrito = (id) => {
   try {
     return (dispatch) => {
-      console.log('quita del carro'); 
       return dispatch({
         type: QUITAR_CARRITO,
         payload: id,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const cargarCarrito = (idCliente) => {
+  try {
+    return async (dispatch) => {
+    const { data } = await axios.get(`${URL}moveon/shoppingcart/${'92887e1d-63bc-41a1-9327-d3f79a696fe3'}`) //! PENDIENTE CONSULTAR DE DONDE TOMO EL ID CLIENTE
+      return dispatch({
+        type: CARGAR_CARRITO,
+        payload: data,
       });
     };
   } catch (error) {

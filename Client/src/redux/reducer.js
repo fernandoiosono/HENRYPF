@@ -6,6 +6,7 @@ import {
   FILTER_CATEGORIA,
   AGREGAR_CARRITO,
   QUITAR_CARRITO,
+  CARGAR_CARRITO,
   SET_ORDER,
   SET_INICIO_SESION,
 } from "./actions_types";
@@ -124,6 +125,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         carrito: carritoFiltrado,
+      };
+
+    case CARGAR_CARRITO:
+      return {
+        ...state,
+        carrito: payload,
       };
 
     case SET_INICIO_SESION:

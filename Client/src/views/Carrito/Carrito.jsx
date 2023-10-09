@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CarritoTotal from "./CarritoTotal";
 import { quitarCarrito } from "../../redux/actions";
+import axios from "axios";
 
 const Carrito = () => {
 
@@ -11,6 +12,17 @@ const Carrito = () => {
     console.log(carrito.length);
     const [ carritoListo, setCarritoListo ] = useState([]);
     const dispatch = useDispatch();
+    const URL = "http://localhost:3001/";
+
+    const idsProductos = () => {
+        return carrito.map(prod=>{
+            prod.idProducto
+        })
+    };
+
+    useEffect(() => {
+        axios.post(`${URL}moveon/shoppingcart/${'92887e1d-63bc-41a1-9327-d3f79a696fe3'}`, idsProductos()); //! PENDIENTE CONSULTAR DE DONDE TOMO EL ID CLIENTE
+    },[carrito]);
 
     return (
         <>

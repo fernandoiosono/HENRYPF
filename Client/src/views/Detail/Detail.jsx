@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import style from './Detail.module.css';
 import { useAuth0 } from "@auth0/auth0-react";
 import { agregarCarrito } from "../../redux/actions";
+import axios from "axios";
 
 const Detail = () => {
 
@@ -15,6 +16,17 @@ const Detail = () => {
     const dispatch = useDispatch();
     const { loginWithRedirect } = useAuth0();
     const [producto, setProducto] = useState({});
+    const URL = "http://localhost:3001/";
+
+    const idsProductos = () => {
+        return carrito.map(prod=>{
+            prod.idProducto
+        })
+    };
+
+    useEffect(() => {
+        axios.post(`${URL}moveon/shoppingcart/${'92887e1d-63bc-41a1-9327-d3f79a696fe3'}`, idsProductos()); //! PENDIENTE CONSULTAR DE DONDE TOMO EL ID CLIENTE
+    },[carrito]);
 
     useEffect(() => {
         setProducto(allProductos.find(prod => prod.idProducto == id))
