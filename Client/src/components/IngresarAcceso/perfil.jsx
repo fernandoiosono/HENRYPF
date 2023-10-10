@@ -43,7 +43,7 @@ const Perfil = ({ user, autenticado }) => {
               idUser: usuario.data.idUser,
               name: usuario.data.name,
               nickName: usuario.data.nickName,
-              imageURL: usuario.data.imageURL,
+              imageURL: imagen,
               email: usuario.data.email,
             }}
             onSubmit={modificar}
@@ -61,7 +61,7 @@ const Perfil = ({ user, autenticado }) => {
                     Cambiar Imagen:
                   </label>
                   <div>
-                      <SubirImagen imagen={imagen} setImagen={setImagen} />
+                      <SubirImagen setImagen={setImagen} />
                   </div>
                 </div>
 

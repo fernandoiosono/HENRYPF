@@ -5,7 +5,7 @@ const apiKey = process.env.API_KEY;
 const upload = process.env.UPLOAD_PRESET;
 const url_cloudinary = process.env.URL_CLOUDINARY;
 
-const SubirImagen = ({imagen, setImagen}) => {
+const SubirImagen = ({setImagen}) => {
 
     const [loading, setLoading] = useState(false);
 
@@ -32,7 +32,7 @@ const SubirImagen = ({imagen, setImagen}) => {
       <Container>
         <FormGroup>
           <Input type="file" name="file" placeholder="Sube tu imagen aquí" onChange={uploadImagen} />
-          {loading ? (<h3>Cargando imagen...</h3>): (<img src={imagen} style={{widht:"10px"}}></img>)}
+          {loading ? (<h3>Cargando imagen...</h3>): <></>}
         </FormGroup>
       </Container>
     </div>
