@@ -40,8 +40,8 @@ const App = () => {
 
   return (
     <SectionApp>
+      {pathname !== "/" && <Nav />}
       <main className={handlerClassName()}>
-        {pathname !== "/" && <Nav />}
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />

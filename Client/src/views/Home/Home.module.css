@@ -1,0 +1,92 @@
+.spaceNav{
+    height: 7.7vh;
+}
+
+.imgFondo{
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    transform: translateX(-1.3em);
+}
+
+.momento{
+    margin-left: 2em;
+}
+
+@font-face {
+    font-family: Open-Sans;
+    src: url('../../assets/fuentes/Open-Sans/OpenSans-CondBold.ttf');
+}
+.momentoBlanco{
+    font-size: 7em;
+    margin: 0;
+    font-family: Open-Sans;
+    color: white;
+}
+
+.momentoAmarillo{
+    font-family: Open-Sans;
+    font-size: 9em;
+    margin: 0;
+    color: rgb(245, 196, 44);
+}
+
+.movimiento{
+    display: flex;
+}
+
+@font-face {
+    font-family: most-wazted;
+    src: url('../../assets/fuentes/most-wazted.regular/most-wazted.regular.ttf');
+}
+.movimientoMov{
+    font-family: most-wazted;
+    font-size: 6em;
+    color: white;
+    -webkit-text-stroke: 0.01px rgb(12, 12, 12);
+    margin: 5.55em 0em 0 auto;
+    opacity: 0.5;
+}
+
+.movimientoVida{
+    font-family: most-wazted;
+    font-size: 8em;
+    color: rgb(245, 196, 44);
+    -webkit-text-stroke: 0.01px rgb(12, 12, 12);
+    margin: 4em 0.4em 0 0.4em;
+    opacity: 0.5;
+}
+
+.botonProductos{
+    border: 1px;
+    width: min-content;
+    margin: 4em auto 0 auto;
+    padding: 1.5em 2em 1em 2em;
+    border-radius: 2em;
+    border: 3px solid rgb(245, 196, 44);
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.botonBlanco{
+    width: 15em;
+}
+
+.productos{
+    font-family: Open-Sans;
+    font-size: 3.3em;
+    color: white;
+    margin: 0;
+}
+
+@font-face {
+    font-family: imager_regular;
+    src: url('../../assets/fuentes/imager.regular/imager.regular.otf');
+}
+.notaBoton{
+    font-family:imager_regular;
+    margin: 5px auto;
+    width: max-content;
+    color: rgb(189, 145, 15);
+}
