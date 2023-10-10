@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     domain={domain}
     clientId={client_id}
     authorizationParams={{
-      redirect_uri: "http://localhost:5173/catalogo",
+      redirect_uri: "http://localhost:5173/acceso",
     }}
   >
     <Provider store={store}>
