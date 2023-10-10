@@ -65,8 +65,8 @@
   align-items: center;
 }
 
-.tableView .product-cell .num {
-  width: auto;
+a {
+  text-decoration: none;
 }
 
 .status {

@@ -26,7 +26,7 @@ function Item({ producto, handleDeleteProduct }) {
       <div className="product-cell ">
         <span className="cell-label">${price}</span>
       </div>
-      <div className="product-cell ">
+      <div className="product-cell edit">
         <Link to={`/detalleAdmin/${idProduct}`}>
           <div>Editar</div>
         </Link>
