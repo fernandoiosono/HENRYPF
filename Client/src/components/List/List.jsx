@@ -118,7 +118,9 @@ function List() {
           <div className="products-area-wrapper tableView">
             <div className="products-header">
               <div className="product-cell ">
-                <button onClick={handleOrderName}>Item</button>
+                <button className="button" onClick={handleOrderName}>
+                  Item
+                </button>
                 <div>
                   {nombre === "" ? (
                     <p></p>
@@ -130,7 +132,9 @@ function List() {
                 </div>
               </div>
               <div className="product-cell category">
-                <button onClick={handleOrderCategory}>Categoria</button>
+                <button className="button" onClick={handleOrderCategory}>
+                  Categoria
+                </button>
                 <div>
                   {categoria === "" ? (
                     <p></p>
@@ -142,7 +146,9 @@ function List() {
                 </div>
               </div>
               <div className="product-cell status-cell">
-                <button onClick={handleOrderEstado}>Estado</button>
+                <button className="button" onClick={handleOrderEstado}>
+                  Estado
+                </button>
                 <div>
                   {estado === "" ? (
                     <p></p>
@@ -154,7 +160,9 @@ function List() {
                 </div>
               </div>
               <div className="product-cell ">
-                <button onClick={handleOrderStock}>Stock</button>
+                <button className="button" onClick={handleOrderStock}>
+                  Stock
+                </button>
                 <div>
                   {stock === "" ? (
                     <p></p>
@@ -166,7 +174,9 @@ function List() {
                 </div>
               </div>
               <div className="product-cell ">
-                <button onClick={handleOrderPrecio}>Precio</button>
+                <button className="button" onClick={handleOrderPrecio}>
+                  Precio
+                </button>
                 <div>
                   {precio === "" ? (
                     <p></p>

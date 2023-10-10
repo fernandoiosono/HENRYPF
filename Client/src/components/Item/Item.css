@@ -53,8 +53,7 @@
   border-radius: 30px;
 }
 .tableView .products-row:hover {
-  box-shadow: var(--filter-shadow);
-  background-color: var(--app-content-secondary-color);
+  background-color: #5c53532d;
 }
 
 .tableView .product-cell {

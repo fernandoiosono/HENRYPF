@@ -33,7 +33,7 @@ function Item({ producto, handleDeleteProduct }) {
       </div>
       <div className="product-cell ">
         <button
-          className="no"
+          className="buttonEliminar"
           onClick={() => {
             handleDeleteProduct(idProduct);
           }}
