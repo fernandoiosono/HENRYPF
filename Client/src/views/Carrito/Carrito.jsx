@@ -9,7 +9,6 @@ import axios from "axios";
 const Carrito = () => {
 
     const carrito = useSelector(state => state.carrito);
-    console.log(carrito.length);
     const [ carritoListo, setCarritoListo ] = useState([]);
     const dispatch = useDispatch();
     const URL = "http://localhost:3001/";
