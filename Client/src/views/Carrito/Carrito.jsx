@@ -15,9 +15,11 @@ const Carrito = () => {
     const URL = "http://localhost:3001/";
 
     const idsProductos = () => {
-        return carrito.map(prod=>{
-            prod.idProducto
-        })
+        let idProductos = [];
+        carrito.map(prod=>{
+            idProductos.push(prod.idProducto)
+        });
+        return idProductos
     };
 
     useEffect(() => {
