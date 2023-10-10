@@ -8,7 +8,7 @@ const getProductsOrderName = async (field, direction) => {
             order: [[field, direction]],
         });
     } else {
-        return { error: 'Parámetros de orden no válidos' };
+        return { error: 'Invalid order parameters' };
     }
 
     return products;
