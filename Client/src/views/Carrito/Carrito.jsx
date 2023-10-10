@@ -26,6 +26,8 @@ const Carrito = () => {
         axios.post(`${URL}moveon/shoppingcart/${'92887e1d-63bc-41a1-9327-d3f79a696fe3'}`, idsProductos()); //! PENDIENTE CONSULTAR DE DONDE TOMO EL ID CLIENTE
     },[carrito]);
 
+    console.log(carrito);
+
     return (
         <>
             <div className={style.spaceNav} /> {/* ESTE DIV ES PARA EL ESPACIO DEL NAV */}

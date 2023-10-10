@@ -27,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     if (inicioSesion) dispatch(cargarCarrito()) //! PENDIENTE CONSULTAR DE DONDE TOMO EL ID CLIENTE
-  },[inicioSesion])
+  },[inicioSesion]);
 
   useEffect(() => {
     dispatch(traerProductos()); //! para cargar allProductos

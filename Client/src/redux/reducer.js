@@ -122,6 +122,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       const carritoFiltrado = state.carrito.filter(
         (productos) => productos.idProducto !== payload
       );
+      console.log(JSON.stringify(carritoFiltrado) + 'soy el carrito', state.carrito, payload);
       return {
         ...state,
         carrito: carritoFiltrado,
