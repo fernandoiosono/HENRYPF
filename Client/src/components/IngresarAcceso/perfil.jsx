@@ -11,6 +11,7 @@ import "./perfil.css";
 const Perfil = ({ user, autenticado }) => {
   const dispatch = useDispatch();
   const usuario = useSelector((state) => state.usuario);
+  const [imagen, setImagen] = useState("");
 
   const newUsuario = {
     idAuth0: user.sub,
@@ -28,8 +29,8 @@ const Perfil = ({ user, autenticado }) => {
 
   const modificar = (cambiosUser) => {
     if (autenticado) {
-          dispatch(editarUsuario(cambiosUser));
-        }
+      dispatch(editarUsuario(cambiosUser));
+    }
   };
 
   return (
@@ -43,7 +44,7 @@ const Perfil = ({ user, autenticado }) => {
               name: usuario.data.name,
               nickName: usuario.data.nickName,
               imageURL: usuario.data.imageURL,
-              email:usuario.data.email,
+              email: usuario.data.email,
             }}
             onSubmit={modificar}
           >
@@ -56,10 +57,12 @@ const Perfil = ({ user, autenticado }) => {
                   className="imagen"
                 />
                 <div className="cloudinary">
-                  <label htmlFor="name" className="cambiarImg">
+                  <label htmlFor="clou_Imagen" className="cambiarImg">
                     Cambiar Imagen:
                   </label>
-                  <SubirImagen/>
+                  <div>
+                      <SubirImagen imagen={imagen} setImagen={setImagen} />
+                  </div>
                 </div>
 
                 <div className="formulario__grupo">
@@ -110,7 +113,7 @@ const Perfil = ({ user, autenticado }) => {
                     />
                   </div>
                 </div>
-                <button type="submit" className="btn" >
+                <button type="submit" className="btn">
                   Enviar cambios
                 </button>
                 <div>

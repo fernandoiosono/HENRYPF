@@ -5,9 +5,8 @@ const apiKey = process.env.API_KEY;
 const upload = process.env.UPLOAD_PRESET;
 const url_cloudinary = process.env.URL_CLOUDINARY;
 
-const SubirImagen = (props) => {
+const SubirImagen = ({imagen, setImagen}) => {
 
-    const [imagen, setImagen] = useState("");
     const [loading, setLoading] = useState(false);
 
     const uploadImagen = async (e) =>{
