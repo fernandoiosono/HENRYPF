@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import Nav from "./nav/Nav";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
   traerAllProductos,
   traerActiveProductos,
   obtenerCategorias,
+  cargarCarrito,
 } from "../redux/actions";
 import {
   Landing,
@@ -27,12 +28,18 @@ import "./App.css";
 const App = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.usuario);
 
   useEffect(() => {
     dispatch(traerAllProductos());
     dispatch(traerActiveProductos());
     dispatch(obtenerCategorias());
+    if (data) dispatch(cargarCarrito(data.idUser))
   }, []);
+
+  useEffect(() => {
+    if (data) dispatch(cargarCarrito(data.idUser))
+  }, [data]);
 
   const handlerClassName = () => {
     if (pathname === "/acceso") return "background_acceso";

@@ -12,6 +12,7 @@ import {
   AGREGAR_CARRITO,
   QUITAR_CARRITO,
   SET_CANTIDAD_CARRITO,
+  CARGAR_CARRITO,
   FILTER_CATEGORIA,
   SET_ORDER,
   SET_INICIO_SESION,
@@ -219,6 +220,21 @@ export const setCantidadCarrito = (producto) => {
   }
 };
 
+export const cargarCarrito = (idCliente) => {
+  try {
+    return async (dispatch) => {
+      console.log('deberia cargar carrito', idCliente);
+      const { data } = await axios.get(`${URL}moveon/shoppingcart/${idCliente}`)
+      return dispatch({
+        type: CARGAR_CARRITO,
+        payload: data,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const setInicioSesion = (booleano) => {
   try {
     return (dispatch) => {
@@ -235,7 +251,7 @@ export const setInicioSesion = (booleano) => {
 export const crearUsuario = (newUsuario) => {
   try {
     return async (dispatch) => {
-     const usuarioCreado = await axios.post(`http://localhost:3001/moveon/users/`, newUsuario);
+      const usuarioCreado = await axios.post(`http://localhost:3001/moveon/users/`, newUsuario);
       dispatch({
         type: USUARIO,
         payload: usuarioCreado
@@ -249,7 +265,7 @@ export const crearUsuario = (newUsuario) => {
 export const editarUsuario = (cambiosUsuario) => {
   try {
     return async (dispatch) => {
-     const editarUser = await axios.patch(`http://localhost:3001/moveon/users/`, cambiosUsuario);
+      const editarUser = await axios.patch(`http://localhost:3001/moveon/users/`, cambiosUsuario);
       dispatch({
         type: EDITAR_USUARIO,
         payload: editarUser

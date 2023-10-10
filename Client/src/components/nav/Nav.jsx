@@ -14,7 +14,6 @@ const Nav = () => {
   const inicioSesion = useSelector((state) => state.inicioSesion);
   const carrito = useSelector((state) => state.carrito);
   const { data } = useSelector((state) => state.usuario);
-  console.log('usuario: ',data);
   const { user } = useAuth0();
   const navigate = useNavigate();
   const dispatch = useDispatch();

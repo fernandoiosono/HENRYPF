@@ -11,6 +11,7 @@ import {
   AGREGAR_CARRITO,
   QUITAR_CARRITO,
   SET_CANTIDAD_CARRITO,
+  CARGAR_CARRITO,
   SET_ORDER,
   SET_INICIO_SESION,
   USUARIO,
@@ -249,6 +250,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         carrito: carritoFil,
+      };
+
+    case CARGAR_CARRITO:
+      return {
+        ...state,
+        carrito: payload,
       };
 
     case SET_INICIO_SESION:
