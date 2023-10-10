@@ -11,6 +11,7 @@ import {
   OBTENER_CATEGORIAS,
   AGREGAR_CARRITO,
   QUITAR_CARRITO,
+  SET_CANTIDAD_CARRITO,
   FILTER_CATEGORIA,
   SET_ORDER,
   SET_INICIO_SESION,
@@ -198,6 +199,19 @@ export const quitarCarrito = (id) => {
       return dispatch({
         type: QUITAR_CARRITO,
         payload: id,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const setCantidadCarrito = (producto) => {
+  try {
+    return (dispatch) => {
+      return dispatch({
+        type: SET_CANTIDAD_CARRITO,
+        payload: producto,
       });
     };
   } catch (error) {

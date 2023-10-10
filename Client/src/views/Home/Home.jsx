@@ -10,7 +10,6 @@ const Home = ()=>{
 
     return (
         <div className={style.home}>
-            <div className={style.spaceNav} /> {/* ESTE DIV ES PARA EL ESPACIO DEL NAV */}
             <img src={imagenFondo} className={style.imgFondo} />
             <div className={style.momento}>
                 <h1 className={style.momentoBlanco}>ES EL</h1>

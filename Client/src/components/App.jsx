@@ -39,25 +39,32 @@ const App = () => {
   };
 
   return (
-    <SectionApp>
-      {pathname !== "/" && <Nav />}
-      <main className={handlerClassName()}>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/catalogo" element={<Catalogo />} />
-          <Route path="/acceso" element={<Acceso />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/detalle/:id" element={<Detail />} />
-          <Route path="/pago" element={<Pago />} />
-          <Route path="/registro" element={<Registro />} />
-          <Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
-          <Route path="/detalleAdmin/:id" element={<EdicionProducto />} />
-          <Route path="/edicion" element={<EdicionProducto />} />
-        </Routes>
-      </main>
-    </SectionApp>
+    <>
+      {pathname !== "/" &&
+        <>
+          <Nav />
+        </>
+      }
+      <SectionApp>
+        <main className={handlerClassName()}>
+          <div className="spaceNav"/> {/* ESTE DIV ES PARA EL ESPACIO DEL NAV */}
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/catalogo" element={<Catalogo />} />
+            <Route path="/acceso" element={<Acceso />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/carrito" element={<Carrito />} />
+            <Route path="/detalle/:id" element={<Detail />} />
+            <Route path="/pago" element={<Pago />} />
+            <Route path="/registro" element={<Registro />} />
+            <Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
+            <Route path="/detalleAdmin/:id" element={<EdicionProducto />} />
+            <Route path="/edicion" element={<EdicionProducto />} />
+          </Routes>
+        </main>
+      </SectionApp>
+    </>
   );
 };
 

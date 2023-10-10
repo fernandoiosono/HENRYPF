@@ -1,0 +1,95 @@
+.carritoTotal{
+    margin-top: 1.5em;
+}
+
+.divSubTotal{
+    width: max-content;
+    display: flex;
+    margin: auto  4% auto auto;
+}
+
+.tituloSubTotal{
+    color: white;
+    margin: auto;
+}
+
+.subTotal{
+    text-align: end;
+    margin: auto;
+    margin-left: 2em;
+    color: white;
+    font-size: 1.3em;
+    width: 5em;
+}
+
+.divDescuento{
+    width: max-content;
+    display: flex;
+    margin: auto  4% auto auto;
+}
+
+.tituloDescuento{
+    color: white;
+    margin: auto;
+}
+
+.Descuento{
+    text-align: end;
+    margin: auto;
+    margin-left: 2em;
+    color: white;
+    font-size: 1.3em;
+    width: 5em;
+}
+
+.divTotal{
+    width: max-content;
+    display: flex;
+    margin: auto  4% auto auto;
+}
+
+.tituloTotal{
+    color: white;
+    margin: auto;
+}
+
+.total{
+    text-align: end;
+    margin: auto;
+    margin-left: 2em;
+    color: white;
+    font-size: 1.3em;
+    width: 5em;
+}
+
+.botones{
+    margin-top: 2em;
+    height: 5em;
+    display: flex;
+}
+
+.comprando{
+    font-size: 1.5em;
+    width: 30%;
+    margin-right: auto;
+    margin-left: 0;
+    height: 2em;
+    color: black;
+    background-color: white;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.pago{
+    font-size: 1.5em;
+    width: 30%;
+    margin-right: 0;
+    margin-left: auto;
+    height: 2em;
+    color: black;
+    background-color: rgb(245, 196, 44);
+    &:hover{
+        cursor: pointer;
+    }
+}

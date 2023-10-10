@@ -6,6 +6,10 @@
   margin: 0;
 }
 
+.spaceNav{
+  height: 8.3vh;
+}
+
 /* En tu archivo CSS global o en el archivo de estilos de tu componente */
 body {
   scrollbar-width: thin; /* Establece el ancho del scroll */

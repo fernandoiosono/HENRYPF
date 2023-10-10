@@ -10,6 +10,7 @@ import {
   FILTER_CATEGORIA,
   AGREGAR_CARRITO,
   QUITAR_CARRITO,
+  SET_CANTIDAD_CARRITO,
   SET_ORDER,
   SET_INICIO_SESION,
   USUARIO,
@@ -240,6 +241,14 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         carrito: carritoFiltrado,
+      };
+
+    case SET_CANTIDAD_CARRITO:
+      const carritoFil = state.carrito.filter(producto => producto.idProduct !== payload.idProduct);
+      carritoFil.push(payload)
+      return {
+        ...state,
+        carrito: carritoFil,
       };
 
     case SET_INICIO_SESION:

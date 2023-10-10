@@ -13,7 +13,8 @@ import { setInicioSesion } from "../../redux/actions";
 const Nav = () => {
   const inicioSesion = useSelector((state) => state.inicioSesion);
   const carrito = useSelector((state) => state.carrito);
-  const productosEnc = useSelector((state) => state.productosEnc); //!ESTE CODIGO ES SOLO PARA VER QUE SI ESTE SIRVIENDO EL SEARCH
+  const { data } = useSelector((state) => state.usuario);
+  console.log('usuario: ',data);
   const { user } = useAuth0();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const Nav = () => {
   };
 
   const adminHidden = () => {
-    if (inicioSesion) {
+    if (inicioSesion&&data&&data.isAdmin) {
       if (pathname === "/catalogoAdmin") return style.adminHidden;
       return style.admin;
     } else {
@@ -41,7 +42,7 @@ const Nav = () => {
     }
   };
 
-  const inicioCarrito = () => {
+  const inicioPerfil = () => {
     if (!inicioSesion) {
       return (
         <h3 className={style.iniciar} onClick={() => loginWithRedirect()}>
@@ -50,21 +51,13 @@ const Nav = () => {
       );
     } else {
       return (
-        <div className={style.carritoCont}>
-          <h3 className={style.contador} onClick={() => navigate("/carrito")}>
-            {carrito.length}
-          </h3>
+        <div className={style.divPerfil}>
           <img
-            src={iconoCarrito}
-            alt="carrito"
-            className={style.carrito}
-            onClick={() => navigate("/carrito")}
-          />
-          <img
-            src={user.picture}
+            src={data?data.imageURL:null}
             alt="perfil"
             className={style.perfil}
             onClick={() => navigate("/acceso")}
+            title="perfil"
           />
         </div>
       );
@@ -74,22 +67,38 @@ const Nav = () => {
   return (
     <div className={style.nav}>
       <img src={back} className={style.back} onClick={() => navigate(-1)} />
+      <div className={style.div} />
       <h3 className={style.sobre} onClick={() => navigate("/about")}>
         Sobre nosotros
       </h3>
-      <img src={logo} alt="moveOn" className={style.logo} />
-      <h3 className={adminHidden()} onClick={() => navigate("/catalogoAdmin")}>
-        admin
-      </h3>
       <img
         src={home}
+        title="home"
         alt="home"
         className={homeHidden()}
         onClick={() => navigate("/home")}
       />
+      <h3
+      title="catálogo admin"
+      className={adminHidden()}
+      onClick={() => navigate("/catalogoAdmin")}
+      >admin</h3>
+      <img src={logo} alt="moveOn" className={style.logo} />
       <SearchBar />
       <div className={style.div} />
-      {inicioCarrito()}
+      <div className={style.carritoCont}>
+          <h3 className={style.contador} onClick={() => navigate("/carrito")}>
+            {carrito.length}
+          </h3>
+          <img
+            src={iconoCarrito}
+            alt="carrito"
+            title="carito"
+            className={style.carrito}
+            onClick={() => navigate("/carrito")}
+          />
+        </div>
+      {inicioPerfil()}
     </div>
   );
 };

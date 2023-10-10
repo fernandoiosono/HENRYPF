@@ -1,0 +1,57 @@
+.carrito{
+    margin: auto;
+    margin-top: 2em;
+    padding-top: 1em;
+    width: 90%;
+}
+
+.titulo{
+    font-size: 2em;
+    margin: 0 auto 0 auto;
+    width: max-content;
+    color: rgb(245, 196, 44)
+}
+
+.titulos{
+    display: flex;
+}
+
+.spaceBorrar{
+    margin-left: 22px;
+    width: 3.1em;
+}
+
+.tituloImg{
+    text-align: center;
+    width: 8%;
+    margin: 1em auto;
+    color: rgb(163, 159, 159);
+}
+
+.tituloNom{
+    width: 25%;
+    margin: 1em auto 1em 2em;
+    color: rgb(163, 159, 159);;
+}
+
+.tituloCenter{
+    text-align: center;
+    width: 13%;
+    margin: 1em auto;
+    color: rgb(163, 159, 159);
+}
+
+.noProducto{
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 6em;
+    display: flex;
+    margin-bottom: 10px;
+    border: 1px solid white;
+}
+
+.noProductoH1{
+    color: rgba(255, 255, 0, 0.5);
+    margin: auto;
+    margin-left: 2em;
+}
+

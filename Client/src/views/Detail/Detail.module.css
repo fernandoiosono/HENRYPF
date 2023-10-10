@@ -23,6 +23,7 @@
     margin: 1em;
     height: 2em;
     background-color: rgb(245, 196, 44);
+    color: black;
     &:hover{
         cursor: pointer;
     }
@@ -33,6 +34,8 @@
     width: 60%;
     margin: 0 0 1em 0;
     height: 2em;
+    color: black;
+    background-color: white;
     &:hover{
         cursor: pointer;
     }
