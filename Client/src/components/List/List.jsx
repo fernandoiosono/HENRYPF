@@ -54,60 +54,120 @@ function List() {
   const handleOrderName = () => {
     if (nombre === "") {
       setNombre(true);
+      setCategoria("");
+      setEstado("");
+      setStock("");
+      setPrecio("");
       dispatch(setOrder("NombreDescendente"));
     } else if (nombre === true) {
       setNombre(false);
+      setCategoria("");
+      setEstado("");
+      setStock("");
+      setPrecio("");
       dispatch(setOrder("NombreAscendente"));
     } else if (nombre === false) {
       setNombre("");
+      setCategoria("");
+      setEstado("");
+      setStock("");
+      setPrecio("");
     }
   };
 
   const handleOrderCategory = () => {
     if (categoria === "") {
       setCategoria(true);
+      setNombre("");
+      setEstado("");
+      setStock("");
+      setPrecio("");
       dispatch(setOrder("CategoriaDescendente"));
     } else if (categoria === true) {
       setCategoria(false);
+      setNombre("");
+      setEstado("");
+      setStock("");
+      setPrecio("");
       dispatch(setOrder("CategoriaAscendente"));
     } else if (categoria === false) {
       setCategoria("");
+      setNombre("");
+      setEstado("");
+      setStock("");
+      setPrecio("");
     }
   };
 
   const handleOrderEstado = () => {
     if (estado === "") {
       setEstado(true);
+      setCategoria("");
+      setNombre("");
+      setStock("");
+      setPrecio("");
       dispatch(setOrder("estadoDescendente"));
     } else if (estado === true) {
       setEstado(false);
+      setCategoria("");
+      setNombre("");
+      setStock("");
+      setPrecio("");
       dispatch(setOrder("estadoAscendente"));
     } else if (estado === false) {
       setEstado("");
+      setCategoria("");
+      setNombre("");
+      setStock("");
+      setPrecio("");
     }
   };
 
   const handleOrderStock = () => {
     if (stock === "") {
       setStock(true);
+      setEstado("");
+      setCategoria("");
+      setNombre("");
+      setPrecio("");
       dispatch(setOrder("stockDescendente"));
     } else if (stock === true) {
       setStock(false);
+      setEstado("");
+      setCategoria("");
+      setNombre("");
+      setPrecio("");
       dispatch(setOrder("stockAscendente"));
     } else if (stock === false) {
       setStock("");
+      setEstado("");
+      setCategoria("");
+      setNombre("");
+      setPrecio("");
     }
   };
 
   const handleOrderPrecio = () => {
     if (precio === "") {
       setPrecio(true);
+      setStock("");
+      setEstado("");
+      setCategoria("");
+      setNombre("");
       dispatch(setOrder("precioDescendente"));
     } else if (precio === true) {
       setPrecio(false);
+      setStock("");
+      setEstado("");
+      setCategoria("");
+      setNombre("");
       dispatch(setOrder("precioAscendente"));
     } else if (precio === false) {
       setPrecio("");
+      setStock("");
+      setEstado("");
+      setCategoria("");
+      setNombre("");
     }
   };
 
