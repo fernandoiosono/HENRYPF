@@ -1,7 +1,9 @@
 {
 	"categories": [
         { "idCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2", "name": "Suplemento" },
-    	{ "idCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5", "name": "Equipo" }
+		{ "idCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5", "name": "Equipo GYM" },
+		{ "idCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94", "name": "Proteína" },
+		{ "idCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce", "name": "Equipo Personal" }
     ],
 	"products": [
 		{
@@ -11,7 +13,7 @@
 			"price": 28,
 			"stock": 50,
 			"discount": 0,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Suplemento en polvo Star Nutrition Creatine Monohydrate creatina en pote de 300g",
@@ -101,7 +103,7 @@
 			"price": 19,
 			"stock": 40,
 			"discount": 5,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Slender Quick 4x3 - Suplemento Dietario",
@@ -119,7 +121,7 @@
 			"price": 50,
 			"stock": 50,
 			"discount": 10,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Barras Proteicas Ena Caja 16 Unidades Fuente De Proteínas Sabor Chocolate Brownie",
@@ -128,7 +130,7 @@
 			"price": 21,
 			"stock": 40,
 			"discount": 0,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Whey Ripped 2lbs Gold Nutrition Proteina Con Matrix Fat Burn Sabor Chocolate",
@@ -137,7 +139,7 @@
 			"price": 42,
 			"stock": 20,
 			"discount": 0,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Core Bag 20 Kg Bolso Entrenamiento Con Peso Sand Bag S/c",
@@ -182,7 +184,7 @@
 			"price": 19,
 			"stock": 16,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Pelota Esferodinamia Pilates 65 Cm Gmp - Fabricantes Swiss Ball - Yoga Gimnasia Rehabilitación Fitball",
@@ -191,7 +193,7 @@
 			"price": 18,
 			"stock": 23,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Disco Pvc 10kg Body Pump Sport Store",
@@ -200,7 +202,7 @@
 			"price": 21,
 			"stock": 23,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "20 Pisos Goma Eva Encastrable Bebé Gimnasio 50x50 Cm X15 Mm",
@@ -218,7 +220,7 @@
 			"price": 12,
 			"stock": 20,
 			"discount": 5,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Multigimnasio 1000r1 C/barra + Discos + Bco Scott Worldfitne",
@@ -236,7 +238,7 @@
 			"price": 185,
 			"stock": 34,
 			"discount": 5,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Set 5 Bandas Elasticas Ejercicio Fitness Funcional Gimnasia",
@@ -245,7 +247,7 @@
 			"price": 13,
 			"stock": 67,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Banda De Resistencia Elastica Tension Media Forest Fitness Color Rojo",
@@ -254,7 +256,7 @@
 			"price": 6,
 			"stock": 50,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Discos 5 Kg X 4 Unidades Pesa Gym Encastrable Tipo Local",
@@ -299,7 +301,7 @@
 			"price": 11,
 			"stock": 35,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Half Rack (pared) Sentadillas - Gym - Crossfit - Funcional",
@@ -317,7 +319,7 @@
 			"price": 19,
 			"stock": 39,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Rodillo Goma Espuma Maquina Gimnasio Multi Gym Pack X4 Jbh",
@@ -326,7 +328,7 @@
 			"price": 45,
 			"stock": 10,
 			"discount": 10,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Elongador Para Piernas Gimnasia, Danza, Elongación",
@@ -344,7 +346,7 @@
 			"price": 47,
 			"stock": 14,
 			"discount": 0,
-			"CategoryIdCategory": "da2798ed-5b0d-40a6-b59c-1e8b31ecc0f5"
+			"CategoryIdCategory": "ea61e568-5c0c-455a-8023-365ea7caf0ce"
 		},
 		{
 			"name": "Agarre Triangulo Para Remo",
@@ -398,7 +400,7 @@
 			"price": 11,
 			"stock": 50,
 			"discount": 0,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Poweraded Creatine Micronized - One Fit",
@@ -416,7 +418,7 @@
 			"price": 14,
 			"stock": 37,
 			"discount": 15,
-			"CategoryIdCategory": "7083ab0e-b0fb-4299-a69a-b6fc68d664e2"
+			"CategoryIdCategory": "f575146d-93a8-4642-bc38-f74e2dd9af94"
 		},
 		{
 			"name": "Giovegen Skin Colageno Hidrolizado Beauty Drink Polvo 420g",

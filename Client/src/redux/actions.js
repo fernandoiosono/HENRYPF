@@ -1,6 +1,10 @@
 import axios from "axios";
 import {
   TRAER_PRODUCTOS,
+  TRAER_PRODUCTO,
+  CREAR_PRODUCTO,
+  BORRAR_PRODUCTO,
+  ACTUALIZAR_PRODUCTO,
   TRAER_PRODUCTOS_ACTIVOS,
   SET_PAGINA,
   BUSCAR_PRUDUCTOS,
@@ -30,11 +34,91 @@ export const traerAllProductos = () => {
   }
 };
 
+export const createProduct = (values) => {
+  try {
+    return async (dispatch) => {
+      const response = await axios.post(`${URL}products`, values);
+      if (response.status === 200) {
+        return dispatch({
+          type: CREAR_PRODUCTO,
+          payload: true,
+        });
+      }
+    };
+  } catch (error) {
+    console.log(error.message);
+    return dispatch({
+      type: CREAR_PRODUCTO,
+      payload: false,
+    });
+  }
+};
+
+export const deleteProduct = (idProduct) => {
+  try {
+    return async (dispatch) => {
+      const response = await axios.put(
+        `${URL}products/${idProduct}?activate=false`
+      );
+
+      if (response.status === 200) {
+        return dispatch({
+          type: BORRAR_PRODUCTO,
+          payload: true,
+        });
+      } else {
+        return dispatch({
+          type: BORRAR_PRODUCTO,
+          payload: false,
+        });
+      }
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const traerProducto = (id) => {
+  try {
+    return async (dispatch) => {
+      const { data } = await axios.get(`${URL}products/${id}`);
+      return dispatch({
+        type: TRAER_PRODUCTO,
+        payload: data,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const actualizarProducto = (id, values) => {
+  console.log(values);
+
+  try {
+    return async (dispatch) => {
+      const response = await axios.patch(`${URL}products/${id}`, values);
+      if (response.status === 200) {
+        return dispatch({
+          type: ACTUALIZAR_PRODUCTO,
+          payload: true,
+        });
+      } else {
+        return dispatch({
+          type: ACTUALIZAR_PRODUCTO,
+          payload: false,
+        });
+      }
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const traerActiveProductos = () => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(`${URL}products/active`);
-      // const data = productos;
       return dispatch({
         type: TRAER_PRODUCTOS_ACTIVOS,
         payload: data,

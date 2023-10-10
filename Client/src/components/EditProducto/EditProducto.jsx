@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Formik } from "formik";
 import "./CrearProducto.css";
-import { createProduct, traerAllProductos } from "../../redux/actions.js";
-import Swal from "sweetalert2";
+import axios from "axios";
 
-const CrearProducto = () => {
-  const dispatch = useDispatch();
-
+const EditProdcuto = () => {
   const categorias = useSelector((state) => state.categorias);
+  const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
 
   return (
     <Formik
@@ -72,22 +70,21 @@ const CrearProducto = () => {
           values.imageURL =
             "https://static.wikia.nocookie.net/fakemon/images/3/37/Logo_PAAA_Toy_Story_Parody.png";
         }
-        console.log(values);
 
-        Swal.fire({
-          title: "¿Quieres crear este producto?",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Si, crearlo!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            dispatch(createProduct(values));
-            dispatch(traerAllProductos());
-            resetForm();
-          }
-        });
+        values.CategoryIdCategory = +values.CategoryIdCategory;
+
+        try {
+          const response = await axios.post(
+            "http://localhost:3001/moveon/products",
+            values
+          );
+
+          cambiarFormularioEnviado(true);
+          setTimeout(() => cambiarFormularioEnviado(false), 3000);
+          resetForm();
+        } catch (error) {
+          console.log(response.error.message);
+        }
       }}
     >
       {({
@@ -231,6 +228,7 @@ const CrearProducto = () => {
               )}
             </div>
             <button type="submit">Crear producto</button>
+            {formularioEnviado && <p className="exito">Producto creado!</p>}
           </form>
         </div>
       )}
@@ -238,4 +236,4 @@ const CrearProducto = () => {
   );
 };
 
-export default CrearProducto;
+export default EditProdcuto;

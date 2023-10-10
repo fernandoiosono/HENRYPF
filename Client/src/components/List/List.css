@@ -1,37 +1,13 @@
-table {
-  width: 85%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  table-layout: auto;
-  margin-top: 20px;
+p {
+  margin: 0;
 }
 
-table,
-th,
-td {
-  border: 1px solid #ccc;
+.button {
+  background-color: #f5c52e;
+  color: black;
+  font-weight: bold;
 }
 
-th,
-td {
-  padding: 2px;
-  text-align: center;
-}
-
-th {
-  background-color: #333;
-  color: #fff;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-tr:nth-child(odd) {
-  color: #f2f2f2;
-}
-
-/* Estilos para encabezado de tabla */
-thead {
+.products-header {
   font-weight: bold;
 }

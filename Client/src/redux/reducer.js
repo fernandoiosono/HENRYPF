@@ -1,6 +1,9 @@
+import Swal from "sweetalert2";
 import {
   TRAER_PRODUCTOS,
+  TRAER_PRODUCTO,
   TRAER_PRODUCTOS_ACTIVOS,
+  BORRAR_PRODUCTO,
   SET_PAGINA,
   BUSCAR_PRUDUCTOS,
   OBTENER_CATEGORIAS,
@@ -11,11 +14,15 @@ import {
   SET_INICIO_SESION,
   USUARIO,
   EDITAR_USUARIO,
+  CREAR_PRODUCTO,
+  ACTUALIZAR_PRODUCTO,
 } from "./actions_types";
 
 const initialState = {
   allProductos: [],
   productosMostrar: [],
+  producto: [],
+  borrado: false,
   allActiveProducts: [],
   productosEnc: [],
   carrito: [],
@@ -32,6 +39,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         allProductos: payload,
+        producto: [],
       };
 
     case TRAER_PRODUCTOS_ACTIVOS:
@@ -39,6 +47,51 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         productosMostrar: payload,
         allActiveProducts: payload,
+      };
+
+    case CREAR_PRODUCTO:
+      if (payload != true) {
+        Swal.fire("Crear producto", "Error al crear el producto", "error");
+      } else {
+        Swal.fire("Creado!", "El producto fue creado.", "success");
+      }
+      return {
+        ...state,
+      };
+    case BORRAR_PRODUCTO:
+      console.log(payload);
+      if (payload != true) {
+        Swal.fire(
+          "Eliminar producto",
+          "Error al eliminar el producto",
+          "error"
+        );
+      } else {
+        Swal.fire("Eliminar producto", "Eliminado", "success");
+      }
+      return {
+        ...state,
+      };
+
+    case ACTUALIZAR_PRODUCTO:
+      console.log(payload);
+      if (payload != true) {
+        Swal.fire(
+          "Actualizar producto",
+          "Error al actualizar el producto",
+          "error"
+        );
+      } else {
+        Swal.fire("Actualizar producto", "Actualizado", "success");
+      }
+      return {
+        ...state,
+      };
+
+    case TRAER_PRODUCTO:
+      return {
+        ...state,
+        producto: payload,
       };
 
     case SET_PAGINA:
@@ -60,38 +113,20 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case BUSCAR_PRUDUCTOS:
-      const num = Number(payload);
-      if (!isNaN(num)) {
-        const productoEncontrado = state.allProductos.find(
-          (prod) => prod.idProduct === num
-        );
-        if (!productoEncontrado) {
-          alert(`No existe el producto con el ID: ${num}`);
-          return {
-            ...state,
-          };
-        }
-        return {
-          ...state,
-          productosEnc: [productoEncontrado],
-          productosMostrar: [productoEncontrado],
-        };
-      } else {
-        const resultado = state.allProductos.filter((producto) =>
-          producto.name.toLowerCase().includes(payload.toLowerCase())
-        );
+      const resultado = state.allProductos.filter((producto) =>
+        producto.name.toLowerCase().includes(payload.toLowerCase())
+      );
 
-        if (resultado.length === 0) {
-          alert("No se encontraron coincidencias");
-          return {
-            ...state,
-          };
-        }
+      if (resultado.length === 0) {
+        alert("No se encontraron coincidencias");
         return {
           ...state,
-          productosMostrar: resultado,
         };
       }
+      return {
+        ...state,
+        productosMostrar: resultado,
+      };
 
     case OBTENER_CATEGORIAS:
       return {
@@ -112,19 +147,80 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case SET_ORDER:
-      let orderedProductos = [...state.productosMostrar];
-      let ordered;
-      if (payload === "Ascendente") {
-        ordered = orderedProductos.sort((a, b) => a.price - b.price);
-      } else if (payload === "Descendente") {
-        ordered = orderedProductos.sort((a, b) => b.price - a.price);
+      if (payload === "Descendente" || payload === "Ascendente") {
+        let orderedProductos = [...state.productosMostrar];
+        let ordered;
+
+        if (payload === "Ascendente") {
+          ordered = orderedProductos.sort((a, b) => a.price - b.price);
+        } else if (payload === "Descendente") {
+          ordered = orderedProductos.sort((a, b) => b.price - a.price);
+        } else {
+          ordered = orderedProductos;
+        }
+
+        return {
+          ...state,
+          productosMostrar: ordered,
+        };
       } else {
-        ordered = orderedProductos;
+        let orderedProductos = [...state.allProductos];
+        let ordered;
+
+        if (payload === "NombreDescendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+        } else if (payload === "NombreAscendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return b.name.localeCompare(a.name);
+          });
+        }
+
+        if (payload === "CategoriaDescendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return a.Category.name.localeCompare(b.Category.name);
+          });
+        } else if (payload === "CategoriaAscendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return b.Category.name.localeCompare(a.name);
+          });
+        }
+
+        if (payload === "estadoDescendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return a.active - b.active;
+          });
+        } else if (payload === "estadoAscendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return b.active - a.active;
+          });
+        }
+
+        if (payload === "stockDescendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return a.stock - b.stock;
+          });
+        } else if (payload === "stockAscendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return b.stock - a.stock;
+          });
+        }
+
+        if (payload === "precioDescendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return a.price - b.price;
+          });
+        } else if (payload === "precioAscendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return b.price - a.price;
+          });
+        }
+        return {
+          ...state,
+          allProductos: ordered,
+        };
       }
-      return {
-        ...state,
-        productosMostrar: ordered,
-      };
 
     case AGREGAR_CARRITO:
       return {

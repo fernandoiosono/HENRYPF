@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./Card.css";
-import img_prueba from "../../assets/img/producto/ejemplo.png";
 
 function Card({ producto }) {
   const { idProduct, name, imageURL, price, discount } = producto;

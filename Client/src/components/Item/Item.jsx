@@ -1,31 +1,47 @@
 import { Link } from "react-router-dom";
 import "./Item.css";
-import editar from "../../assets/img/catalogoAdmin/editar.png";
-import eliminar from "../../assets/img/catalogoAdmin/eliminar.png";
 
-function Item({ item }) {
-  const { idProduct, name } = item;
-  const borrarProducto = () => {
-    alert(`Borrado con exito!`);
-  };
+function Item({ producto, handleDeleteProduct }) {
+  const { idProduct, name, stock, price, active, Category } = producto;
 
   return (
-    <tr>
-      <td>{idProduct}</td>
-      <td>{name}</td>
-      <td>
+    <div className="products-row">
+      <div className="product-cell ">
+        <span>{name}</span>
+      </div>
+      <div className="product-cell">
+        <span>{Category.name}</span>
+      </div>
+      {active ? (
+        <div className="product-cell ">
+          <span className="status active">Activo</span>
+        </div>
+      ) : (
+        <div className="product-cell ">
+          <span className="status disabled">No Activo</span>
+        </div>
+      )}
+
+      <div className="product-cell ">{stock}</div>
+      <div className="product-cell ">
+        <span className="cell-label">${price}</span>
+      </div>
+      <div className="product-cell edit">
         <Link to={`/detalleAdmin/${idProduct}`}>
-          <button className="btn-adm">
-            <img className="imgVista" src={editar} />
-          </button>
+          <div>Editar</div>
         </Link>
-      </td>
-      <td>
-        <button className="btn-adm" onClick={borrarProducto}>
-          <img className="imgVista" src={eliminar} />
+      </div>
+      <div className="product-cell ">
+        <button
+          className="buttonEliminar"
+          onClick={() => {
+            handleDeleteProduct(idProduct);
+          }}
+        >
+          Eliminar
         </button>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 }
 
