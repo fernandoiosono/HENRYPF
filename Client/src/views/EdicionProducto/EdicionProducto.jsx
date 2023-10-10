@@ -103,22 +103,18 @@ const EditarProducto = () => {
                 values.imageURL =
                   "https://static.wikia.nocookie.net/fakemon/images/3/37/Logo_PAAA_Toy_Story_Parody.png";
               }
-              console.log(values);
-
               Swal.fire({
-                title: "¿Quieres editar este producto?",
+                title: "Un momento por favor",
                 icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Si, editar!",
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  dispatch(actualizarProducto(id, values));
-                  dispatch(traerAllProductos());
-                  navigate("/catalogoAdmin");
-                }
+                showCancelButton: false,
+                showConfirmButton: false,
+                isConfirmed: true,
+                timer: 2000,
               });
+
+              dispatch(actualizarProducto(id, values));
+              dispatch(traerAllProductos());
+              navigate("/catalogoAdmin");
             }}
           >
             {({
