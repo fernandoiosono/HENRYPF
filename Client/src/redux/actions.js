@@ -223,11 +223,14 @@ export const setCantidadCarrito = (producto) => {
 export const cargarCarrito = (idCliente) => {
   try {
     return async (dispatch) => {
-      console.log('deberia cargar carrito', idCliente);
-      const { data } = await axios.get(`${URL}moveon/shoppingcart/${idCliente}`)
+      const cantidad = 1;
+      const { data } = await axios.get(`${URL}shoppingcart/${idCliente}`);
+      const newData = data.map(prod => {         //! MODIFICAR ESTE CODIGO CUANDO SE MANEJEN CANTIDADES EN EL BACK
+        return {...prod, cantidad }
+      });
       return dispatch({
         type: CARGAR_CARRITO,
-        payload: data,
+        payload: newData,
       });
     };
   } catch (error) {
