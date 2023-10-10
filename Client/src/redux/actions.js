@@ -14,6 +14,8 @@ import {
   FILTER_CATEGORIA,
   SET_ORDER,
   SET_INICIO_SESION,
+  USUARIO,
+  EDITAR_USUARIO,
 } from "./actions_types";
 
 const URL = "http://localhost:3001/moveon/";
@@ -215,3 +217,32 @@ export const setInicioSesion = (booleano) => {
     console.log(error);
   }
 };
+
+export const crearUsuario = (newUsuario) => {
+  try {
+    return async (dispatch) => {
+     const usuarioCreado = await axios.post(`http://localhost:3001/moveon/users/`, newUsuario);
+      dispatch({
+        type: USUARIO,
+        payload: usuarioCreado
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editarUsuario = (cambiosUsuario) => {
+  try {
+    return async (dispatch) => {
+     const editarUser = await axios.patch(`http://localhost:3001/moveon/users/`, cambiosUsuario);
+      dispatch({
+        type: EDITAR_USUARIO,
+        payload: editarUser
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
