@@ -22,7 +22,6 @@ import {
   CatalogoAdmin,
   EdicionProducto,
 } from "../views";
-
 import "./App.css";
 
 const App = () => {
@@ -33,8 +32,7 @@ const App = () => {
   useEffect(() => {
     dispatch(traerAllProductos());
     dispatch(traerActiveProductos());
-    dispatch(obtenerCategorias());
-    if (data) dispatch(cargarCarrito(data.idUser))
+    dispatch(obtenerCategorias())
   }, []);
 
   useEffect(() => {

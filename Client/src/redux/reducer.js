@@ -246,7 +246,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case AGREGAR_CARRITO:
       return {
         ...state,
-        carrito: [...state.carrito, payload],
+        carrito: [payload, ...state.carrito],
       };
 
     case QUITAR_CARRITO:
@@ -259,11 +259,16 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case SET_CANTIDAD_CARRITO:
-      const carritoFil = state.carrito.filter(producto => producto.idProduct !== payload.idProduct);
-      carritoFil.push(payload)
+      const carritoFilt = state.carrito.map(product => {
+        const cantidad = payload.cantidad;
+        if (product.idProduct === payload.idProduct) {
+          return {...product, cantidad}
+        };
+        return product
+      });
       return {
         ...state,
-        carrito: carritoFil,
+        carrito: carritoFilt
       };
 
     case CARGAR_CARRITO:

@@ -37,8 +37,13 @@ const Detail = () => {
   const handleRuta = () => {
     if (inicioSesion) {
       const cantidad = 1;
+      const producExistente = carrito.find(
+        (produc) => produc.idProduct == producto.idProduct
+      );
+      if (!producExistente) {
+        dispatch(agregarCarrito({ ...producto, cantidad }))
+      }
       navigate("/carrito");
-      dispatch(agregarCarrito({ ...producto, cantidad }))
     } else {
       loginWithRedirect();
     }

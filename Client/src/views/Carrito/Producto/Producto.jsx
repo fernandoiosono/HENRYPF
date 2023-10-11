@@ -3,23 +3,27 @@ import style from './Producto.module.css';
 import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 import { useDispatch } from 'react-redux';
-import { agregarCarrito, quitarCarrito, setCantidadCarrito } from '../../../redux/actions';
+import { quitarCarrito, setCantidadCarrito } from '../../../redux/actions';
 
-const Producto = ({producto}) => {
+const Producto = ({ producto }) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [ cantidad, setCantidad ] = useState(() => producto.cantidad);
+    const [cantidad, setCantidad] = useState(() => producto.cantidad);
     const subTotal = producto.price * producto.cantidad;
 
     useEffect(() => {
         if (cantidad > producto.stock) return setCantidad(cantidad - 1);
-        dispatch(setCantidadCarrito({...producto, cantidad}))
+        dispatch(setCantidadCarrito({ ...producto, cantidad }))
     }, [cantidad]);
 
     const handleChange = (event) => {
         if (event.target.value > producto.stock) {
-            alert("La cantidad ingresada no puede superar lo que hay en stock")  //! USAR EL SWAL
+            Swal.fire({
+                title: "La cantidad ingresada no puede superar lo que hay en stock",
+                text: ("Stock: "+producto.stock+' unidades'),
+                icon: "warning",
+            }).then((result) => {});
         };
         if (event.target.value > 0) {
             setCantidad(event.target.value)
