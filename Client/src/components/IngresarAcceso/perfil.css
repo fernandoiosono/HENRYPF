@@ -42,6 +42,11 @@
   transform: scale(1.05);
 }
 
+.btn_out{
+  margin-top: -9em;
+  margin-left: 39em;
+}
+
 /* .cloudinary {
   margin: 0;
   display: flex;

@@ -4,7 +4,7 @@ import SubirImagen from "../Cloudinary/cloudinary.component";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { crearUsuario, editarUsuario } from "../../redux/actions";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import "./perfil.css";
 
@@ -27,11 +27,18 @@ const Perfil = ({ user, autenticado }) => {
     }
   }, []);
 
-  const modificar = (cambiosUser) => {
+  const modificar = (valores) => {
     if (autenticado) {
-      dispatch(editarUsuario(cambiosUser));
+      dispatch(editarUsuario(valores));
     }
   };
+  
+  const validar = (valores) =>{
+    const errors ={};
+    if(valores.name >35) errors.name = "Debe contener menos de 35 letras";
+    if(valores.nickName >35) errors.nickName = "Debe contener menos de 35 letras";
+    return errors;
+  }
 
   return (
     <>
@@ -47,6 +54,7 @@ const Perfil = ({ user, autenticado }) => {
               email: usuario.data.email,
             }}
             onSubmit={modificar}
+            validate={validar}
           >
             <div className="contenedor">
               <Form className="formulario">
@@ -78,6 +86,7 @@ const Perfil = ({ user, autenticado }) => {
                       placeholder={usuario.data.name}
                       autoComplete="off"
                     />
+                    <ErrorMessage name="name"/>
                   </div>
                 </div>
 
@@ -94,6 +103,7 @@ const Perfil = ({ user, autenticado }) => {
                       placeholder={usuario.data.nickName}
                       autoComplete="off"
                     />
+                    <ErrorMessage name="nickName"/>
                   </div>
                 </div>
 
@@ -116,12 +126,12 @@ const Perfil = ({ user, autenticado }) => {
                 <button type="submit" className="btn">
                   Enviar cambios
                 </button>
-                <div>
-                  <LogoutButton />
-                </div>
               </Form>
             </div>
           </Formik>
+          <div className="btn_out">
+                  <LogoutButton />
+          </div>
         </div>
       ) : null}
     </>
