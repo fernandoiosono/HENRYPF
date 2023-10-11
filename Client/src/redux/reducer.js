@@ -232,7 +232,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case AGREGAR_CARRITO:
       return {
         ...state,
-        carrito: [...state.carrito, payload],
+        carrito: [payload, ...state.carrito],
       };
 
     case QUITAR_CARRITO:

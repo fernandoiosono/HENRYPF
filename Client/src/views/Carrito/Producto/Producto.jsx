@@ -21,7 +21,7 @@ const Producto = ({ producto }) => {
         if (event.target.value > producto.stock) {
             Swal.fire({
                 title: "La cantidad ingresada no puede superar lo que hay en stock",
-                text: ("Stock: "+producto.stock),
+                text: ("Stock: "+producto.stock+' unidades'),
                 icon: "warning",
             }).then((result) => {});
         };
