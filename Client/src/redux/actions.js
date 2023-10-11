@@ -223,8 +223,10 @@ export const setCantidadCarrito = (producto) => {
 export const cargarCarrito = (idCliente) => {
   try {
     return async (dispatch) => {
-      console.log('deberia cargar carrito', idCliente);
-      const { data } = await axios.get(`${URL}moveon/shoppingcart/${idCliente}`)
+      console.log("deberia cargar carrito", idCliente);
+      const { data } = await axios.get(
+        `${URL}moveon/shoppingcart/${idCliente}`
+      );
       return dispatch({
         type: CARGAR_CARRITO,
         payload: data,
@@ -251,10 +253,13 @@ export const setInicioSesion = (booleano) => {
 export const crearUsuario = (newUsuario) => {
   try {
     return async (dispatch) => {
-      const usuarioCreado = await axios.post(`http://localhost:3001/moveon/users/`, newUsuario);
+      const usuarioCreado = await axios.post(
+        `http://localhost:3001/moveon/users/`,
+        newUsuario
+      );
       dispatch({
         type: USUARIO,
-        payload: usuarioCreado
+        payload: usuarioCreado,
       });
     };
   } catch (error) {
@@ -266,13 +271,19 @@ export const editarUsuario = (cambiosUsuario) => {
   try {
     return async (dispatch) => {
       const editarUser = await axios.patch(`http://localhost:3001/moveon/users/`, cambiosUsuario);
-      dispatch({
-        type: EDITAR_USUARIO,
-        payload: editarUser
-      });
+      // if (response.status === 200) {
+        return dispatch({
+          type: EDITAR_USUARIO,
+          payload: [editarUser, true],
+        });
+      // } else {
+      //   return dispatch({
+      //     type: EDITAR_USUARIO,
+      //     payload: false,
+      //   });
+      // }
     };
   } catch (error) {
     console.log(error);
   }
 };
-

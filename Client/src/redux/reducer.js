@@ -114,9 +114,23 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case EDITAR_USUARIO:
-      return {
+      if (payload[1] != true) {
+        Swal.fire(
+          "Actualizar usuario",
+          "Error al actualizar el usuario",
+          "error"
+        );
+      } else {
+        Swal.fire({
+          title: "Usuario actualizado",
+          icon: "success",
+          showCancelButton: false,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }return {
         ...state,
-        usuario: payload,
+        usuario: payload[0],
       };
 
     case BUSCAR_PRUDUCTOS:
