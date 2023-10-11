@@ -269,20 +269,21 @@ export const crearUsuario = (newUsuario) => {
 };
 
 export const editarUsuario = (cambiosUsuario) => {
+  console.log(cambiosUsuario)
   try {
     return async (dispatch) => {
       const editarUser = await axios.patch(`http://localhost:3001/moveon/users/`, cambiosUsuario);
-      // if (response.status === 200) {
+      if (editarUser.status === 200) {
         return dispatch({
           type: EDITAR_USUARIO,
           payload: [editarUser, true],
         });
-      // } else {
-      //   return dispatch({
-      //     type: EDITAR_USUARIO,
-      //     payload: false,
-      //   });
-      // }
+      } else {
+        return dispatch({
+          type: EDITAR_USUARIO,
+          payload: [editarUser, false],
+        });
+      }
     };
   } catch (error) {
     console.log(error);

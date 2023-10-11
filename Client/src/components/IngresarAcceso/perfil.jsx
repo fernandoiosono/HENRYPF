@@ -35,8 +35,8 @@ const Perfil = ({ user, autenticado }) => {
   
   const validar = (valores) =>{
     const errors ={};
-    if(valores.name >35) errors.name = "Debe contener menos de 35 letras";
-    if(valores.nickName >35) errors.nickName = "Debe contener menos de 35 letras";
+    if(valores.name.length >35)errors.name = "Debe contener menos de 35 letras";
+    if(valores.nickName.length >35) errors.nickName = "Debe contener menos de 35 letras";
     return errors;
   }
 
@@ -50,7 +50,7 @@ const Perfil = ({ user, autenticado }) => {
               idUser: usuario.data.idUser,
               name: usuario.data.name,
               nickName: usuario.data.nickName,
-              imageURL: imagen,
+              imageURL: imagen || usuario.data.imageURL,
               email: usuario.data.email,
             }}
             onSubmit={modificar}
@@ -103,7 +103,7 @@ const Perfil = ({ user, autenticado }) => {
                       placeholder={usuario.data.nickName}
                       autoComplete="off"
                     />
-                    <ErrorMessage name="nickName"/>
+                    <ErrorMessage name="nickName" className="error_msg"/>
                   </div>
                 </div>
 

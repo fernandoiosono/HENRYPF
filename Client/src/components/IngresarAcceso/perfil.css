@@ -30,6 +30,7 @@
   margin: 2em 0 0 4em;
   border: 8px solid black;
   border-radius: 200px;
+  width: 200px;
   height: 200px;
   transform: translate(0);
   transition: transform 0.25s ease-out;
@@ -42,38 +43,11 @@
   transform: scale(1.05);
 }
 
-.btn_out{
-  margin-top: -9em;
-  margin-left: 39em;
+.btn_out {
+  margin-top: -50em;
+  margin-left: 78em;
 }
 
-/* .cloudinary {
-  margin: 0;
-  display: flex;
-  position: absolute;
-  margin-right: 10em;
-} */
-
-/* .txt{
-  background-color: aqua;
-  margin-left: 6em;
-  display: block;
-  font-weight: 700;
-  padding: 10px;
-  cursor: pointer;
-} */
-
-/* .txt_info{
-  color:white;
-  margin-left: 6em;
-  margin-top: -5px;
+.error_msg {
+  color: red;
 }
-
-
-.cambiarImg{
-  font-size: 1em;
-  margin-top: -0.1em;
-  margin-right: 0.3em;
-} */
-
-

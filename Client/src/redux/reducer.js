@@ -120,6 +120,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
           "Error al actualizar el usuario",
           "error"
         );
+        return {
+          ...state,
+        };
       } else {
         Swal.fire({
           title: "Usuario actualizado",
@@ -128,10 +131,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
           showConfirmButton: false,
           timer: 2000,
         });
-      }return {
-        ...state,
-        usuario: payload[0],
-      };
+        return {
+          ...state,
+          usuario: payload[0],
+        };
+      }
 
     case BUSCAR_PRUDUCTOS:
       const resultado = state.allProductos.filter((producto) =>
@@ -259,16 +263,16 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case SET_CANTIDAD_CARRITO:
-      const carritoFilt = state.carrito.map(product => {
+      const carritoFilt = state.carrito.map((product) => {
         const cantidad = payload.cantidad;
         if (product.idProduct === payload.idProduct) {
-          return {...product, cantidad}
-        };
-        return product
+          return { ...product, cantidad };
+        }
+        return product;
       });
       return {
         ...state,
-        carrito: carritoFilt
+        carrito: carritoFilt,
       };
 
     case CARGAR_CARRITO:

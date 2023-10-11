@@ -6,7 +6,7 @@ const LogoutButton = () => {
 
   return (
     <button onClick={() => logout({ logoutParams: { returnTo: "http://localhost:5173/catalogo" } })}>
-      Salir
+      x
     </button>
   );
 };
