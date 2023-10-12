@@ -1,9 +1,17 @@
-const { DataTypes: dtype, Sequelize } = require("sequelize");
+const { DataTypes: dtype } = require("sequelize");
 
 module.exports = (database) => {
 	database.define(
 		"ShoppingCart",
 		{
+			idUser: {
+				type: dtype.UUID,
+				primaryKey: true
+			},
+			idProduct: {
+				type: dtype.UUID,
+				primaryKey: true
+			},
 			quantity: {
 				type: dtype.INTEGER
 			}
