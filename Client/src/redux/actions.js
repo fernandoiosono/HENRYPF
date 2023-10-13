@@ -56,27 +56,58 @@ export const createProduct = (values) => {
   }
 };
 
-export const deleteProduct = (idProduct) => {
-  try {
-    return async (dispatch) => {
-      const response = await axios.put(
-        `${URL}products/${idProduct}?activate=false`
-      );
+export const deleteProduct = (idProduct, value) => {
+  if (value === "eliminar") {
+    try {
+      return async (dispatch) => {
+        const response = await axios.put(
+          `${URL}products/${idProduct}?activate=false`
+        );
 
-      if (response.status === 200) {
-        return dispatch({
-          type: BORRAR_PRODUCTO,
-          payload: true,
-        });
-      } else {
-        return dispatch({
-          type: BORRAR_PRODUCTO,
-          payload: false,
-        });
-      }
-    };
-  } catch (error) {
-    console.log(error);
+        if (response.status === 200) {
+          return dispatch({
+            type: BORRAR_PRODUCTO,
+            payload: "eliminar",
+          });
+        }
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  } else if (value === "desactivar") {
+    try {
+      return async (dispatch) => {
+        const response = await axios.put(
+          `${URL}products/${idProduct}?activate=false`
+        );
+
+        if (response.status === 200) {
+          return dispatch({
+            type: BORRAR_PRODUCTO,
+            payload: "desactivar",
+          });
+        }
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  } else if (value === "activar") {
+    try {
+      return async (dispatch) => {
+        const response = await axios.put(
+          `${URL}products/${idProduct}?activate=true`
+        );
+
+        if (response.status === 200) {
+          return dispatch({
+            type: BORRAR_PRODUCTO,
+            payload: "activar",
+          });
+        }
+      };
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 
@@ -225,8 +256,9 @@ export const cargarCarrito = (idCliente) => {
     return async (dispatch) => {
       const cantidad = 1;
       const { data } = await axios.get(`${URL}shoppingcart/${idCliente}`);
-      const newData = data.map(prod => {         //! MODIFICAR ESTE CODIGO CUANDO SE MANEJEN CANTIDADES EN EL BACK
-        return {...prod, cantidad }
+      const newData = data.map((prod) => {
+        //! MODIFICAR ESTE CODIGO CUANDO SE MANEJEN CANTIDADES EN EL BACK
+        return { ...prod, cantidad };
       });
       return dispatch({
         type: CARGAR_CARRITO,
@@ -269,10 +301,13 @@ export const crearUsuario = (newUsuario) => {
 };
 
 export const editarUsuario = (cambiosUsuario) => {
-  console.log(cambiosUsuario)
+  console.log(cambiosUsuario);
   try {
     return async (dispatch) => {
-      const editarUser = await axios.patch(`http://localhost:3001/moveon/users/`, cambiosUsuario);
+      const editarUser = await axios.patch(
+        `http://localhost:3001/moveon/users/`,
+        cambiosUsuario
+      );
       if (editarUser.status === 200) {
         return dispatch({
           type: EDITAR_USUARIO,

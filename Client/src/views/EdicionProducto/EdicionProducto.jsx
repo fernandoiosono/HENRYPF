@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import SubirImagen from "../../components/Cloudinary/cloudinary.component";
 import Swal from "sweetalert2";
 import { Formik } from "formik";
 import "./EdicionProducto.css";
@@ -16,6 +17,7 @@ const EditarProducto = () => {
   const { id } = useParams();
   const categorias = useSelector((state) => state.categorias);
   const Producto = useSelector((state) => state.producto);
+  const [imagen, setImagen] = useState("");
 
   const [loading, setLoading] = useState(true);
 
@@ -43,7 +45,7 @@ const EditarProducto = () => {
             initialValues={{
               idProduct: Producto.idProduct,
               name: Producto.name,
-              imageURL: Producto.imageURL,
+              imageURL: Producto.imageURL || imagen,
               description: Producto.description,
               price: Producto.price,
               stock: Producto.stock,
@@ -53,7 +55,6 @@ const EditarProducto = () => {
             }}
             validate={(valores) => {
               let errors = {};
-              const imageUrlPattern = /\.(jpg|jpeg|png|gif|bmp|svg|webp)$/i; // Patrón para imágenes
               if (!valores.name) {
                 errors.name = "Ingresa un nombre";
               } else if (valores.name.length < 5 || valores.name.length > 80) {
@@ -71,12 +72,6 @@ const EditarProducto = () => {
                 errors.stock = "El stock debe ser mayor a 0";
               }
 
-              if (valores.discount < 0) {
-                errors.discount = "El descuento no puede ser menor a 0%";
-              } else if (valores.discount > 100) {
-                errors.discount = "El descuento no puede ser mayor al 100%";
-              }
-
               if (valores.CategoryIdCategory === "") {
                 errors.CategoryIdCategory = "Debes seleccionar una categoria";
               }
@@ -92,16 +87,14 @@ const EditarProducto = () => {
               return errors;
             }}
             onSubmit={async (values, { resetForm }) => {
-              const imageUrlPattern = /\.(jpg|jpeg|png|gif|bmp|svg|webp)$/i; // Patrón para imágenes
               if (values.active === "true") {
                 values.active = true;
               } else if (values.active === "false") {
                 values.active = false;
               }
 
-              if (!imageUrlPattern.test(values.imageURL)) {
-                values.imageURL =
-                  "https://static.wikia.nocookie.net/fakemon/images/3/37/Logo_PAAA_Toy_Story_Parody.png";
+              if (imagen != "") {
+                values.imageURL = imagen;
               }
               Swal.fire({
                 title: "Un momento por favor",
@@ -155,19 +148,7 @@ const EditarProducto = () => {
                 </div>
                 <div>
                   <label htmlFor="imageURL">Imagen: </label>
-                  <input
-                    // type="file"
-                    type="text"
-                    id="imageURL"
-                    name="imageURL"
-                    placeholder="Inserta una imagen"
-                    value={values.imageURL}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  ></input>
-                  {touched.imageURL && errors.imageURL && (
-                    <div className="error">{errors.imageURL}</div>
-                  )}
+                  <SubirImagen setImagen={setImagen} />
                 </div>
                 <div>
                   <label htmlFor="description">Descripcion:</label>
@@ -203,18 +184,20 @@ const EditarProducto = () => {
                 </div>
                 <div>
                   <label htmlFor="discount">Descuento:</label>
-                  <input
-                    type="text"
+                  <select
                     id="discount"
                     name="discount"
-                    placeholder="0"
                     value={values.discount}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                  ></input>
-                  {touched.discount && errors.discount && (
-                    <div className="error">{errors.discount}</div>
-                  )}
+                  >
+                    <option value="0">0</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                  </select>
                 </div>
                 <div>
                   <label htmlFor="CategoryIdCategory">Categoria:</label>

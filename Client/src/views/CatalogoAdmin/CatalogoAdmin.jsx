@@ -14,7 +14,7 @@ const CatalogoAdmin = () => {
   }, [dispatch]);
 
   dispatch(setCurrenPage(1));
-  const [mostrarVerProductos, setMostrarVerProductos] = useState(false); // Nuevo estado para controlar qué componente mostrar
+  const [mostrarVerProductos, setMostrarVerProductos] = useState(true); // Nuevo estado para controlar qué componente mostrar
 
   const mostrarVerProductosHandler = () => {
     setMostrarVerProductos(true);

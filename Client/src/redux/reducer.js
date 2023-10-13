@@ -62,14 +62,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
     case BORRAR_PRODUCTO:
       console.log(payload);
-      if (payload != true) {
-        Swal.fire(
-          "Eliminar producto",
-          "Error al eliminar el producto",
-          "error"
-        );
-      } else {
+      if (payload === "eliminar") {
         Swal.fire("Eliminar producto", "Eliminado", "success");
+      } else if (payload === "desactivar") {
+        Swal.fire("Actualizar producto", "Producto desactivado", "success");
+      } else if (payload === "activar") {
+        Swal.fire("Actualizar producto", "Producto activado", "success");
       }
       return {
         ...state,
