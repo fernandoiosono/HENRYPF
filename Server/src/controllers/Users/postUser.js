@@ -20,7 +20,8 @@ const postUser = async (newUser) => {
         },
     });
 
-    if(created) return {
+    if(created)
+        return {
         idUser: user.idUser,
         name: user.name,
         nickName: user.nickName,

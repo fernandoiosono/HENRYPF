@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const errorHandler = require('../middlewares');
+const mailer = require('../config/mailer')
 
 const { getActiveUsers,
     getUserAccess,
@@ -33,6 +34,7 @@ router.post('/', errorHandler(async (req, res) => {
         return res.status(400).json({ error: 'Faltan datos para la creación de un nuevo usuario' });
     } else {
         const userCreated = await postUser(newUser);
+        mailer.sendMail(newUser);
         res.status(200).json(userCreated);
     };
        
