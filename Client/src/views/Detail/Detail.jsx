@@ -16,6 +16,7 @@ const Detail = () => {
   const dispatch = useDispatch();
   const { loginWithRedirect } = useAuth0();
   const [producto, setProducto] = useState({});
+  const enCarrito = carrito.find(prod => prod.idProduct == id);
   const URL = "http://localhost:3001/";
 
   useEffect(() => {
@@ -31,7 +32,8 @@ const Detail = () => {
   };
 
   useEffect(() => {
-    if (inicioSesion && carrito.length > 0) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, idsProductos())
+    if (inicioSesion && carrito.length > 0) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, idsProductos());
+    if (!inicioSesion) localStorage.setItem("carritoInvitado", JSON.stringify(carrito));
   }, [carrito]);
 
   const handleRuta = () => {
@@ -89,11 +91,23 @@ const Detail = () => {
     <div className={style.detalle}>
       <div className={style.imagenBotones}>
         <img src={producto.imageURL} className={style.imagen} />
+        {
+          enCarrito ?
+            <div className={style.divCant}>
+              <div className={style.divMenos}>
+                    <h5 className={style.menos}>-</h5>
+                </div>
+                <h5 className={style.cant}>{"cantidad"}</h5>
+                <div className={style.divMas}>
+                    <h5 className={style.mas}>+</h5>
+                </div>
+            </div> :
+            <button className={style.agregar} onClick={() => botonCarrito()}>
+              Agregar al carrito
+            </button>
+        }
         <button className={style.comprar} onClick={() => handleRuta()}>
           Comprar ahora
-        </button>
-        <button className={style.agregar} onClick={() => botonCarrito()}>
-          Agregar al carrito
         </button>
       </div>
       <div className={style.detalles}>

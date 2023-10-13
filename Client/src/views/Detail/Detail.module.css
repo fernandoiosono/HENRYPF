@@ -17,25 +17,34 @@
     border-radius: 1em;
 }
 
-.comprar{
+.agregar{
     font-size: 1.5em;
     width: 60%;
     margin: 1em;
     height: 2em;
-    background-color: rgb(245, 196, 44);
     color: black;
+    background-color: white;
     &:hover{
         cursor: pointer;
     }
 }
 
-.agregar{
+.divCant{
+    font-size: 1.5em;
+    width: 60%;
+    margin: 1em;
+    height: 2em;
+    color: black;
+    background-color: white;
+}
+
+.comprar{
     font-size: 1.5em;
     width: 60%;
     margin: 0 0 1em 0;
     height: 2em;
+    background-color: rgb(245, 196, 44);
     color: black;
-    background-color: white;
     &:hover{
         cursor: pointer;
     }

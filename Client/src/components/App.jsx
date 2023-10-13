@@ -28,15 +28,20 @@ const App = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.usuario);
+  const carritoInvitado = (localStorage.getItem("carritoInvitado")).length>1?JSON.parse(localStorage.getItem("carritoInvitado")):[];
 
   useEffect(() => {
+    dispatch(cargarCarrito(carritoInvitado));
     dispatch(traerAllProductos());
     dispatch(traerActiveProductos());
     dispatch(obtenerCategorias())
   }, []);
 
   useEffect(() => {
-    if (data) dispatch(cargarCarrito(data.idUser))
+    if (data) {
+      dispatch(cargarCarrito(data.idUser,carritoInvitado));
+      localStorage.setItem("carritoInvitado", "")
+    }
   }, [data]);
 
   const handlerClassName = () => {
