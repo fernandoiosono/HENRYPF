@@ -1,5 +1,5 @@
 .detalle{
-    margin: 1em;
+    margin-top: 2em;
     display: flex;
 }
 
@@ -30,12 +30,59 @@
 }
 
 .divCant{
+    display: flex;
     font-size: 1.5em;
     width: 60%;
     margin: 1em;
     height: 2em;
     color: black;
-    background-color: white;
+}
+
+.divMenos{
+    margin: auto;
+    width: 2em;
+    height: 2em;
+    border: 1px solid rgb(68, 68, 68);
+    user-select: none;
+    &:hover{
+        cursor: pointer;
+        border: 1px solid white;
+    }
+}
+
+.menos{
+    font-size: 2em;
+    margin: 0;
+    color: white;
+    position: absolute;
+    transform: translateX(0.3em) translateY(-0.27em);
+}
+
+.cant{
+    text-align: center;
+    margin: auto;
+    color: white;
+    font-size: 1.3em;
+}
+
+.divMas{
+    margin: auto;
+    width: 2em;
+    height: 2em;
+    border: 1px solid rgb(68, 68, 68);
+    user-select: none;
+    &:hover{
+        cursor: pointer;
+        border: 1px solid white;
+    }
+}
+
+.mas{
+    font-size: 2em;
+    margin: 0;
+    color: white;
+    position: absolute;
+    transform: translateX(0.2em) translateY(-0.2em);
 }
 
 .comprar{
@@ -55,7 +102,7 @@
 }
 
 .nombre{
-    font-size: 2em;
+    font-size: 2.3em;
     text-align: center;
     color: white;
 }
@@ -93,8 +140,5 @@
 .descripcion{
     text-align: justify;
     color: white;
-}
-
-.id{
-    color: white;
+    font-size: 1.1em;
 }

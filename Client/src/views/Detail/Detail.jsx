@@ -5,6 +5,8 @@ import style from "./Detail.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { agregarCarrito } from "../../redux/actions";
 import axios from "axios";
+import { setCantidadCarrito } from "../../redux/actions";
+import Swal from "sweetalert2";
 
 const Detail = () => {
   const { id } = useParams();
@@ -16,7 +18,7 @@ const Detail = () => {
   const dispatch = useDispatch();
   const { loginWithRedirect } = useAuth0();
   const [producto, setProducto] = useState({});
-  const enCarrito = carrito.find(prod => prod.idProduct == id);
+  const prodEnCarrito = carrito.find(prod => prod.idProduct == id);
   const URL = "http://localhost:3001/";
 
   useEffect(() => {
@@ -65,6 +67,25 @@ const Detail = () => {
     }
   };
 
+  const handleCantidad = (orden) => {
+    let cantidad = prodEnCarrito.cantidad;
+    if (orden === "+") {
+        cantidad+=1;
+        if (cantidad > producto.stock) {
+          Swal.fire({
+            title: "La cantidad ingresada no puede superar lo que hay en stock",
+            text: ("Stock: " + producto.stock + ' unidades'),
+            icon: "warning",
+          }).then(() => {});
+        } else {
+          dispatch(setCantidadCarrito({...prodEnCarrito, cantidad}))
+        }
+    } else if (orden === "-" && cantidad !== 1) {
+        cantidad-=1;
+        dispatch(setCantidadCarrito({...prodEnCarrito, cantidad}))
+    }
+};
+
   const handlePrecioDesc = () => {
     if (producto.discount === 0) {
       return (
@@ -92,13 +113,13 @@ const Detail = () => {
       <div className={style.imagenBotones}>
         <img src={producto.imageURL} className={style.imagen} />
         {
-          enCarrito ?
+          prodEnCarrito ?
             <div className={style.divCant}>
-              <div className={style.divMenos}>
+              <div className={style.divMenos} onClick={() => handleCantidad("-")}>
                     <h5 className={style.menos}>-</h5>
                 </div>
-                <h5 className={style.cant}>{"cantidad"}</h5>
-                <div className={style.divMas}>
+                <h5 className={style.cant}>{prodEnCarrito.cantidad}</h5>
+                <div className={style.divMas} onClick={() => handleCantidad("+")}>
                     <h5 className={style.mas}>+</h5>
                 </div>
             </div> :
@@ -115,7 +136,6 @@ const Detail = () => {
         {handlePrecioDesc()}
         <h4 className={style.stock}>{producto.stock} unidades disponibles</h4>
         <p className={style.descripcion}>{producto.description}</p>
-        <h5 className={style.id}>ID del producto: {producto.idProduct}</h5>
       </div>
     </div>
   );

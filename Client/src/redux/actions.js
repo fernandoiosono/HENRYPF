@@ -230,6 +230,7 @@ export const cargarCarrito = (dato,carritoInvitado) => {
         });
       } else {
         const cantidad = 1;
+        console.log(dato);
         const { data } = await axios.get(`${URL}shoppingcart/${dato}`);
         const newData = data.map(prod => {         //! MODIFICAR ESTE CODIGO CUANDO SE MANEJEN CANTIDADES EN EL BACK
           return {...prod, cantidad }
