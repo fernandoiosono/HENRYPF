@@ -15,7 +15,7 @@ const { handlerUsers,
 	handlerCards,
 	handlerShoppingCart } = require('./src/routes');
 
-const { LOCALHOST_PORT, DB_RESET } = process.env;
+const { PORT, DB_RESET } = process.env;
 const dbReset = (DB_RESET === "true");
 
 server.use(cors());
@@ -48,8 +48,8 @@ database.sync({ force: dbReset })
 			console.log(`Error Loading Data in the Database > ${error}`);
 		}
 
-		server.listen(LOCALHOST_PORT, () => {
-			console.log(`Server raised in port: ${LOCALHOST_PORT}`);
+		server.listen(PORT, () => {
+			console.log(`Server raised in port: ${PORT}`);
 		});
 	})
 	.catch((error) => console.log(error));
