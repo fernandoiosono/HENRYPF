@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 const { NODEMAILER_EMAIL, NODEMAILER_PASSWORD } = process.env;
+const template = require('./template/template');
 
 const createTransporter = () => {
   const transporter = nodemailer.createTransport({
@@ -14,16 +15,16 @@ const createTransporter = () => {
   return transporter;
 };
 
-const sendMail = async (newUser) => {
+const sendMail = async (user) => {
   const transporter = createTransporter();
   const info = await transporter.sendMail({
     from: '" Moveon 🏋️‍♀️" <moveonVerwalter@gmail.com>',
-    to: newUser.email,
+    to: user.email,
     subject: "Bienvenido 💪",
-    html: `<b>Bienvenido ${newUser.name} a nuestro equipo Moveon</b>`,
+    html: template.htmlTemplate(user),
   });
   console.log("Message sent: %s", info.messageId);
   return
 };
 
-exports.sendMail = (newUser) => sendMail(newUser);
+exports.sendMail = (user) => sendMail(user);
