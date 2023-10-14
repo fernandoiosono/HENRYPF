@@ -21,7 +21,7 @@ const dbReset = (DB_RESET === "true");
 server.use(cors());
 server.use(morgan("dev"));
 
-server.name = 'API'; 
+// server.name = 'API'; 
 
  server.use((req, res, next) => { 
      res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from 
