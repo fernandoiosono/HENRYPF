@@ -14,5 +14,4 @@ export default defineConfig({
       "CLIENT_ID",
     ]),
   ],
-  base: "/vite-Cliente-react/",
 });
