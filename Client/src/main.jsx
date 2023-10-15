@@ -8,6 +8,10 @@ import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
+import axios from "axios";
+// axios.defaults.baseURL="http://localhost:3001";
+axios.defaults.baseURL="henrypf-production-fae5.up.railway.app";
+
 const domain = process.env.DOMAIN_AUTH;
 const client_id = process.env.CLIENT_ID;
 
