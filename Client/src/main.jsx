@@ -9,13 +9,9 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import axios from "axios";
-<<<<<<< HEAD
-// axios.defaults.baseURL="http://localhost:3001";
-axios.defaults.baseURL="henrypf-production-fae5.up.railway.app";
-=======
+
 // axios.defaults.baseURL= "http://localhost:3001";
-axios.defaults.baseURL="https://henrypf-production-fae5.up.railway.app";
->>>>>>> 474f32fd739f4cfa93a20d3214322c015cd4399e
+axios.defaults.baseURL="http://henrypf-production-fae5.up.railway.app";
 
 const domain = process.env.DOMAIN_AUTH;
 const client_id = process.env.CLIENT_ID;
