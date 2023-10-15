@@ -9,30 +9,31 @@ const Producto = ({ producto }) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [cantidad, setCantidad] = useState(() => producto.cantidad);
-    const subTotal = producto.price * producto.cantidad;
+    const [quantity, setQuantity] = useState(() => producto.ShoppingCart.quantity);
+    const subTotal = producto.price * producto.ShoppingCart.quantity;
 
     useEffect(() => {
-        dispatch(setCantidadCarrito({ ...producto, cantidad }))
-    }, [cantidad]);
+        dispatch(setCantidadCarrito({...producto, ShoppingCart:{quantity}}))
+    }, [quantity]);
 
     const handleCantidad = (orden) => {
-        let nuevaCantidad = cantidad;
+        let newquantity = quantity;
         if (orden === "+") {
-            nuevaCantidad+=1
-            setCantidad(nuevaCantidad);
-            if (nuevaCantidad > producto.stock) {
-                Swal.fire({
-                    title: "La cantidad ingresada no puede superar lo que hay en stock",
-                    text: ("Stock: " + producto.stock + ' unidades'),
-                    icon: "warning",
-                }).then(() => setCantidad(nuevaCantidad - 1));
-            }
-        } else if (orden === "-" && cantidad !== 1) {
-            nuevaCantidad-=1
-            setCantidad(nuevaCantidad)
+            newquantity += 1;
+          if (newquantity > producto.stock) {
+            Swal.fire({
+              title: "La cantidad ingresada no puede superar lo que hay en stock",
+              text: ("Stock: " + producto.stock + ' unidades'),
+              icon: "warning",
+            }).then(() => { });
+          } else {
+            setQuantity(newquantity)
+          }
+        } else if (orden === "-" && newquantity !== 1) {
+            newquantity -= 1;
+          setQuantity(newquantity)
         }
-    };
+      };
 
     return (
         <div className={style.producto} key={producto.idProduct}>
@@ -58,7 +59,7 @@ const Producto = ({ producto }) => {
                 <div className={style.divMenos} onClick={() => handleCantidad("-")}>
                     <h5 className={style.menos}>-</h5>
                 </div>
-                <h5 className={style.cant}>{cantidad}</h5>
+                <h5 className={style.cant}>{quantity}</h5>
                 <div className={style.divMas} onClick={() => handleCantidad("+")}>
                     <h5 className={style.mas}>+</h5>
                 </div>

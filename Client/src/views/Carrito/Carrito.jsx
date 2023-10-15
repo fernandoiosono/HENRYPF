@@ -14,16 +14,19 @@ const Carrito = () => {
     const navigate = useNavigate();
     const URL = "http://localhost:3001/";
 
-    const idsProductos = () => {
-        let idProductos = [];
+    const cantProductos = () => {
+        let cantProductos = [];
         carrito.map(prod => {
-            idProductos.push(prod.idProduct)
+          cantProductos.push({
+            idProduct:prod.idProduct,
+            quantity:prod.ShoppingCart.quantity
+          })
         });
-        return idProductos
-    };
+        return cantProductos
+      };
 
     useEffect(() => {
-        if (inicioSesion && carrito.length > 0) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, idsProductos());
+        if (inicioSesion && carrito.length > 0) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, cantProductos());
         if (!inicioSesion) localStorage.setItem("carritoInvitado", JSON.stringify(carrito));
     }, [carrito]);
 

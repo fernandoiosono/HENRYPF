@@ -220,7 +220,7 @@ export const setCantidadCarrito = (producto) => {
   }
 };
 
-export const cargarCarrito = (dato,carritoInvitado) => {
+export const cargarCarrito = (dato, carritoInvitado) => {
   try {
     return async (dispatch) => {
       if (typeof dato === 'object') {
@@ -229,21 +229,17 @@ export const cargarCarrito = (dato,carritoInvitado) => {
           payload: dato,
         });
       } else {
-        const cantidad = 1;
-        console.log(dato);
         const { data } = await axios.get(`${URL}shoppingcart/${dato}`);
-        const newData = data.map(prod => {         //! MODIFICAR ESTE CODIGO CUANDO SE MANEJEN CANTIDADES EN EL BACK
-          return {...prod, cantidad }
-        });
-        const combinado = [...carritoInvitado, ...newData];
+        console.log(carritoInvitado);
+        const combinado = [...carritoInvitado, ...data];
         const resultado = combinado.reduce((acc, current) => {
           const x = acc.find(item => item.idProduct === current.idProduct);
           if (!x) {
-              return acc.concat([current]);
+            return acc.concat([current]);
           } else {
-              return acc;
+            return acc;
           }
-      }, []);
+        }, []);
         return dispatch({
           type: CARGAR_CARRITO,
           payload: resultado,
@@ -286,7 +282,6 @@ export const crearUsuario = (newUsuario) => {
 };
 
 export const editarUsuario = (cambiosUsuario) => {
-  console.log(cambiosUsuario)
   try {
     return async (dispatch) => {
       const editarUser = await axios.patch(`http://localhost:3001/moveon/users/`, cambiosUsuario);

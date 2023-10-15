@@ -28,8 +28,8 @@ const App = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.usuario);
-  const carritoInvitado = (localStorage.getItem("carritoInvitado")).length>1?JSON.parse(localStorage.getItem("carritoInvitado")):[];
-
+  const carritoInvitado = (localStorage.getItem("carritoInvitado")).length > 1 ? JSON.parse(localStorage.getItem("carritoInvitado")) : [];
+  
   useEffect(() => {
     dispatch(cargarCarrito(carritoInvitado));
     dispatch(traerAllProductos());
@@ -39,7 +39,7 @@ const App = () => {
 
   useEffect(() => {
     if (data) {
-      dispatch(cargarCarrito(data.idUser,carritoInvitado));
+      dispatch(cargarCarrito(data.idUser, carritoInvitado));
       localStorage.setItem("carritoInvitado", "")
     }
   }, [data]);
@@ -50,14 +50,10 @@ const App = () => {
 
   return (
     <>
-      {pathname !== "/" &&
-        <>
-          <Nav />
-        </>
-      }
+      {pathname !== "/" && <Nav/>}
       <SectionApp>
         <main className={handlerClassName()}>
-          <div className="spaceNav"/> {/* ESTE DIV ES PARA EL ESPACIO DEL NAV */}
+          {pathname !== "/" && <div className="spaceNav" />} {/* ESTE DIV ES PARA EL ESPACIO DEL NAV */}
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />

@@ -264,9 +264,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
     case SET_CANTIDAD_CARRITO:
       const carritoFilt = state.carrito.map((product) => {
-        const cantidad = payload.cantidad;
+        const quantity = payload.ShoppingCart.quantity;
         if (product.idProduct === payload.idProduct) {
-          return { ...product, cantidad };
+          return { ...product, ShoppingCart:{quantity} };
         }
         return product;
       });
