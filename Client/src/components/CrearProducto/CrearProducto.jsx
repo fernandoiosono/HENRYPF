@@ -21,7 +21,7 @@ const CrearProducto = () => {
         description: "",
         price: "",
         stock: "",
-        discount: "",
+        discount: 0,
         active: "",
         CategoryIdCategory: "",
       }}

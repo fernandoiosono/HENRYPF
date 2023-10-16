@@ -9,9 +9,6 @@ import "./CatalogoAdmin.css";
 
 const CatalogoAdmin = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(traerAllProductos());
-  }, [dispatch]);
 
   dispatch(setCurrenPage(1));
   const [mostrarVerProductos, setMostrarVerProductos] = useState(true); // Nuevo estado para controlar qué componente mostrar
