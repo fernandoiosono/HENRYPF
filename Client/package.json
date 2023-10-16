@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "serve dist -s -n -L -p $PORT"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.1",
@@ -24,6 +25,7 @@
     "reactstrap": "^9.2.0",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
+    "serve": "^14.2.1",
     "styled-components": "^6.0.8",
     "sweetalert2": "^11.7.32",
     "vite-plugin-environment": "^1.1.3",
