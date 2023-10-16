@@ -6,6 +6,7 @@ import imagenFondo from '../../assets/img/home/FotoPrincipalHome.png';
 import imgTesti1 from '../../assets/img/home/Testimonio1.jpg';
 import imgTesti2 from '../../assets/img/home/Testimonio2.jpg';
 import imgTesti3 from '../../assets/img/home/Testimonio3.jpg';
+import Preguntas from "./Preguntas/Preguntas";
 
 const Home = ()=>{
 
@@ -46,12 +47,13 @@ const Home = ()=>{
                     </h3>
                 </div>
                 <div className={style.divTestimonio3}>
-                    <h3 className={style.testimonio3}>
-                        "Llevo 6 meses utilizando las mancuernas y siguen como nuevas"
-                    </h3>
                     <img src={imgTesti3} className={style.imgtestimonio3}/>
+                    <h3 className={style.testimonio3}>
+                        "He vuelto a recuperar mi agilidad, ya salgo con mis amigos a jugar sin ser el cuidador del agua"
+                    </h3>
                 </div>
             </div>
+            <Preguntas/>
         </div>
     );
 };

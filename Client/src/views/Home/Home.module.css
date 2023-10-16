@@ -88,26 +88,31 @@
 }
 
 .divTestimonios{
-    background-color: rgba(255, 255, 255, 0.2);
     display: flex;
+    margin-top: 10em;
 }
 
 .testimonios{
-    color: rgba(245, 196, 44, 0.5);
+    color: rgba(245, 196, 44, 0.2);
     position: absolute;
-    font-size: 5em;
+    font-size: 11.5em;
     margin: 0;
+    margin-left: 1em;
     font-family: Open-Sans;
+    transform: translateY(-0.6em);
 }
 
 .divTestimonio1{
-    background-color: rgba(0, 255, 255, 0.2);
     width: 30%;
+    margin: auto;
+    margin-bottom: 0em;
 }
 
 .testimonio1{
-    width: 80%;
+    margin: 0;
+    margin-bottom: 10px;
     color: white;
+    font-size: 2em;
 }
 
 .imgtestimonio1{
@@ -115,13 +120,15 @@
 }
 
 .divTestimonio2{
-    background-color: rgba(0, 255, 255, 0.2);
     width: 30%;
+    margin: auto;
+    margin-top: 2em;
 }
 
 .testimonio2{
-    width: 90%;
+    margin: 0;
     color: white;
+    font-size: 2em;
 }
 
 .imgtestimonio2{
@@ -129,13 +136,15 @@
 }
 
 .divTestimonio3{
-    background-color: rgba(0, 255, 255, 0.2);
     width: 30%;
+    margin: auto;
+    margin-top: 2em;
 }
 
 .testimonio3{
-    width: 90%;
+    margin: 0;
     color: white;
+    font-size: 2em;
 }
 
 .imgtestimonio3{
