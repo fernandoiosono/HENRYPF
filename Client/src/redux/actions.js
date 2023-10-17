@@ -18,6 +18,7 @@ import {
   SET_INICIO_SESION,
   USUARIO,
   EDITAR_USUARIO,
+  TRAER_USUARIOS,
 } from "./actions_types";
 
 const URL = "http://localhost:3001/moveon/";
@@ -319,6 +320,22 @@ export const editarUsuario = (cambiosUsuario) => {
           payload: [editarUser, false],
         });
       }
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getUsers = () => {
+  try {
+    return async (dispatch) => {
+      const { data } = await axios.get(
+        `http://localhost:3001/moveon/users/all`
+      );
+      return dispatch({
+        type: TRAER_USUARIOS,
+        payload: data,
+      });
     };
   } catch (error) {
     console.log(error);
