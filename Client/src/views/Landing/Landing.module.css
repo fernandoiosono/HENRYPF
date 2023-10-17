@@ -1,0 +1,12 @@
+.img_logo{
+   margin-top: 9em;
+}
+.logoOff {
+   margin-left: 36em;
+   cursor: pointer;
+   justify-content: center;
+}
+
+.logoOff :active{
+   background-image: url(../../assets/img/logo/logo.png);
+}
