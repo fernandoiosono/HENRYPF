@@ -5,7 +5,7 @@ const LogoutButton = () => {
   const { logout } = useAuth0();
 
   return (
-    <button onClick={() => logout({ logoutParams: { returnTo: "http://localhost:5173/catalogo" } })}>
+    <button onClick={() => logout({ logoutParams: { returnTo: "https://henrypf-production-fae5.up.railway.app/catalogo" } })}>
       x
     </button>
   );
