@@ -1,12 +1,18 @@
 .img_logo{
-   margin-top: 9em;
-}
-.logoOff {
-   margin-left: 36em;
-   cursor: pointer;
-   justify-content: center;
+   margin-top: 10%;
 }
 
-.logoOff :active{
-   background-image: url(../../assets/img/logo/logo.png);
+.logo {
+   margin-left: 36%;
+   cursor: pointer;
+   justify-content: center;
+   width: 30%;
+   height: 20%;
+}
+
+.txt_tienda{
+   margin-top: -10px;
+   font-size: 200%;
+   text-align: center;
+   color: aliceblue;
 }
