@@ -20,7 +20,7 @@ import {
   EDITAR_USUARIO,
 } from "./actions_types";
 
-const URL = "http://localhost:3001/moveon/";
+const URL = "/moveon/";
 
 export const traerAllProductos = () => {
   try {

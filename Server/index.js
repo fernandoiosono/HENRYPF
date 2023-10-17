@@ -15,11 +15,21 @@ const { handlerUsers,
 	handlerCards,
 	handlerShoppingCart } = require('./src/routes');
 
-const { LOCALHOST_PORT, DB_RESET } = process.env;
+const { PORT, DB_RESET } = process.env;
 const dbReset = (DB_RESET === "true");
 
 server.use(cors());
 server.use(morgan("dev"));
+
+server.name = 'API'; 
+
+ server.use((req, res, next) => { 
+     res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from 
+     res.header('Access-Control-Allow-Credentials', 'true'); 
+     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'); 
+     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); 
+     next(); 
+ }); 
 
 server.use('/moveon/users', handlerUsers);
 server.use('/moveon/cards', handlerCards);
@@ -38,8 +48,8 @@ database.sync({ force: dbReset })
 			console.log(`Error Loading Data in the Database > ${error}`);
 		}
 
-		server.listen(LOCALHOST_PORT, () => {
-			console.log(`Server raised in port: ${LOCALHOST_PORT}`);
+		server.listen(PORT, () => {
+			console.log(`Server raised in port: ${PORT}`);
 		});
 	})
 	.catch((error) => console.log(error));

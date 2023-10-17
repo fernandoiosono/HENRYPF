@@ -7,9 +7,10 @@ const { defineProduct,
     defineOrder,
     defineCard } = require('./models');
 
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+// const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_DEPLOY } = process.env;
 
-const conn = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
+const conn = DB_DEPLOY;
 
 const database = new Sequelize(conn, { logging: false });
 
