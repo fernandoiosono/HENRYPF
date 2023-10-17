@@ -15,7 +15,7 @@ const Preguntas = () => {
             <h1 className={style.preguntasFrec}>PREGUNTAS FRECUENTES</h1>
             <div className={style.divPregunta} onClick={() => handleRender(1)}>
                 <h1 className={style.pregunta}>Tiempo de entrega</h1>
-                <h1 className={style.mas}>+</h1>
+                {numPregunta==1 ? <h1 className={style.menos}>-</h1> : <h1 className={style.mas}>+</h1>}
             </div>
             {
                 numPregunta==1 &&
@@ -25,7 +25,7 @@ const Preguntas = () => {
             }
             <div className={style.divPregunta} onClick={() => handleRender(2)}>
                 <h1 className={style.pregunta}>Garantía de los equipos</h1>
-                <h1 className={style.mas}>+</h1>
+                {numPregunta==2 ? <h1 className={style.menos}>-</h1> : <h1 className={style.mas}>+</h1>}
             </div>
             {
                 numPregunta==2 &&
@@ -35,7 +35,7 @@ const Preguntas = () => {
             }
             <div className={style.divPregunta} onClick={() => handleRender(3)}>
                 <h1 className={style.pregunta}>Productos a crédito</h1>
-                <h1 className={style.mas}>+</h1>
+                {numPregunta==3 ? <h1 className={style.menos}>-</h1> : <h1 className={style.mas}>+</h1>}
             </div>
             {
                 numPregunta==3 &&

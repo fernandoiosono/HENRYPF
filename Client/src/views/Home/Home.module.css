@@ -95,17 +95,19 @@
 .testimonios{
     color: rgba(245, 196, 44, 0.2);
     position: absolute;
-    font-size: 11.5em;
+    font-size: 20vh;
     margin: 0;
     margin-left: 1em;
     font-family: Open-Sans;
     transform: translateY(-0.6em);
+    user-select: none;
 }
 
 .divTestimonio1{
     width: 30%;
     margin: auto;
     margin-bottom: 0em;
+    user-select: none;
 }
 
 .testimonio1{
@@ -123,6 +125,7 @@
     width: 30%;
     margin: auto;
     margin-top: 2em;
+    user-select: none;
 }
 
 .testimonio2{
@@ -139,6 +142,7 @@
     width: 30%;
     margin: auto;
     margin-top: 2em;
+    user-select: none;
 }
 
 .testimonio3{
