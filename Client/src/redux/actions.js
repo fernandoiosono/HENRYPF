@@ -20,9 +20,6 @@ import {
   EDITAR_USUARIO,
 } from "./actions_types";
 
-// axios.defaults.baseURL= "https://localhost:3001";
-axios.defaults.baseURL="https://henrypf-production-fae5.up.railway.app";
-
 const URL = "/moveon/";
 
 export const traerAllProductos = () => {
