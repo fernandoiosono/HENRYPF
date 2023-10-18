@@ -6,6 +6,9 @@ const CarritoTotal = () => {
 
     const navigate = useNavigate();
     const carrito = useSelector(state=>state.carrito);
+    console.log(carrito);
+    const { data } = useSelector(state=>state.usuario);
+    console.log(data);
 
     const subTotal = () => {
         let subTotal = 0;
@@ -23,6 +26,24 @@ const CarritoTotal = () => {
             }
         });
         return totalDescuento.toFixed(2)
+    };
+
+    const handleCheckout = async (event)=>{
+        event.preventDefault();
+        const line_items = carrito.map(item=>{
+            return {
+                quantity: item.cantidad,
+                price_data: {
+                    currency: 'usd',
+                    product_data: {
+                        name: item.name,
+                        images: [item.imageURL]
+                    },
+                    unit_amount: item.price*100,
+                }
+            }
+        });
+        const customer_email = data.email;
     };
 
     return(
@@ -43,7 +64,7 @@ const CarritoTotal = () => {
             </div>
             <div className={style.botones}>
                 <button className={style.comprando} onClick={() => navigate('/catalogo')}>{'<= Continuar comprando'}</button>
-                <button className={style.pago}>{'Continuar con el pago =>'}</button>
+                <button type='submit' className={style.pago} onSubmit={handleCheckout}>{'Continuar con el pago =>'}</button>
             </div>
         </div>
     )
