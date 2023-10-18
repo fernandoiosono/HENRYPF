@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import style from './Producto.module.css';
 import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
@@ -9,26 +9,31 @@ const Producto = ({ producto }) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [cantidad, setCantidad] = useState(() => producto.cantidad);
-    const subTotal = producto.price * producto.cantidad;
+    const [quantity, setQuantity] = useState(() => producto.ShoppingCart.quantity);
+    const subTotal = producto.price * producto.ShoppingCart.quantity;
 
     useEffect(() => {
-        if (cantidad > producto.stock) return setCantidad(cantidad - 1);
-        dispatch(setCantidadCarrito({ ...producto, cantidad }))
-    }, [cantidad]);
+        dispatch(setCantidadCarrito({...producto, ShoppingCart:{quantity}}))
+    }, [quantity]);
 
-    const handleChange = (event) => {
-        if (event.target.value > producto.stock) {
+    const handleCantidad = (orden) => {
+        let newquantity = quantity;
+        if (orden === "+") {
+            newquantity += 1;
+          if (newquantity > producto.stock) {
             Swal.fire({
-                title: "La cantidad ingresada no puede superar lo que hay en stock",
-                text: ("Stock: "+producto.stock+' unidades'),
-                icon: "warning",
-            }).then((result) => {});
-        };
-        if (event.target.value > 0) {
-            setCantidad(event.target.value)
+              title: "La cantidad ingresada no puede superar lo que hay en stock",
+              text: ("Stock: " + producto.stock + ' unidades'),
+              icon: "warning",
+            }).then(() => { });
+          } else {
+            setQuantity(newquantity)
+          }
+        } else if (orden === "-" && newquantity !== 1) {
+            newquantity -= 1;
+          setQuantity(newquantity)
         }
-    };
+      };
 
     return (
         <div className={style.producto} key={producto.idProduct}>
@@ -51,12 +56,13 @@ const Producto = ({ producto }) => {
                 onClick={() => navigate(`/detalle/${producto.idProduct}`)}
             >{producto.name}</h5>
             <div className={style.divCant}>
-                <input
-                    type="number"
-                    className={style.cant}
-                    onChange={handleChange}
-                    value={cantidad || ''}
-                />
+                <div className={style.divMenos} onClick={() => handleCantidad("-")}>
+                    <h5 className={style.menos}>-</h5>
+                </div>
+                <h5 className={style.cant}>{quantity}</h5>
+                <div className={style.divMas} onClick={() => handleCantidad("+")}>
+                    <h5 className={style.mas}>+</h5>
+                </div>
             </div>
             <h5 className={style.stock}>{producto.stock}</h5>
             <h5 className={style.precio}>$ {producto.price.toFixed(2)}</h5>

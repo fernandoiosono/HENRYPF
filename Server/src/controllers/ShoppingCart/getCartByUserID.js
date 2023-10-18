@@ -9,10 +9,10 @@ const getCartByUserID = async (idUser) => {
             as: "products",
             through: {
                 model: ShoppingCart,
-                attributes: []
+                attributes: [ "quantity" ]
             },
             attributes: {
-                exclude: ['description', 'CategoryIdCategory']
+                exclude: ['CategoryIdCategory']
             }
         }]
     });
