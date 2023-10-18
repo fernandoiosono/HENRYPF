@@ -20,7 +20,7 @@ const dbReset = (DB_RESET === "true");
 
 server.use(cors(
 	{
-		origin: "https://henrypf-production-c75d.up.railway.app/acceso", // Reemplaza con el dominio de tu frontend
+		origin: "https://127.0.0.1.3000", // Reemplaza con el dominio de tu frontend
 		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 		credentials: true, // Si deseas permitir cookies y autenticación
 	  }
