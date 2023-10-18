@@ -7,7 +7,7 @@ import imagenFondo from '../../assets/img/home/FotoPrincipalHome.png'
 const Home = ()=>{
 
     const navigate = useNavigate();
-
+    document.body.style.backgroundColor = "black";
     return (
         <div className={style.home}>
             <img src={imagenFondo} className={style.imgFondo} />

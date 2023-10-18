@@ -75,7 +75,7 @@ const App = () => {
 
 const SectionApp = styled.section`
   height: calc(100vh - 40px);
-  padding: 20px;
+  padding: 0px;
 `;
 
 export default App;

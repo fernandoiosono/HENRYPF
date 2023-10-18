@@ -9,17 +9,18 @@ import style from "./Landing.module.css";
 const Landing = () => {
   const navigate = useNavigate();
   const [logo, setLogo] = useState(logoOff); 
-  const [background, setBackground] = useState(""); 
+  const [background, setBackground] = useState(()=> ""); 
 
   const handlerBtn =()=>{
     setLogo(logoOn);
     setBackground(fondo);
     setTimeout(() => { 
-      navigate("/home"); }, 2000); 
+      navigate("/home");
+     }, 1300); 
   }
 
   useEffect(() => { 
-    document.body.style.backgroundImage = background;
+    document.body.style.backgroundImage = `url(${background})`; 
    }, [background]); 
 
   return (
