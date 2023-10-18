@@ -7,9 +7,13 @@ import store from "./redux/store.js";
 import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from "@stripe/stripe-js";
 
 const domain = process.env.DOMAIN_AUTH;
 const client_id = process.env.CLIENT_ID;
+
+const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Auth0Provider
@@ -21,7 +25,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   >
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <Elements stripe={stripePromise}>
+          <App />
+        </Elements>        
       </BrowserRouter>
     </Provider>
   </Auth0Provider>
