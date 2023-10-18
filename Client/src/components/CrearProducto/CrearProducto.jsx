@@ -1,20 +1,23 @@
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { Formik } from "formik";
+import SubirImagen from "../Cloudinary/cloudinary.component";
 import "./CrearProducto.css";
 import { createProduct, traerAllProductos } from "../../redux/actions.js";
 import Swal from "sweetalert2";
 
 const CrearProducto = () => {
   const dispatch = useDispatch();
-
   const categorias = useSelector((state) => state.categorias);
+  const [imagen, setImagen] = useState("");
+
+  console.log(imagen);
 
   return (
     <Formik
       initialValues={{
         name: "",
-        imageURL: "",
+        imageURL: "" || imagen,
         description: "",
         price: "",
         stock: "",
@@ -24,7 +27,6 @@ const CrearProducto = () => {
       }}
       validate={(valores) => {
         let errors = {};
-        const imageUrlPattern = /\.(jpg|jpeg|png|gif|bmp|svg|webp)$/i; // Patrón para imágenes
         if (!valores.name) {
           errors.name = "Ingresa un nombre";
         } else if (valores.name.length < 5 || valores.name.length > 80) {
@@ -41,12 +43,6 @@ const CrearProducto = () => {
           errors.stock = "El stock debe ser mayor a 0";
         }
 
-        if (valores.discount < 0) {
-          errors.discount = "El descuento no puede ser menor a 0%";
-        } else if (valores.discount > 100) {
-          errors.discount = "El descuento no puede ser mayor al 100%";
-        }
-
         if (valores.CategoryIdCategory === "") {
           errors.CategoryIdCategory = "Debes seleccionar una categoria";
         }
@@ -61,18 +57,13 @@ const CrearProducto = () => {
         return errors;
       }}
       onSubmit={async (values, { resetForm }) => {
-        const imageUrlPattern = /\.(jpg|jpeg|png|gif|bmp|svg|webp)$/i; // Patrón para imágenes
+        console.log(values);
         if (values.active === "true") {
           values.active = true;
         } else if (values.active === "false") {
           values.active = false;
         }
-
-        if (!imageUrlPattern.test(values.imageURL)) {
-          values.imageURL =
-            "https://static.wikia.nocookie.net/fakemon/images/3/37/Logo_PAAA_Toy_Story_Parody.png";
-        }
-        console.log(values);
+        values.imageURL = imagen;
 
         Swal.fire({
           title: "¿Quieres crear este producto?",
@@ -117,19 +108,7 @@ const CrearProducto = () => {
             </div>
             <div>
               <label htmlFor="imageURL">Imagen: </label>
-              <input
-                // type="file"
-                type="text"
-                id="imageURL"
-                name="imageURL"
-                placeholder="Inserta una imagen"
-                value={values.imageURL}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              ></input>
-              {touched.imageURL && errors.imageURL && (
-                <div className="error">{errors.imageURL}</div>
-              )}
+              <SubirImagen setImagen={setImagen} />
             </div>
             <div>
               <label htmlFor="description">Descripcion:</label>
@@ -165,18 +144,20 @@ const CrearProducto = () => {
             </div>
             <div>
               <label htmlFor="discount">Descuento:</label>
-              <input
-                type="text"
+              <select
                 id="discount"
                 name="discount"
-                placeholder="0"
                 value={values.discount}
                 onChange={handleChange}
                 onBlur={handleBlur}
-              ></input>
-              {touched.discount && errors.discount && (
-                <div className="error">{errors.discount}</div>
-              )}
+              >
+                <option value="0">0</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+              </select>
             </div>
             <div>
               <label htmlFor="CategoryIdCategory">Categoria:</label>

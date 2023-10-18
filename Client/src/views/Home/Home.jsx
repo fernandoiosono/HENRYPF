@@ -11,7 +11,7 @@ import Preguntas from "./Preguntas/Preguntas";
 const Home = ()=>{
 
     const navigate = useNavigate();
-
+    document.body.style.backgroundColor = "black";
     return (
         <div className={style.home}>
             <img src={imagenFondo} className={style.imgFondo} />

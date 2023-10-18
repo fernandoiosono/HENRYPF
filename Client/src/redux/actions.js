@@ -18,6 +18,7 @@ import {
   SET_INICIO_SESION,
   USUARIO,
   EDITAR_USUARIO,
+  TRAER_USUARIOS,
 } from "./actions_types";
 
 const URL = "http://localhost:3001/moveon/";
@@ -56,27 +57,58 @@ export const createProduct = (values) => {
   }
 };
 
-export const deleteProduct = (idProduct) => {
-  try {
-    return async (dispatch) => {
-      const response = await axios.put(
-        `${URL}products/${idProduct}?activate=false`
-      );
+export const deleteProduct = (idProduct, value) => {
+  if (value === "eliminar") {
+    try {
+      return async (dispatch) => {
+        const response = await axios.put(
+          `${URL}products/${idProduct}?activate=false`
+        );
 
-      if (response.status === 200) {
-        return dispatch({
-          type: BORRAR_PRODUCTO,
-          payload: true,
-        });
-      } else {
-        return dispatch({
-          type: BORRAR_PRODUCTO,
-          payload: false,
-        });
-      }
-    };
-  } catch (error) {
-    console.log(error);
+        if (response.status === 200) {
+          return dispatch({
+            type: BORRAR_PRODUCTO,
+            payload: "eliminar",
+          });
+        }
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  } else if (value === "desactivar") {
+    try {
+      return async (dispatch) => {
+        const response = await axios.put(
+          `${URL}products/${idProduct}?activate=false`
+        );
+
+        if (response.status === 200) {
+          return dispatch({
+            type: BORRAR_PRODUCTO,
+            payload: "desactivar",
+          });
+        }
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  } else if (value === "activar") {
+    try {
+      return async (dispatch) => {
+        const response = await axios.put(
+          `${URL}products/${idProduct}?activate=true`
+        );
+
+        if (response.status === 200) {
+          return dispatch({
+            type: BORRAR_PRODUCTO,
+            payload: "activar",
+          });
+        }
+      };
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 
@@ -284,7 +316,10 @@ export const crearUsuario = (newUsuario) => {
 export const editarUsuario = (cambiosUsuario) => {
   try {
     return async (dispatch) => {
-      const editarUser = await axios.patch(`http://localhost:3001/moveon/users/`, cambiosUsuario);
+      const editarUser = await axios.patch(
+        `http://localhost:3001/moveon/users/`,
+        cambiosUsuario
+      );
       if (editarUser.status === 200) {
         return dispatch({
           type: EDITAR_USUARIO,
@@ -296,6 +331,22 @@ export const editarUsuario = (cambiosUsuario) => {
           payload: [editarUser, false],
         });
       }
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getUsers = () => {
+  try {
+    return async (dispatch) => {
+      const { data } = await axios.get(
+        `http://localhost:3001/moveon/users/all`
+      );
+      return dispatch({
+        type: TRAER_USUARIOS,
+        payload: data,
+      });
     };
   } catch (error) {
     console.log(error);

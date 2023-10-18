@@ -1,44 +1,58 @@
 import React, { useState, useEffect } from "react";
 import List from "../../components/List/List";
+import ListPedidos from "../../components/ListPedidos/ListPedidos";
+import ListUsuarios from "../../components/ListUsuarios/ListUsuarios";
 import CrearProducto from "../../components/CrearProducto/CrearProducto";
 import PaginationAdmin from "../../components/PaginationAdmin/PaginationAdmin";
 import Aside from "../../components/Aside/Aside";
-import { setCurrenPage, traerAllProductos } from "../../redux/actions.js";
+import { setCurrenPage } from "../../redux/actions.js";
 import { useDispatch } from "react-redux";
 import "./CatalogoAdmin.css";
 
 const CatalogoAdmin = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(traerAllProductos());
-  }, [dispatch]);
 
   dispatch(setCurrenPage(1));
-  const [mostrarVerProductos, setMostrarVerProductos] = useState(false); // Nuevo estado para controlar qué componente mostrar
+  const [componente, setComponente] = useState("VerProductos");
 
   const mostrarVerProductosHandler = () => {
-    setMostrarVerProductos(true);
+    setComponente("VerProductos");
   };
 
   const mostrarCrearProductosHandler = () => {
-    setMostrarVerProductos(false);
+    setComponente("CrearProductos");
+  };
+
+  const mostrarVerPedidos = () => {
+    setComponente("VerPedidos");
+  };
+  const mostrarVerUsuarios = () => {
+    setComponente("VerUsuarios");
   };
 
   return (
     <>
       <div className="main-container">
         <Aside
-          mostrarVerProductos={mostrarVerProductos}
+          componente={componente}
           mostrarVerProductosHandler={mostrarVerProductosHandler}
           mostrarCrearProductosHandler={mostrarCrearProductosHandler}
+          mostrarVerPedidos={mostrarVerPedidos}
+          mostrarVerUsuarios={mostrarVerUsuarios}
         />
-        {!mostrarVerProductos ? (
-          <CrearProducto /> // Renderiza el componente CrearProductos cuando mostrarVerProductos es falso
-        ) : (
+        {componente === "VerProductos" ? (
           <List />
+        ) : componente === "CrearProductos" ? (
+          <CrearProducto />
+        ) : componente === "VerPedidos" ? (
+          <ListPedidos />
+        ) : (
+          <ListUsuarios />
         )}
       </div>
-      {mostrarVerProductos ? <PaginationAdmin /> : null}
+      {componente != "VerUsuarios" && componente != "CrearProductos" ? (
+        <PaginationAdmin />
+      ) : null}
     </>
   );
 };

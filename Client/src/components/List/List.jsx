@@ -25,7 +25,7 @@ function List() {
 
   useEffect(() => {
     dispatch(traerAllProductos());
-  }, [dispatch]);
+  }, []);
 
   const [nombre, setNombre] = useState("");
   const [categoria, setCategoria] = useState("");
@@ -44,11 +44,21 @@ function List() {
       confirmButtonText: "Si, eliminar",
     }).then((result) => {
       if (result.value) {
-        dispatch(deleteProduct(idProduct));
+        dispatch(deleteProduct(idProduct, "eliminar"));
         dispatch(traerAllProductos());
         navigate("/catalogo");
       }
     });
+  };
+
+  const handleActiveProduct = (idProduct, active) => {
+    if (active) {
+      dispatch(deleteProduct(idProduct, "desactivar"));
+      dispatch(traerAllProductos());
+    } else {
+      dispatch(deleteProduct(idProduct, "activar"));
+      dispatch(traerAllProductos());
+    }
   };
 
   const handleOrderName = () => {
@@ -248,6 +258,7 @@ function List() {
                 </div>
               </div>
               <div className="product-cell stock">Editar</div>
+              <div className="product-cell stock">Activar</div>
               <div className="product-cell stock">Eliminar</div>
             </div>
             {productsToShow.length > 0
@@ -257,6 +268,7 @@ function List() {
                     index={index}
                     producto={producto}
                     handleDeleteProduct={handleDeleteProduct}
+                    handleActiveProduct={handleActiveProduct}
                   />
                 ))
               : null}

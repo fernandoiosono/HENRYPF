@@ -1,0 +1,18 @@
+.img_logo{
+   margin-top: 10%;
+}
+
+.logo {
+   margin-left: 36%;
+   cursor: pointer;
+   justify-content: center;
+   width: 30%;
+   height: 20%;
+}
+
+.txt_tienda{
+   margin-top: -10px;
+   font-size: 200%;
+   text-align: center;
+   color: aliceblue;
+}
