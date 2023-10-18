@@ -3,6 +3,7 @@ import Nav from "./nav/Nav";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import logo from "../assets/img/logo/logo.png";
 import {
   traerAllProductos,
   traerActiveProductos,
@@ -29,7 +30,7 @@ const App = () => {
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.usuario);
   const carritoInvitado = (localStorage.getItem("carritoInvitado")).length > 1 ? JSON.parse(localStorage.getItem("carritoInvitado")) : [];
-  
+
   useEffect(() => {
     dispatch(cargarCarrito(carritoInvitado));
     dispatch(traerAllProductos());
@@ -50,10 +51,15 @@ const App = () => {
 
   return (
     <>
-      {pathname !== "/" && <Nav/>}
       <SectionApp>
         <main className={handlerClassName()}>
-          {pathname !== "/" && <div className="spaceNav" />} {/* ESTE DIV ES PARA EL ESPACIO DEL NAV */}
+          {pathname !== "/" && <Nav />}
+          {
+          pathname !== "/" &&
+          <div className="spaceNav">
+            <img src={logo} className="logoSpace"/>
+          </div>
+          }
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
@@ -76,7 +82,7 @@ const App = () => {
 
 const SectionApp = styled.section`
   height: calc(100vh - 40px);
-  padding: 20px;
+  padding: 0px;
 `;
 
 export default App;
