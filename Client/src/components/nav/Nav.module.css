@@ -1,0 +1,122 @@
+.nav{
+    background-color: black;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+}
+
+.back{
+    width: 2em;
+    margin: auto 1em auto 1.5em;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.sobre{
+    color: white;
+    margin: auto;
+    margin-right: 1em;
+    margin-left: 1em;
+    &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+
+    }
+}
+
+.logo{
+    width: 10em;
+    margin: 8px auto;
+    height: min-content;
+}
+
+.home{
+    width: 2em;
+    margin: auto 0.5em auto 0;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.homeHidden{
+    width: 2em;
+    margin: auto 0.5em auto 0;
+    visibility: hidden;
+}
+
+.div{
+    margin: auto 0;
+    width: 3.5px;
+    background-color: white;
+    height: 3em;
+    border-radius: 2px;
+}
+
+.iniciar{
+    color: white;
+    margin: auto;
+    margin-right: 1.5em;
+    margin-left: 0.5em;
+    &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+
+    }
+}
+
+.carritoCont{
+    height: min-content;
+    margin: auto;
+    margin-right: 0.5em;
+    margin-left: 1em;
+}
+
+.contador{
+    position: absolute;
+    margin: 5px 1em 0 01em;
+    color: rgb(245, 196, 44);
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.carrito{
+    width: 3em;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.divPerfil{
+    height: min-content;
+    margin: auto;
+    margin-right: 1em;
+    margin-left: 0.5em;
+}
+.perfil{
+    margin-right: 1em;
+    width: 2.8em;
+    border-radius: 5px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.admin{
+    color: white;
+    margin: auto;
+    margin-right: 1em;
+    margin-left: 0.5em;
+    &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+
+    }
+}
+.adminHidden{
+    margin: auto;
+    margin-right: 1em;
+    margin-left: 1em;
+    visibility: hidden;
+}

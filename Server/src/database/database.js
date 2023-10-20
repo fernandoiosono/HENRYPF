@@ -1,49 +1,68 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
 
-// const { defineGame, 
-//     defineGenre, 
-//     definePlatform } = require('./models');
+const { defineProduct, 
+    defineCategory, 
+    defineUser, 
+    defineOrder,
+    defineCard } = require('./models');
 
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+// const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+// const conn = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
 
-const conn = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
+const { DB_DEPLOY } = process.env;
+const conn = DB_DEPLOY;
 
 const database = new Sequelize(conn, { logging: false });
 
-// defineGame(database);
-// defineGenre(database);
-// definePlatform(database);
+defineCategory(database);
+defineCard(database);
 
-// const { Game, Genre, Platform } = database.models;
+defineProduct(database);
+defineUser(database);
+defineOrder(database);
 
-// Game.belongsToMany(Genre, { 
-//     through: "GameGenre",
-//     foreignKey: "idGame",
-//     otherKey: "idGenre",
-//     timestamps: false
-// });
+const { Category, Product, User, Order, Card } = database.models;
 
-// Genre.belongsToMany(Game, { 
-//     through: "GameGenre",
-//     foreignKey: "idGenre",
-//     otherKey: "idGame",
-//     timestamps: false
-// });
+// Relationship Product - Category (1:N)
+Category.hasMany(Product);
+Product.belongsTo(Category);
 
-// Game.belongsToMany(Platform, { 
-//     through: "GamePlatform",
-//     foreignKey: "idGame",
-//     otherKey: "idPlatform",
-//     timestamps: false
-// });
+// Relationship Order - Card (1:N)
+Card.hasMany(Order);
+Order.belongsTo(Card);
 
-// Platform.belongsToMany(Game, { 
-//     through: "GamePlatform",
-//     foreignKey: "idPlatform",
-//     otherKey: "idGame",
-//     timestamps: false
-// });
+// Relationship Order - Product (N:N)
+User.belongsToMany(Product, { 
+    through: "ShoppingCart",
+    foreignKey: "idUser",
+    otherKey: "idProduct",
+    as: "products",
+    timestamps: false
+});
+Product.belongsToMany(User, { 
+    through: "ShoppingCart",
+    foreignKey: "idProduct",
+    otherKey: "idUser",
+    as: "users",
+    timestamps: false
+});
+
+// Relationship Order - Product (N:N)
+Order.belongsToMany(Product, { 
+    through: "OrderProducts",
+    foreignKey: "idOrder",
+    otherKey: "idProduct",
+    as: "products",
+    timestamps: false
+});
+Product.belongsToMany(Order, { 
+    through: "OrderProducts",
+    foreignKey: "idProduct",
+    otherKey: "idOrder",
+    as: "orders",
+    timestamps: false
+});
 
 module.exports = {
     database,

@@ -1,0 +1,136 @@
+.card-container {
+  position: relative;
+  width: 380px;
+  height: 580px;
+}
+.card {
+  position: relative;
+  width: 330px;
+  height: 480px;
+  background: #191919;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.discountCircle {
+  position: absolute;
+  top: -18px; /* Ajusta la posición vertical según tus preferencias */
+  right: 25px; /* Ajusta la posición horizontal según tus preferencias */
+  background-color: #ff0000;
+  color: #ffce00;
+  border-radius: 70%;
+  width: 65px; /* Ajusta el tamaño del círculo según tus preferencias */
+  height: 65px; /* Ajusta el tamaño del círculo según tus preferencias */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  z-index: 3;
+  cursor: default;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  width: 100%;
+  height: 100%;
+  background: #ffce00;
+  transform: skewY(345deg);
+  transition: 0.5s;
+}
+
+.card:hover::before {
+  top: -70%;
+  transform: skewY(390deg);
+}
+
+.card::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-weight: 600;
+  font-size: 6em;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.card .imgBox {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 1;
+}
+
+.card .contentBox {
+  position: relative;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.card .contentBox h3 {
+  font-size: 12px;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.card .contentBox .price {
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  cursor: default;
+}
+
+.card .contentBox .price-line {
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  cursor: default;
+}
+
+.price-line p {
+  display: inline-block;
+  margin-right: 10px; /* Ajusta el espaciado entre los elementos según tus preferencias */
+}
+
+.antes {
+  font-size: 16px;
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+.card .contentBox .buy {
+  position: relative;
+  top: 100px;
+  opacity: 0;
+  padding: 10px;
+  margin-top: 15px;
+  color: #000000;
+  text-decoration: none;
+  background: #ffce00;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.card:hover .contentBox .buy {
+  top: 0;
+  opacity: 1;
+}
+
+.img {
+  height: 230px;
+  width: auto;
+}
