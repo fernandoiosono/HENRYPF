@@ -19,9 +19,9 @@ const CrearProducto = () => {
         name: "",
         imageURL: "" || imagen,
         description: "",
-        price: "",
-        stock: "",
-        discount: "",
+        price: 0,
+        stock: 0,
+        discount: 0,
         active: "",
         CategoryIdCategory: "",
       }}

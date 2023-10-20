@@ -18,18 +18,15 @@ const { handlerUsers,
 const { PORT, DB_RESET } = process.env;
 const dbReset = (DB_RESET === "true");
 
-server.use(cors());
+server.use(cors(
+	{
+		// origin: "https://henrypf-production-c75d.up.railway.app", // Reemplaza con el dominio de tu frontend
+		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+		credentials: true, // Si deseas permitir cookies y autenticación
+	  }
+));
 server.use(morgan("dev"));
 
-server.name = 'API'; 
-
- server.use((req, res, next) => { 
-     res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from 
-     res.header('Access-Control-Allow-Credentials', 'true'); 
-     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'); 
-     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); 
-     next(); 
- }); 
 
 server.use('/moveon/users', handlerUsers);
 server.use('/moveon/cards', handlerCards);
