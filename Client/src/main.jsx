@@ -8,6 +8,8 @@ import { BrowserRouter } from "react-router-dom";
 
 const domain = process.env.DOMAIN_AUTH;
 const client_id = process.env.CLIENT_ID;
+const redirect_uri = process.env.REDIRECT_URI;
+
 localStorage.getItem("carritoInvitado")===null ?    //? ESTE CODIGO ES PARA PODER USAR EL LOCAL STORAGE
 localStorage.setItem("carritoInvitado", "") : null; //? PARA EL CARRITO LA PRIMERA VEZ
 
@@ -17,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     domain={domain}
     clientId={client_id}
     authorizationParams={{
-      redirect_uri: "http://localhost:5173/acceso",
+      redirect_uri: redirect_uri,
     }}
   >
     <Provider store={store}>
