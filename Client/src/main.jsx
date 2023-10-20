@@ -17,8 +17,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   domain={domain}
   clientId={client_id}
   authorizationParams={{
-    // redirect_uri: "http://1270.0.1:3000/acceso",
-    redirect_uri: "https://henrypf-production-c75d.up.railway.app/acceso",
+    redirect_uri: "http://127.0.0.1:5173/acceso",
+    // redirect_uri: "https://henrypf-production-c75d.up.railway.app/acceso",
     
   }}
 >

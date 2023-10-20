@@ -6,8 +6,8 @@ const LogoutButton = () => {
 
   return (
     <button onClick={() => logout({ logoutParams: { 
-      returnTo: "https://henrypf-production-c75d.up.railway.app/catalogo"
-      // returnTo: "http://127.0.0.1:3000/catalogo" 
+      // returnTo: "https://henrypf-production-c75d.up.railway.app/catalogo"
+      returnTo: "http://127.0.0.1:5173/catalogo" 
       } })}>
       x
     </button>
