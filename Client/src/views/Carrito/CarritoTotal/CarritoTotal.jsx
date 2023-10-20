@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import style from './CarritoTotal.module.css';
 import { useSelector } from 'react-redux';
+import { useStripe } from '@stripe/react-stripe-js'
+import { createSessionStripe } from '../../../helpers/helpers';
 
 const CarritoTotal = () => {
 
@@ -8,7 +10,7 @@ const CarritoTotal = () => {
     const carrito = useSelector(state=>state.carrito);
     console.log(carrito);
     const { data } = useSelector(state=>state.usuario);
-    console.log(data);
+    const stripe = useStripe();
 
     const subTotal = () => {
         let subTotal = 0;
@@ -28,9 +30,9 @@ const CarritoTotal = () => {
         return totalDescuento.toFixed(2)
     };
 
-    const handleCheckout = async (event)=>{
-        event.preventDefault();
-        const line_items = carrito.map(item=>{
+    const handleCheckout = async ()=>{
+
+        const items = carrito.map(item=>{
             return {
                 quantity: item.cantidad,
                 price_data: {
@@ -39,11 +41,21 @@ const CarritoTotal = () => {
                         name: item.name,
                         images: [item.imageURL]
                     },
-                    unit_amount: item.price*100,
+                    unit_amount: [item.price-(item.price*item.discount/100)]*100,
                 }
             }
         });
-        const customer_email = data.email;
+        const order = {
+            line_items : items,
+            customer_email: data.email
+        }
+        const sessionId = await createSessionStripe(order);
+        console.log({sessionId})
+        const { error } = await stripe.redirectToCheckout(sessionId);
+
+        if(error){
+            console.log(error);
+        }
     };
 
     return(
@@ -64,7 +76,7 @@ const CarritoTotal = () => {
             </div>
             <div className={style.botones}>
                 <button className={style.comprando} onClick={() => navigate('/catalogo')}>{'<= Continuar comprando'}</button>
-                <button type='submit' className={style.pago} onSubmit={handleCheckout}>{'Continuar con el pago =>'}</button>
+                <button type='submit' className={style.pago} onClick={handleCheckout}>{'Continuar con el pago =>'}</button>
             </div>
         </div>
     )
