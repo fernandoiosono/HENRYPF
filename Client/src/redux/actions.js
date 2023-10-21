@@ -18,6 +18,7 @@ import {
   SET_INICIO_SESION,
   USUARIO,
   EDITAR_USUARIO,
+  TRAER_USUARIOS,
 } from "./actions_types";
 
 
@@ -256,19 +257,31 @@ export const setCantidadCarrito = (producto) => {
   }
 };
 
-export const cargarCarrito = (idCliente) => {
+export const cargarCarrito = (dato, carritoInvitado) => {
   try {
     return async (dispatch) => {
-      const cantidad = 1;
-      const { data } = await axios.get(`${URL}shoppingcart/${idCliente}`);
-      const newData = data.map((prod) => {
-        //! MODIFICAR ESTE CODIGO CUANDO SE MANEJEN CANTIDADES EN EL BACK
-        return { ...prod, cantidad };
-      });
-      return dispatch({
-        type: CARGAR_CARRITO,
-        payload: newData,
-      });
+      if (typeof dato === 'object') {
+        return dispatch({
+          type: CARGAR_CARRITO,
+          payload: dato,
+        });
+      } else {
+        const { data } = await axios.get(`${URL}shoppingcart/${dato}`);
+        console.log(carritoInvitado);
+        const combinado = [...carritoInvitado, ...data];
+        const resultado = combinado.reduce((acc, current) => {
+          const x = acc.find(item => item.idProduct === current.idProduct);
+          if (!x) {
+            return acc.concat([current]);
+          } else {
+            return acc;
+          }
+        }, []);
+        return dispatch({
+          type: CARGAR_CARRITO,
+          payload: resultado,
+        });
+      }
     };
   } catch (error) {
     console.log(error);
@@ -306,7 +319,6 @@ export const crearUsuario = (newUsuario) => {
 };
 
 export const editarUsuario = (cambiosUsuario) => {
-  console.log(cambiosUsuario);
   try {
     return async (dispatch) => {
       const editarUser = await axios.patch(
@@ -324,6 +336,22 @@ export const editarUsuario = (cambiosUsuario) => {
           payload: [editarUser, false],
         });
       }
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getUsers = () => {
+  try {
+    return async (dispatch) => {
+      const { data } = await axios.get(
+        `http://localhost:3001/moveon/users/all`
+      );
+      return dispatch({
+        type: TRAER_USUARIOS,
+        payload: data,
+      });
     };
   } catch (error) {
     console.log(error);

@@ -1,0 +1,62 @@
+.preguntas{
+    margin-top: 8em;
+}
+
+.preguntasFrec{
+    user-select: none;
+    margin-left: 0.5em;
+    font-family: Open-Sans;
+    color: rgba(245, 196, 44, 0.8);
+    font-size: 5em;
+}
+
+.divPregunta{
+    user-select: none;
+    width: 90%;
+    background-color: white;
+    border-radius: 1em;
+    display: flex;
+    height: 5em;
+    margin: auto;
+    margin-top: 2em;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.pregunta{
+    font-size: 2em;
+    margin: auto;
+    margin-left: 2em;
+}
+
+.mas{
+    color: rgb(182, 138, 8);
+    margin: auto;
+    margin-right: 10px;
+    font-size: 8em;
+    transform: translateY(-0.4em);
+}
+
+.menos{
+    color: rgb(182, 138, 8);
+    margin: auto;
+    margin-right: 10px;
+    font-size: 8em;
+    transform: translateX(-0.1em) translateY(-0.48em);
+}
+
+.divRespuesta{
+    height: 3em;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.03);
+    width: 87%;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    border: 1px solid yellow;
+}
+
+.respuesta{
+    color: white;
+    margin: auto auto auto 2em;
+}
