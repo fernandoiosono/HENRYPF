@@ -12,24 +12,23 @@ aside button {
   width: 100%;
   padding: 10px 0;
   margin-bottom: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
+  border: 1px solid #f5c52e;
+  background-color: #302e2e26;
+  color: white;
+
   border-radius: 5px;
   cursor: pointer;
 }
 
 /* Estilo para el botón "Crear productos" */
-aside button:last-child {
-  background-color: #28a745;
-}
 
 /* Estilo al pasar el mouse sobre los botones */
 aside button:hover {
-  background-color: #0056b3;
+  background-color: #ffffff;
+  color: black;
 }
 
-/* Estilo al pasar el mouse sobre el botón "Crear productos" */
-aside button:last-child:hover {
-  background-color: #1e7e34;
+aside button.active {
+  background-color: #f5c52e;
+  color: black;
 }

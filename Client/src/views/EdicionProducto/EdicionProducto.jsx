@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import SubirImagen from "../../components/Cloudinary/cloudinary.component";
@@ -76,23 +76,12 @@ const EditarProducto = () => {
                 errors.CategoryIdCategory = "Debes seleccionar una categoria";
               }
 
-              if (valores.active === "") {
-                errors.active =
-                  "Debes seleccionar si el producto estara activo o no";
-              }
-
               if (valores.price < 1) {
                 errors.price = "El precio debe ser mayor a 0";
               }
               return errors;
             }}
             onSubmit={async (values, { resetForm }) => {
-              if (values.active === "true") {
-                values.active = true;
-              } else if (values.active === "false") {
-                values.active = false;
-              }
-
               if (imagen != "") {
                 values.imageURL = imagen;
               }
@@ -119,6 +108,9 @@ const EditarProducto = () => {
               handleBlur,
             }) => (
               <form className="formulario2" onSubmit={handleSubmit}>
+                <div className="DivImage">
+                  <img className="Image" src={Producto.imageURL || imagen} />
+                </div>
                 <div>
                   <label htmlFor="id">ID:</label>
                   <input
@@ -218,24 +210,7 @@ const EditarProducto = () => {
                     <div className="error">{errors.CategoryIdCategory}</div>
                   )}
                 </div>
-                <div>
-                  <label htmlFor="active">Active:</label>
-                  <select
-                    id="active"
-                    value={values.active}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  >
-                    <option value={""}>
-                      ¿Quieres que el producto este activo?
-                    </option>
-                    <option value={true}>Si</option>
-                    <option value={false}>No</option>
-                  </select>
-                  {touched.active && errors.active && (
-                    <div className="error">{errors.active}</div>
-                  )}
-                </div>
+
                 <div>
                   <label htmlFor="price">Precio:</label>
                   <input

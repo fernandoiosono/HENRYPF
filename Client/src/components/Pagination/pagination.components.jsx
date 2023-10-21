@@ -15,6 +15,7 @@ const generatePages = (productos, itemsPerPage) => {
 function Pagination() {
   const itemsPerPage = useSelector((state) => state.itemsPerPage);
   const productos = useSelector((state) => state.productosMostrar);
+  const currentPage = useSelector((state) => state.currentPage); // Nuevo estado
   const [pageNums, setPageNums] = useState([]);
   const dispatch = useDispatch();
 
@@ -30,7 +31,11 @@ function Pagination() {
     <div className="div_pagin">
       {pageNums &&
         pageNums.map((p) => (
-          <button key={p} onClick={() => handlePage(p)}>
+          <button
+            key={p}
+            onClick={() => handlePage(p)}
+            className={p === currentPage ? "active" : ""}
+          >
             {p}
           </button>
         ))}

@@ -16,11 +16,18 @@ const { handlerUsers,
 	handlerShoppingCart,
 	handlerStripe } = require('./src/routes');
 
-const { LOCALHOST_PORT, DB_RESET } = process.env;
+const { PORT, DB_RESET } = process.env;
 const dbReset = (DB_RESET === "true");
 
-server.use(cors());
+server.use(cors(
+	{
+		// origin: "https://henrypf-production-c75d.up.railway.app", // Reemplaza con el dominio de tu frontend
+		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+		credentials: true, // Si deseas permitir cookies y autenticación
+	  }
+));
 server.use(morgan("dev"));
+
 
 server.use('/moveon/users', handlerUsers);
 server.use('/moveon/cards', handlerCards);
@@ -40,8 +47,8 @@ database.sync({ force: dbReset })
 			console.log(`Error Loading Data in the Database > ${error}`);
 		}
 
-		server.listen(LOCALHOST_PORT, () => {
-			console.log(`Server raised in port: ${LOCALHOST_PORT}`);
+		server.listen(PORT, () => {
+			console.log(`Server raised in port: ${PORT}`);
 		});
 	})
 	.catch((error) => console.log(error));

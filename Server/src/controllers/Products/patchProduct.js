@@ -1,24 +1,23 @@
-require("dotenv").config();
-const { Product } = require("../../database/database.js");
+require('dotenv').config();
+const { Product } = require('../../database/database.js');
 
 const patchProduct = async (idProduct, newData) => {
-  const product = await Product.findOne({ where: { idProduct } });
+    const product = await Product.findOne({ where: { idProduct }});
 
-  if (!product)
-    throw new Error("The Product You Are Trying to Update Doesn't Exist!");
+    if (!product) throw new Error("The Product You Are Trying to Update Doesn't Exist!");
 
-  let hasChanges = false;
+    let hasChanges = false;
 
-  for (const key in newData) {
-    if (newData.hasOwnProperty(key) && product[key] !== newData[key]) {
-      product[key] = newData[key];
-      hasChanges = true;
+    for (const key in newData) {
+        if (newData.hasOwnProperty(key) && product[key] !== newData[key]) {
+            product[key] = newData[key];
+            hasChanges = true;
+        }
     }
-  }
 
-  if (hasChanges) await product.update(newData);
+    if (hasChanges) await product.update();
 
-  return product;
+    return product;
 };
 
 module.exports = patchProduct;

@@ -5,6 +5,8 @@ import style from "./Detail.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { agregarCarrito } from "../../redux/actions";
 import axios from "axios";
+import { setCantidadCarrito } from "../../redux/actions";
+import Swal from "sweetalert2";
 
 const Detail = () => {
   const { id } = useParams();
@@ -16,50 +18,75 @@ const Detail = () => {
   const dispatch = useDispatch();
   const { loginWithRedirect } = useAuth0();
   const [producto, setProducto] = useState({});
+  const prodEnCarrito = carrito.find(prod => prod.idProduct == id);
   const URL = "http://localhost:3001/";
 
   useEffect(() => {
     setProducto(allActiveProducts.find((prod) => prod.idProduct == id));
   }, [id, allActiveProducts]);
 
-  const idsProductos = () => {
-    let idProductos = [];
+  const cantProductos = () => {
+    let cantProductos = [];
     carrito.map(prod => {
-      idProductos.push(prod.idProduct)
+      cantProductos.push({
+        idProduct: prod.idProduct,
+        quantity: prod.ShoppingCart.quantity
+      })
     });
-    return idProductos
+    return cantProductos
   };
 
   useEffect(() => {
-    if (inicioSesion && carrito.length > 0) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, idsProductos())
+    if (inicioSesion && carrito.length > 0) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, cantProductos());
+    if (!inicioSesion) localStorage.setItem("carritoInvitado", JSON.stringify(carrito));
   }, [carrito]);
 
   const handleRuta = () => {
+    const quantity = 1;
     if (inicioSesion) {
-      const cantidad = 1;
       const producExistente = carrito.find(
         (produc) => produc.idProduct == producto.idProduct
       );
       if (!producExistente) {
-        dispatch(agregarCarrito({ ...producto, cantidad }))
+        dispatch(agregarCarrito({ ...producto, ShoppingCart: { quantity } }))
       }
       navigate("/carrito");
     } else {
+      dispatch(agregarCarrito({ ...producto, ShoppingCart: { quantity } }));
       loginWithRedirect();
     }
   };
 
   const botonCarrito = () => {
-    const cantidad = 1;
+    const quantity = 1;
     if (carrito.length === 0) {
-      dispatch(agregarCarrito({ ...producto, cantidad }));
+      dispatch(agregarCarrito({ ...producto, ShoppingCart: { quantity } }));
     } else {
       const producExistente = carrito.find(
         (produc) => produc.idProduct == producto.idProduct
       );
       if (!producExistente) {
-        dispatch(agregarCarrito({ ...producto, cantidad }))
+        dispatch(agregarCarrito({ ...producto, ShoppingCart: { quantity } }))
       }
+    }
+  };
+
+  const handleCantidad = (orden) => {
+    let quantity = prodEnCarrito.ShoppingCart.quantity;
+    if (orden === "+") {
+      quantity += 1;
+      if (quantity > producto.stock) {
+        Swal.fire({
+          title: "La cantidad ingresada no puede superar lo que hay en stock",
+          text: ("Stock: " + producto.stock + ' unidades'),
+          icon: "warning",
+        }).then(() => { });
+      } else {
+        dispatch(setCantidadCarrito({ ...prodEnCarrito, ShoppingCart: { quantity } }))
+      }
+    } else if (orden === "-" && quantity !== 1) {
+      quantity -= 1;
+      dispatch(setCantidadCarrito({ ...prodEnCarrito, ShoppingCart: { quantity } }))
     }
   };
 
@@ -89,11 +116,23 @@ const Detail = () => {
     <div className={style.detalle}>
       <div className={style.imagenBotones}>
         <img src={producto.imageURL} className={style.imagen} />
+        {
+          prodEnCarrito ?
+            <div className={style.divCant}>
+              <div className={style.divMenos} onClick={() => handleCantidad("-")}>
+                <h5 className={style.menos}>-</h5>
+              </div>
+              <h5 className={style.cant}>{prodEnCarrito.ShoppingCart.quantity}</h5>
+              <div className={style.divMas} onClick={() => handleCantidad("+")}>
+                <h5 className={style.mas}>+</h5>
+              </div>
+            </div> :
+            <button className={style.agregar} onClick={() => botonCarrito()}>
+              Agregar al carrito
+            </button>
+        }
         <button className={style.comprar} onClick={() => handleRuta()}>
           Comprar ahora
-        </button>
-        <button className={style.agregar} onClick={() => botonCarrito()}>
-          Agregar al carrito
         </button>
       </div>
       <div className={style.detalles}>
@@ -101,7 +140,6 @@ const Detail = () => {
         {handlePrecioDesc()}
         <h4 className={style.stock}>{producto.stock} unidades disponibles</h4>
         <p className={style.descripcion}>{producto.description}</p>
-        <h5 className={style.id}>ID del producto: {producto.idProduct}</h5>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const CarritoTotal = () => {
     const subTotal = () => {
         let subTotal = 0;
         carrito.map(producto=>{
-            subTotal+=producto.cantidad*producto.price
+            subTotal+=producto.ShoppingCart.quantity*producto.price
         });
         return subTotal.toFixed(2)
     };
@@ -24,7 +24,7 @@ const CarritoTotal = () => {
         let totalDescuento = 0;
         carrito.map(producto=>{
             if (producto.discount > 0) {
-                totalDescuento+=producto.cantidad * (producto.price * producto.discount / 100)
+                totalDescuento+=producto.ShoppingCart.quantity * (producto.price * producto.discount / 100)
             }
         });
         return totalDescuento.toFixed(2)
