@@ -1,0 +1,138 @@
+.producto{
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    height: 6em;
+}
+
+.divBorar{
+    display: flex;
+    align-items: center;
+    margin: auto 22px auto 22px;
+    border: 1px solid white;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 3px;
+    &:hover{
+        cursor: pointer;
+        background-color: red;
+    }
+}
+
+.borar{
+    margin: 0;
+    text-align: center;
+    width: 2em;
+    color: white;
+    transform: translateY(-1.5px) translateX(-0.5px);
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.divImg{
+    width: 8%;
+    margin: auto;
+    height: 5em;
+    display: flex;
+    justify-content: center;
+}
+
+.imagen{
+    margin: 0 auto;
+    height: 100%;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.nombre{
+    color: white;
+    font-size: 1em;
+    text-align: left;
+    width: 25%;
+    margin: auto auto auto 2em;
+    &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+.divCant{
+    width: 13%;
+    margin: auto;
+    margin-left: 2em;
+    display: flex;
+}
+
+.divMenos{
+    margin: auto;
+    width: 2em;
+    height: 2em;
+    border: 1px solid black;
+    user-select: none;
+    &:hover{
+        cursor: pointer;
+        border: 1px solid white;
+    }
+}
+
+.menos{
+    font-size: 2em;
+    margin: 0;
+    color: white;
+    position: absolute;
+    transform: translateX(0.3em) translateY(-0.27em);
+}
+
+.cant{
+    text-align: center;
+    margin: auto;
+    color: white;
+    font-size: 1.3em;
+}
+
+.divMas{
+    margin: auto;
+    width: 2em;
+    height: 2em;
+    border: 1px solid black;
+    user-select: none;
+    &:hover{
+        cursor: pointer;
+        border: 1px solid white;
+    }
+}
+
+.mas{
+    font-size: 2em;
+    margin: 0;
+    color: white;
+    position: absolute;
+    transform: translateX(0.2em) translateY(-0.2em);
+}
+
+.stock{
+    text-align: center;
+    width: 13%;
+    margin: auto;
+    color: rgb(245, 196, 44);
+    font-size: 1em;
+}
+
+.precio{
+    text-align: center;
+    width: 13%;
+    margin: auto;
+    color: white;
+    font-size: 1em;
+}
+
+.subTotal{
+    text-align: center;
+    width: 13%;
+    margin: auto;
+    color: white;
+    font-size: 1em;
+}

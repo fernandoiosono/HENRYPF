@@ -1,0 +1,14 @@
+.main-container {
+  display: flex;
+  align-items: stretch;
+}
+
+.Image {
+  width: 250px;
+  height: 250px;
+}
+
+.DivImage {
+  text-align: center;
+  border-radius: 100px;
+}

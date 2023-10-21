@@ -1,0 +1,13 @@
+p {
+  margin: 0;
+}
+
+.button {
+  background-color: #f5c52e;
+  color: black;
+  font-weight: bold;
+}
+
+.products-header {
+  font-weight: bold;
+}

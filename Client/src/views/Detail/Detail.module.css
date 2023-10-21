@@ -1,0 +1,144 @@
+.detalle{
+    margin-top: 2em;
+    display: flex;
+}
+
+.imagenBotones{
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen{
+    width: 60%;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+.agregar{
+    font-size: 1.5em;
+    width: 60%;
+    margin: 1em;
+    height: 2em;
+    color: black;
+    background-color: white;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.divCant{
+    display: flex;
+    font-size: 1.5em;
+    width: 60%;
+    margin: 1em;
+    height: 2em;
+    color: black;
+}
+
+.divMenos{
+    margin: auto;
+    width: 2em;
+    height: 2em;
+    border: 1px solid rgb(68, 68, 68);
+    user-select: none;
+    &:hover{
+        cursor: pointer;
+        border: 1px solid white;
+    }
+}
+
+.menos{
+    font-size: 2em;
+    margin: 0;
+    color: white;
+    position: absolute;
+    transform: translateX(0.3em) translateY(-0.27em);
+}
+
+.cant{
+    text-align: center;
+    margin: auto;
+    color: white;
+    font-size: 1.3em;
+}
+
+.divMas{
+    margin: auto;
+    width: 2em;
+    height: 2em;
+    border: 1px solid rgb(68, 68, 68);
+    user-select: none;
+    &:hover{
+        cursor: pointer;
+        border: 1px solid white;
+    }
+}
+
+.mas{
+    font-size: 2em;
+    margin: 0;
+    color: white;
+    position: absolute;
+    transform: translateX(0.2em) translateY(-0.2em);
+}
+
+.comprar{
+    font-size: 1.5em;
+    width: 60%;
+    margin: 0 0 1em 0;
+    height: 2em;
+    background-color: rgb(245, 196, 44);
+    color: black;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.detalles{
+    width: 50%;
+}
+
+.nombre{
+    font-size: 2.3em;
+    text-align: center;
+    color: white;
+}
+
+.precios{
+    background-color: rgba(0, 255, 255, 0.06);
+    display: flex;
+}
+
+.precio1{
+    text-decoration: line-through;
+    width: max-content;
+    color: rgb(192, 188, 188);
+    margin-bottom: 0;
+    margin-left: 1em;
+}
+
+.precio2{
+    width: max-content;
+    font-size: 1.6em;
+    color: white;
+    margin-left: 1em;
+}
+
+.descuento{
+    color: green;
+    font-size: 1.6em;
+    margin-left: 1em;
+}
+
+.stock{
+    color: rgba(255, 255, 0, 0.4);
+}
+
+.descripcion{
+    text-align: justify;
+    color: white;
+    font-size: 1.1em;
+}

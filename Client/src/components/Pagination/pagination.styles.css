@@ -1,0 +1,48 @@
+.div_pagin {
+  margin: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  cursor: pointer;
+  gap: 0.1rem;
+  z-index: 0;
+  margin-top: -5em;
+}
+
+.div_pagin button {
+  user-select: none;
+  margin: 20px 5px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 17px;
+  width: 40px;
+  display: block;
+  padding: 0.5rem 0.3rem;
+  text-decoration: none;
+  border-radius: 0.2rem;
+  border: 0.0625rem solid #d7d7d7;
+  box-shadow: 6px 7px 8px -6px #c5aa52;
+  color: black;
+  background-color: #f5c52e;
+  transform: translate(0);
+  transition: transform 0.25s ease-out;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+}
+
+.div_pagin button:hover {
+  user-select: none;
+  margin: 20px 5px;
+  font-size: 17px;
+  width: 40px;
+  display: block;
+  padding: 0.5rem 0.3rem;
+  text-decoration: none;
+  border-radius: 0.2rem;
+  border: 2px solid #d7d7d7;
+  background-color: rgb(49, 49, 49);
+  color: #f5c52e;
+  border-color: #ebe72f;
+  transform: scale(1.25);
+}
