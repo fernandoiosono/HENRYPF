@@ -1,38 +1,38 @@
-// import React from "react";
-// import "./Aside.css";
-
-// const Aside = () => {
-//   return (
-//     <aside>
-//       <button>Ver productos</button>
-//       <button>Crear productos</button>
-//     </aside>
-//   );
-// };
-
-// export default Aside;
-
 import React from "react";
 import "./Aside.css";
 
 const Aside = ({
-  mostrarVerProductos,
+  componente,
   mostrarVerProductosHandler,
   mostrarCrearProductosHandler,
+  mostrarVerPedidos,
+  mostrarVerUsuarios,
 }) => {
   return (
     <aside>
       <button
         onClick={mostrarVerProductosHandler}
-        className={mostrarVerProductos ? "active" : ""}
+        className={componente === "VerProductos" ? "active" : ""}
       >
         Ver Productos
       </button>
       <button
         onClick={mostrarCrearProductosHandler}
-        className={!mostrarVerProductos ? "active" : ""}
+        className={componente === "CrearProductos" ? "active" : ""}
       >
         Crear Productos
+      </button>
+      <button
+        onClick={mostrarVerPedidos}
+        className={componente === "VerPedidos" ? "active" : ""}
+      >
+        Ver Pedidos
+      </button>
+      <button
+        onClick={mostrarVerUsuarios}
+        className={componente === "VerUsuarios" ? "active" : ""}
+      >
+        Ver Usuarios
       </button>
     </aside>
   );

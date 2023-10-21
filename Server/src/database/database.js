@@ -1,11 +1,12 @@
 require('dotenv').config();
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 
 const { defineProduct, 
     defineCategory, 
     defineUser, 
     defineOrder,
-    defineCard } = require('./models');
+    defineCard,
+    defineShoppingCart } = require('./models');
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 const conn = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
@@ -15,12 +16,12 @@ const conn = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
 
 const database = new Sequelize(conn, { logging: false });
 
-defineCategory(database);
 defineCard(database);
-
-defineProduct(database);
 defineUser(database);
 defineOrder(database);
+defineProduct(database);
+defineCategory(database);
+defineShoppingCart(database);
 
 const { Category, Product, User, Order, Card } = database.models;
 
