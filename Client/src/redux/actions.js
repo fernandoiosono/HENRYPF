@@ -21,7 +21,12 @@ import {
   TRAER_USUARIOS,
 } from "./actions_types";
 
-const URL = "http://localhost:3001/moveon/";
+
+axios.defaults.baseURL= "http://localhost:3001";
+// axios.defaults.baseURL="https://henrypf-production-fae5.up.railway.app";
+
+
+const URL = "/moveon/";
 
 export const traerAllProductos = () => {
   try {
