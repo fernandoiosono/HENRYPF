@@ -13,7 +13,8 @@ const { handlerUsers,
 	handlerCategories,
 	handlerOrders,
 	handlerCards,
-	handlerShoppingCart } = require('./src/routes');
+	handlerShoppingCart,
+	handlerStripe } = require('./src/routes');
 
 const { PORT, DB_RESET } = process.env;
 const dbReset = (DB_RESET === "true");
@@ -34,6 +35,7 @@ server.use('/moveon/orders', handlerOrders);
 server.use('/moveon/products', handlerProducts);
 server.use('/moveon/categories', handlerCategories);
 server.use('/moveon/shoppingcart', handlerShoppingCart);
+server.use('/moveon/stripe', handlerStripe);
 
 database.sync({ force: dbReset })
 	.then(async () => {

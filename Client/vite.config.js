@@ -12,6 +12,7 @@ export default defineConfig({
       "URL_CLOUDINARY",
       "DOMAIN_AUTH",
       "CLIENT_ID",
+      "PUBLISHABLE_KEY",
       "REDIRECT_URI",
       "LOGOUT_URI",
     ]),
