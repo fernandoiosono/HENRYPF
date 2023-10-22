@@ -1,23 +1,21 @@
-const { ShoppingCart, Product, User } = require("../../database/database.js");
+const { Product, User, Order } = require("../../database/database.js");
 
 const getCartByUserID = async (idUser) => {
-    const cart = await User.findAll({
-        where: { idUser: idUser },
-        attributes: [],
+    const cart = await User.findByPk(idUser, {
         include: [{
-            model: Product,
-            as: "products",
-            through: {
-                model: ShoppingCart,
-                attributes: [ "quantity" ]
-            },
-            attributes: {
-                exclude: ['CategoryIdCategory']
+            model: Order,
+            include: {
+                model: Product,
+                as: "products",
+                attributes: {
+                    exclude: ['description', 'active', 'CategoryIdCategory']
+                }
             }
-        }]
+        }],
+        attributes: []
     });
     
-    return cart[0].products;
+    return cart.Orders[0].dataValues.products;
 };
 
 module.exports = getCartByUserID;

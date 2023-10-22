@@ -51,6 +51,9 @@ const postCartByUserID = async (idUser, localProducts) => {
             include: {
                 model: Product,
                 as: "products",
+                attributes: {
+                    exclude: ['description', 'active', 'CategoryIdCategory']
+                }
             }
         }],
         attributes: []
