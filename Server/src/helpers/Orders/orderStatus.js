@@ -1,11 +1,13 @@
-const STAGED = "STAGED";                        // CARRITO
-const DELIVERY_PENDING = "DELIVERY_PENDING";    // PENDIENTE DE ENVÍO
-const DELIVERED = "DELIVERED";                  // ENVIADO
-// const RECEIVED = "RECEIVED";                    // RECIBIDO ???
-// const ARCHIVED = "ARCHIVED";                    // ARCHIVADO ???
+const LOADED = "LOADED";            // CARGADA
+const PAID = "PAID";                // PAGADA
+const DELIVERED = "DELIVERED";      // ENVIADA
+const RECEIVED = "RECEIVED";        // RECIBIDA ???
+const ARCHIVED = "ARCHIVED";        // ARCHIVADA ???
 
 module.exports = {
-    STAGED,
-    DELIVERED,
-    DELIVERY_PENDING
+    PAID,
+    LOADED,
+    RECEIVED,
+    ARCHIVED,
+    DELIVERED
 };

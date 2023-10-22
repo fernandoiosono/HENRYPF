@@ -1,4 +1,5 @@
 const { DataTypes: dtype, Sequelize } = require("sequelize");
+const { LOADED } = require("../../helpers/Orders/orderStatus.js");
 
 module.exports = (database) => {
 	database.define(
@@ -41,7 +42,7 @@ module.exports = (database) => {
 			status: {
 				type: dtype.STRING,
 				allowNull: false,
-				defaultValue: "STAGED"
+				defaultValue: LOADED
 			}
 		},
 		{

@@ -1,13 +1,13 @@
 const { Product, User, Order, OrderProduct } = require("../../database/database.js");
 
-const { STAGED } = require("../../helpers/Orders/orderStatus.js");
+const { LOADED } = require("../../helpers/Orders/orderStatus.js");
 
 const postCartByUserID = async (idUser, localProducts) => {
     // Buscamos una Orden en Status STAGED Registrada por el Usuario, si no Existe la Creamos
     const [ order, created ] = await Order.findOrCreate({
         where: {
             UserIdUser: idUser,
-            status: STAGED
+            status: LOADED
         }
     });
 
