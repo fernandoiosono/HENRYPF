@@ -11,24 +11,37 @@ module.exports = (database) => {
 			},
 			address: {
 				type: dtype.STRING,
-				allowNull: false
+				allowNull: true
+			},
+			postalCode: {
+				type: dtype.STRING,
+				allowNull: true
+			},
+			phone: {
+				type: dtype.STRING,
+				allowNull: true
 			},
 			amount: {
 				type: dtype.DECIMAL,
-				allowNull: false
+				allowNull: false,
+				defaultValue: 0
 			},
-			discountCode: {
+			paymentDate: {
+				type: dtype.DATE,
+				allowNull: true
+			},
+			deliveredDate: {
+				type: dtype.DATE,
+				allowNull: true
+			},
+			receivedDate: {
+				type: dtype.DATE,
+				allowNull: true
+			},
+			status: {
 				type: dtype.STRING,
-				allowNull: true,
-				validate: { len: [1, 50] }
-			},
-			date: {
-				type: dtype.DATE,
-				allowNull: false
-			},
-			deliveryDate: {
-				type: dtype.DATE,
-				allowNull: false
+				allowNull: false,
+				defaultValue: "STAGED"
 			}
 		},
 		{

@@ -31,10 +31,10 @@ server.use(morgan("dev"));
 
 server.use('/moveon/users', handlerUsers);
 server.use('/moveon/cards', handlerCards);
+server.use('/moveon/cards', handlerCards);
 server.use('/moveon/orders', handlerOrders);
 server.use('/moveon/products', handlerProducts);
 server.use('/moveon/categories', handlerCategories);
-server.use('/moveon/shoppingcart', handlerShoppingCart);
 server.use('/moveon/stripe', handlerStripe);
 
 database.sync({ force: dbReset })
