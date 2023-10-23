@@ -12,7 +12,7 @@ const Perfil = ({ autenticado }) => {
   const dispatch = useDispatch();
   const usuario = useSelector((state) => state.usuario);
   const [imagen, setImagen] = useState("");
-  const [errorsUser, setErrorsUsers] = useState(true);
+  const [errorsUser, setErrorsUsers] = useState(false);
 
   const modificar = (valores) => {
     if (autenticado) {
