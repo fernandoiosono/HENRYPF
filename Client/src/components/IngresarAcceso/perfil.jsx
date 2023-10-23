@@ -2,31 +2,17 @@ import React from "react";
 import LogoutButton from "../IngresarAcceso/logout";
 import SubirImagen from "../Cloudinary/cloudinary.component";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { crearUsuario, editarUsuario } from "../../redux/actions";
+import {  useState } from "react";
+import {  editarUsuario } from "../../redux/actions";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import "./perfil.css";
 
-const Perfil = ({ user, autenticado }) => {
+const Perfil = ({ autenticado }) => {
   const dispatch = useDispatch();
   const usuario = useSelector((state) => state.usuario);
   const [imagen, setImagen] = useState("");
   const [errorsUser, setErrorsUsers] = useState(true);
-
-  const newUsuario = {
-    idAuth0: user.sub,
-    name: user.name,
-    nickName: user.nickname,
-    email: user.email,
-    imageURL: user.picture,
-  };
-
-  useEffect(() => {
-    if (autenticado) {
-      dispatch(crearUsuario(newUsuario));
-    }
-  }, []);
 
   const modificar = (valores) => {
     if (autenticado) {
