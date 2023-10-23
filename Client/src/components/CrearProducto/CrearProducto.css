@@ -3,6 +3,11 @@
 body {
   font-family: "Open Sans", sans-serif;
 }
+.disabled-button {
+  background: #ccc; /* Color de fondo cuando está deshabilitado */
+  color: #999; /* Color del texto cuando está deshabilitado */
+  cursor: not-allowed; /* Cambiar el cursor a "no permitido" */
+}
 
 .contenedor {
   width: 85%;
@@ -89,4 +94,10 @@ body {
 
 .formulario input[type="radio"] {
   width: auto;
+}
+
+.disabled-button {
+  background-color: #ccc; /* Color de fondo cuando está deshabilitado */
+  color: #999; /* Color del texto cuando está deshabilitado */
+  cursor: not-allowed; /* Cambiar el cursor a "no permitido" */
 }

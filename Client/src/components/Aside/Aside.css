@@ -8,8 +8,8 @@
 .catalogo {
   width: auto;
   padding: 10px;
-  background-color: rgb(37, 36, 36);
-  box-shadow: 0 0 5px rgba(37, 36, 36, 0.2);
+  background-color: rgb(125, 123, 123);
+  box-shadow: 0 0 5px rgb(255, 255, 255);
 }
 
 /* Estilo para los botones dentro del aside */
