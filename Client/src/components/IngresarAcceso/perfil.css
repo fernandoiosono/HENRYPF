@@ -43,13 +43,19 @@
   transform: scale(1.05);
 }
 
+.error_msg_user { 
+  color: red;
+  font-size: 12px; 
+  margin-top: 5px; 
+}
+
 .btn_out {
   margin-top: -48em;
   margin-left: 58em;
 }
 
-.error_msg_user { 
-  color: red;
-  font-size: 12px; 
-  margin-top: 5px; 
+.disabled_btn_user {
+  background-color: #ccc; 
+  color: #999; 
+  cursor: not-allowed; 
 }

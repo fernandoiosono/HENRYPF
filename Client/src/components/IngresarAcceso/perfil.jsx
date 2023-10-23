@@ -12,6 +12,7 @@ const Perfil = ({ user, autenticado }) => {
   const dispatch = useDispatch();
   const usuario = useSelector((state) => state.usuario);
   const [imagen, setImagen] = useState("");
+  const [errorsUser, setErrorsUsers] = useState(true);
 
   const newUsuario = {
     idAuth0: user.sub,
@@ -30,6 +31,7 @@ const Perfil = ({ user, autenticado }) => {
   const modificar = (valores) => {
     if (autenticado) {
       dispatch(editarUsuario(valores));
+      setErrorsUsers(true);
     }
   };
 
@@ -39,6 +41,8 @@ const Perfil = ({ user, autenticado }) => {
       errors.name = "Debe contener menos de 35 letras";
     if (valores.nickName.length > 35)
       errors.nickName = "Debe contener menos de 35 letras";
+    const hasError = Object.keys(errors).length > 0;
+    setErrorsUsers(hasError);
     return errors;
   };
 
@@ -129,9 +133,18 @@ const Perfil = ({ user, autenticado }) => {
                     />
                   </div>
                 </div>
-                <button type="submit" className="btn">
-                  Enviar cambios
-                </button>
+                {errorsUser ? (
+                  <></>
+                ) : (
+                  <>
+                    <button
+                      type="submit"
+                      className={errorsUser ? "disabled_btn_user" : ""}
+                    >
+                      Enviar cambios
+                    </button>
+                  </>
+                )}
               </Form>
             </div>
           </Formik>
