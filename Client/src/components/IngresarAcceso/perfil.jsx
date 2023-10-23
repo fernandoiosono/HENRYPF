@@ -2,43 +2,39 @@ import React from "react";
 import LogoutButton from "../IngresarAcceso/logout";
 import SubirImagen from "../Cloudinary/cloudinary.component";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { crearUsuario, editarUsuario } from "../../redux/actions";
+import {  useState } from "react";
+import {  editarUsuario } from "../../redux/actions";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import "./perfil.css";
 
-const Perfil = ({ user, autenticado }) => {
+const Perfil = ({ autenticado }) => {
   const dispatch = useDispatch();
   const usuario = useSelector((state) => state.usuario);
   const [imagen, setImagen] = useState("");
-
-  const newUsuario = {
-    idAuth0: user.sub,
-    name: user.name,
-    nickName: user.nickname,
-    email: user.email,
-    imageURL: user.picture,
-  };
-
-  useEffect(() => {
-    if (autenticado) {
-      dispatch(crearUsuario(newUsuario));
-    }
-  }, []);
+  const [errorsUser, setErrorsUsers] = useState(true);
 
   const modificar = (valores) => {
     if (autenticado) {
       dispatch(editarUsuario(valores));
+      setErrorsUsers(true);
     }
   };
-  
-  const validar = (valores) =>{
-    const errors ={};
-    if(valores.name.length >35)errors.name = "Debe contener menos de 35 letras";
-    if(valores.nickName.length >35) errors.nickName = "Debe contener menos de 35 letras";
+
+  const validar = (valores) => {
+    const errors = {};
+    if (valores.name.length > 35)
+      errors.name = "Debe contener menos de 35 letras";
+    if(valores.name === valores.name)
+      errors.name = "El nombre debe ser diferente al ya escrito para enviar un cambio";
+    if (valores.nickName.length > 35)
+      errors.nickName = "Debe contener menos de 35 letras";
+    if(valores.nickName === valores.nickName)
+      errors.nickName = "El nombre de usuario debe ser diferente al ya escrito para enviar un cambio";
+    const hasError = Object.keys(errors).length > 0;
+    setErrorsUsers(hasError);
     return errors;
-  }
+  };
 
   return (
     <>
@@ -69,7 +65,7 @@ const Perfil = ({ user, autenticado }) => {
                     Cambiar Imagen:
                   </label>
                   <div>
-                      <SubirImagen setImagen={setImagen} />
+                    <SubirImagen setImagen={setImagen} />
                   </div>
                 </div>
 
@@ -86,7 +82,9 @@ const Perfil = ({ user, autenticado }) => {
                       placeholder={usuario.data.name}
                       autoComplete="off"
                     />
-                    <ErrorMessage name="name"/>
+                    <div className="error_msg_user">
+                      <ErrorMessage name="name" />
+                    </div>
                   </div>
                 </div>
 
@@ -103,7 +101,9 @@ const Perfil = ({ user, autenticado }) => {
                       placeholder={usuario.data.nickName}
                       autoComplete="off"
                     />
-                    <ErrorMessage name="nickName" className="error_msg"/>
+                    <div className="error_msg_user">
+                      <ErrorMessage name="nickName" />
+                    </div>
                   </div>
                 </div>
 
@@ -123,14 +123,23 @@ const Perfil = ({ user, autenticado }) => {
                     />
                   </div>
                 </div>
-                <button type="submit" className="btn">
-                  Enviar cambios
-                </button>
+                {errorsUser ? (
+                  <></>
+                ) : (
+                  <>
+                    <button
+                      type="submit"
+                      className={errorsUser ? "disabled_btn_user" : ""}
+                    >
+                      Enviar cambios
+                    </button>
+                  </>
+                )}
               </Form>
             </div>
           </Formik>
           <div className="btn_out">
-                  <LogoutButton />
+            <LogoutButton />
           </div>
         </div>
       ) : null}
