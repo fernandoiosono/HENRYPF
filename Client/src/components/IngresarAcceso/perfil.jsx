@@ -32,13 +32,15 @@ const Perfil = ({ user, autenticado }) => {
       dispatch(editarUsuario(valores));
     }
   };
-  
-  const validar = (valores) =>{
-    const errors ={};
-    if(valores.name.length >35)errors.name = "Debe contener menos de 35 letras";
-    if(valores.nickName.length >35) errors.nickName = "Debe contener menos de 35 letras";
+
+  const validar = (valores) => {
+    const errors = {};
+    if (valores.name.length > 35)
+      errors.name = "Debe contener menos de 35 letras";
+    if (valores.nickName.length > 35)
+      errors.nickName = "Debe contener menos de 35 letras";
     return errors;
-  }
+  };
 
   return (
     <>
@@ -69,7 +71,7 @@ const Perfil = ({ user, autenticado }) => {
                     Cambiar Imagen:
                   </label>
                   <div>
-                      <SubirImagen setImagen={setImagen} />
+                    <SubirImagen setImagen={setImagen} />
                   </div>
                 </div>
 
@@ -86,7 +88,9 @@ const Perfil = ({ user, autenticado }) => {
                       placeholder={usuario.data.name}
                       autoComplete="off"
                     />
-                    <ErrorMessage name="name"/>
+                    <div className="error_msg_user">
+                      <ErrorMessage name="name" />
+                    </div>
                   </div>
                 </div>
 
@@ -103,7 +107,9 @@ const Perfil = ({ user, autenticado }) => {
                       placeholder={usuario.data.nickName}
                       autoComplete="off"
                     />
-                    <ErrorMessage name="nickName" className="error_msg"/>
+                    <div className="error_msg_user">
+                      <ErrorMessage name="nickName" />
+                    </div>
                   </div>
                 </div>
 
@@ -130,7 +136,7 @@ const Perfil = ({ user, autenticado }) => {
             </div>
           </Formik>
           <div className="btn_out">
-                  <LogoutButton />
+            <LogoutButton />
           </div>
         </div>
       ) : null}

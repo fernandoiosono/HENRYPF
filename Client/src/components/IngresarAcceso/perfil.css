@@ -48,6 +48,8 @@
   margin-left: 58em;
 }
 
-.error_msg {
+.error_msg_user { 
   color: red;
+  font-size: 12px; 
+  margin-top: 5px; 
 }
