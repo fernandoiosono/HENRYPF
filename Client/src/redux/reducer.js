@@ -197,6 +197,34 @@ const rootReducer = (state = initialState, { type, payload }) => {
           ...state,
           productosMostrar: ordered,
         };
+      } else if (payload === "Relevancia") {
+        return {
+          ...state,
+          productosMostrar: [...state.allActiveProducts],
+        };
+      } else if (
+        payload === "CatNombreDescendente" ||
+        payload === "CatNombreAscendente"
+      ) {
+        let orderedProductos = [...state.productosMostrar];
+        let ordered;
+
+        if (payload === "CatNombreAscendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return b.name.localeCompare(a.name);
+          });
+        } else if (payload === "CatNombreDescendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
+        } else {
+          ordered = orderedProductos;
+        }
+
+        return {
+          ...state,
+          productosMostrar: ordered,
+        };
       } else {
         let orderedProductos = [...state.allProductos];
         let ordered;

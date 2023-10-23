@@ -45,7 +45,7 @@ const Aside = ({
     return (
       <aside className="catalogo">
         <Filter />
-        {/* <Ordering /> */}
+        <Ordering />
       </aside>
     );
   }

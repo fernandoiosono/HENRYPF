@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { filterByCategory } from "../../redux/actions";
+import { filterByCategory, traerActiveProductos } from "../../redux/actions";
 import "./Filter.css";
 
 const Filter = () => {
@@ -24,6 +24,9 @@ const Filter = () => {
   const handleApplyFilters = () => {
     // Aquí puedes usar el array de categorías seleccionadas para filtrar los productos.
     dispatch(filterByCategory(selectedCategories));
+  };
+  const handleResetFilters = () => {
+    dispatch(traerActiveProductos());
   };
 
   return (
@@ -51,6 +54,9 @@ const Filter = () => {
       </div>
       <button className="btnFilter" onClick={handleApplyFilters}>
         Filtrar
+      </button>
+      <button className="btnFilter" onClick={handleResetFilters}>
+        Restablecer
       </button>
     </div>
   );

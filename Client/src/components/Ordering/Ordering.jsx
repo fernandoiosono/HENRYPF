@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setOrder } from "../../redux/actions";
+import "./Ordering.css";
 
 const Ordering = () => {
   const dispatch = useDispatch();
@@ -13,13 +14,15 @@ const Ordering = () => {
   return (
     <div>
       <div>
-        <label>Ordenar por precio:</label>
+        <label className="label">Ordenar por:</label>
       </div>
       <div>
         <select value={selectOrder} onChange={handleOrderChange}>
-          <option value="">Ordenar...</option>
-          <option value="Ascendente">Ascendente</option>
-          <option value="Descendente">Descendente</option>
+          <option value="Relevancia">Relevancia</option>
+          <option value="Ascendente">Precio: menor a mayor</option>
+          <option value="Descendente">Precio: mayor a menor</option>
+          <option value="CatNombreDescendente">Nombre: A...Z</option>
+          <option value="CatNombreAscendente">Nombre: Z...A</option>
         </select>
       </div>
     </div>

@@ -7,6 +7,7 @@
   font-size: 15px;
   margin-right: 5px;
   color: white;
+  margin-top: 0px;
 }
 
 .btnFilter {
@@ -18,7 +19,6 @@
   border: 1px solid #f5c52e;
   background-color: #f5c52e;
   color: black;
-
   border-radius: 5px;
   cursor: pointer;
 }
