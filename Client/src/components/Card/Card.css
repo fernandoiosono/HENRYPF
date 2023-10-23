@@ -1,7 +1,9 @@
 .card-container {
   position: relative;
-  width: 380px;
-  height: 580px;
+  width: 350px;
+  height: 550px;
+  margin-top: 30px;
+  margin-bottom: -70px;
 }
 .card {
   position: relative;
@@ -13,8 +15,8 @@
 }
 .discountCircle {
   position: absolute;
-  top: -18px; /* Ajusta la posición vertical según tus preferencias */
-  right: 25px; /* Ajusta la posición horizontal según tus preferencias */
+  top: -20px; /* Ajusta la posición vertical según tus preferencias */
+  right: 0px; /* Ajusta la posición horizontal según tus preferencias */
   background-color: #ff0000;
   color: #ffce00;
   border-radius: 70%;

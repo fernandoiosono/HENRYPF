@@ -160,16 +160,25 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case FILTER_CATEGORIA:
-      let filteredProductos = [...state.allActiveProducts];
-      let filter;
-      filter = filteredProductos.filter((producto) =>
-        producto.Category.name.includes(payload)
-      );
-      return {
-        ...state,
-        productosMostrar: filter,
-        currentPage: 1,
-      };
+      if (payload.length != 0) {
+        let filteredProductos = [...state.allActiveProducts];
+        const filteredProducts = filteredProductos.filter((producto) =>
+          payload.some((category) =>
+            producto.Category.idCategory.includes(category)
+          )
+        );
+        return {
+          ...state,
+          productosMostrar: filteredProducts,
+          currentPage: 1,
+        };
+      } else {
+        return {
+          ...state,
+          productosMostrar: [...state.allActiveProducts],
+          currentPage: 1,
+        };
+      }
 
     case SET_ORDER:
       if (payload === "Descendente" || payload === "Ascendente") {
@@ -266,7 +275,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       const carritoFilt = state.carrito.map((product) => {
         const quantity = payload.ShoppingCart.quantity;
         if (product.idProduct === payload.idProduct) {
-          return { ...product, ShoppingCart:{quantity} };
+          return { ...product, ShoppingCart: { quantity } };
         }
         return product;
       });
