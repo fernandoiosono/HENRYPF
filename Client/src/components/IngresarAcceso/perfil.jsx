@@ -2,8 +2,8 @@ import React from "react";
 import LogoutButton from "../IngresarAcceso/logout";
 import SubirImagen from "../Cloudinary/cloudinary.component";
 import { useDispatch, useSelector } from "react-redux";
-import {  useState } from "react";
-import {  editarUsuario } from "../../redux/actions";
+import { useState } from "react";
+import { editarUsuario } from "../../redux/actions";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import "./perfil.css";
@@ -17,7 +17,7 @@ const Perfil = ({ autenticado }) => {
   const modificar = (valores) => {
     if (autenticado) {
       dispatch(editarUsuario(valores));
-      setErrorsUsers(true);
+      setErrorsUsers(false);
     }
   };
 
@@ -66,10 +66,8 @@ const Perfil = ({ autenticado }) => {
                 </div>
 
                 <div className="formulario__grupo">
-                  <label htmlFor="name" className="txt">
-                    Nombre
-                  </label>
-                  <div className="txt">
+                  <label htmlFor="name">Nombre</label>
+                  <div>
                     <Field
                       className="txt_info"
                       id="name"
@@ -123,20 +121,22 @@ const Perfil = ({ autenticado }) => {
                   <></>
                 ) : (
                   <>
-                    <button
-                      type="submit"
-                      className={errorsUser ? "disabled_btn_user" : ""}
-                    >
-                      Enviar cambios
-                    </button>
+                    <div className="btn_user">
+                      <button
+                        type="submit"
+                        className={errorsUser ? "disabled_btn_user" : ""}
+                      >
+                        Enviar cambios
+                      </button>
+                    </div>
                   </>
                 )}
               </Form>
+              <div className="btn_out">
+                <LogoutButton />
+              </div>
             </div>
           </Formik>
-          <div className="btn_out">
-            <LogoutButton />
-          </div>
         </div>
       ) : null}
     </>
