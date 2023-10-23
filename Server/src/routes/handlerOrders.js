@@ -2,12 +2,12 @@ const router = require('express').Router();
 const errorHandler = require('../middlewares');
 
 const { getOrderByID,
-    getOrders,
+    getActiveOrders,
     getOrdersByStatus,
     patchOrderPaid } = require('../controllers');
 
-router.get('/all', errorHandler(async (req, res) => {
-    const orders = await getOrders();
+router.get('/active', errorHandler(async (req, res) => {
+    const orders = await getActiveOrders();
 
     res.status(200).json(orders);
 }));
