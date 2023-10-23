@@ -35,6 +35,7 @@ const postUser = require('./Users/postUser.js');
 
 // Stripe Folder
 const createCheckoutSession = require('./Stripe/createCheckoutSession.js');
+const statusCheckout = require('./Stripe/statusCheckout.js');
 
 module.exports = {
     getCards,
@@ -66,5 +67,6 @@ module.exports = {
     patchUser,
     postUser,
 
-    createCheckoutSession
+    createCheckoutSession,
+    statusCheckout
 };
