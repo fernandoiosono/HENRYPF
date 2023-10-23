@@ -39,8 +39,12 @@ const Perfil = ({ user, autenticado }) => {
     const errors = {};
     if (valores.name.length > 35)
       errors.name = "Debe contener menos de 35 letras";
+    if(valores.name === valores.name)
+      errors.name = "El nombre debe ser diferente al ya escrito para enviar un cambio";
     if (valores.nickName.length > 35)
       errors.nickName = "Debe contener menos de 35 letras";
+    if(valores.nickName === valores.nickName)
+      errors.nickName = "El nombre de usuario debe ser diferente al ya escrito para enviar un cambio";
     const hasError = Object.keys(errors).length > 0;
     setErrorsUsers(hasError);
     return errors;
