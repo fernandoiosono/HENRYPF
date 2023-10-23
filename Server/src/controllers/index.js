@@ -4,6 +4,7 @@ const getCategories = require('./Categories/getCategories.js');
 // Orders Folder
 const getOrderByID = require('./Orders/getOrderByID.js');
 const getOrders = require('./Orders/getOrders.js');
+const getOrdersByStatus = require('./Orders/getOrdersByStatus.js');
 const patchOrderPaid = require('./Orders/patchOrderPaid.js');
 
 // Products Folder
@@ -34,6 +35,7 @@ module.exports = {
 
     getOrderByID,
     getOrders,
+    getOrdersByStatus,
     patchOrderPaid,
 
     getActiveProducts,
