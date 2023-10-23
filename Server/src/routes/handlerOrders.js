@@ -4,7 +4,8 @@ const errorHandler = require('../middlewares');
 const { getOrderByID,
     getOrders,
     getOrdersByUser,
-    postOrder } = require('../controllers');
+    postOrder,
+    patchOrderPaid } = require('../controllers');
 
 router.get('/all', errorHandler(async (req, res) => {
     const orders = await getOrders();
@@ -24,6 +25,15 @@ router.get('/:id', errorHandler(async (req, res) => {
     const order = await getOrderByID(id);
 
     res.status(200).json(order);
+}));
+
+router.patch('/paid/:idOrder', errorHandler(async (req, res) => {
+    const { idOrder } = req.params;
+    const orderData = req.body;
+    console.log(idOrder);
+    const orderModified = await patchOrderPaid(idOrder, orderData);
+
+    res.status(200).json(orderModified);
 }));
 
 router.post('/', errorHandler(async (req, res) => {
