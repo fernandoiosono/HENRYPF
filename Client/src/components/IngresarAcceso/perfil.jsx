@@ -131,10 +131,10 @@ const Perfil = ({ autenticado }) => {
                     </div>
                   </>
                 )}
-              </Form>
               <div className="btn_out">
                 <LogoutButton />
               </div>
+              </Form>
             </div>
           </Formik>
         </div>
