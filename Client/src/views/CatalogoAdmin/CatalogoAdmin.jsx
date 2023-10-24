@@ -50,7 +50,9 @@ const CatalogoAdmin = () => {
           <ListUsuarios />
         )}
       </div>
-      {componente != "VerUsuarios" && componente != "CrearProductos" ? (
+      {componente != "VerUsuarios" &&
+      componente != "CrearProductos" &&
+      componente != "VerPedidos" ? (
         <PaginationAdmin />
       ) : null}
     </>
