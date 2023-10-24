@@ -118,13 +118,14 @@ const Perfil = ({ autenticado }) => {
                   </div>
                 </div>
                 {errorsUser ? (
-                  <></>
+                  <>
+                  <button type="button" disabled className="disabled_btn_user">Enviar cambios</button>
+                  </>
                 ) : (
                   <>
                     <div className="btn_user">
                       <button
                         type="submit"
-                        className={errorsUser ? "disabled_btn_user" : ""}
                       >
                         Enviar cambios
                       </button>
