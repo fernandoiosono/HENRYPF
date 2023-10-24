@@ -2,10 +2,12 @@
 const getCategories = require('./Categories/getCategories.js');
 
 // Orders Folder
-const getActiveOrders = require('./Orders/getActiveOrders.js');
+const getOrders = require('./Orders/getOrders.js');
 const getOrderByID = require('./Orders/getOrderByID.js');
 const getOrdersByStatus = require('./Orders/getOrdersByStatus.js');
+const patchOrderDelivered = require('./Orders/patchOrderDelivered.js');
 const patchOrderPaid = require('./Orders/patchOrderPaid.js');
+const patchOrderReceived = require('./Orders/patchOrderReceived.js');
 
 // Products Folder
 const getActiveProducts = require('./Products/getActiveProducts.js');
@@ -33,10 +35,12 @@ const createCheckoutSession = require('./Stripe/createCheckoutSession.js');
 module.exports = {
     getCategories,
 
-    getActiveOrders,
+    getOrders,
     getOrderByID,    
     getOrdersByStatus,
+    patchOrderDelivered,
     patchOrderPaid,
+    patchOrderReceived,
 
     getActiveProducts,
     getProductByID,
