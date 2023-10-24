@@ -60,7 +60,7 @@ function Item({ producto, handleDeleteProduct, handleActiveProduct }) {
           >
             <FontAwesomeIcon
               icon={faSquareCheck}
-              style={{ color: "#f5c52e" }}
+              style={{ color: "#000" }}
               size="lg"
             />
           </div>
@@ -74,8 +74,9 @@ function Item({ producto, handleDeleteProduct, handleActiveProduct }) {
           >
             <FontAwesomeIcon
               icon={faSquare}
-              style={{ color: "#f5c52e" }}
+              style={{ color: "#000" }}
               size="lg"
+              pointe
             />
           </div>
         )}
