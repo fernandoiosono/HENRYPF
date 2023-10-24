@@ -26,6 +26,7 @@ const Filter = () => {
     dispatch(filterByCategory(selectedCategories));
   };
   const handleResetFilters = () => {
+    setSelectedCategories([]);
     dispatch(traerActiveProductos());
   };
 

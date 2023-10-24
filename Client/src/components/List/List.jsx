@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./List.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSort,
+  faSortUp,
+  faSortDown,
+} from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -193,39 +199,39 @@ function List() {
                 </button>
                 <div>
                   {nombre === "" ? (
-                    <p></p>
+                    <FontAwesomeIcon icon={faSort} size="lg" />
                   ) : nombre === true ? (
-                    <p>↑</p>
+                    <FontAwesomeIcon icon={faSortUp} size="lg" />
                   ) : (
-                    <p>↓</p>
+                    <FontAwesomeIcon icon={faSortDown} size="lg" />
                   )}
                 </div>
               </div>
-              <div className="product-cell category">
+              <div className="product-cell ">
                 <button className="button" onClick={handleOrderCategory}>
                   Categoria
                 </button>
                 <div>
                   {categoria === "" ? (
-                    <p></p>
+                    <FontAwesomeIcon icon={faSort} size="lg" />
                   ) : categoria === true ? (
-                    <p>↑</p>
+                    <FontAwesomeIcon icon={faSortUp} size="lg" />
                   ) : (
-                    <p>↓</p>
+                    <FontAwesomeIcon icon={faSortDown} size="lg" />
                   )}
                 </div>
               </div>
-              <div className="product-cell status-cell">
+              <div className="product-cell ">
                 <button className="button" onClick={handleOrderEstado}>
                   Estado
                 </button>
                 <div>
                   {estado === "" ? (
-                    <p></p>
+                    <FontAwesomeIcon icon={faSort} size="lg" />
                   ) : estado === true ? (
-                    <p>↑</p>
+                    <FontAwesomeIcon icon={faSortUp} size="lg" />
                   ) : (
-                    <p>↓</p>
+                    <FontAwesomeIcon icon={faSortDown} size="lg" />
                   )}
                 </div>
               </div>
@@ -235,11 +241,11 @@ function List() {
                 </button>
                 <div>
                   {stock === "" ? (
-                    <p></p>
+                    <FontAwesomeIcon icon={faSort} size="lg" />
                   ) : stock === true ? (
-                    <p>↑</p>
+                    <FontAwesomeIcon icon={faSortUp} size="lg" />
                   ) : (
-                    <p>↓</p>
+                    <FontAwesomeIcon icon={faSortDown} size="lg" />
                   )}
                 </div>
               </div>
@@ -249,17 +255,23 @@ function List() {
                 </button>
                 <div>
                   {precio === "" ? (
-                    <p></p>
+                    <FontAwesomeIcon icon={faSort} size="lg" />
                   ) : precio === true ? (
-                    <p>↑</p>
+                    <FontAwesomeIcon icon={faSortUp} size="lg" />
                   ) : (
-                    <p>↓</p>
+                    <FontAwesomeIcon icon={faSortDown} size="lg" />
                   )}
                 </div>
               </div>
-              <div className="product-cell stock">Editar</div>
-              <div className="product-cell stock">Activar</div>
-              <div className="product-cell stock">Eliminar</div>
+              <div className="product-cell ">
+                <button className="button">Editar</button>
+              </div>
+              <div className="product-cell ">
+                <button className="button">Activar</button>
+              </div>
+              <div className="product-cell ">
+                <button className="button">Eliminar</button>
+              </div>
             </div>
             {productsToShow.length > 0
               ? productsToShow.map((producto, index) => (
