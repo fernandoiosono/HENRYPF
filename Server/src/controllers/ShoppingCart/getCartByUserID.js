@@ -14,8 +14,10 @@ const getCartByUserID = async (idUser) => {
         }],
         attributes: []
     });
+
+    const cartProducts = (cart.Orders.length) ? cart.Orders[0].dataValues.products : cart.Orders;
     
-    return cart.Orders[0].dataValues.products;
+    return cartProducts;
 };
 
 module.exports = getCartByUserID;

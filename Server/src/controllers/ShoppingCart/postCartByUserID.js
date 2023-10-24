@@ -25,7 +25,7 @@ const postCartByUserID = async (idUser, localProducts) => {
 
         if (!created) {
             product.quantity = quantity;
-            product.save();
+            await product.save();
         }
     };
 
@@ -42,7 +42,7 @@ const postCartByUserID = async (idUser, localProducts) => {
             product.idProduct === idProduct
         );
 
-        if (!existingProduct.length) dbProducts[x].destroy();
+        if (!existingProduct.length) await dbProducts[x].destroy();
     };
 
     const updatedCart = await User.findByPk(idUser, {
