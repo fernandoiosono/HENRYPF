@@ -25,7 +25,7 @@ const Nav = () => {
   }, [user]);
 
   const homeHidden = () => {
-    if (pathname !== "/home") {
+    if (pathname !== "/") {
       return style.home;
     } else {
       return style.homeHidden;
@@ -75,7 +75,7 @@ const Nav = () => {
         title="home"
         alt="home"
         className={homeHidden()}
-        onClick={() => navigate("/home")}
+        onClick={() => navigate("/")}
       />
       <h3
       title="catálogo admin"

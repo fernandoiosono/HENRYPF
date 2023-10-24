@@ -1,4 +1,3 @@
-import Landing from "./Landing/Landing";
 import Home from "./Home/Home";
 import Catalogo from "./Catalogo/Catalogo";
 import Acceso from "./Acceso/Acceso";
@@ -10,4 +9,4 @@ import Registro from "./Registro/Registro";
 import CatalogoAdmin from "./CatalogoAdmin/CatalogoAdmin";
 import EdicionProducto from "./EdicionProducto/EdicionProducto";
 
-export {Landing, Home, Catalogo, Acceso, About, Carrito, Detail, Pago, Registro, CatalogoAdmin, EdicionProducto };
+export { Home, Catalogo, Acceso, About, Carrito, Detail, Pago, Registro, CatalogoAdmin, EdicionProducto };
