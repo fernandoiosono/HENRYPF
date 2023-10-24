@@ -52,14 +52,14 @@ const App = () => {
       dispatch(crearUsuario(newUsuario()));
     }
   },[user]);
-
+  
   useEffect(() => {
     dispatch(cargarCarrito(carritoInvitado));
     dispatch(traerAllProductos());
     dispatch(traerActiveProductos());
-    dispatch(obtenerCategorias())
+    dispatch(obtenerCategorias());
   }, []);
-
+  
   useEffect(() => {
     if (data) {
       dispatch(cargarCarrito(data.idUser, carritoInvitado));
