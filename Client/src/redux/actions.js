@@ -21,10 +21,8 @@ import {
   TRAER_USUARIOS,
 } from "./actions_types";
 
-
 axios.defaults.baseURL= "http://localhost:3001";
 // axios.defaults.baseURL="https://henrypf-production-fae5.up.railway.app";
-
 
 const URL = "/moveon/";
 
@@ -267,7 +265,6 @@ export const cargarCarrito = (dato, carritoInvitado) => {
         });
       } else {
         const { data } = await axios.get(`${URL}shoppingcart/${dato}`);
-        console.log(carritoInvitado);
         const combinado = [...carritoInvitado, ...data];
         const resultado = combinado.reduce((acc, current) => {
           const x = acc.find(item => item.idProduct === current.idProduct);

@@ -24,6 +24,7 @@ import {
   Registro,
   CatalogoAdmin,
   EdicionProducto,
+  SuccessCancel
 } from "../views";
 import "./App.css";
 
@@ -94,6 +95,7 @@ const App = () => {
             <Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
             <Route path="/detalleAdmin/:id" element={<EdicionProducto />} />
             <Route path="/edicion" element={<EdicionProducto />} />
+            <Route path="/success" element={<SuccessCancel />} />
           </Routes>
         </main>
       </SectionApp>

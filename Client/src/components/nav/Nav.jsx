@@ -67,8 +67,8 @@ const Nav = () => {
     <div className={style.nav}>
       <img src={back} className={style.back} onClick={() => navigate(-1)} />
       <div className={style.div} />
-      <h3 className={style.sobre} onClick={() => navigate("/about")}>
-        Sobre nosotros
+      <h3 className={style.sobre} onClick={() => navigate("/catalogo")}>
+        Catálogo
       </h3>
       <img
         src={home}

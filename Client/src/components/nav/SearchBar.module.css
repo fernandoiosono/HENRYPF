@@ -8,6 +8,7 @@
 .botonBuscar{
     width: 2em;
     margin: auto;
+    margin-right: 8px;
     &:hover{
         cursor: pointer;
     }
