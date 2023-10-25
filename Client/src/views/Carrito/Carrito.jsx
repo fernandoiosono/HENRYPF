@@ -19,14 +19,14 @@ const Carrito = () => {
         carrito.map(prod => {
           cantProductos.push({
             idProduct:prod.idProduct,
-            quantity:prod.ShoppingCart.quantity
+            quantity:prod.OrderProduct.quantity
           })
         });
         return cantProductos
       };
 
     useEffect(() => {
-        if (inicioSesion && carrito.length > 0) axios.post(`${URL}shoppingcart/${data.idUser}`, cantProductos());
+        if (inicioSesion) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, cantProductos());
         if (!inicioSesion) localStorage.setItem("carritoInvitado", JSON.stringify(carrito));
     }, [carrito]);
 

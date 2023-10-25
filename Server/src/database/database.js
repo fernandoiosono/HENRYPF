@@ -5,8 +5,7 @@ const { defineProduct,
     defineCategory, 
     defineUser, 
     defineOrder,
-    defineCard,
-    defineShoppingCart } = require('./models');
+    defineOrderProduct } = require('./models');
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 const conn = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
@@ -16,49 +15,32 @@ const conn = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
 
 const database = new Sequelize(conn, { logging: false });
 
-defineCard(database);
 defineUser(database);
 defineOrder(database);
 defineProduct(database);
 defineCategory(database);
-defineShoppingCart(database);
+defineOrderProduct(database);
 
-const { Category, Product, User, Order, Card } = database.models;
+const { Category, Product, User, Order } = database.models;
 
 // Relationship Product - Category (1:N)
 Category.hasMany(Product);
 Product.belongsTo(Category);
 
-// Relationship Order - Card (1:N)
-Card.hasMany(Order);
-Order.belongsTo(Card);
-
-// Relationship Order - Product (N:N)
-User.belongsToMany(Product, { 
-    through: "ShoppingCart",
-    foreignKey: "idUser",
-    otherKey: "idProduct",
-    as: "products",
-    timestamps: false
-});
-Product.belongsToMany(User, { 
-    through: "ShoppingCart",
-    foreignKey: "idProduct",
-    otherKey: "idUser",
-    as: "users",
-    timestamps: false
-});
+// Relationship User - Order (1:N)
+User.hasMany(Order);
+Order.belongsTo(User);
 
 // Relationship Order - Product (N:N)
 Order.belongsToMany(Product, { 
-    through: "OrderProducts",
+    through: "OrderProduct",
     foreignKey: "idOrder",
     otherKey: "idProduct",
     as: "products",
     timestamps: false
 });
 Product.belongsToMany(Order, { 
-    through: "OrderProducts",
+    through: "OrderProduct",
     foreignKey: "idProduct",
     otherKey: "idOrder",
     as: "orders",
