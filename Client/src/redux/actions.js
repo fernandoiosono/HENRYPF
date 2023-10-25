@@ -573,8 +573,6 @@ export const traerProducto = (id) => {
 };
 
 export const actualizarProducto = (id, values) => {
-  console.log(values);
-
   try {
     return async (dispatch) => {
       const response = await axios.patch(`${URL}products/${id}`, values);
