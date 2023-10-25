@@ -32,7 +32,7 @@ function Card({ producto }) {
             </h2>
           )}
 
-          <p>
+          <p className="buy">
             <Link className="buy" to={`/detalle/${idProduct}`}>
               Comprar
             </Link>

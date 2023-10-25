@@ -23,6 +23,7 @@ import {
   Registro,
   CatalogoAdmin,
   EdicionProducto,
+  SuccessCancel
 } from "../views";
 import "./App.css";
 
@@ -31,6 +32,7 @@ const App = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.usuario);
+ 
   const carritoInvitado = (localStorage.getItem("carritoInvitado")).length > 1 ? JSON.parse(localStorage.getItem("carritoInvitado")) : [];
   
   const newUsuario = ()=>{
@@ -50,18 +52,19 @@ const App = () => {
       dispatch(crearUsuario(newUsuario()));
     }
   },[user]);
+  
 
   useEffect(() => {
     dispatch(cargarCarrito(carritoInvitado));
     dispatch(traerAllProductos());
     dispatch(traerActiveProductos());
-    dispatch(obtenerCategorias())
+    dispatch(obtenerCategorias());
   }, []);
-
+  
   useEffect(() => {
     if (data) {
       dispatch(cargarCarrito(data.idUser, carritoInvitado));
-      localStorage.setItem("carritoInvitado", "")
+      localStorage.setItem("carritoInvitado", "");
     }
   }, [data]);
 
@@ -90,6 +93,8 @@ const App = () => {
             <Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
             <Route path="/detalleAdmin/:id" element={<EdicionProducto />} />
             <Route path="/edicion" element={<EdicionProducto />} />
+            <Route path="/success" element={<SuccessCancel />} />
+            {/* <Route path="/orden/:id" element={<DetailOrder />} /> */}
           </Routes>
         </main>
       </SectionApp>
