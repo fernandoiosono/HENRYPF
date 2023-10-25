@@ -10,4 +10,4 @@ import CatalogoAdmin from "./CatalogoAdmin/CatalogoAdmin";
 import EdicionProducto from "./EdicionProducto/EdicionProducto";
 import SuccessCancel from './SuccessCancel/SuccessCancel';
 
-export { Home, Catalogo, Acceso, About, Carrito, Detail, Pago, Registro, CatalogoAdmin, EdicionProducto };
+export { Home, Catalogo, Acceso, About, Carrito, Detail, Pago, Registro, CatalogoAdmin, EdicionProducto, SuccessCancel };
