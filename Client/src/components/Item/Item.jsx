@@ -1,15 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrash,
+  faPen,
+  faSquare,
+  faSquareCheck,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "./Item.css";
 
 function Item({ producto, handleDeleteProduct, handleActiveProduct }) {
   const { idProduct, name, stock, price, active, Category } = producto;
 
-  const [isChecked, setIsChecked] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
 
-  const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
-  };
+  // const handleCheckboxChange = (event) => {
+  //   setIsChecked(event.target.checked);
+  // };
 
   return (
     <div className="products-row">
@@ -35,51 +42,59 @@ function Item({ producto, handleDeleteProduct, handleActiveProduct }) {
       </div>
       <div className="product-cell edit">
         <Link to={`/detalleAdmin/${idProduct}`}>
-          <div>Editar</div>
+          <FontAwesomeIcon
+            icon={faPen}
+            size="lg"
+            style={{ color: "#f5c52e" }}
+          />
         </Link>
       </div>
       <div className="product-cell ">
-        {/* <button
-          className="buttonEliminar"
-          onClick={() => {
-            handleDeleteProduct(idProduct);
-          }}
-        >
-          Activar
-        </button> */}
         {active ? (
-          <input
-            onChange={handleCheckboxChange}
+          <div
+            className="buttonEliminar"
+            role="button" // Añade un atributo de rol para indicar que es un botón
             onClick={() => {
               handleActiveProduct(idProduct, active);
             }}
-            type="checkbox"
-            id="scales"
-            name="scales"
-            checked
-          />
+          >
+            <FontAwesomeIcon
+              icon={faSquareCheck}
+              style={{ color: "#000" }}
+              size="lg"
+            />
+          </div>
         ) : (
-          <input
-            onChange={handleCheckboxChange}
+          <div
+            className="buttonEliminar"
+            role="button" // Añade un atributo de rol para indicar que es un botón
             onClick={() => {
               handleActiveProduct(idProduct, active);
             }}
-            type="checkbox"
-            id="scales"
-            name="scales"
-            checked={isChecked}
-          />
+          >
+            <FontAwesomeIcon
+              icon={faSquare}
+              style={{ color: "#000" }}
+              size="lg"
+              pointe
+            />
+          </div>
         )}
       </div>
       <div className="product-cell ">
-        <button
+        <div
           className="buttonEliminar"
+          role="button" // Añade un atributo de rol para indicar que es un botón
           onClick={() => {
             handleDeleteProduct(idProduct, active);
           }}
         >
-          Eliminar
-        </button>
+          <FontAwesomeIcon
+            icon={faTrash}
+            size="lg"
+            style={{ color: "#f5c52e" }}
+          />
+        </div>
       </div>
     </div>
   );

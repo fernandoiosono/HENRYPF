@@ -1,8 +1,15 @@
 /* Estilo para el aside */
-aside {
+.admin {
   padding: 20px;
   width: 15%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.catalogo {
+  width: auto;
+  padding: 10px;
+  background-color: rgb(125, 123, 123);
+  box-shadow: 0 0 5px rgb(255, 255, 255);
 }
 
 /* Estilo para los botones dentro del aside */
@@ -15,7 +22,6 @@ aside button {
   border: 1px solid #f5c52e;
   background-color: #302e2e26;
   color: white;
-
   border-radius: 5px;
   cursor: pointer;
 }

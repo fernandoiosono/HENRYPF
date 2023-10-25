@@ -3,7 +3,8 @@
   -moz-osx-font-smoothing: grayscale;
   justify-content: center;
   margin-left: 15em;
-  margin-top: 2em;
+  margin-top: 0px;
+  height: auto;
 }
 
 .contenedor {
@@ -18,20 +19,21 @@
 }
 
 .titulo {
-  margin-top: -1px;
-  margin-bottom: 3px;
+  margin-top: -7px;
+  margin-bottom: -7px;
   color: black;
-  font-size: 2em;
+  font-size: 2.5em;
   text-align: center;
   display: block;
 }
 
 .imagen {
-  margin: 2em 0 0 4em;
+  margin: 2em 0 0 3em;
+  margin-bottom: -1em;
   border: 8px solid black;
-  border-radius: 200px;
-  width: 200px;
-  height: 200px;
+  border-radius: 50px;
+  width: 250px;
+  height: 250px;
   transform: translate(0);
   transition: transform 0.25s ease-out;
   cursor: pointer;
@@ -43,18 +45,55 @@
   transform: scale(1.05);
 }
 
+.cloudinary{
+   margin-left: 22em;
+   margin-top: -17em;
+   width: 22em;
+   height: 4em;
+}
+
+.formulario__grupo{
+  margin-left: 22em;
+  width: 22em;
+  height: 4.8em;
+}
+
+
 .error_msg_user { 
   color: red;
   font-size: 12px; 
-  margin-top: 5px; 
+  margin-top: -1px; 
 }
 
 .btn_out {
-  margin-top: -48em;
-  margin-left: 58em;
+  margin-top: -50px;
+  margin-left: 550px;
+}
+
+.btn_user{
+  display: block;
+  background: rgb(245, 196, 44);
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  height: auto;
+  margin-left: 22em;
+  margin-top: -0.5em;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease all;
 }
 
 .disabled_btn_user {
+  width: 10em;
+  height: 3em;
+  margin-left: 22em;
+  margin-top: -1em;
+  border-radius: 5px;
+  font-size: 16px;
   background-color: #ccc; 
   color: #999; 
   cursor: not-allowed; 
