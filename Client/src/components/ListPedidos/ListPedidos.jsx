@@ -37,6 +37,7 @@ function ListPedidos() {
               <div className="product-cell ">Nickname</div>
               <div className="product-cell status-cell">Monto</div>
               <div className="product-cell stock">Estado</div>
+              <div className="product-cell stock">Mas Detalles</div>
             </div>
             {productsToShow.length > 0
               ? productsToShow.map((order, index) => (

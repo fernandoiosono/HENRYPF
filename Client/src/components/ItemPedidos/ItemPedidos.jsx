@@ -4,9 +4,9 @@ import "./ItemPedidos.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTruckFast,
-  faBox,
   faCheck,
   faStar,
+  faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
 
 function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
@@ -18,40 +18,53 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
   if (status === "PAID") {
     contenido = //El status es pagado y se tiene que enviar
       (
+        // <div
+        //   role="button" // Añade un atributo de rol para indicar que es un botón
+        //   onClick={handleButtonSend}
+        //   style={{ color: "#0074e4", cursor: "pointer" }}
+        // >
+        //   <FontAwesomeIcon
+        //     icon={faTruckFast}
+        //     style={{ color: "#0074e4" }}
+        //     size="2xl"
+        //   />
+        //   ` Enviar
+        // </div>
         <div
-          role="button" // Añade un atributo de rol para indicar que es un botón
+          className="divPedidos"
+          role="button"
           onClick={handleButtonSend}
+          style={{ color: "#0074e4", cursor: "pointer" }}
         >
-          <FontAwesomeIcon
-            icon={faTruckFast}
-            style={{ color: "#0074e4" }}
-            size="2xl"
-          />
+          <FontAwesomeIcon icon={faTruckFast} size="2xl" />
+          {" Enviar"}
         </div>
       );
   } else if (status === "DELIVERED") {
     contenido = //El status es enviado y se tiene que marcar como recibido
       (
         <div
-          role="button" // Añade un atributo de rol para indicar que es un botón
+          className="divPedidos"
+          role="button"
           onClick={handleButtonReceived}
+          style={{ color: "#4caf50", cursor: "pointer" }}
         >
-          <FontAwesomeIcon
-            icon={faCheck}
-            style={{ color: "#4caf50" }}
-            size="2xl"
-          />
+          <FontAwesomeIcon icon={faCheck} size="2xl" />
+          {" Recibir"}
         </div>
       );
   } else {
     contenido = //Es el estado final
       (
-        <div>
-          <FontAwesomeIcon
-            icon={faStar}
-            style={{ color: "#ffd700" }}
-            size="2xl"
-          />
+        <div
+          className="divPedidos"
+          style={{
+            color: "#ccac00",
+            cursor: "not-allowed",
+          }}
+        >
+          <FontAwesomeIcon icon={faStar} size="2xl" />
+          {" Completo"}
         </div>
       );
   }
@@ -59,9 +72,9 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
   return (
     <div className="products-row">
       <div className="product-cell">
-        <Link to={`/orden/${idOrder}`}>
-          <span>{orderId}</span>
-        </Link>
+        {/* <Link to={`/orden/${idOrder}`}> */}
+        <span>{orderId}</span>
+        {/* </Link> */}
       </div>
       <div className="product-cell ">
         <span>{UserIdUser}</span>
@@ -72,6 +85,15 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
 
       <div className="product-cell">
         <span>{contenido}</span>
+      </div>
+      <div className="product-cell">
+        <Link to={`/orden/${idOrder}`}>
+          <FontAwesomeIcon
+            icon={faCircleInfo}
+            style={{ color: "#000" }}
+            size="2xl"
+          />
+        </Link>
       </div>
     </div>
   );
