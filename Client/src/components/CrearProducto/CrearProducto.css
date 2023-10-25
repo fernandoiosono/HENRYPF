@@ -96,8 +96,14 @@ body {
   width: auto;
 }
 
-.disabled-button {
-  background-color: #ccc; /* Color de fondo cuando está deshabilitado */
-  color: #999; /* Color del texto cuando está deshabilitado */
-  cursor: not-allowed; /* Cambiar el cursor a "no permitido" */
+.disabled_btn_user {
+  width: 10em;
+  height: 3em;
+  margin-left: 22em;
+  margin-top: -1em;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #ccc;
+  color: #999;
+  cursor: not-allowed;
 }

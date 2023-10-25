@@ -219,7 +219,7 @@ const CrearProducto = () => {
               )}
             </div>
 
-            {hasErrors ? (
+            {/* {hasErrors ? (
               <></>
             ) : (
               <>
@@ -229,6 +229,19 @@ const CrearProducto = () => {
                 >
                   Crear producto
                 </button>
+              </>
+            )} */}
+            {hasErrors ? (
+              <>
+                <button type="button" disabled className="disabled_btn_user">
+                  Enviar cambios
+                </button>
+              </>
+            ) : (
+              <>
+                <div>
+                  <button type="submit">Enviar cambios</button>
+                </div>
               </>
             )}
           </form>
