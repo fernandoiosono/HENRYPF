@@ -1,9 +1,3 @@
-// Cards Folder
-const getCards = require('./Cards/getCards.js');
-const getCardsByUser = require('./Cards/getCardsByUser.js');
-const patchCard = require('./Cards/patchCard.js');
-const postCard = require('./Cards/postCard.js');
-
 // Categories Folder
 const getCategories = require('./Categories/getCategories.js');
 
@@ -38,11 +32,6 @@ const createCheckoutSession = require('./Stripe/createCheckoutSession.js');
 const statusCheckout = require('./Stripe/statusCheckout.js');
 
 module.exports = {
-    getCards,
-    getCardsByUser,
-    patchCard,
-    postCard,
-
     getCategories,
 
     getOrderByID,

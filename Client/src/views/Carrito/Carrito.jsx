@@ -12,21 +12,21 @@ const Carrito = () => {
     const inicioSesion = useSelector(state => state.inicioSesion);
     const { data } = useSelector((state) => state.usuario);
     const navigate = useNavigate();
-    const URL = "http://localhost:3001/";
+    const URL = "/moveon/";
 
     const cantProductos = () => {
         let cantProductos = [];
         carrito.map(prod => {
           cantProductos.push({
             idProduct:prod.idProduct,
-            quantity:prod.ShoppingCart.quantity
+            quantity:prod.OrderProduct.quantity
           })
         });
         return cantProductos
       };
 
     useEffect(() => {
-        if (inicioSesion && carrito.length > 0) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, cantProductos());
+        if (inicioSesion) axios.post(`${URL}shoppingcart/${data.idUser}`, cantProductos());
         if (!inicioSesion) localStorage.setItem("carritoInvitado", JSON.stringify(carrito));
     }, [carrito]);
 

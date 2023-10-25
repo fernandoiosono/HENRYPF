@@ -8,6 +8,10 @@ import { BrowserRouter } from "react-router-dom";
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from "@stripe/stripe-js";
 
+import axios from "axios";
+
+axios.defaults.baseURL= process.env.URL_BASE;
+
 const domain = process.env.DOMAIN_AUTH;
 const client_id = process.env.CLIENT_ID;
 const redirect_uri = process.env.REDIRECT_URI;
