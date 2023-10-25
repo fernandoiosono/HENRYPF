@@ -1,11 +1,9 @@
-require('dotenv').config();
-const axios = require('axios');
-const { User } = require('../../database/database.js');
+const { Order } = require('../../database/database.js');
 
-const { LAPI_URL_USERS } = process.env;
+const getActiveOrders = async () => {
+    const orders = await Order.findAll();
 
-const getOrders = async () => {
-    return "getOrdersController";
+    return orders;
 };
 
-module.exports = getOrders;
+module.exports = getActiveOrders;
