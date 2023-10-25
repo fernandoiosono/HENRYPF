@@ -19,7 +19,7 @@ const Detail = () => {
   const { loginWithRedirect } = useAuth0();
   const [producto, setProducto] = useState({});
   const prodEnCarrito = carrito.find(prod => prod.idProduct == id);
-  const URL = "http://localhost:3001/";
+  const URL = "/moveon/";
 
   useEffect(() => {
     setProducto(allActiveProducts.find((prod) => prod.idProduct == id));
@@ -30,14 +30,14 @@ const Detail = () => {
     carrito.map(prod => {
       cantProductos.push({
         idProduct: prod.idProduct,
-        quantity: prod.ShoppingCart.quantity
+        quantity: prod.OrderProduct.quantity
       })
     });
     return cantProductos
   };
 
   useEffect(() => {
-    if (inicioSesion && carrito.length > 0) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, cantProductos());
+    if (inicioSesion && carrito.length > 0) axios.post(`${URL}shoppingcart/${data.idUser}`, cantProductos());
     if (!inicioSesion) localStorage.setItem("carritoInvitado", JSON.stringify(carrito));
   }, [carrito]);
 
@@ -48,11 +48,11 @@ const Detail = () => {
         (produc) => produc.idProduct == producto.idProduct
       );
       if (!producExistente) {
-        dispatch(agregarCarrito({ ...producto, ShoppingCart: { quantity } }))
+        dispatch(agregarCarrito({ ...producto, OrderProduct: { quantity } }))
       }
       navigate("/carrito");
     } else {
-      dispatch(agregarCarrito({ ...producto, ShoppingCart: { quantity } }));
+      dispatch(agregarCarrito({ ...producto, OrderProduct: { quantity } }));
       loginWithRedirect();
     }
   };
@@ -60,19 +60,19 @@ const Detail = () => {
   const botonCarrito = () => {
     const quantity = 1;
     if (carrito.length === 0) {
-      dispatch(agregarCarrito({ ...producto, ShoppingCart: { quantity } }));
+      dispatch(agregarCarrito({ ...producto, OrderProduct: { quantity } }));
     } else {
       const producExistente = carrito.find(
         (produc) => produc.idProduct == producto.idProduct
       );
       if (!producExistente) {
-        dispatch(agregarCarrito({ ...producto, ShoppingCart: { quantity } }))
+        dispatch(agregarCarrito({ ...producto, OrderProduct: { quantity } }))
       }
     }
   };
 
   const handleCantidad = (orden) => {
-    let quantity = prodEnCarrito.ShoppingCart.quantity;
+    let quantity = prodEnCarrito.OrderProduct.quantity;
     if (orden === "+") {
       quantity += 1;
       if (quantity > producto.stock) {
@@ -82,11 +82,11 @@ const Detail = () => {
           icon: "warning",
         }).then(() => { });
       } else {
-        dispatch(setCantidadCarrito({ ...prodEnCarrito, ShoppingCart: { quantity } }))
+        dispatch(setCantidadCarrito({ ...prodEnCarrito, OrderProduct: { quantity } }))
       }
     } else if (orden === "-" && quantity !== 1) {
       quantity -= 1;
-      dispatch(setCantidadCarrito({ ...prodEnCarrito, ShoppingCart: { quantity } }))
+      dispatch(setCantidadCarrito({ ...prodEnCarrito, OrderProduct: { quantity } }))
     }
   };
 
@@ -122,7 +122,7 @@ const Detail = () => {
               <div className={style.divMenos} onClick={() => handleCantidad("-")}>
                 <h5 className={style.menos}>-</h5>
               </div>
-              <h5 className={style.cant}>{prodEnCarrito.ShoppingCart.quantity}</h5>
+              <h5 className={style.cant}>{prodEnCarrito.OrderProduct.quantity}</h5>
               <div className={style.divMas} onClick={() => handleCantidad("+")}>
                 <h5 className={style.mas}>+</h5>
               </div>

@@ -18,10 +18,11 @@ const createCheckoutSession = async (data)=>{
         line_items,
         customer_email,
         success_url: `${WEB_APP_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${WEB_APP_URL}/canceled`,
+        cancel_url: `${WEB_APP_URL}/carrito`,
         shipping_address_collection: { allowed_countries:
             ['US', 'AR', 'AW', 'BO', 'BR', 'CA', 'CL', 'CO', 'CR', 'DO', 'EC', 'GT', 'HN', 'MX','NI', 'PA', 'PE', 'PY', 'SV', 'UY', 'VE']
-        }
+        },
+        phone_number_collection: { enabled: true }
     });
 
     return ({sessionId: session.id});

@@ -4,11 +4,13 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import logo from "../assets/img/logo/logo.png";
+import { useAuth0 } from "@auth0/auth0-react";
 import {
   traerAllProductos,
   traerActiveProductos,
   obtenerCategorias,
   cargarCarrito,
+  crearUsuario,
 } from "../redux/actions";
 import {
   Landing,
@@ -22,22 +24,42 @@ import {
   Registro,
   CatalogoAdmin,
   EdicionProducto,
+  SuccessCancel
 } from "../views";
 import "./App.css";
 
 const App = () => {
+  const {user, isAuthenticated} = useAuth0();
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.usuario);
   const carritoInvitado = (localStorage.getItem("carritoInvitado")).length > 1 ? JSON.parse(localStorage.getItem("carritoInvitado")) : [];
-
+  
+  const newUsuario = ()=>{
+    if(user){
+      return {
+        idAuth0: user.sub,
+        name: user.name,
+        nickName: user.nickname,
+        email: user.email,
+        imageURL: user.picture,
+      };
+    }
+  }
+  
+  useEffect(()=>{
+    if (isAuthenticated) {
+      dispatch(crearUsuario(newUsuario()));
+    }
+  },[user]);
+  
   useEffect(() => {
     dispatch(cargarCarrito(carritoInvitado));
     dispatch(traerAllProductos());
     dispatch(traerActiveProductos());
-    dispatch(obtenerCategorias())
+    dispatch(obtenerCategorias());
   }, []);
-
+  
   useEffect(() => {
     if (data) {
       dispatch(cargarCarrito(data.idUser, carritoInvitado));
@@ -73,6 +95,7 @@ const App = () => {
             <Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
             <Route path="/detalleAdmin/:id" element={<EdicionProducto />} />
             <Route path="/edicion" element={<EdicionProducto />} />
+            <Route path="/success" element={<SuccessCancel />} />
           </Routes>
         </main>
       </SectionApp>
