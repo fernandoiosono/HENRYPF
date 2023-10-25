@@ -305,7 +305,7 @@ export const crearUsuario = (newUsuario) => {
   try {
     return async (dispatch) => {
       const usuarioCreado = await axios.post(
-        `http://localhost:3001/moveon/users/`,
+        `${URL}users/`,
         newUsuario
       );
       dispatch({
@@ -322,7 +322,7 @@ export const editarUsuario = (cambiosUsuario) => {
   try {
     return async (dispatch) => {
       const editarUser = await axios.patch(
-        `http://localhost:3001/moveon/users/`,
+        `${URL}users/`,
         cambiosUsuario
       );
       if (editarUser.status === 200) {
@@ -346,7 +346,7 @@ export const getUsers = () => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(
-        `http://localhost:3001/moveon/users/all`
+        `${URL}users/all`
       );
       return dispatch({
         type: TRAER_USUARIOS,
