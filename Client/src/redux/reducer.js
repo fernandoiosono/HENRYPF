@@ -65,16 +65,27 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
       };
     case BORRAR_PRODUCTO:
-      console.log(payload);
-      if (payload === "eliminar") {
+      let auxProducts = [...state.allProductos];
+
+      auxProducts.map((producto) => {
+        if (producto.idProduct === payload[1].idProduct) {
+          producto.active = !producto.active;
+        }
+      });
+      if (payload[0] === "eliminar") {
         Swal.fire("Eliminar producto", "Eliminado", "success");
-      } else if (payload === "desactivar") {
+      } else if (payload[0] === "desactivar") {
         Swal.fire("Actualizar producto", "Producto desactivado", "success");
-      } else if (payload === "activar") {
+      } else if (payload[0] === "activar") {
         Swal.fire("Actualizar producto", "Producto activado", "success");
       }
+
+      auxProducts.map((b) => {
+        console.log(b.active);
+      });
       return {
         ...state,
+        allProductos: auxProducts,
       };
 
     case ACTUALIZAR_PRODUCTO:

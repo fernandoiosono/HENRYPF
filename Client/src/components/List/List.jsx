@@ -28,10 +28,6 @@ function List() {
     ultimoIndiceProducto
   );
 
-  useEffect(() => {
-    dispatch(traerAllProductos());
-  }, []);
-
   const [nombre, setNombre] = useState("");
   const [categoria, setCategoria] = useState("");
   const [estado, setEstado] = useState("");
@@ -50,7 +46,6 @@ function List() {
     }).then((result) => {
       if (result.value) {
         dispatch(deleteProduct(idProduct, "eliminar"));
-        dispatch(traerAllProductos());
       }
     });
   };
@@ -58,10 +53,8 @@ function List() {
   const handleActiveProduct = (idProduct, active) => {
     if (active) {
       dispatch(deleteProduct(idProduct, "desactivar"));
-      dispatch(traerAllProductos());
     } else {
       dispatch(deleteProduct(idProduct, "activar"));
-      dispatch(traerAllProductos());
     }
   };
 

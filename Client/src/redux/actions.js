@@ -514,7 +514,7 @@ export const deleteProduct = (idProduct, value) => {
         if (response.status === 200) {
           return dispatch({
             type: BORRAR_PRODUCTO,
-            payload: "eliminar",
+            payload: ["eliminar", response.data],
           });
         }
       };
@@ -531,7 +531,7 @@ export const deleteProduct = (idProduct, value) => {
         if (response.status === 200) {
           return dispatch({
             type: BORRAR_PRODUCTO,
-            payload: "desactivar",
+            payload: ["desactivar", response.data],
           });
         }
       };
@@ -548,7 +548,7 @@ export const deleteProduct = (idProduct, value) => {
         if (response.status === 200) {
           return dispatch({
             type: BORRAR_PRODUCTO,
-            payload: "activar",
+            payload: ["activar", response.data],
           });
         }
       };
