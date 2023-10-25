@@ -19,7 +19,7 @@ const Detail = () => {
   const { loginWithRedirect } = useAuth0();
   const [producto, setProducto] = useState({});
   const prodEnCarrito = carrito.find(prod => prod.idProduct == id);
-  const URL = "http://localhost:3001/";
+  const URL = "/moveon/";
 
   useEffect(() => {
     setProducto(allActiveProducts.find((prod) => prod.idProduct == id));
@@ -37,7 +37,7 @@ const Detail = () => {
   };
 
   useEffect(() => {
-    if (inicioSesion && carrito.length > 0) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, cantProductos());
+    if (inicioSesion && carrito.length > 0) axios.post(`${URL}shoppingcart/${data.idUser}`, cantProductos());
     if (!inicioSesion) localStorage.setItem("carritoInvitado", JSON.stringify(carrito));
   }, [carrito]);
 
