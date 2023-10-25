@@ -28,6 +28,10 @@ function List() {
     ultimoIndiceProducto
   );
 
+  useEffect(() => {
+    dispatch(traerAllProductos());
+  }, []);
+
   const [nombre, setNombre] = useState("");
   const [categoria, setCategoria] = useState("");
   const [estado, setEstado] = useState("");

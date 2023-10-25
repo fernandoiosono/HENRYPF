@@ -54,13 +54,16 @@ const CrearProducto = () => {
           errors.price = "El precio debe ser mayor a 0";
         }
 
+        if (imagen == "") {
+          errors.imageURL = "NO HAY IMAGEN";
+        }
+
         const hasAnyError = Object.keys(errors).length > 0;
         setHasErrors(hasAnyError);
 
         return errors;
       }}
       onSubmit={async (values, { resetForm }) => {
-        console.log(values);
         if (values.active === "true") {
           values.active = true;
         } else if (values.active === "false") {
