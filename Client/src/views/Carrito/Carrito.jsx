@@ -26,7 +26,7 @@ const Carrito = () => {
       };
 
     useEffect(() => {
-        if (inicioSesion) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, cantProductos());
+        if (inicioSesion) axios.post(`${URL}shoppingcart/${data.idUser}`, cantProductos());
         if (!inicioSesion) localStorage.setItem("carritoInvitado", JSON.stringify(carrito));
     }, [carrito]);
 
