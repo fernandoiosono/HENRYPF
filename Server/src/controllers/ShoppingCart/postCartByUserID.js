@@ -1,26 +1,37 @@
-const { ShoppingCart, Product, User } = require("../../database/database.js");
+const { Product, User, Order, OrderProduct } = require("../../database/database.js");
+
+const { LOADED } = require("../../helpers/Orders/orderStatus.js");
 
 const postCartByUserID = async (idUser, localProducts) => {
+    // Buscamos una Orden en Status STAGED Registrada por el Usuario, si no Existe la Creamos
+    const [ order, created ] = await Order.findOrCreate({
+        where: {
+            UserIdUser: idUser,
+            status: LOADED
+        }
+    });
+
+    const idOrder = order.idOrder;
 
     // Agregamos a la BD productos nuevos en el carrito
     for (let x = 0; x < localProducts.length; x++) {
         const idProduct = localProducts[x].idProduct;
         const quantity = localProducts[x].quantity;
 
-        const [ product, created ] = await ShoppingCart.findOrCreate({
-            where: { idUser: idUser, idProduct: idProduct },
+        const [ product, created ] = await OrderProduct.findOrCreate({
+            where: { idOrder: idOrder, idProduct: idProduct },
             defaults: { quantity: quantity }
         });
 
         if (!created) {
             product.quantity = quantity;
-            product.save();
+            await product.save();
         }
     };
 
     // Obtenemos los productos existentes en la BD
-    const dbProducts = await ShoppingCart.findAll({
-        where: { idUser: idUser }
+    const dbProducts = await OrderProduct.findAll({
+        where: { idOrder: idOrder }
     });
 
     // Eliminamos de la BD productos que ya no estén en el carrito
@@ -31,27 +42,24 @@ const postCartByUserID = async (idUser, localProducts) => {
             product.idProduct === idProduct
         );
 
-        if (!existingProduct.length) dbProducts[x].destroy();
+        if (!existingProduct.length) await dbProducts[x].destroy();
     };
 
-    // Devolvemos los productos actualizados de la BD
-    const updatedCart = await User.findAll({
-        where: { idUser: idUser },
-        attributes: [],
+    const updatedCart = await User.findByPk(idUser, {
         include: [{
-            model: Product,
-            as: "products",
-            through: {
-                model: ShoppingCart,
-                attributes: [ "quantity" ]
-            },
-            attributes: {
-                exclude: ['CategoryIdCategory']
+            model: Order,
+            include: {
+                model: Product,
+                as: "products",
+                attributes: {
+                    exclude: ['description', 'active', 'CategoryIdCategory']
+                }
             }
-        }]
+        }],
+        attributes: []
     });
 
-    return updatedCart[0].products;
+    return updatedCart.Orders[0].dataValues.products;
 };
 
 module.exports = postCartByUserID;

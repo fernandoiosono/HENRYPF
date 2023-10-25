@@ -12,29 +12,27 @@ const { handlerUsers,
 	handlerProducts,
 	handlerCategories,
 	handlerOrders,
-	handlerCards,
-	handlerShoppingCart,
-	handlerStripe } = require('./src/routes');
+	handlerStripe, 
+	handlerShoppingCart} = require('./src/routes');
 
 const { PORT, DB_RESET } = process.env;
 const dbReset = (DB_RESET === "true");
 
 server.use(cors(
 	{
-		// origin: "https://henrypf-production-c75d.up.railway.app", // Reemplaza con el dominio de tu frontend
+		// origin: "https://henrypf-production-c75d.up.railway.app",
 		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-		credentials: true, // Si deseas permitir cookies y autenticación
+		credentials: true,
 	  }
 ));
+
 server.use(morgan("dev"));
 
-
 server.use('/moveon/users', handlerUsers);
-server.use('/moveon/cards', handlerCards);
 server.use('/moveon/orders', handlerOrders);
 server.use('/moveon/products', handlerProducts);
-server.use('/moveon/categories', handlerCategories);
 server.use('/moveon/shoppingcart', handlerShoppingCart);
+server.use('/moveon/categories', handlerCategories);
 server.use('/moveon/stripe', handlerStripe);
 
 database.sync({ force: dbReset })

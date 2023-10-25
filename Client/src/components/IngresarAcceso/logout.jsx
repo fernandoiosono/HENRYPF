@@ -7,7 +7,7 @@ const LogoutButton = () => {
 
   return (
     <button onClick={() => logout({ logoutParams: { returnTo: logout_uri } })}>
-      x
+      Cerrar sesión
     </button>
   );
 };

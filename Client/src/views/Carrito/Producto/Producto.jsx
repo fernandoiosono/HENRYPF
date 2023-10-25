@@ -9,11 +9,11 @@ const Producto = ({ producto }) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [quantity, setQuantity] = useState(() => producto.ShoppingCart.quantity);
-    const subTotal = producto.price * producto.ShoppingCart.quantity;
+    const [quantity, setQuantity] = useState(() => producto.OrderProduct.quantity);
+    const subTotal = producto.price * producto.OrderProduct.quantity;
 
     useEffect(() => {
-        dispatch(setCantidadCarrito({...producto, ShoppingCart:{quantity}}))
+        dispatch(setCantidadCarrito({...producto, OrderProduct:{quantity}}))
     }, [quantity]);
 
     const handleCantidad = (orden) => {

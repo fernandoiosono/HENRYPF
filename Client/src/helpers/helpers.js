@@ -21,7 +21,7 @@ export const createSessionStripe = async (order) => {
     //     customer_email:"apamanuel@gmail.com"
     // };
 
-    const response = await axios.post('http://localhost:3001/moveon/stripe/create-checkout-session', order);
+    const response = await axios.post('/moveon/stripe/create-checkout-session', order);
     console.log(response.data);
     return response.data;
   } catch (error) {

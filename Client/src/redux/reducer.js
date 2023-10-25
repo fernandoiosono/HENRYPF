@@ -309,11 +309,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
         carrito: carritoFiltrado,
       };
 
-    case SET_CANTIDAD_CARRITO:
+     case SET_CANTIDAD_CARRITO:
       const carritoFilt = state.carrito.map((product) => {
-        const quantity = payload.ShoppingCart.quantity;
+        const quantity = payload.OrderProduct.quantity;
         if (product.idProduct === payload.idProduct) {
-          return { ...product, ShoppingCart: { quantity } };
+          return { ...product, OrderProduct:{quantity} };
         }
         return product;
       });
