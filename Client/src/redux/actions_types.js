@@ -17,3 +17,4 @@ export const SET_INICIO_SESION = "SET_INICIO_SESION";
 export const USUARIO = "USUARIO";
 export const EDITAR_USUARIO = "EDITAR_USUARIO";
 export const TRAER_USUARIOS = "TRAER_USUARIOS";
+export const TRAER_ORDENES = "TRAER_ORDENES";

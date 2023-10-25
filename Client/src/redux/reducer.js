@@ -19,6 +19,7 @@ import {
   EDITAR_USUARIO,
   CREAR_PRODUCTO,
   ACTUALIZAR_PRODUCTO,
+  TRAER_ORDENES,
 } from "./actions_types";
 
 const initialState = {
@@ -35,6 +36,7 @@ const initialState = {
   categorias: [],
   usuario: [],
   usuarios: [],
+  allOrders: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -328,6 +330,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         usuarios: payload,
+      };
+
+    case TRAER_ORDENES:
+      return {
+        ...state,
+        allOrders: payload,
       };
 
     default:
