@@ -3,7 +3,9 @@ import "./louder.css";
 
 const Louder = () => {
   return (
-    <div className="lds-dual-ring"></div>
+    <div className="louder">
+        <div className="lds-dual-ring"></div>
+    </div>
   );
 };
 

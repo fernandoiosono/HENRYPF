@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LogoutButton from "../IngresarAcceso/logout";
 import SubirImagen from "../Cloudinary/cloudinary.component";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { editarUsuario } from "../../redux/actions";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import Louder from "../Louder/louder";
 
 import "./perfil.css";
 
@@ -13,6 +14,7 @@ const Perfil = ({ autenticado }) => {
   const usuario = useSelector((state) => state.usuario);
   const [imagen, setImagen] = useState("");
   const [errorsUser, setErrorsUsers] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const modificar = (valores) => {
     if (autenticado) {
@@ -20,6 +22,13 @@ const Perfil = ({ autenticado }) => {
       setErrorsUsers(false);
     }
   };
+
+  useEffect(()=>{
+    setLoading(true);
+    setTimeout(()=>{
+      setLoading(false);
+    },1000)
+  },[])
 
   const validar = (valores) => {
     const errors = {};
@@ -34,7 +43,8 @@ const Perfil = ({ autenticado }) => {
 
   return (
     <>
-      {usuario.data ? (
+      {loading ? (  <Louder/> ): 
+      (usuario.data ? (
         <div className="perfil">
           <Formik
             enableReinitialize
@@ -139,7 +149,7 @@ const Perfil = ({ autenticado }) => {
             </div>
           </Formik>
         </div>
-      ) : null}
+      ) : null)}
     </>
   );
 };
