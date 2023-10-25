@@ -233,7 +233,7 @@ const CrearProducto = () => {
             )} */}
             {hasErrors ? (
               <>
-                <button type="button" disabled className="disabled_btn_user">
+                <button type="button" disabled className="disabled_btn_product">
                   Enviar cambios
                 </button>
               </>
