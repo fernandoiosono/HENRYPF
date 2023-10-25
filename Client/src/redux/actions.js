@@ -22,6 +22,7 @@ import {
   TRAER_ORDENES,
   ACTUALIZAR_ORDEN,
   FILTRAR_ORDEN,
+  ACTUALIZAR_ADMIN,
 } from "./actions_types";
 
 axios.defaults.baseURL = "http://localhost:3001";
@@ -939,6 +940,7 @@ export const crearUsuario = (newUsuario) => {
 };
 
 export const editarUsuario = (cambiosUsuario) => {
+  console.log(cambiosUsuario);
   try {
     return async (dispatch) => {
       const editarUser = await axios.patch(
@@ -972,6 +974,30 @@ export const getUsers = () => {
         type: TRAER_USUARIOS,
         payload: data,
       });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editUser = (user) => {
+  user.isAdmin = !user.isAdmin;
+  try {
+    return async (dispatch) => {
+      // const { data } = await axios.patch(`${URL}users/`, user);
+      const editarUser = await axios.patch(`${URL}users/`, user);
+
+      if (editarUser.status === 200) {
+        return dispatch({
+          type: ACTUALIZAR_ADMIN,
+          payload: user.idUser,
+        });
+      } else {
+        return dispatch({
+          type: ACTUALIZAR_ADMIN,
+          payload: user.idUser,
+        });
+      }
     };
   } catch (error) {
     console.log(error);

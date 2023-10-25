@@ -22,6 +22,7 @@ import {
   TRAER_ORDENES,
   ACTUALIZAR_ORDEN,
   FILTRAR_ORDEN,
+  ACTUALIZAR_ADMIN,
 } from "./actions_types";
 
 const initialState = {
@@ -77,10 +78,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
       });
       if (payload[0] === "eliminar") {
         Swal.fire("Eliminar producto", "Eliminado", "success");
-      } else if (payload[0] === "desactivar") {
-        Swal.fire("Actualizar producto", "Producto desactivado", "success");
-      } else if (payload[0] === "activar") {
-        Swal.fire("Actualizar producto", "Producto activado", "success");
       }
 
       return {
@@ -342,6 +339,37 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         usuarios: payload,
       };
+
+    case ACTUALIZAR_ADMIN:
+      let auxUsers = [...state.usuarios];
+
+      auxUsers.map((user) => {
+        if (user.idUser === payload) {
+          user.isAdmin = user.isAdmin;
+        }
+      });
+
+      return { ...state, usuarios: auxUsers };
+
+    // let auxProducts = [...state.allProductos];
+
+    // auxProducts.map((producto) => {
+    //   if (producto.idProduct === payload[1].idProduct) {
+    //     producto.active = !producto.active;
+    //   }
+    // });
+    // if (payload[0] === "eliminar") {
+    //   Swal.fire("Eliminar producto", "Eliminado", "success");
+    // } else if (payload[0] === "desactivar") {
+    //   Swal.fire("Actualizar producto", "Producto desactivado", "success");
+    // } else if (payload[0] === "activar") {
+    //   Swal.fire("Actualizar producto", "Producto activado", "success");
+    // }
+
+    // return {
+    //   ...state,
+    //   allProductos: auxProducts,
+    // };
 
     case TRAER_ORDENES:
       return {

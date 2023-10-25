@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 // import "./List.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../../redux/actions.js";
+import { getUsers, editUser } from "../../redux/actions.js";
 import ItemUsuarios from "../ItemUsuarios/ItemUsuarios.jsx";
 
 function ListUsuarios() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.usuarios);
   const currentPage = useSelector((state) => state.currentPage);
-  const itemsPerPage = 5;
+  const itemsPerPage = 10;
   const ultimoIndiceProducto = currentPage * itemsPerPage;
   const primerIndiceProducto = ultimoIndiceProducto - itemsPerPage;
   const productsToShow = users.slice(
@@ -19,6 +19,10 @@ function ListUsuarios() {
   useEffect(() => {
     dispatch(getUsers());
   }, []);
+
+  const handleActiveProduct = (user) => {
+    dispatch(editUser(user));
+  };
 
   return (
     <>
@@ -34,7 +38,12 @@ function ListUsuarios() {
             </div>
             {productsToShow.length > 0
               ? productsToShow.map((user, index) => (
-                  <ItemUsuarios key={index} index={index} user={user} />
+                  <ItemUsuarios
+                    key={index}
+                    index={index}
+                    user={user}
+                    handleActiveProduct={handleActiveProduct}
+                  />
                 ))
               : null}
           </div>

@@ -13,7 +13,7 @@ const generatePages = (productos, itemsPerPage) => {
 };
 
 function PaginationUsers() {
-  const itemsPerPage = 5;
+  const itemsPerPage = 10;
   const users = useSelector((state) => state.usuarios);
   const currentPage = useSelector((state) => state.currentPage); // Nuevo estado
   const [pageNums, setPageNums] = useState([]);
