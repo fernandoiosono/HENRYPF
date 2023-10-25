@@ -12,6 +12,7 @@ const Aside = ({
   mostrarVerUsuarios,
 }) => {
   const location = useLocation();
+
   if (location.pathname === "/catalogoAdmin") {
     return (
       <aside className="admin">
@@ -39,6 +40,7 @@ const Aside = ({
         >
           Ver Usuarios
         </button>
+        {componente === "VerPedidos" ? <Filter /> : null}
       </aside>
     );
   } else {

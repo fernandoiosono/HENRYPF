@@ -20,6 +20,8 @@ import {
   EDITAR_USUARIO,
   TRAER_USUARIOS,
   TRAER_ORDENES,
+  ACTUALIZAR_ORDEN,
+  FILTRAR_ORDEN,
 } from "./actions_types";
 
 axios.defaults.baseURL = "http://localhost:3001";
@@ -805,6 +807,36 @@ export const getOrders = () => {
       return dispatch({
         type: TRAER_ORDENES,
         payload: data,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const patchOrders = (idOrder, status) => {
+  try {
+    return async (dispatch) => {
+      // const { data } = await axios.get(`${URL}orders/${status}/${idOrder}`);
+      // console.log(`${URL}orders/${status}/${idOrder}`);
+      // const data = ORDERS;
+      return dispatch({
+        type: ACTUALIZAR_ORDEN,
+        payload: idOrder,
+      });
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const filterByStatus = (status) => {
+  try {
+    return async (dispatch) => {
+      // const { data } = await axios.get(`${URL}orders/status/${status}`);
+      return dispatch({
+        type: FILTRAR_ORDEN,
+        payload: status,
       });
     };
   } catch (error) {

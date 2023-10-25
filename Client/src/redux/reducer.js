@@ -20,6 +20,8 @@ import {
   CREAR_PRODUCTO,
   ACTUALIZAR_PRODUCTO,
   TRAER_ORDENES,
+  ACTUALIZAR_ORDEN,
+  FILTRAR_ORDEN,
 } from "./actions_types";
 
 const initialState = {
@@ -37,6 +39,7 @@ const initialState = {
   usuario: [],
   usuarios: [],
   allOrders: [],
+  allOrder: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -80,9 +83,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
         Swal.fire("Actualizar producto", "Producto activado", "success");
       }
 
-      auxProducts.map((b) => {
-        console.log(b.active);
-      });
       return {
         ...state,
         allProductos: auxProducts,
@@ -347,8 +347,28 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         allOrders: payload,
+        allOrder: payload,
       };
 
+    case ACTUALIZAR_ORDEN:
+      let auxOrder = [...state.allOrders];
+      auxOrder.map((order) => {
+        if (order.idOrder === payload) {
+          if (order.status === "PAID") {
+            order.status = "DELIVERED";
+          } else if (order.status === "DELIVERED") {
+            order.status = "RECEIVED";
+          }
+        }
+      });
+      return { ...state, allOrders: auxOrder };
+    case FILTRAR_ORDEN:
+      [...state.allOrders] = [...state.allOrder];
+      let auxOrderFilter = [...state.allOrders].filter(
+        (item) => item.status === payload
+      );
+
+      return { ...state, allOrders: auxOrderFilter };
     default:
       return { ...state };
   }

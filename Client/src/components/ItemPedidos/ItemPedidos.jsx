@@ -18,22 +18,12 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
   if (status === "PAID") {
     contenido = //El status es pagado y se tiene que enviar
       (
-        // <div
-        //   role="button" // Añade un atributo de rol para indicar que es un botón
-        //   onClick={handleButtonSend}
-        //   style={{ color: "#0074e4", cursor: "pointer" }}
-        // >
-        //   <FontAwesomeIcon
-        //     icon={faTruckFast}
-        //     style={{ color: "#0074e4" }}
-        //     size="2xl"
-        //   />
-        //   ` Enviar
-        // </div>
         <div
           className="divPedidos"
           role="button"
-          onClick={handleButtonSend}
+          onClick={() => {
+            handleButtonSend(idOrder, "SEND");
+          }}
           style={{ color: "#0074e4", cursor: "pointer" }}
         >
           <FontAwesomeIcon icon={faTruckFast} size="2xl" />
@@ -46,7 +36,9 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
         <div
           className="divPedidos"
           role="button"
-          onClick={handleButtonReceived}
+          onClick={() => {
+            handleButtonReceived(idOrder, "RECEIVED");
+          }}
           style={{ color: "#4caf50", cursor: "pointer" }}
         >
           <FontAwesomeIcon icon={faCheck} size="2xl" />

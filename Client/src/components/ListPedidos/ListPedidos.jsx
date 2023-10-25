@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setOrder, getOrders } from "../../redux/actions.js";
+import { getOrders, patchOrders } from "../../redux/actions.js";
 import ItemPedidos from "../ItemPedidos/ItemPedidos.jsx";
 import Swal from "sweetalert2";
 
@@ -20,13 +20,38 @@ function ListPedidos() {
     dispatch(getOrders());
   }, []);
 
-  const handleButtonSend = () => {
-    alert("MARCADO COMO ENVIADO");
+  const handleButtonSend = (idOrder, status) => {
+    Swal.fire({
+      title: "¿Deseas cambiar el estado a enviado?",
+      text: "No se puede volver al estado anterior",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3005d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Cambiar estado",
+    }).then((result) => {
+      if (result.value) {
+        dispatch(patchOrders(idOrder, status));
+      }
+    });
   };
 
-  const handleButtonReceived = () => {
-    alert("MARCADO COMO RECIBIDO");
+  const handleButtonReceived = (idOrder, status) => {
+    Swal.fire({
+      title: "¿Deseas cambiar el estado a recibido?",
+      text: "No se puede volver al estado anterior",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3005d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Cambiar estado",
+    }).then((result) => {
+      if (result.value) {
+        dispatch(patchOrders(idOrder, status));
+      }
+    });
   };
+
   return (
     <>
       <div className="app-container">
