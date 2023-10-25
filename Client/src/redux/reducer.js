@@ -369,6 +369,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
       );
 
       return { ...state, allOrders: auxOrderFilter };
+
+    // return {
+    //   ...state,
+    //   allOrders: payload,
+    // };
     default:
       return { ...state };
   }
