@@ -2,8 +2,8 @@ import React from "react";
 import LogoutButton from "../IngresarAcceso/logout";
 import SubirImagen from "../Cloudinary/cloudinary.component";
 import { useDispatch, useSelector } from "react-redux";
-import {  useState } from "react";
-import {  editarUsuario } from "../../redux/actions";
+import { useState } from "react";
+import { editarUsuario } from "../../redux/actions";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import "./perfil.css";
@@ -12,12 +12,12 @@ const Perfil = ({ autenticado }) => {
   const dispatch = useDispatch();
   const usuario = useSelector((state) => state.usuario);
   const [imagen, setImagen] = useState("");
-  const [errorsUser, setErrorsUsers] = useState(true);
+  const [errorsUser, setErrorsUsers] = useState(false);
 
   const modificar = (valores) => {
     if (autenticado) {
       dispatch(editarUsuario(valores));
-      setErrorsUsers(true);
+      setErrorsUsers(false);
     }
   };
 
@@ -25,12 +25,8 @@ const Perfil = ({ autenticado }) => {
     const errors = {};
     if (valores.name.length > 35)
       errors.name = "Debe contener menos de 35 letras";
-    if(valores.name === valores.name)
-      errors.name = "El nombre debe ser diferente al ya escrito para enviar un cambio";
     if (valores.nickName.length > 35)
       errors.nickName = "Debe contener menos de 35 letras";
-    if(valores.nickName === valores.nickName)
-      errors.nickName = "El nombre de usuario debe ser diferente al ya escrito para enviar un cambio";
     const hasError = Object.keys(errors).length > 0;
     setErrorsUsers(hasError);
     return errors;
@@ -70,10 +66,8 @@ const Perfil = ({ autenticado }) => {
                 </div>
 
                 <div className="formulario__grupo">
-                  <label htmlFor="name" className="txt">
-                    Nombre
-                  </label>
-                  <div className="txt">
+                  <label htmlFor="name">Nombre</label>
+                  <div>
                     <Field
                       className="txt_info"
                       id="name"
@@ -124,23 +118,26 @@ const Perfil = ({ autenticado }) => {
                   </div>
                 </div>
                 {errorsUser ? (
-                  <></>
+                  <>
+                  <button type="button" disabled className="disabled_btn_user">Enviar cambios</button>
+                  </>
                 ) : (
                   <>
-                    <button
-                      type="submit"
-                      className={errorsUser ? "disabled_btn_user" : ""}
-                    >
-                      Enviar cambios
-                    </button>
+                    <div className="btn_user">
+                      <button
+                        type="submit"
+                      >
+                        Enviar cambios
+                      </button>
+                    </div>
                   </>
                 )}
+              <div className="btn_out">
+                <LogoutButton />
+              </div>
               </Form>
             </div>
           </Formik>
-          <div className="btn_out">
-            <LogoutButton />
-          </div>
         </div>
       ) : null}
     </>

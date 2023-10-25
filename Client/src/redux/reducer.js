@@ -19,6 +19,10 @@ import {
   EDITAR_USUARIO,
   CREAR_PRODUCTO,
   ACTUALIZAR_PRODUCTO,
+  TRAER_ORDENES,
+  ACTUALIZAR_ORDEN,
+  FILTRAR_ORDEN,
+  ACTUALIZAR_ADMIN,
 } from "./actions_types";
 
 const initialState = {
@@ -35,6 +39,8 @@ const initialState = {
   categorias: [],
   usuario: [],
   usuarios: [],
+  allOrders: [],
+  allOrder: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -63,16 +69,20 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
       };
     case BORRAR_PRODUCTO:
-      console.log(payload);
-      if (payload === "eliminar") {
+      let auxProducts = [...state.allProductos];
+
+      auxProducts.map((producto) => {
+        if (producto.idProduct === payload[1].idProduct) {
+          producto.active = !producto.active;
+        }
+      });
+      if (payload[0] === "eliminar") {
         Swal.fire("Eliminar producto", "Eliminado", "success");
-      } else if (payload === "desactivar") {
-        Swal.fire("Actualizar producto", "Producto desactivado", "success");
-      } else if (payload === "activar") {
-        Swal.fire("Actualizar producto", "Producto activado", "success");
       }
+
       return {
         ...state,
+        allProductos: auxProducts,
       };
 
     case ACTUALIZAR_PRODUCTO:
@@ -143,7 +153,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       );
 
       if (resultado.length === 0) {
-        alert("No se encontraron coincidencias");
+        Swal.fire("No se encontraron coincidencias", " ", "error");
         return {
           ...state,
         };
@@ -160,16 +170,25 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case FILTER_CATEGORIA:
-      let filteredProductos = [...state.allActiveProducts];
-      let filter;
-      filter = filteredProductos.filter((producto) =>
-        producto.Category.name.includes(payload)
-      );
-      return {
-        ...state,
-        productosMostrar: filter,
-        currentPage: 1,
-      };
+      if (payload.length != 0) {
+        let filteredProductos = [...state.allActiveProducts];
+        const filteredProducts = filteredProductos.filter((producto) =>
+          payload.some((category) =>
+            producto.Category.idCategory.includes(category)
+          )
+        );
+        return {
+          ...state,
+          productosMostrar: filteredProducts,
+          currentPage: 1,
+        };
+      } else {
+        return {
+          ...state,
+          productosMostrar: [...state.allActiveProducts],
+          currentPage: 1,
+        };
+      }
 
     case SET_ORDER:
       if (payload === "Descendente" || payload === "Ascendente") {
@@ -180,6 +199,34 @@ const rootReducer = (state = initialState, { type, payload }) => {
           ordered = orderedProductos.sort((a, b) => a.price - b.price);
         } else if (payload === "Descendente") {
           ordered = orderedProductos.sort((a, b) => b.price - a.price);
+        } else {
+          ordered = orderedProductos;
+        }
+
+        return {
+          ...state,
+          productosMostrar: ordered,
+        };
+      } else if (payload === "Relevancia") {
+        return {
+          ...state,
+          productosMostrar: [...state.allActiveProducts],
+        };
+      } else if (
+        payload === "CatNombreDescendente" ||
+        payload === "CatNombreAscendente"
+      ) {
+        let orderedProductos = [...state.productosMostrar];
+        let ordered;
+
+        if (payload === "CatNombreAscendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return b.name.localeCompare(a.name);
+          });
+        } else if (payload === "CatNombreDescendente") {
+          ordered = orderedProductos.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+          });
         } else {
           ordered = orderedProductos;
         }
@@ -262,7 +309,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         carrito: carritoFiltrado,
       };
 
-    case SET_CANTIDAD_CARRITO:
+     case SET_CANTIDAD_CARRITO:
       const carritoFilt = state.carrito.map((product) => {
         const quantity = payload.OrderProduct.quantity;
         if (product.idProduct === payload.idProduct) {
@@ -293,6 +340,68 @@ const rootReducer = (state = initialState, { type, payload }) => {
         usuarios: payload,
       };
 
+    case ACTUALIZAR_ADMIN:
+      let auxUsers = [...state.usuarios];
+
+      auxUsers.map((user) => {
+        if (user.idUser === payload) {
+          user.isAdmin = user.isAdmin;
+        }
+      });
+
+      return { ...state, usuarios: auxUsers };
+
+    // let auxProducts = [...state.allProductos];
+
+    // auxProducts.map((producto) => {
+    //   if (producto.idProduct === payload[1].idProduct) {
+    //     producto.active = !producto.active;
+    //   }
+    // });
+    // if (payload[0] === "eliminar") {
+    //   Swal.fire("Eliminar producto", "Eliminado", "success");
+    // } else if (payload[0] === "desactivar") {
+    //   Swal.fire("Actualizar producto", "Producto desactivado", "success");
+    // } else if (payload[0] === "activar") {
+    //   Swal.fire("Actualizar producto", "Producto activado", "success");
+    // }
+
+    // return {
+    //   ...state,
+    //   allProductos: auxProducts,
+    // };
+
+    case TRAER_ORDENES:
+      return {
+        ...state,
+        allOrders: payload,
+        allOrder: payload,
+      };
+
+    case ACTUALIZAR_ORDEN:
+      let auxOrder = [...state.allOrders];
+      auxOrder.map((order) => {
+        if (order.idOrder === payload) {
+          if (order.status === "PAID") {
+            order.status = "DELIVERED";
+          } else if (order.status === "DELIVERED") {
+            order.status = "RECEIVED";
+          }
+        }
+      });
+      return { ...state, allOrders: auxOrder };
+    case FILTRAR_ORDEN:
+      [...state.allOrders] = [...state.allOrder];
+      let auxOrderFilter = [...state.allOrders].filter(
+        (item) => item.status === payload
+      );
+
+      return { ...state, allOrders: auxOrderFilter };
+
+    // return {
+    //   ...state,
+    //   allOrders: payload,
+    // };
     default:
       return { ...state };
   }
