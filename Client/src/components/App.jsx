@@ -13,7 +13,6 @@ import {
   crearUsuario,
 } from "../redux/actions";
 import {
-  Landing,
   Home,
   Catalogo,
   Acceso,
@@ -77,15 +76,13 @@ const App = () => {
     <>
       <SectionApp>
         <main className={handlerClassName()}>
-          {pathname !== "/" && <Nav />}
-          {pathname !== "/" && (
-            <div className="spaceNav">
-              <img src={logo} className="logoSpace" />
-            </div>
-          )}
+          <Nav />
+          <div className="spaceNav">
+            <img src={logo} className="logoSpace"/>
+          </div>
+          
           <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/acceso" element={<Acceso />} />
             <Route path="/about" element={<About />} />
