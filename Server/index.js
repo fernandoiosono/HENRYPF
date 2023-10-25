@@ -21,9 +21,9 @@ const dbReset = (DB_RESET === "true");
 
 server.use(cors(
 	{
-		// origin: "https://henrypf-production-c75d.up.railway.app", // Reemplaza con el dominio de tu frontend
+		// origin: "https://henrypf-production-c75d.up.railway.app",
 		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-		credentials: true, // Si deseas permitir cookies y autenticación
+		credentials: true,
 	  }
 ));
 server.use(morgan("dev"));

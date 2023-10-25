@@ -12,7 +12,7 @@ const Carrito = () => {
     const inicioSesion = useSelector(state => state.inicioSesion);
     const { data } = useSelector((state) => state.usuario);
     const navigate = useNavigate();
-    const URL = "http://localhost:3001/";
+    const URL = "/moveon/";
 
     const cantProductos = () => {
         let cantProductos = [];
@@ -26,7 +26,7 @@ const Carrito = () => {
       };
 
     useEffect(() => {
-        if (inicioSesion && carrito.length > 0) axios.post(`${URL}moveon/shoppingcart/${data.idUser}`, cantProductos());
+        if (inicioSesion && carrito.length > 0) axios.post(`${URL}shoppingcart/${data.idUser}`, cantProductos());
         if (!inicioSesion) localStorage.setItem("carritoInvitado", JSON.stringify(carrito));
     }, [carrito]);
 

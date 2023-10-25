@@ -15,6 +15,7 @@ export default defineConfig({
       "PUBLISHABLE_KEY",
       "REDIRECT_URI",
       "LOGOUT_URI",
+      "URL_BASE",
     ]),
   ],
 });

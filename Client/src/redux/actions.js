@@ -21,11 +21,6 @@ import {
   TRAER_USUARIOS,
 } from "./actions_types";
 
-
-axios.defaults.baseURL= "http://localhost:3001";
-// axios.defaults.baseURL="https://henrypf-production-fae5.up.railway.app";
-
-
 const URL = "/moveon/";
 
 export const traerAllProductos = () => {
@@ -305,7 +300,7 @@ export const crearUsuario = (newUsuario) => {
   try {
     return async (dispatch) => {
       const usuarioCreado = await axios.post(
-        `http://localhost:3001/moveon/users/`,
+        `${URL}users/`,
         newUsuario
       );
       dispatch({
@@ -322,7 +317,7 @@ export const editarUsuario = (cambiosUsuario) => {
   try {
     return async (dispatch) => {
       const editarUser = await axios.patch(
-        `http://localhost:3001/moveon/users/`,
+        `${URL}users/`,
         cambiosUsuario
       );
       if (editarUser.status === 200) {
@@ -346,7 +341,7 @@ export const getUsers = () => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(
-        `http://localhost:3001/moveon/users/all`
+        `${URL}users/all`
       );
       return dispatch({
         type: TRAER_USUARIOS,
