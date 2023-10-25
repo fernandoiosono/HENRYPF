@@ -33,6 +33,7 @@ const App = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.usuario);
+ 
   const carritoInvitado = (localStorage.getItem("carritoInvitado")).length > 1 ? JSON.parse(localStorage.getItem("carritoInvitado")) : [];
   
   const newUsuario = ()=>{
@@ -53,6 +54,7 @@ const App = () => {
     }
   },[user]);
   
+
   useEffect(() => {
     dispatch(cargarCarrito(carritoInvitado));
     dispatch(traerAllProductos());
@@ -63,7 +65,7 @@ const App = () => {
   useEffect(() => {
     if (data) {
       dispatch(cargarCarrito(data.idUser, carritoInvitado));
-      localStorage.setItem("carritoInvitado", "")
+      localStorage.setItem("carritoInvitado", "");
     }
   }, [data]);
 
@@ -76,12 +78,11 @@ const App = () => {
       <SectionApp>
         <main className={handlerClassName()}>
           {pathname !== "/" && <Nav />}
-          {
-          pathname !== "/" &&
-          <div className="spaceNav">
-            <img src={logo} className="logoSpace"/>
-          </div>
-          }
+          {pathname !== "/" && (
+            <div className="spaceNav">
+              <img src={logo} className="logoSpace" />
+            </div>
+          )}
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
@@ -96,6 +97,7 @@ const App = () => {
             <Route path="/detalleAdmin/:id" element={<EdicionProducto />} />
             <Route path="/edicion" element={<EdicionProducto />} />
             <Route path="/success" element={<SuccessCancel />} />
+            {/* <Route path="/orden/:id" element={<DetailOrder />} /> */}
           </Routes>
         </main>
       </SectionApp>
