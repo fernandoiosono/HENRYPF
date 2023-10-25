@@ -153,7 +153,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       );
 
       if (resultado.length === 0) {
-        alert("No se encontraron coincidencias");
+        Swal.fire("No se encontraron coincidencias", " ", "error");
         return {
           ...state,
         };
