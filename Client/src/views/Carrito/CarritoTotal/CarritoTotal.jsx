@@ -7,14 +7,13 @@ import { createSessionStripe } from "../../../helpers/helpers";
 const CarritoTotal = () => {
   const navigate = useNavigate();
   const carrito = useSelector((state) => state.carrito);
-  console.log(carrito);
   const { data } = useSelector((state) => state.usuario);
   const stripe = useStripe();
 
   const subTotal = () => {
     let subTotal = 0;
     carrito.map((producto) => {
-      subTotal += producto.ShoppingCart.quantity * producto.price;
+      subTotal += producto.OrderProduct.quantity * producto.price;
     });
     return subTotal.toFixed(2);
   };
@@ -24,7 +23,7 @@ const CarritoTotal = () => {
     carrito.map((producto) => {
       if (producto.discount > 0) {
         totalDescuento +=
-          producto.ShoppingCart.quantity *
+          producto.OrderProduct.quantity *
           ((producto.price * producto.discount) / 100);
       }
     });
@@ -34,7 +33,7 @@ const CarritoTotal = () => {
   const handleCheckout = async () => {
     const items = carrito.map((item) => {
       return {
-        quantity: item.ShoppingCart.quantity,
+        quantity: item.OrderProduct.quantity,
         price_data: {
           currency: "usd",
           product_data: {
