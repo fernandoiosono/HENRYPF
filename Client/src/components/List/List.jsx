@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./List.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import {
   setOrder,
   deleteProduct,
@@ -12,7 +11,7 @@ import Swal from "sweetalert2";
 
 function List() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const products = useSelector((state) => state.allProductos);
   const currentPage = useSelector((state) => state.currentPage);
   const itemsPerPage = useSelector((state) => state.itemsPerPage);
@@ -46,7 +45,6 @@ function List() {
       if (result.value) {
         dispatch(deleteProduct(idProduct, "eliminar"));
         dispatch(traerAllProductos());
-        navigate("/catalogo");
       }
     });
   };

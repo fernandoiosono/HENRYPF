@@ -9,19 +9,11 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
-function ItemPedidos({ order }) {
+function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
   const { idOrder, UserIdUser, amount, status } = order;
   let contenido;
   let orderId;
   orderId = idOrder.slice(0, 5) + "..." + idOrder.slice(-5);
-
-  const handleButtonSend = () => {
-    alert("MARCADO COMO ENVIADO");
-  };
-
-  const handleButtonReceived = () => {
-    alert("MARCADO COMO ENVIADO");
-  };
 
   if (status === "PAID") {
     contenido = //El status es pagado y se tiene que enviar
@@ -44,11 +36,6 @@ function ItemPedidos({ order }) {
           role="button" // Añade un atributo de rol para indicar que es un botón
           onClick={handleButtonReceived}
         >
-          {/* <FontAwesomeIcon
-            icon={faBox}
-            style={{ color: "#4caf50" }}
-            size="xl"
-          />{" "} */}
           <FontAwesomeIcon
             icon={faCheck}
             style={{ color: "#4caf50" }}

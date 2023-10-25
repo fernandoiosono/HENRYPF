@@ -7,6 +7,14 @@ import ItemUsuarios from "../ItemUsuarios/ItemUsuarios.jsx";
 function ListUsuarios() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.usuarios);
+  const currentPage = useSelector((state) => state.currentPage);
+  const itemsPerPage = 5;
+  const ultimoIndiceProducto = currentPage * itemsPerPage;
+  const primerIndiceProducto = ultimoIndiceProducto - itemsPerPage;
+  const productsToShow = users.slice(
+    primerIndiceProducto,
+    ultimoIndiceProducto
+  );
 
   useEffect(() => {
     dispatch(getUsers());
@@ -24,8 +32,8 @@ function ListUsuarios() {
               <div className="product-cell status-cell">Nickname</div>
               <div className="product-cell stock">Administrador</div>
             </div>
-            {users.length > 0
-              ? users.map((user, index) => (
+            {productsToShow.length > 0
+              ? productsToShow.map((user, index) => (
                   <ItemUsuarios key={index} index={index} user={user} />
                 ))
               : null}

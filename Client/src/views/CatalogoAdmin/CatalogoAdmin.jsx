@@ -4,6 +4,8 @@ import ListPedidos from "../../components/ListPedidos/ListPedidos";
 import ListUsuarios from "../../components/ListUsuarios/ListUsuarios";
 import CrearProducto from "../../components/CrearProducto/CrearProducto";
 import PaginationAdmin from "../../components/PaginationAdmin/PaginationAdmin";
+import PaginationOrders from "../../components/PaginationOrders/PaginationOrders";
+import PaginationUsers from "../../components/PaginationUsers/PaginationUsers";
 import Aside from "../../components/Aside/Aside";
 import { setCurrenPage } from "../../redux/actions.js";
 import { useDispatch } from "react-redux";
@@ -55,6 +57,9 @@ const CatalogoAdmin = () => {
       componente != "VerPedidos" ? (
         <PaginationAdmin />
       ) : null}
+
+      {componente === "VerPedidos" ? <PaginationOrders /> : null}
+      {componente === "VerUsuarios" ? <PaginationUsers /> : null}
     </>
   );
 };
