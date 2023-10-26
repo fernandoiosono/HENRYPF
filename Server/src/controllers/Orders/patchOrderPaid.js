@@ -13,6 +13,9 @@ const patchOrderPaid = async (data) => {
         throw new Error("It Was Impossible to Obtain the Payment Details!");
     }
 
+    const shippingDetails = paymentData.shipping_details.address;
+    const address = `Dirección: ${shippingDetails.line1} / Colonia: ${shippingDetails.line2} / Ciudad: ${shippingDetails.city} / Estado: ${shippingDetails.state} / País: ${shippingDetails.country}`;
+
     // Obtenemos la Orden para Poder Editarla
     const order = await Order.findOne({
         where: {
@@ -26,8 +29,8 @@ const patchOrderPaid = async (data) => {
     }
 
     // Llenamos y Guardamos la Orden con los Datos Restantes
-    order.address = paymentData.shipping_details.address.line1;
-    order.postalCode = paymentData.shipping_details.address.postal_code;
+    order.address = address;
+    order.postalCode = shippingDetails.postal_code;
     order.phone = paymentData.customer_details.phone;
     order.amount = paymentData.amount_total/100;
     order.paymentDate = Sequelize.fn('NOW');
