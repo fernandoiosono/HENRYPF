@@ -137,11 +137,11 @@ const Detail = () => {
         </button>
       </div>
       <div className={style.detalles}>
-        < RatingStars starts={5} reviews={opinion}/>
         <h1 className={style.nombre}>{producto.name}</h1>
         {handlePrecioDesc()}
         <h4 className={style.stock}>{producto.stock} unidades disponibles</h4>
         <p className={style.descripcion}>{producto.description}</p>
+        < RatingStars stars={4} reviews={opinion}/>
       </div>
     </div>
   );

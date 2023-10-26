@@ -1,29 +1,29 @@
 import React from "react";
-import { Fastar } from "react-icons/fa";
-import { AiOutLineStar } from "react-icons/ai";
-import './starts.css';
+import { FaStar } from "react-icons/fa";
+import { AiOutlineStar } from "react-icons/ai";
+import "./starts.css";
 
-const RatingStars = ({ starts, reviews}) => {
-  const start = Array.from({ length: 5 }, (elem, index) => {
+const RatingStars = ({ stars, reviews }) => {
+  console.log(stars, reviews);
+  const star = Array.from({ length: 5 }, (_, index) => {
     return (
       <span key={index}>
-        {starts >= index + 1 ? (
-          <Fastar className="iconAll" />
+        {stars >= index + 1 ? (
+          <FaStar className="icon_star" />
         ) : (
-          <AiOutLineStar className="iconAlone" />
+          <AiOutlineStar className="icon_star" />
         )}
       </span>
     );
   });
 
   return (
-    <Wrapper>
-        <div className="icon_style_start">
-          {start}
-          <p>Opiniones: {reviews}</p>
-        </div>
-    </Wrapper>
-  )
+    <div className="icon_style_start">
+      <FaStar/>
+      {star}
+      <p className="p_star">Opiniones: {reviews}</p>
+    </div>
+  );
 };
 
 export default RatingStars;
