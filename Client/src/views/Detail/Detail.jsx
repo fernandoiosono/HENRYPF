@@ -7,6 +7,7 @@ import { agregarCarrito } from "../../redux/actions";
 import axios from "axios";
 import { setCantidadCarrito } from "../../redux/actions";
 import Swal from "sweetalert2";
+import RatingStars from "../../components/RatingStar/starts";
 
 const Detail = () => {
   const { id } = useParams();
@@ -111,7 +112,7 @@ const Detail = () => {
       );
     }
   };
-
+ const opinion = "me encanta"
   return (
     <div className={style.detalle}>
       <div className={style.imagenBotones}>
@@ -136,6 +137,7 @@ const Detail = () => {
         </button>
       </div>
       <div className={style.detalles}>
+        < RatingStars starts={5} reviews={opinion}/>
         <h1 className={style.nombre}>{producto.name}</h1>
         {handlePrecioDesc()}
         <h4 className={style.stock}>{producto.stock} unidades disponibles</h4>
