@@ -18,7 +18,7 @@ const patchOrderDelivered = async (idOrder) => {
     order.status = DELIVERED;
     await order.save();
 
-    const modifiedOrder = Order.findOne({
+    const modifiedOrder = await Order.findOne({
         where: {
             idOrder: idOrder    
         }
