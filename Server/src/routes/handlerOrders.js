@@ -36,10 +36,9 @@ router.patch('/delivered/:idOrder', errorHandler(async (req, res) => {
     res.status(200).json(orderModified);
 }));
 
-router.patch('/paid/:idOrder', errorHandler(async (req, res) => {
-    const { idOrder } = req.params;
+router.patch('/paid', errorHandler(async (req, res) => {
     const data = req.body;
-    const orderModified = await patchOrderPaid(idOrder, data);
+    const orderModified = await patchOrderPaid(data);
 
     res.status(200).json(orderModified);
 }));
