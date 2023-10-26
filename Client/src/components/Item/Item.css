@@ -99,11 +99,3 @@ a {
 .status.disabled:before {
   background-color: #9d5959;
 }
-button {
-  border: none;
-  width: auto;
-  height: auto;
-  background-color: red;
-  font-size: 16px;
-  color: #fff;
-}

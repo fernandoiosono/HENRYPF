@@ -48,7 +48,7 @@
   font-size: 12px;
 }
 
-.formulario2 button[type="submit"] {
+.formulario2 .submit {
   display: block;
   background: #0085ff;
   font-weight: 600;
@@ -64,7 +64,7 @@
   transition: 0.3s ease all;
 }
 
-.formulario2 button[type="submit"]:hover {
+.formulario2 .submit:hover {
   background: #0051ff;
 }
 
