@@ -18,6 +18,7 @@ const EditarProducto = () => {
   const categorias = useSelector((state) => state.categorias);
   const Producto = useSelector((state) => state.producto);
   const [imagen, setImagen] = useState("");
+  const [hasErrors, setHasErrors] = useState(false);
 
   const [loading, setLoading] = useState(true);
 
@@ -79,6 +80,9 @@ const EditarProducto = () => {
               if (valores.price < 1) {
                 errors.price = "El precio debe ser mayor a 0";
               }
+
+              const hasAnyError = Object.keys(errors).length > 0;
+              setHasErrors(hasAnyError);
               return errors;
             }}
             onSubmit={async (values, { resetForm }) => {
@@ -226,7 +230,25 @@ const EditarProducto = () => {
                     <div className="error">{errors.price}</div>
                   )}
                 </div>
-                <button type="submit">Editar producto</button>
+                {hasErrors ? (
+                  <>
+                    <button
+                      type="button"
+                      disabled
+                      className="disabled_btn_product"
+                    >
+                      Enviar cambios
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <div>
+                      <button type="submit" className="submit">
+                        Enviar cambios
+                      </button>
+                    </div>
+                  </>
+                )}
               </form>
             )}
           </Formik>

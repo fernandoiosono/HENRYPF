@@ -10,8 +10,7 @@ const CrearProducto = () => {
   const dispatch = useDispatch();
   const categorias = useSelector((state) => state.categorias);
   const [imagen, setImagen] = useState("");
-
-  console.log(imagen);
+  const [hasErrors, setHasErrors] = useState(true);
 
   return (
     <Formik
@@ -54,10 +53,17 @@ const CrearProducto = () => {
         if (valores.price < 1) {
           errors.price = "El precio debe ser mayor a 0";
         }
+
+        if (imagen == "") {
+          errors.imageURL = "NO HAY IMAGEN";
+        }
+
+        const hasAnyError = Object.keys(errors).length > 0;
+        setHasErrors(hasAnyError);
+
         return errors;
       }}
       onSubmit={async (values, { resetForm }) => {
-        console.log(values);
         if (values.active === "true") {
           values.active = true;
         } else if (values.active === "false") {
@@ -76,6 +82,7 @@ const CrearProducto = () => {
           if (result.isConfirmed) {
             dispatch(createProduct(values));
             dispatch(traerAllProductos());
+            setHasErrors(true);
             resetForm();
           }
         });
@@ -211,7 +218,34 @@ const CrearProducto = () => {
                 <div className="error">{errors.price}</div>
               )}
             </div>
-            <button type="submit">Crear producto</button>
+
+            {/* {hasErrors ? (
+              <></>
+            ) : (
+              <>
+                <button
+                  type="submit"
+                  className={hasErrors ? "disabled-button" : ""}
+                >
+                  Crear producto
+                </button>
+              </>
+            )} */}
+            {hasErrors ? (
+              <>
+                <button type="button" disabled className="disabled_btn_product">
+                  Enviar cambios
+                </button>
+              </>
+            ) : (
+              <>
+                <div>
+                  <button type="submit" className="submit">
+                    Enviar cambios
+                  </button>
+                </div>
+              </>
+            )}
           </form>
         </div>
       )}

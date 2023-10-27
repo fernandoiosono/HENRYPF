@@ -46,6 +46,7 @@
   background-color: var(--app-content-secondary-color);
   margin-bottom: 20px;
   top: 0;
+  height: 30px;
 }
 .tableView .products-row {
   display: flex;
@@ -63,6 +64,7 @@
   font-size: 14px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 a {
@@ -96,12 +98,4 @@ a {
 }
 .status.disabled:before {
   background-color: #9d5959;
-}
-button {
-  border: none;
-  width: auto;
-  height: auto;
-  background-color: red;
-  font-size: 12px;
-  color: #fff;
 }
