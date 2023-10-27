@@ -3,10 +3,12 @@ import style from "./CarritoTotal.module.css";
 import { useSelector } from "react-redux";
 import { useStripe } from "@stripe/react-stripe-js";
 import { createSessionStripe } from "../../../helpers/helpers";
+import Swal from "sweetalert2";
 
 const CarritoTotal = () => {
   const navigate = useNavigate();
   const carrito = useSelector((state) => state.carrito);
+  const inicioSesion = useSelector((state) => state.inicioSesion);
   const { data } = useSelector((state) => state.usuario);
   const stripe = useStripe();
 
@@ -51,11 +53,18 @@ const CarritoTotal = () => {
     const sessionId = await createSessionStripe(order);
     console.log({ sessionId });
     const { error } = await stripe.redirectToCheckout(sessionId);
-
     if (error) {
       console.log(error);
     }
   };
+
+  const handleAlert = () => {
+    Swal.fire({
+      title: "¡Debes iniciar sesion!",
+      text: ("antes de continuar con el pago"),
+      icon: "warning",
+    }).then(() => { });
+  }
 
   return (
     <div className={style.carritoTotal}>
@@ -82,7 +91,7 @@ const CarritoTotal = () => {
         >
           {"<= Continuar comprando"}
         </button>
-        <button type="submit" className={style.pago} onClick={handleCheckout}>
+        <button type="submit" className={style.pago} onClick={inicioSesion?handleCheckout:handleAlert}>
           {"Continuar con el pago =>"}
         </button>
       </div>
