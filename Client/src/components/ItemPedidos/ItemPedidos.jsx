@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
-  const { idOrder, UserIdUser, amount, status } = order;
+  const { idOrder, User, amount, status } = order;
   let contenido;
   let orderId;
   orderId = idOrder.slice(0, 5) + "..." + idOrder.slice(-5);
@@ -22,7 +22,7 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
           className="divPedidos"
           role="button"
           onClick={() => {
-            handleButtonSend(idOrder, "SEND");
+            handleButtonSend(idOrder, status);
           }}
           style={{ color: "#0074e4", cursor: "pointer" }}
         >
@@ -37,7 +37,7 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
           className="divPedidos"
           role="button"
           onClick={() => {
-            handleButtonReceived(idOrder, "RECEIVED");
+            handleButtonReceived(idOrder, status);
           }}
           style={{ color: "#4caf50", cursor: "pointer" }}
         >
@@ -69,7 +69,7 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
         {/* </Link> */}
       </div>
       <div className="product-cell ">
-        <span>{UserIdUser}</span>
+        <span>{User.nickName}</span>
       </div>
       <div className="product-cell">
         <span>{amount}</span>
@@ -79,7 +79,7 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
         <span>{contenido}</span>
       </div>
       <div className="product-cell">
-        <Link to={`/orden/${idOrder}`}>
+        <Link to={`/orden/${idOrder}`} state={{ some: "value" }}>
           <FontAwesomeIcon
             icon={faCircleInfo}
             style={{ color: "#000" }}

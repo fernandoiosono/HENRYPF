@@ -20,9 +20,12 @@ import {
   CREAR_PRODUCTO,
   ACTUALIZAR_PRODUCTO,
   TRAER_ORDENES,
+  GET_ORDER_BY_ID,
   ACTUALIZAR_ORDEN,
   FILTRAR_ORDEN,
   ACTUALIZAR_ADMIN,
+  SET_LOADER_TRUE,
+  SET_LOADER_FALSE,
 } from "./actions_types";
 
 const initialState = {
@@ -41,6 +44,8 @@ const initialState = {
   usuarios: [],
   allOrders: [],
   allOrder: [],
+  order: [],
+  loader: false,
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -309,11 +314,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
         carrito: carritoFiltrado,
       };
 
-     case SET_CANTIDAD_CARRITO:
+    case SET_CANTIDAD_CARRITO:
       const carritoFilt = state.carrito.map((product) => {
         const quantity = payload.OrderProduct.quantity;
         if (product.idProduct === payload.idProduct) {
-          return { ...product, OrderProduct:{quantity} };
+          return { ...product, OrderProduct: { quantity } };
         }
         return product;
       });
@@ -351,31 +356,18 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
       return { ...state, usuarios: auxUsers };
 
-    // let auxProducts = [...state.allProductos];
-
-    // auxProducts.map((producto) => {
-    //   if (producto.idProduct === payload[1].idProduct) {
-    //     producto.active = !producto.active;
-    //   }
-    // });
-    // if (payload[0] === "eliminar") {
-    //   Swal.fire("Eliminar producto", "Eliminado", "success");
-    // } else if (payload[0] === "desactivar") {
-    //   Swal.fire("Actualizar producto", "Producto desactivado", "success");
-    // } else if (payload[0] === "activar") {
-    //   Swal.fire("Actualizar producto", "Producto activado", "success");
-    // }
-
-    // return {
-    //   ...state,
-    //   allProductos: auxProducts,
-    // };
-
     case TRAER_ORDENES:
       return {
         ...state,
         allOrders: payload,
         allOrder: payload,
+      };
+
+    case GET_ORDER_BY_ID:
+      return {
+        ...state,
+        order: payload,
+        loader: true,
       };
 
     case ACTUALIZAR_ORDEN:
@@ -390,18 +382,24 @@ const rootReducer = (state = initialState, { type, payload }) => {
         }
       });
       return { ...state, allOrders: auxOrder };
+
     case FILTRAR_ORDEN:
-      [...state.allOrders] = [...state.allOrder];
-      let auxOrderFilter = [...state.allOrders].filter(
-        (item) => item.status === payload
-      );
+      return {
+        ...state,
+        allOrders: payload,
+      };
 
-      return { ...state, allOrders: auxOrderFilter };
+    case SET_LOADER_TRUE:
+      return {
+        ...state,
+        loader: true,
+      };
 
-    // return {
-    //   ...state,
-    //   allOrders: payload,
-    // };
+    case SET_LOADER_FALSE:
+      return {
+        ...state,
+        loader: false,
+      };
     default:
       return { ...state };
   }

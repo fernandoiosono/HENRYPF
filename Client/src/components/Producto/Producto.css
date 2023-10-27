@@ -1,0 +1,10 @@
+.imgDetail {
+  width: 100px;
+  height: 100px;
+}
+
+.containerProduct {
+  display: flex;
+  align-items: center; /* Alinea verticalmente al centro */
+  /* Puedes ajustar otros estilos según tus necesidades */
+}

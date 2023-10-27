@@ -18,7 +18,8 @@ const redirect_uri = process.env.REDIRECT_URI;
 
 localStorage.getItem("carritoInvitado")===null ?    //? ESTE CODIGO ES PARA PODER USAR EL LOCAL STORAGE
 localStorage.setItem("carritoInvitado", "") : null; //? PARA EL CARRITO LA PRIMERA VEZ
-
+localStorage.getItem("ratingAndReviews")===null ?    //? ESTE CODIGO ES PARA PODER USAR EL LOCAL STORAGE
+localStorage.setItem("ratingAndReviews", "") : null; //? PARA EL ratingAndReviews LA PRIMERA VEZ
 
 const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
 
