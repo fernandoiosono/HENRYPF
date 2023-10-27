@@ -7,7 +7,7 @@
 
 .icon_star{
   font-size: 2rem;
-  color: orange;
+  color: rgb(245, 196, 44);
 }
 
 .empty_icon{
@@ -16,6 +16,11 @@
 
 .p_star{ 
     margin-top: 0.5em;
-    color: orange;
+    color: rgb(245, 196, 44);
     padding-left: 1.2rem;
+}
+
+.div_star{
+    display: inline-block;
+    margin-right: 1em;
 }
