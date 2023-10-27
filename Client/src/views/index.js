@@ -9,6 +9,6 @@ import Pago from "./Pago/Pago";
 import Registro from "./Registro/Registro";
 import CatalogoAdmin from "./CatalogoAdmin/CatalogoAdmin";
 import EdicionProducto from "./EdicionProducto/EdicionProducto";
-import SuccessCancel from './SuccessCancel/SuccessCancel';
+import Success from './Success/Success';
 
-export {Landing, Home, Catalogo, Acceso, About, Carrito, Detail, Pago, Registro, CatalogoAdmin, EdicionProducto, SuccessCancel};
+export {Landing, Home, Catalogo, Acceso, About, Carrito, Detail, Pago, Registro, CatalogoAdmin, EdicionProducto, Success};
