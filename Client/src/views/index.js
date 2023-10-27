@@ -7,8 +7,19 @@ import Detail from "./Detail/Detail";
 import Pago from "./Pago/Pago";
 import CatalogoAdmin from "./CatalogoAdmin/CatalogoAdmin";
 import EdicionProducto from "./EdicionProducto/EdicionProducto";
-import Success from './Success/Success';
+import Success from "./Success/Success";
+import DetailOrder from "./DetailOrder/DetailOrder";
 
-
-export {Home, Catalogo, Acceso, About, Carrito, Detail, Pago, CatalogoAdmin, EdicionProducto, Success};
-
+export {
+  Home,
+  Catalogo,
+  Acceso,
+  About,
+  Carrito,
+  Detail,
+  Pago,
+  CatalogoAdmin,
+  EdicionProducto,
+  Success,
+  DetailOrder,
+};
