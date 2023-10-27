@@ -20,10 +20,9 @@ import {
   Carrito,
   Detail,
   Pago,
-  Registro,
   CatalogoAdmin,
   EdicionProducto,
-  SuccessCancel
+  Success
 } from "../views";
 import "./App.css";
 
@@ -89,12 +88,12 @@ const App = () => {
             <Route path="/carrito" element={<Carrito />} />
             <Route path="/detalle/:id" element={<Detail />} />
             <Route path="/pago" element={<Pago />} />
-            <Route path="/registro" element={<Registro />} />
             <Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
             <Route path="/detalleAdmin/:id" element={<EdicionProducto />} />
             <Route path="/edicion" element={<EdicionProducto />} />
-            <Route path="/success" element={<SuccessCancel />} />
+            <Route path="/success" element={<Success />} />
             {/* <Route path="/orden/:id" element={<DetailOrder />} /> */}
+
           </Routes>
         </main>
       </SectionApp>

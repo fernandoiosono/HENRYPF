@@ -6,6 +6,8 @@ p {
   background-color: #f5c52e;
   color: black;
   font-weight: bold;
+  border: none;
+  font-size: 16px;
 }
 
 .products-header {
