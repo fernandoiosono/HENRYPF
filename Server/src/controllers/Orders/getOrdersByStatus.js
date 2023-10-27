@@ -1,13 +1,9 @@
-const { Op } = require('sequelize');
 const { User, Order } = require('../../database/database.js');
-const { LOADED } = require('../../helpers/Orders/orderStatus.js');
 
-const getActiveOrders = async () => {
+const getOrdersByStatus = async (status) => {
     const orders = await Order.findAll({
         where: {
-            status: {
-                [Op.not]: LOADED
-            }
+            status: status
         },
         attributes: [
             "idOrder",
@@ -23,4 +19,4 @@ const getActiveOrders = async () => {
     return orders;
 };
 
-module.exports = getActiveOrders;
+module.exports = getOrdersByStatus;

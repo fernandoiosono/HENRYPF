@@ -1,11 +1,32 @@
-require('dotenv').config();
-const axios = require('axios');
-const { User } = require('../../database/database.js');
+const { Order, User, Product, OrderProduct } = require('../../database/database.js');
 
-const { LAPI_URL_USERS } = process.env;
+const getOrderByID = async (idOrder) => {
+    const order = await Order.findOne({
+        where: {
+            idOrder: idOrder
+        },
+        attributes: {
+            exclude: ["idOrder", "status", "UserIdUser"]
+        },
+        include: [
+            {
+                model: User,
+                attributes: ["name", "email"]
+            },
+            {
+                model: Product,
+                as: "products",
+                attributes: ["name", "imageURL"],
+                through: {
+                    model: OrderProduct,
+                    as: "shoppingCart",
+                    attributes: ["quantity"]
+                }
+            }
+        ]
+    });
 
-const getOrderByID = async (id) => {
-    return id;
+    return order;
 };
 
 module.exports = getOrderByID;

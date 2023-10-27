@@ -3,8 +3,11 @@ const errorHandler = require('../middlewares');
 
 const { getOrderByID,
     getOrders,
-    getOrdersByUser,
-    postOrder } = require('../controllers');
+    getOrdersByStatus,
+    patchOrderArchived,
+    patchOrderDelivered,
+    patchOrderPaid,
+    patchOrderReceived } = require('../controllers');
 
 router.get('/all', errorHandler(async (req, res) => {
     const orders = await getOrders();
@@ -12,9 +15,9 @@ router.get('/all', errorHandler(async (req, res) => {
     res.status(200).json(orders);
 }));
 
-router.get('/user', errorHandler(async (req, res) => {
-    const { idUser } = req.query;
-    const orders = await getOrdersByUser(idUser);
+router.get('/status/:status', errorHandler(async (req, res) => {
+    const { status } = req.params;
+    const orders = await getOrdersByStatus(status);
 
     res.status(200).json(orders);
 }));
@@ -26,11 +29,25 @@ router.get('/:id', errorHandler(async (req, res) => {
     res.status(200).json(order);
 }));
 
-router.post('/', errorHandler(async (req, res) => {
-    const newOrder = req.body;
-    const orderCreated = await postOrder(newOrder);
+router.patch('/delivered/:idOrder', errorHandler(async (req, res) => {
+    const { idOrder } = req.params;
+    const orderModified = await patchOrderDelivered(idOrder);
 
-    res.status(200).json(orderCreated);
+    res.status(200).json(orderModified);
+}));
+
+router.patch('/paid', errorHandler(async (req, res) => {
+    const data = req.body;
+    const orderModified = await patchOrderPaid(data);
+
+    res.status(200).json(orderModified);
+}));
+
+router.patch('/received/:idOrder', errorHandler(async (req, res) => {
+    const { idOrder } = req.params;
+    const orderModified = await patchOrderReceived(idOrder);
+
+    res.status(200).json(orderModified);
 }));
 
 module.exports = router;
