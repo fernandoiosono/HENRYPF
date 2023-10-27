@@ -25,6 +25,27 @@ const Detail = () => {
   const URL = "/moveon/";
 
   useEffect(() => {
+    if (inicioSesion){
+      const ratingAndReviews = (localStorage.getItem("ratingAndReviews")).length > 1 ? JSON.parse(localStorage.getItem("ratingAndReviews")) : [];
+      const starOpinion = ratingAndReviews.find(prod=>prod.idProduct==id);
+      if (starOpinion&&starOpinion.star>0&&star==0) {
+        const { star, opinion } = starOpinion;
+        setStar(star);
+        setOpinion(opinion)
+      } else if(!starOpinion&&star>0) {
+        const starOpinion = {idProduct:id, star, opinion};
+        ratingAndReviews.push(starOpinion);
+        localStorage.setItem("ratingAndReviews", JSON.stringify(ratingAndReviews));
+      } else if (starOpinion&&star>0){
+        const starOpinion = {idProduct:id, star, opinion};
+        const newRatingAndReviews = ratingAndReviews.filter(produ=>produ.idProduct!==id);
+        newRatingAndReviews.push(starOpinion);
+        localStorage.setItem("ratingAndReviews", JSON.stringify(newRatingAndReviews));
+      }
+    }
+  },[star]);
+
+  useEffect(() => {
     setProducto(allActiveProducts.find((prod) => prod.idProduct == id));
   }, [id, allActiveProducts]);
 
@@ -177,7 +198,7 @@ const Detail = () => {
         {handlePrecioDesc()}
         <h4 className={style.stock}>{producto.stock} unidades disponibles</h4>
         <p className={style.descripcion}>{producto.description}</p>
-        <RatingStars stars={star} reviews={opinion} onClick={handleStar} />
+        {inicioSesion?<RatingStars stars={star} reviews={opinion} onClick={handleStar} />:null}
       </div>
     </div>
   );
