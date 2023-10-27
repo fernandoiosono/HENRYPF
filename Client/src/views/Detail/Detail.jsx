@@ -145,12 +145,7 @@ const Detail = () => {
         setOpinion(""); // Si no hay valor, deja la opinión vacía
     }
   };
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Evita recargar la página
-    handleStar(opinion); // Llama a handleStar con el valor del input
-    setOpinion(""); // Limpia el estado opinion
-    alert("Gracias por tu comentario"); // Muestra un mensaje de agradecimiento
-  };
+  
 
   return (
     <div className={style.detalle}>
@@ -183,23 +178,6 @@ const Detail = () => {
         <h4 className={style.stock}>{producto.stock} unidades disponibles</h4>
         <p className={style.descripcion}>{producto.description}</p>
         <RatingStars stars={star} reviews={opinion} onClick={handleStar} />
-        {/* {opinion === "" ? (
-          <>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="opinion"
-                value={opinion}
-                placeholder="Escribe tu opinión aquí"
-              />
-              <button type="submit">
-                Enviar comentario
-              </button>
-            </form>
-          </>
-        ) : (
-          <></>
-        )} */}
       </div>
     </div>
   );
