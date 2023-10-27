@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
-  const { idOrder, UserIdUser, amount, status } = order;
+  const { idOrder, User, amount, status } = order;
   let contenido;
   let orderId;
   orderId = idOrder.slice(0, 5) + "..." + idOrder.slice(-5);
@@ -69,7 +69,7 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
         {/* </Link> */}
       </div>
       <div className="product-cell ">
-        <span>{UserIdUser}</span>
+        <span>{User.nickName}</span>
       </div>
       <div className="product-cell">
         <span>{amount}</span>
