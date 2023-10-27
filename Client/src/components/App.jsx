@@ -22,20 +22,24 @@ import {
   Pago,
   CatalogoAdmin,
   EdicionProducto,
-  Success
+  Success,
+  DetailOrder,
 } from "../views";
 import "./App.css";
 
 const App = () => {
-  const {user, isAuthenticated} = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.usuario);
- 
-  const carritoInvitado = (localStorage.getItem("carritoInvitado")).length > 1 ? JSON.parse(localStorage.getItem("carritoInvitado")) : [];
-  
-  const newUsuario = ()=>{
-    if(user){
+
+  const carritoInvitado =
+    localStorage.getItem("carritoInvitado").length > 1
+      ? JSON.parse(localStorage.getItem("carritoInvitado"))
+      : [];
+
+  const newUsuario = () => {
+    if (user) {
       return {
         idAuth0: user.sub,
         name: user.name,
@@ -44,14 +48,13 @@ const App = () => {
         imageURL: user.picture,
       };
     }
-  }
-  
-  useEffect(()=>{
+  };
+
+  useEffect(() => {
     if (isAuthenticated) {
       dispatch(crearUsuario(newUsuario()));
     }
-  },[user]);
-  
+  }, [user]);
 
   useEffect(() => {
     dispatch(cargarCarrito(carritoInvitado));
@@ -59,7 +62,7 @@ const App = () => {
     dispatch(traerActiveProductos());
     dispatch(obtenerCategorias());
   }, []);
-  
+
   useEffect(() => {
     if (data) {
       dispatch(cargarCarrito(data.idUser, carritoInvitado));
@@ -77,9 +80,9 @@ const App = () => {
         <main className={handlerClassName()}>
           <Nav />
           <div className="spaceNav">
-            <img src={logo} className="logoSpace"/>
+            <img src={logo} className="logoSpace" />
           </div>
-          
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/catalogo" element={<Catalogo />} />
@@ -92,8 +95,7 @@ const App = () => {
             <Route path="/detalleAdmin/:id" element={<EdicionProducto />} />
             <Route path="/edicion" element={<EdicionProducto />} />
             <Route path="/success" element={<Success />} />
-            {/* <Route path="/orden/:id" element={<DetailOrder />} /> */}
-
+            <Route path="/orden/:id" element={<DetailOrder />} />
           </Routes>
         </main>
       </SectionApp>

@@ -22,7 +22,7 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
           className="divPedidos"
           role="button"
           onClick={() => {
-            handleButtonSend(idOrder, "SEND");
+            handleButtonSend(idOrder, status);
           }}
           style={{ color: "#0074e4", cursor: "pointer" }}
         >
@@ -37,7 +37,7 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
           className="divPedidos"
           role="button"
           onClick={() => {
-            handleButtonReceived(idOrder, "RECEIVED");
+            handleButtonReceived(idOrder, status);
           }}
           style={{ color: "#4caf50", cursor: "pointer" }}
         >
@@ -79,7 +79,7 @@ function ItemPedidos({ order, handleButtonReceived, handleButtonSend }) {
         <span>{contenido}</span>
       </div>
       <div className="product-cell">
-        <Link to={`/orden/${idOrder}`}>
+        <Link to={`/orden/${idOrder}`} state={{ some: "value" }}>
           <FontAwesomeIcon
             icon={faCircleInfo}
             style={{ color: "#000" }}

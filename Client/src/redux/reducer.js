@@ -20,9 +20,12 @@ import {
   CREAR_PRODUCTO,
   ACTUALIZAR_PRODUCTO,
   TRAER_ORDENES,
+  GET_ORDER_BY_ID,
   ACTUALIZAR_ORDEN,
   FILTRAR_ORDEN,
   ACTUALIZAR_ADMIN,
+  SET_LOADER_TRUE,
+  SET_LOADER_FALSE,
 } from "./actions_types";
 
 const initialState = {
@@ -41,6 +44,8 @@ const initialState = {
   usuarios: [],
   allOrders: [],
   allOrder: [],
+  order: [],
+  loader: false,
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -358,6 +363,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
         allOrder: payload,
       };
 
+    case GET_ORDER_BY_ID:
+      return {
+        ...state,
+        order: payload,
+        loader: true,
+      };
+
     case ACTUALIZAR_ORDEN:
       let auxOrder = [...state.allOrders];
       auxOrder.map((order) => {
@@ -370,10 +382,23 @@ const rootReducer = (state = initialState, { type, payload }) => {
         }
       });
       return { ...state, allOrders: auxOrder };
+
     case FILTRAR_ORDEN:
       return {
         ...state,
         allOrders: payload,
+      };
+
+    case SET_LOADER_TRUE:
+      return {
+        ...state,
+        loader: true,
+      };
+
+    case SET_LOADER_FALSE:
+      return {
+        ...state,
+        loader: false,
       };
     default:
       return { ...state };

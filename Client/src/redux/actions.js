@@ -23,6 +23,9 @@ import {
   ACTUALIZAR_ORDEN,
   FILTRAR_ORDEN,
   ACTUALIZAR_ADMIN,
+  GET_ORDER_BY_ID,
+  SET_LOADER_TRUE,
+  SET_LOADER_FALSE,
 } from "./actions_types";
 
 const URL = "/moveon/";
@@ -386,21 +389,18 @@ export const getOrders = () => {
   }
 };
 
-export const patchOrders = (idOrder, status) => {
+export const getOrderByID = (id) => {
   try {
     return async (dispatch) => {
-      if (status === "PAID") {
-        const { data } = await axios.patch(`${URL}orders/delivered/${idOrder}`);
-      }
+      const { data } = await axios.get(`${URL}orders/${id}`);
 
-      if (status === "RECEIVED") {
-        const { data } = await axios.patch(`${URL}orders/received/${idOrder}`);
-      }
-      // console.log(`${URL}orders/${status}/${idOrder}`);
-      // const data = ORDERS;
+      dispatch({
+        type: SET_LOADER_FALSE,
+        payload: false,
+      });
       return dispatch({
-        type: ACTUALIZAR_ORDEN,
-        payload: idOrder,
+        type: GET_ORDER_BY_ID,
+        payload: data,
       });
     };
   } catch (error) {
@@ -408,10 +408,38 @@ export const patchOrders = (idOrder, status) => {
   }
 };
 
+export const patchOrders = (idOrder, status) => {
+  console.log(status, idOrder);
+  return async (dispatch) => {
+    try {
+      let patchUrl;
+
+      if (status === "PAID") {
+        patchUrl = `${URL}orders/delivered/${idOrder}`;
+      } else if (status === "DELIVERED") {
+        patchUrl = `${URL}orders/received/${idOrder}`;
+      } else {
+        // Manejar otros casos de 'status' si es necesario
+        return;
+      }
+
+      const { data } = await axios.patch(patchUrl);
+
+      return dispatch({
+        type: ACTUALIZAR_ORDEN,
+        payload: idOrder,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
 export const filterByStatus = (status) => {
   try {
     return async (dispatch) => {
       const { data } = await axios.get(`${URL}orders/status/${status}`);
+
       return dispatch({
         type: FILTRAR_ORDEN,
         payload: data,
