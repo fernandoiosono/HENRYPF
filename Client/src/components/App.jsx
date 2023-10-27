@@ -20,7 +20,6 @@ import {
   Carrito,
   Detail,
   Pago,
-  Registro,
   CatalogoAdmin,
   EdicionProducto,
   SuccessCancel
@@ -89,7 +88,6 @@ const App = () => {
             <Route path="/carrito" element={<Carrito />} />
             <Route path="/detalle/:id" element={<Detail />} />
             <Route path="/pago" element={<Pago />} />
-            <Route path="/registro" element={<Registro />} />
             <Route path="/catalogoAdmin" element={<CatalogoAdmin />} />
             <Route path="/detalleAdmin/:id" element={<EdicionProducto />} />
             <Route path="/edicion" element={<EdicionProducto />} />

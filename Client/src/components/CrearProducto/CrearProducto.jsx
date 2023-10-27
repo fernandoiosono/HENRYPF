@@ -240,7 +240,9 @@ const CrearProducto = () => {
             ) : (
               <>
                 <div>
-                  <button type="submit">Enviar cambios</button>
+                  <button type="submit" className="submit">
+                    Enviar cambios
+                  </button>
                 </div>
               </>
             )}
