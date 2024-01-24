@@ -1,4 +1,8 @@
-    COMANDOS PARA INICIAR LA APP
-    
-    SERVER: npm start
-    CLIENT: npm run dev
+App MoveOn
+
+Antes que nada ejecutar "npm install" en ambas carpetas
+
+para iniciar Client: npm run dev
+para iniciar Server: npm start
+
+Base de datos postgres con el nombre "moveon"
