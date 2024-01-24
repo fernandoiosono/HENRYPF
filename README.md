@@ -1,4 +1,4 @@
     COMANDOS PARA INICIAR LA APP
     
-    SERVER: npm run api
+    SERVER: npm start
     CLIENT: npm run dev
